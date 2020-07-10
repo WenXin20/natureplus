@@ -1,0 +1,22 @@
+{
+  "_fv": 10,
+  "_type": "potion",
+  "definition": {
+    "name": "Potion of Freezing",
+    "effectName": "Freezing",
+    "icon": "freezing_potion_icon.png",
+    "color": {
+      "value": -10040065,
+      "falpha": 0.0
+    },
+    "isInstant": false,
+    "isBad": true,
+    "isBenefitical": false,
+    "registerPotionType": true,
+    "renderStatusInInventory": true,
+    "renderStatusInHUD": true,
+    "onActiveTick": {
+      "name": "FreezingPotionEffects"
+    }
+  }
+}

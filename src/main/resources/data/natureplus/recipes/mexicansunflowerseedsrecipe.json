@@ -1,0 +1,13 @@
+{
+  "group": "natureplus",
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "natureplus:mexican_sunflower"
+    }
+  ],
+  "result": {
+    "item": "natureplus:mexican_sunflower_seeds",
+    "count": 3
+  }
+}

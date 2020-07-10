@@ -1,0 +1,47 @@
+{
+  "_fv": 10,
+  "_type": "gun",
+  "definition": {
+    "renderType": 0,
+    "texture": "pea",
+    "customModelName": "Normal",
+    "name": "Pea",
+    "specialInfo": [
+      "§bRight-click to throw"
+    ],
+    "creativeTab": {
+      "value": "CUSTOM:PlantsVsZombiesTab"
+    },
+    "stackSize": 64,
+    "ammoItem": {
+      "value": "CUSTOM:Pea"
+    },
+    "shootConstantly": true,
+    "usageCount": 0,
+    "actionSound": {
+      "value": "CUSTOM:peashooter_throw2"
+    },
+    "hasGlow": false,
+    "enableMeleeDamage": false,
+    "damageVsEntity": 0.0,
+    "bulletPower": 0.8,
+    "bulletDamage": 2.0,
+    "bulletKnockback": 0,
+    "bulletParticles": false,
+    "bulletIgnitesFire": false,
+    "bulletItemTexture": {
+      "value": "CUSTOM:Pea"
+    },
+    "bulletModel": "Default",
+    "customBulletModelTexture": "",
+    "onBulletHitsBlock": {
+      "name": "PeaSplatSounds"
+    },
+    "onBulletHitsPlayer": {
+      "name": "PeaSplatSounds"
+    },
+    "onBulletHitsEntity": {
+      "name": "PeaSplatSounds"
+    }
+  }
+}

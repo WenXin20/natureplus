@@ -1,0 +1,11 @@
+{
+  "mappings": {
+    "default": {
+      "map": {
+        "side": "cone_block_side",
+        "top": "cone_block_top"
+      },
+      "name": "default"
+    }
+  }
+}

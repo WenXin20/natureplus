@@ -1,0 +1,25 @@
+{
+  "_fv": 10,
+  "_type": "achievement",
+  "definition": {
+    "achievementName": "Giant Blue Orchids",
+    "achievementDescription": "Grow a giant Blue Orchid",
+    "achievementIcon": {
+      "value": "Blocks.RED_FLOWER#1"
+    },
+    "background": "Default",
+    "disableDisplay": false,
+    "showPopup": true,
+    "announceToChat": true,
+    "hideIfNotCompleted": false,
+    "rewardLoot": [],
+    "rewardRecipes": [],
+    "rewardFunction": "No function",
+    "rewardXP": 1,
+    "achievementType": "task",
+    "parent": {
+      "value": "CUSTOM:PetalsAdvancement"
+    },
+    "triggerxml": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><block type=\"custom_trigger\" x=\"44\" y=\"55\"><next><block type=\"advancement_trigger\" deletable=\"false\"/></next></block></xml>"
+  }
+}

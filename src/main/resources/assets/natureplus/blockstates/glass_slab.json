@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "natureplus:block/glass_slab"
+    },
+    "type=top": {
+      "model": "natureplus:block/glass_slab_top"
+    },
+    "type=double": {
+      "model": "natureplus:block/glass_slab_full"
+    }
+  }
+}

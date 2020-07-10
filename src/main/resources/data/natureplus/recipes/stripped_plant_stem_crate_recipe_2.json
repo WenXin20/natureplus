@@ -1,0 +1,39 @@
+{
+  "group": "natureplus",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "012",
+    "3 5",
+    "678"
+  ],
+  "key": {
+    "0": {
+      "item": "natureplus:stripped_plant_stem_wood"
+    },
+    "1": {
+      "tag": "natureplus:plant_stem_planks"
+    },
+    "2": {
+      "item": "natureplus:stripped_plant_stem_wood"
+    },
+    "3": {
+      "tag": "natureplus:plant_stem_planks"
+    },
+    "5": {
+      "tag": "natureplus:plant_stem_planks"
+    },
+    "6": {
+      "item": "natureplus:stripped_plant_stem_wood"
+    },
+    "7": {
+      "tag": "natureplus:plant_stem_planks"
+    },
+    "8": {
+      "item": "natureplus:stripped_plant_stem_wood"
+    }
+  },
+  "result": {
+    "item": "natureplus:stripped_plant_stem_crate",
+    "count": 1
+  }
+}

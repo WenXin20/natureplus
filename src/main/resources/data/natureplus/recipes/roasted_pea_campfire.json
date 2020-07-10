@@ -1,0 +1,12 @@
+{
+  "group": "natureplus",
+  "type": "minecraft:campfire_cooking",
+  "experience": 0.35,
+  "cookingtime": 100,
+  "ingredient": {
+    "item": "natureplus:pea"
+  },
+  "result": {
+    "item": "natureplus:roasted_pea"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "_fv": 10,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Smelting",
+    "xpReward": 0.35,
+    "cookingTime": 100,
+    "recipeRetstackSize": 1,
+    "group": "",
+    "recipeShapeless": false,
+    "smeltingInputStack": {
+      "value": "CUSTOM:MexicanSunflowerSeeds"
+    },
+    "smeltingReturnStack": {
+      "value": "CUSTOM:CookedMexicanSunflowerSeeds"
+    },
+    "name": "cooked_mexican_sunflower_seeds_furnace",
+    "namespace": "mod"
+  }
+}

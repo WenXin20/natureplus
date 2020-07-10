@@ -1,0 +1,7 @@
+{
+  "parent": "block/door_top_rh",
+  "textures": {
+    "bottom": "natureplus:blocks/azure_door_bottom",
+    "top": "natureplus:blocks/azure_door_top"
+  }
+}

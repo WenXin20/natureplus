@@ -1,0 +1,42 @@
+{
+  "group": "natureplus",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "012",
+    "345",
+    "678"
+  ],
+  "key": {
+    "0": {
+      "tag": "natureplus:petal_blocks"
+    },
+    "1": {
+      "tag": "natureplus:petal_blocks"
+    },
+    "2": {
+      "tag": "natureplus:petal_blocks"
+    },
+    "3": {
+      "tag": "natureplus:petal_blocks"
+    },
+    "4": {
+      "tag": "forge:dyes/cyan"
+    },
+    "5": {
+      "tag": "natureplus:petal_blocks"
+    },
+    "6": {
+      "tag": "natureplus:petal_blocks"
+    },
+    "7": {
+      "tag": "natureplus:petal_blocks"
+    },
+    "8": {
+      "tag": "natureplus:petal_blocks"
+    }
+  },
+  "result": {
+    "item": "natureplus:cyan_petal_block",
+    "count": 8
+  }
+}

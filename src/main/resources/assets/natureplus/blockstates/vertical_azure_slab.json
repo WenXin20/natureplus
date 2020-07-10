@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "natureplus:block/vertical_azure_slab"
+    },
+    "type=top": {
+      "model": "natureplus:block/vertical_azure_slab_top"
+    },
+    "type=double": {
+      "model": "natureplus:block/vertical_azure_slab_full"
+    }
+  }
+}

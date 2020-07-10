@@ -1,0 +1,13 @@
+{
+  "group": "natureplus",
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "natureplus:sunflower_head"
+    }
+  ],
+  "result": {
+    "item": "natureplus:sunflower_head_helmet",
+    "count": 1
+  }
+}

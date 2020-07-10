@@ -1,0 +1,26 @@
+{
+  "display": {
+    "icon": {
+      "item": "natureplus:mexican_sunflower_seeds"
+    },
+    "title": {
+      "translate": "advancements.plantsunflowercrop.title"
+    },
+    "description": {
+      "translate": "advancements.plantsunflowercrop.descr"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "plantsunflowercrop": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "rewards": {
+    "experience": 1
+  },
+  "parent": "natureplus:nature_plus_advancement"
+}

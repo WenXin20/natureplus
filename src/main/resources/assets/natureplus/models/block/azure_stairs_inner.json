@@ -1,0 +1,8 @@
+{
+  "parent": "block/inner_stairs",
+  "textures": {
+    "bottom": "natureplus:blocks/azure_planks",
+    "top": "natureplus:blocks/azure_planks",
+    "side": "natureplus:blocks/azure_planks"
+  }
+}

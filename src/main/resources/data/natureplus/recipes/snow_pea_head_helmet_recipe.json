@@ -1,0 +1,13 @@
+{
+  "group": "natureplus",
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "natureplus:snow_pea_head"
+    }
+  ],
+  "result": {
+    "item": "natureplus:snow_pea_head_helmet",
+    "count": 1
+  }
+}

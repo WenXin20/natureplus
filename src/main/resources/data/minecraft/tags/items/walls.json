@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "natureplus:azure_wood_wall",
+    "natureplus:stripped_azure_wood_wall",
+    "natureplus:plant_stem_wall",
+    "natureplus:stripped_plant_stem_wall"
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "parent": "natureplus:custom/carpet",
+  "textures": {
+    "all": "natureplus:blocks/light_blue_petal_block",
+    "particle": "natureplus:blocks/light_blue_petal_block",
+    "texture": "natureplus:blocks/light_blue_petal_block"
+  }
+}

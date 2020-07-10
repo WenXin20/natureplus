@@ -1,0 +1,10 @@
+{
+  "mappings": {
+    "default": {
+      "map": {
+        "head": "peashooter2"
+      },
+      "name": "default"
+    }
+  }
+}

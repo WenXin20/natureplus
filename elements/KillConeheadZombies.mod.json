@@ -1,0 +1,25 @@
+{
+  "_fv": 10,
+  "_type": "achievement",
+  "definition": {
+    "achievementName": "Give Me Your Cone!",
+    "achievementDescription": "Kill a Conehead Zombie",
+    "achievementIcon": {
+      "value": "Items.DIAMOND_SWORD"
+    },
+    "background": "Default",
+    "disableDisplay": false,
+    "showPopup": true,
+    "announceToChat": true,
+    "hideIfNotCompleted": false,
+    "rewardLoot": [],
+    "rewardRecipes": [],
+    "rewardFunction": "No function",
+    "rewardXP": 1,
+    "achievementType": "task",
+    "parent": {
+      "value": "CUSTOM:KillPVZZombie"
+    },
+    "triggerxml": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><block type=\"custom_trigger\" x=\"38\" y=\"37\"><next><block type=\"advancement_trigger\" deletable=\"false\"/></next></block></xml>"
+  }
+}

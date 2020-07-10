@@ -1,0 +1,12 @@
+{
+  "group": "natureplus",
+  "type": "minecraft:smoking",
+  "experience": 0.35,
+  "cookingtime": 50,
+  "ingredient": {
+    "item": "natureplus:mexican_sunflower_seeds"
+  },
+  "result": {
+    "item": "natureplus:cooked_mexican_sunflower_seeds"
+  }
+}

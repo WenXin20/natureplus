@@ -1,0 +1,9 @@
+{
+  "parent": "natureplus:custom/cone_block",
+  "textures": {
+    "all": "natureplus:blocks/cone_block_side",
+    "particle": "natureplus:blocks/cone_block_side",
+    "side": "natureplus:blocks/cone_block_side",
+    "top": "natureplus:blocks/cone_block_top"
+  }
+}

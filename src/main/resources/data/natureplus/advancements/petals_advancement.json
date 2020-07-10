@@ -1,0 +1,26 @@
+{
+  "display": {
+    "icon": {
+      "item": "natureplus:red_petal"
+    },
+    "title": {
+      "translate": "advancements.petals_advancement.title"
+    },
+    "description": {
+      "translate": "advancements.petals_advancement.descr"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "petals_advancement": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "rewards": {
+    "experience": 1
+  },
+  "parent": "natureplus:giant_flora_advancement"
+}

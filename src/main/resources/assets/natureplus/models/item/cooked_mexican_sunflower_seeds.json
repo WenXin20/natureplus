@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "natureplus:items/cooked_mexican_sunflower_seeds"
+  }
+}

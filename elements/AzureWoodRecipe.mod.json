@@ -1,0 +1,46 @@
+{
+  "_fv": 10,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Crafting",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "recipeRetstackSize": 3,
+    "group": "",
+    "recipeShapeless": false,
+    "recipeSlots": [
+      {
+        "value": "CUSTOM:AzureLog"
+      },
+      {
+        "value": "CUSTOM:AzureLog"
+      },
+      {
+        "value": ""
+      },
+      {
+        "value": "CUSTOM:AzureLog"
+      },
+      {
+        "value": "CUSTOM:AzureLog"
+      },
+      {
+        "value": ""
+      },
+      {
+        "value": ""
+      },
+      {
+        "value": ""
+      },
+      {
+        "value": ""
+      }
+    ],
+    "recipeReturnStack": {
+      "value": "CUSTOM:AzureWood"
+    },
+    "name": "azure_wood_recipe",
+    "namespace": "mod"
+  }
+}

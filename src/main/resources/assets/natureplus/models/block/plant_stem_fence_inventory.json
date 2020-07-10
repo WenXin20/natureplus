@@ -1,0 +1,7 @@
+{
+  "parent": "block/fence_inventory",
+  "textures": {
+    "texture": "natureplus:blocks/plant_stem_planks",
+    "particle": "natureplus:blocks/plant_stem_planks"
+  }
+}

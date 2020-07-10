@@ -1,0 +1,58 @@
+{
+  "_fv": 10,
+  "_type": "armor",
+  "definition": {
+    "enableHelmet": true,
+    "textureHelmet": "cone_block_side",
+    "enableBody": false,
+    "textureBody": "",
+    "enableLeggings": false,
+    "textureLeggings": "",
+    "enableBoots": false,
+    "textureBoots": "",
+    "onHelmetTick": {
+      "name": "ConeHatGrantAdvancement"
+    },
+    "creativeTab": {
+      "value": "CUSTOM:PlantsVsZombiesTab"
+    },
+    "armorTextureFile": "cone_helmet_",
+    "helmetName": "Cone Helmet",
+    "bodyName": "Cone Body",
+    "leggingsName": "Cone Leggings",
+    "bootsName": "Cone Boots",
+    "helmetSpecialInfo": [],
+    "bodySpecialInfo": [],
+    "leggingsSpecialInfo": [],
+    "bootsSpecialInfo": [],
+    "helmetModelName": "ModelConeHelmet",
+    "helmetModelPart": "cone",
+    "helmetModelTexture": "cone_helmet.png",
+    "bodyModelName": "Default",
+    "bodyModelPart": "Body",
+    "bodyModelTexture": "From armor",
+    "leggingsModelName": "Default",
+    "leggingsModelPartL": "Leggings L",
+    "leggingsModelPartR": "Leggings R",
+    "leggingsModelTexture": "From armor",
+    "bootsModelName": "Default",
+    "bootsModelPartL": "Boots L",
+    "bootsModelPartR": "Boots R",
+    "bootsModelTexture": "From armor",
+    "maxDamage": 25,
+    "damageValueHelmet": 3,
+    "damageValueBody": 6,
+    "damageValueLeggings": 5,
+    "damageValueBoots": 2,
+    "enchantability": 9,
+    "toughness": 0.2,
+    "equipSound": {
+      "value": "item.armor.equip_leather"
+    },
+    "repairItems": [
+      {
+        "value": "Blocks.CONCRETE#1"
+      }
+    ]
+  }
+}

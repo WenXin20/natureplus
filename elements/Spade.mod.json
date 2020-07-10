@@ -1,0 +1,36 @@
+{
+  "_fv": 10,
+  "_type": "tool",
+  "definition": {
+    "renderType": 0,
+    "texture": "spade",
+    "customModelName": "Normal",
+    "name": "Stone Spade",
+    "specialInfo": [
+      "§bRemoves plants,",
+      "§bstunts insect growth"
+    ],
+    "creativeTab": {
+      "value": "CUSTOM:PlantsVsZombiesTab"
+    },
+    "toolType": "Spade",
+    "harvestLevel": 1,
+    "efficiency": 4.0,
+    "attackSpeed": 1.0,
+    "enchantability": 5,
+    "damageVsEntity": 3.5,
+    "usageCount": 131,
+    "blocksAffected": [],
+    "hasGlow": false,
+    "repairItems": [
+      {
+        "value": "Blocks.STONE#0"
+      }
+    ],
+    "stayInGridWhenCrafting": false,
+    "damageOnCrafting": false,
+    "onEntityHitWith": {
+      "name": "SpadeRemovePeashooter"
+    }
+  }
+}

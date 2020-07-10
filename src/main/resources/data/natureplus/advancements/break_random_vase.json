@@ -1,0 +1,26 @@
+{
+  "display": {
+    "icon": {
+      "item": "natureplus:random_vase"
+    },
+    "title": {
+      "translate": "advancements.break_random_vase.title"
+    },
+    "description": {
+      "translate": "advancements.break_random_vase.descr"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "break_random_vase": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "rewards": {
+    "experience": 1
+  },
+  "parent": "natureplus:plants_vs_zombies_advancement"
+}

@@ -1,0 +1,64 @@
+{
+  "_fv": 10,
+  "_type": "tag",
+  "definition": {
+    "type": "Items",
+    "items": [
+      {
+        "value": "CUSTOM:WhitePetal"
+      },
+      {
+        "value": "CUSTOM:OrangePetal"
+      },
+      {
+        "value": "CUSTOM:MagentaPetal"
+      },
+      {
+        "value": "CUSTOM:LightBluePetal"
+      },
+      {
+        "value": "CUSTOM:YellowPetal"
+      },
+      {
+        "value": "CUSTOM:LimePetal"
+      },
+      {
+        "value": "CUSTOM:PinkPetal"
+      },
+      {
+        "value": "CUSTOM:GrayPetal"
+      },
+      {
+        "value": "CUSTOM:LightGrayPetal"
+      },
+      {
+        "value": "CUSTOM:CyanPetal"
+      },
+      {
+        "value": "CUSTOM:PurplePetal"
+      },
+      {
+        "value": "CUSTOM:BluePetal"
+      },
+      {
+        "value": "CUSTOM:BrownPetal"
+      },
+      {
+        "value": "CUSTOM:GreenPetal"
+      },
+      {
+        "value": "CUSTOM:RedPetal"
+      },
+      {
+        "value": "CUSTOM:BlackPetal"
+      },
+      {
+        "value": "CUSTOM:WitherPetal"
+      }
+    ],
+    "blocks": [],
+    "functions": [],
+    "name": "petals",
+    "namespace": "mod"
+  }
+}

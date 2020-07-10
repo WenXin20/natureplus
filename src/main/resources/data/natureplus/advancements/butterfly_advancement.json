@@ -1,0 +1,26 @@
+{
+  "display": {
+    "icon": {
+      "item": "natureplus:monarch_egg_item"
+    },
+    "title": {
+      "translate": "advancements.butterfly_advancement.title"
+    },
+    "description": {
+      "translate": "advancements.butterfly_advancement.descr"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "butterfly_advancement": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "rewards": {
+    "experience": 1
+  },
+  "parent": "natureplus:capture_butterfly_advancement"
+}

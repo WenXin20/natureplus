@@ -1,0 +1,51 @@
+{
+  "_fv": 10,
+  "_type": "armor",
+  "definition": {
+    "enableHelmet": true,
+    "textureHelmet": "sunflower_head",
+    "enableBody": false,
+    "textureBody": "",
+    "enableLeggings": false,
+    "textureLeggings": "",
+    "enableBoots": false,
+    "textureBoots": "",
+    "creativeTab": {
+      "value": "CUSTOM:PlantsVsZombiesTab"
+    },
+    "armorTextureFile": "sunflower_",
+    "helmetName": "Sunflower Head",
+    "bodyName": "Peashooter Head Body",
+    "leggingsName": "Peashooter Head Leggings",
+    "bootsName": "Peashooter Head Boots",
+    "helmetSpecialInfo": [],
+    "bodySpecialInfo": [],
+    "leggingsSpecialInfo": [],
+    "bootsSpecialInfo": [],
+    "helmetModelName": "ModelSunflowerHead",
+    "helmetModelPart": "head",
+    "helmetModelTexture": "sunflower_head_helmet.png",
+    "bodyModelName": "Default",
+    "bodyModelPart": "Body",
+    "bodyModelTexture": "From armor",
+    "leggingsModelName": "Default",
+    "leggingsModelPartL": "Leggings L",
+    "leggingsModelPartR": "Leggings R",
+    "leggingsModelTexture": "From armor",
+    "bootsModelName": "Default",
+    "bootsModelPartL": "Boots L",
+    "bootsModelPartR": "Boots R",
+    "bootsModelTexture": "From armor",
+    "maxDamage": 0,
+    "damageValueHelmet": 0,
+    "damageValueBody": 6,
+    "damageValueLeggings": 5,
+    "damageValueBoots": 2,
+    "enchantability": 9,
+    "toughness": 0.0,
+    "equipSound": {
+      "value": "item.armor.equip_generic"
+    },
+    "repairItems": []
+  }
+}

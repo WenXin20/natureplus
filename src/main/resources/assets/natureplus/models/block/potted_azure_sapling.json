@@ -1,0 +1,10 @@
+{
+  "parent": "natureplus:custom/flower_pot_cross",
+  "textures": {
+    "all": "natureplus:blocks/azure_sapling",
+    "particle": "block/flower_pot",
+    "flowerpot": "block/flower_pot",
+    "plant": "natureplus:blocks/azure_sapling",
+    "dirt": "block/dirt"
+  }
+}

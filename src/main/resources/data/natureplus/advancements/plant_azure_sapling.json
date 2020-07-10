@@ -1,0 +1,26 @@
+{
+  "display": {
+    "icon": {
+      "item": "natureplus:azure_sapling"
+    },
+    "title": {
+      "translate": "advancements.plant_azure_sapling.title"
+    },
+    "description": {
+      "translate": "advancements.plant_azure_sapling.descr"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "plant_azure_sapling": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "rewards": {
+    "experience": 1
+  },
+  "parent": "natureplus:azure_forest_advancement"
+}

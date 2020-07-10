@@ -1,0 +1,27 @@
+{
+  "_fv": 10,
+  "_type": "food",
+  "definition": {
+    "renderType": 0,
+    "texture": "pollen",
+    "customModelName": "Normal",
+    "name": "Pollen",
+    "specialInfo": [
+      "§bClears all potion effects"
+    ],
+    "creativeTab": {
+      "value": "CUSTOM:NaturePlusTab"
+    },
+    "stackSize": 64,
+    "nutritionalValue": 1,
+    "saturation": 0.19999999999999998,
+    "eatingSpeed": 32,
+    "forDogs": false,
+    "isAlwaysEdible": true,
+    "animation": "eat",
+    "hasGlow": false,
+    "onEaten": {
+      "name": "ClearPotionEffects"
+    }
+  }
+}

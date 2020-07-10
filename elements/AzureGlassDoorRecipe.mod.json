@@ -1,0 +1,46 @@
+{
+  "_fv": 10,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Crafting",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "recipeRetstackSize": 3,
+    "group": "",
+    "recipeShapeless": false,
+    "recipeSlots": [
+      {
+        "value": "TAG:natureplus:azure_planks"
+      },
+      {
+        "value": "TAG:natureplus:azure_planks"
+      },
+      {
+        "value": ""
+      },
+      {
+        "value": "Blocks.GLASS"
+      },
+      {
+        "value": "Blocks.GLASS"
+      },
+      {
+        "value": ""
+      },
+      {
+        "value": "TAG:natureplus:azure_planks"
+      },
+      {
+        "value": "TAG:natureplus:azure_planks"
+      },
+      {
+        "value": ""
+      }
+    ],
+    "recipeReturnStack": {
+      "value": "CUSTOM:AzureGlassDoor"
+    },
+    "name": "azure_glass_door_recipe",
+    "namespace": "mod"
+  }
+}

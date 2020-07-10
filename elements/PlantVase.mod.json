@@ -1,0 +1,118 @@
+{
+  "_fv": 10,
+  "_type": "block",
+  "definition": {
+    "texture": "plant_vase_side",
+    "textureTop": "",
+    "textureLeft": "",
+    "textureFront": "",
+    "textureRight": "",
+    "textureBack": "",
+    "renderType": 2,
+    "customModelName": "vase:plant_vase",
+    "rotationMode": 0,
+    "emissiveRendering": false,
+    "itemTexture": "",
+    "hasTransparency": true,
+    "connectedSides": false,
+    "transparencyType": "SOLID",
+    "mx": 0.25,
+    "my": 0.0,
+    "mz": 0.25,
+    "Mx": 0.75,
+    "My": 1.0,
+    "Mz": 0.75,
+    "name": "Plant Vase",
+    "specialInfo": [],
+    "hardness": 1.25,
+    "resistance": 4.2,
+    "hasGravity": false,
+    "creativeTab": {
+      "value": "CUSTOM:PlantsVsZombiesTab"
+    },
+    "destroyTool": "pickaxe",
+    "customDrop": {
+      "value": ""
+    },
+    "dropAmount": 0,
+    "isBeaconBase": false,
+    "enchantPowerBonus": 0.0,
+    "plantsGrowOn": false,
+    "canProvidePower": true,
+    "lightOpacity": 0,
+    "material": {
+      "value": "ROCK"
+    },
+    "tickRate": 10,
+    "tickRandomly": true,
+    "isReplaceable": false,
+    "colorOnMap": "GREEN",
+    "creativePickItem": {
+      "value": ""
+    },
+    "offsetType": "NONE",
+    "aiPathNodeType": "DEFAULT",
+    "flammability": 0,
+    "fireSpreadSpeed": 0,
+    "isLadder": false,
+    "slipperiness": 0.6,
+    "reactionToPushing": "NORMAL",
+    "isNotColidable": false,
+    "soundOnStep": {
+      "value": "LANTERN"
+    },
+    "luminance": 0.0,
+    "unbreakable": false,
+    "breakHarvestLevel": 1,
+    "spawnParticles": false,
+    "particleToSpawn": {
+      "value": "EXPLOSION_NORMAL"
+    },
+    "particleSpawningShape": "Spread",
+    "particleSpawningRadious": 0.5,
+    "particleAmount": 4,
+    "hasInventory": false,
+    "guiBoundTo": "<NONE>",
+    "openGUIOnRightClick": false,
+    "inventorySize": 9,
+    "inventoryStackSize": 64,
+    "inventoryDropWhenDestroyed": true,
+    "inventoryComparatorPower": true,
+    "inventoryOutSlotIDs": [],
+    "inventoryInSlotIDs": [],
+    "hasEnergyStorage": false,
+    "energyInitial": 0,
+    "energyCapacity": 400000,
+    "energyMaxReceive": 200,
+    "energyMaxExtract": 200,
+    "isFluidTank": false,
+    "fluidCapacity": 8000,
+    "fluidRestrictions": [],
+    "onNeighbourBlockChanges": {
+      "name": "PlantVaseRandomOutputRedstone"
+    },
+    "onTickUpdate": {
+      "name": "PlantVaseRandomOutputRedstone"
+    },
+    "onDestroyedByExplosion": {
+      "name": "PlantVaseRandomOutput"
+    },
+    "onRedstoneOn": {
+      "name": "PlantVaseRandomOutputRedstone"
+    },
+    "onRedstoneOff": {
+      "name": "PlantVaseRandomOutputRedstone"
+    },
+    "spawnWorldTypes": [],
+    "restrictionBiomes": [],
+    "blocksToReplace": [
+      {
+        "value": "Blocks.STONE"
+      }
+    ],
+    "frequencyPerChunks": 10,
+    "frequencyOnChunk": 16,
+    "minGenerateHeight": 0,
+    "maxGenerateHeight": 64
+  }
+}

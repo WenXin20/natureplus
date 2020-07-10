@@ -1,0 +1,52 @@
+{
+  "variants": {
+    "age=0": {
+      "model": "natureplus:block/azure_sapling"
+    },
+    "age=1": {
+      "model": "natureplus:block/azure_sapling"
+    },
+    "age=2": {
+      "model": "natureplus:block/azure_sapling"
+    },
+    "age=3": {
+      "model": "natureplus:block/azure_sapling"
+    },
+    "age=4": {
+      "model": "natureplus:block/azure_sapling"
+    },
+    "age=5": {
+      "model": "natureplus:block/azure_sapling"
+    },
+    "age=6": {
+      "model": "natureplus:block/azure_sapling"
+    },
+    "age=7": {
+      "model": "natureplus:block/azure_sapling"
+    },
+    "age=8": {
+      "model": "natureplus:block/azure_sapling"
+    },
+    "age=9": {
+      "model": "natureplus:block/azure_sapling"
+    },
+    "age=10": {
+      "model": "natureplus:block/azure_sapling"
+    },
+    "age=11": {
+      "model": "natureplus:block/azure_sapling"
+    },
+    "age=12": {
+      "model": "natureplus:block/azure_sapling"
+    },
+    "age=13": {
+      "model": "natureplus:block/azure_sapling"
+    },
+    "age=14": {
+      "model": "natureplus:block/azure_sapling"
+    },
+    "age=15": {
+      "model": "natureplus:block/azure_sapling"
+    }
+  }
+}

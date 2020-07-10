@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "natureplus:blocks/azure_log_top",
+    "up": "natureplus:blocks/azure_log_top",
+    "north": "natureplus:blocks/azure_log_side",
+    "east": "natureplus:blocks/azure_log_side",
+    "south": "natureplus:blocks/azure_log_side",
+    "west": "natureplus:blocks/azure_log_side",
+    "particle": "natureplus:blocks/azure_log_top"
+  }
+}

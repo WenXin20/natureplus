@@ -1,0 +1,26 @@
+{
+  "display": {
+    "icon": {
+      "item": "natureplus:plant_vase"
+    },
+    "title": {
+      "translate": "advancements.break_plant_vase.title"
+    },
+    "description": {
+      "translate": "advancements.break_plant_vase.descr"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "break_plant_vase": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "rewards": {
+    "experience": 1
+  },
+  "parent": "natureplus:break_random_vase"
+}

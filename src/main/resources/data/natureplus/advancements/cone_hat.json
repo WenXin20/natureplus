@@ -1,0 +1,26 @@
+{
+  "display": {
+    "icon": {
+      "item": "natureplus:cone_helmet"
+    },
+    "title": {
+      "translate": "advancements.cone_hat.title"
+    },
+    "description": {
+      "translate": "advancements.cone_hat.descr"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "cone_hat": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "rewards": {
+    "experience": 1
+  },
+  "parent": "natureplus:place_cone_block"
+}

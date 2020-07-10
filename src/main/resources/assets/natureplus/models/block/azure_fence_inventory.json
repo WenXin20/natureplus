@@ -1,0 +1,7 @@
+{
+  "parent": "block/fence_inventory",
+  "textures": {
+    "texture": "natureplus:blocks/azure_planks",
+    "particle": "natureplus:blocks/azure_planks"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "display": {
+    "icon": {
+      "item": "natureplus:enchanted_golden_plum"
+    },
+    "title": {
+      "translate": "advancements.enchanted_golden_plum_advancement.title"
+    },
+    "description": {
+      "translate": "advancements.enchanted_golden_plum_advancement.descr"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": true
+  },
+  "criteria": {
+    "enchanted_golden_plum_advancement": {
+      "trigger": "minecraft:consume_item",
+      "conditions": {
+        "item": {
+          "item": "natureplus:enchanted_golden_plum"
+        }
+      }
+    }
+  },
+  "rewards": {
+    "experience": 5
+  },
+  "parent": "natureplus:golden_plum_advancement"
+}

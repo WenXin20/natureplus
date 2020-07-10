@@ -1,0 +1,13 @@
+{
+  "group": "natureplus",
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "natureplus:plant_stems"
+    }
+  ],
+  "result": {
+    "item": "natureplus:plant_stem_planks",
+    "count": 4
+  }
+}

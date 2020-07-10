@@ -1,0 +1,19 @@
+{
+  "group": "natureplus",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "01"
+  ],
+  "key": {
+    "0": {
+      "item": "natureplus:leaf_block"
+    },
+    "1": {
+      "item": "natureplus:leaf_block"
+    }
+  },
+  "result": {
+    "item": "natureplus:leaf_carpet",
+    "count": 3
+  }
+}

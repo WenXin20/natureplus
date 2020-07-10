@@ -1,0 +1,25 @@
+{
+  "_fv": 10,
+  "_type": "achievement",
+  "definition": {
+    "achievementName": "Petals All the Way!",
+    "achievementDescription": "Find any of the 16 petals",
+    "achievementIcon": {
+      "value": "CUSTOM:RedPetal"
+    },
+    "background": "Default",
+    "disableDisplay": false,
+    "showPopup": true,
+    "announceToChat": true,
+    "hideIfNotCompleted": false,
+    "rewardLoot": [],
+    "rewardRecipes": [],
+    "rewardFunction": "No function",
+    "rewardXP": 1,
+    "achievementType": "task",
+    "parent": {
+      "value": "CUSTOM:GiantFloraAdvancement"
+    },
+    "triggerxml": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><block type=\"custom_trigger\" x=\"39\" y=\"50\"><next><block type=\"advancement_trigger\" deletable=\"false\"/></next></block></xml>"
+  }
+}

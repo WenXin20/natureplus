@@ -1,0 +1,16 @@
+{
+  "group": "natureplus",
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "natureplus:azure_trapdoor"
+    },
+    {
+      "item": "minecraft:glass"
+    }
+  ],
+  "result": {
+    "item": "natureplus:azure_glass_trapdoor",
+    "count": 1
+  }
+}

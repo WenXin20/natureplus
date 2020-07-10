@@ -1,0 +1,46 @@
+{
+  "_fv": 10,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Crafting",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "recipeRetstackSize": 6,
+    "group": "",
+    "recipeShapeless": false,
+    "recipeSlots": [
+      {
+        "value": ""
+      },
+      {
+        "value": ""
+      },
+      {
+        "value": ""
+      },
+      {
+        "value": "CUSTOM:PlantStem"
+      },
+      {
+        "value": "CUSTOM:PlantStem"
+      },
+      {
+        "value": "CUSTOM:PlantStem"
+      },
+      {
+        "value": "CUSTOM:PlantStem"
+      },
+      {
+        "value": "CUSTOM:PlantStem"
+      },
+      {
+        "value": "CUSTOM:PlantStem"
+      }
+    ],
+    "recipeReturnStack": {
+      "value": "CUSTOM:PlantStemWall"
+    },
+    "name": "plant_stem_wall_recipe",
+    "namespace": "mod"
+  }
+}

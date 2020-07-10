@@ -1,0 +1,29 @@
+{
+  "display": {
+    "icon": {
+      "item": "minecraft:wither_rose"
+    },
+    "title": {
+      "translate": "advancements.giant_wither_rose_advancement.title"
+    },
+    "description": {
+      "translate": "advancements.giant_wither_rose_advancement.descr"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "giant_wither_rose_advancement": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "rewards": {
+    "experience": 8,
+    "loot": [
+      "natureplus:blocks/wither_petal_block"
+    ]
+  },
+  "parent": "natureplus:petals_advancement"
+}

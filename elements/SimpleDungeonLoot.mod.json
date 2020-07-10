@@ -1,0 +1,55 @@
+{
+  "_fv": 10,
+  "_type": "loottable",
+  "definition": {
+    "type": "Chest",
+    "pools": [
+      {
+        "minrolls": 1,
+        "maxrolls": 3,
+        "minbonusrolls": 1,
+        "maxbonusrolls": 1,
+        "hasbonusrolls": false,
+        "entries": [
+          {
+            "type": "item",
+            "item": {
+              "value": "CUSTOM:GoldenPlum"
+            },
+            "weight": 15
+          },
+          {
+            "type": "item",
+            "item": {
+              "value": "CUSTOM:EnchantedGoldenPlum"
+            },
+            "weight": 2
+          },
+          {
+            "type": "item",
+            "item": {
+              "value": "CUSTOM:GoldenMexicanSunflowerSeeds"
+            },
+            "weight": 15
+          },
+          {
+            "type": "item",
+            "item": {
+              "value": "CUSTOM:Plum"
+            },
+            "weight": 20
+          },
+          {
+            "type": "item",
+            "item": {
+              "value": "Blocks.AIR"
+            },
+            "weight": 50
+          }
+        ]
+      }
+    ],
+    "name": "inject/simple_dungeon",
+    "namespace": "mod"
+  }
+}

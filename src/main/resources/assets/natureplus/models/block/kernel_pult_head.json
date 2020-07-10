@@ -1,0 +1,8 @@
+{
+  "parent": "natureplus:custom/kernel_pult_head",
+  "textures": {
+    "all": "natureplus:blocks/kernel_pult_head",
+    "particle": "natureplus:blocks/kernel_pult_head",
+    "head": "natureplus:blocks/kernel_pult"
+  }
+}

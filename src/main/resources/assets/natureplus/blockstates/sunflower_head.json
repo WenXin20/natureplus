@@ -1,0 +1,27 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "natureplus:block/sunflower_head"
+    },
+    "facing=east": {
+      "model": "natureplus:block/sunflower_head",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "natureplus:block/sunflower_head",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "natureplus:block/sunflower_head",
+      "y": 270
+    },
+    "facing=up": {
+      "model": "natureplus:block/sunflower_head",
+      "x": 270
+    },
+    "facing=down": {
+      "model": "natureplus:block/sunflower_head",
+      "x": 90
+    }
+  }
+}

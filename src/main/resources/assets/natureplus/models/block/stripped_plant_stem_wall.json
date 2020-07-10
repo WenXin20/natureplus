@@ -1,0 +1,7 @@
+{
+  "parent": "block/template_wall_side",
+  "textures": {
+    "wall": "natureplus:blocks/stripped_plant_stem_side2",
+    "particle": "natureplus:blocks/stripped_plant_stem_side2"
+  }
+}

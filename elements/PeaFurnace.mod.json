@@ -1,0 +1,20 @@
+{
+  "_fv": 10,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Smelting",
+    "xpReward": 0.35,
+    "cookingTime": 200,
+    "recipeRetstackSize": 1,
+    "group": "",
+    "recipeShapeless": false,
+    "smeltingInputStack": {
+      "value": "CUSTOM:FrozenPea"
+    },
+    "smeltingReturnStack": {
+      "value": "CUSTOM:Pea"
+    },
+    "name": "pea_furnace",
+    "namespace": "mod"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "_fv": 10,
+  "_type": "achievement",
+  "definition": {
+    "achievementName": "Giant Wither Roses",
+    "achievementDescription": "Grow a giant Wither Rose",
+    "achievementIcon": {
+      "value": "Blocks.WITHER_ROSE"
+    },
+    "background": "Default",
+    "disableDisplay": false,
+    "showPopup": true,
+    "announceToChat": true,
+    "hideIfNotCompleted": false,
+    "rewardLoot": [
+      "WitherPetalBlockDrops"
+    ],
+    "rewardRecipes": [],
+    "rewardFunction": "No function",
+    "rewardXP": 8,
+    "achievementType": "task",
+    "parent": {
+      "value": "CUSTOM:PetalsAdvancement"
+    },
+    "triggerxml": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><block type=\"custom_trigger\" x=\"44\" y=\"55\"><next><block type=\"advancement_trigger\" deletable=\"false\"/></next></block></xml>"
+  }
+}

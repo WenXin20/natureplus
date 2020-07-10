@@ -1,0 +1,19 @@
+{
+  "group": "natureplus",
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "natureplus:empty_seed_packet"
+    },
+    {
+      "tag": "forge:crops/corn"
+    },
+    {
+      "item": "natureplus:sun"
+    }
+  ],
+  "result": {
+    "item": "natureplus:kernel_pult_seed_packet",
+    "count": 1
+  }
+}

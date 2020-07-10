@@ -1,0 +1,57 @@
+{
+  "_fv": 10,
+  "_type": "loottable",
+  "definition": {
+    "type": "Block",
+    "pools": [
+      {
+        "minrolls": 1,
+        "maxrolls": 3,
+        "minbonusrolls": 1,
+        "maxbonusrolls": 1,
+        "hasbonusrolls": false,
+        "entries": [
+          {
+            "type": "item",
+            "item": {
+              "value": "CUSTOM:MexicanSunflowerSeeds"
+            },
+            "weight": 50
+          },
+          {
+            "type": "item",
+            "item": {
+              "value": "CUSTOM:MexicanSunflowerSeeds"
+            },
+            "weight": 15
+          }
+        ]
+      },
+      {
+        "minrolls": 1,
+        "maxrolls": 3,
+        "minbonusrolls": 1,
+        "maxbonusrolls": 1,
+        "hasbonusrolls": false,
+        "entries": [
+          {
+            "type": "item",
+            "item": {
+              "value": "CUSTOM:MexicanSunflower"
+            },
+            "weight": 50
+          },
+          {
+            "type": "item",
+            "item": {
+              "value": "CUSTOM:MexicanSunflower"
+            },
+            "weight": 15
+          }
+        ]
+      }
+    ],
+    "name": "blocks/mexican_sunflower_crop_age4",
+    "namespace": "mod"
+  }
+}

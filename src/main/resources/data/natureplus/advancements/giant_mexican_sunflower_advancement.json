@@ -1,0 +1,26 @@
+{
+  "display": {
+    "icon": {
+      "item": "natureplus:mexican_sunflower"
+    },
+    "title": {
+      "translate": "advancements.giant_mexican_sunflower_advancement.title"
+    },
+    "description": {
+      "translate": "advancements.giant_mexican_sunflower_advancement.descr"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "giant_mexican_sunflower_advancement": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "rewards": {
+    "experience": 1
+  },
+  "parent": "natureplus:petals_advancement"
+}

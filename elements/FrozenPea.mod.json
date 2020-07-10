@@ -1,0 +1,47 @@
+{
+  "_fv": 10,
+  "_type": "gun",
+  "definition": {
+    "renderType": 0,
+    "texture": "frozen_pea",
+    "customModelName": "Normal",
+    "name": "Frozen Pea",
+    "specialInfo": [
+      "§bRight-click to throw"
+    ],
+    "creativeTab": {
+      "value": "CUSTOM:PlantsVsZombiesTab"
+    },
+    "stackSize": 64,
+    "ammoItem": {
+      "value": "CUSTOM:FrozenPea"
+    },
+    "shootConstantly": true,
+    "usageCount": 0,
+    "actionSound": {
+      "value": "CUSTOM:snow_pea_firing"
+    },
+    "hasGlow": false,
+    "enableMeleeDamage": false,
+    "damageVsEntity": 0.0,
+    "bulletPower": 0.8,
+    "bulletDamage": 2.0,
+    "bulletKnockback": 0,
+    "bulletParticles": false,
+    "bulletIgnitesFire": false,
+    "bulletItemTexture": {
+      "value": "CUSTOM:FrozenPea"
+    },
+    "bulletModel": "Default",
+    "customBulletModelTexture": "",
+    "onBulletHitsBlock": {
+      "name": "PeaSplatSounds"
+    },
+    "onBulletHitsPlayer": {
+      "name": "PeaSplatSounds"
+    },
+    "onBulletHitsEntity": {
+      "name": "FrozenPeaEffects"
+    }
+  }
+}

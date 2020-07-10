@@ -1,0 +1,27 @@
+{
+  "_fv": 10,
+  "_type": "loottable",
+  "definition": {
+    "type": "Block",
+    "pools": [
+      {
+        "minrolls": 1,
+        "maxrolls": 1,
+        "minbonusrolls": 1,
+        "maxbonusrolls": 1,
+        "hasbonusrolls": false,
+        "entries": [
+          {
+            "type": "item",
+            "item": {
+              "value": "CUSTOM:LeafBlock"
+            },
+            "weight": 1
+          }
+        ]
+      }
+    ],
+    "name": "blocks/leaf_block",
+    "namespace": "mod"
+  }
+}

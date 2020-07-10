@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "natureplus:azure_trapdoor",
+    "natureplus:azure_glass_trapdoor",
+    "natureplus:plant_stem_trapdoor",
+    "natureplus:plant_stem_glass_trapdoor"
+  ]
+}

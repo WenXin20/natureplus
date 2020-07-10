@@ -1,0 +1,11 @@
+{
+  "_fv": 10,
+  "_type": "tab",
+  "definition": {
+    "name": "Plants vs. Zombies",
+    "icon": {
+      "value": "CUSTOM:PeashooterSeedPacket"
+    },
+    "showSearch": false
+  }
+}

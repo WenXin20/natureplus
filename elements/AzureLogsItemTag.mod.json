@@ -1,0 +1,25 @@
+{
+  "_fv": 10,
+  "_type": "tag",
+  "definition": {
+    "type": "Items",
+    "items": [
+      {
+        "value": "CUSTOM:AzureLog"
+      },
+      {
+        "value": "CUSTOM:StrippedAzureLog"
+      },
+      {
+        "value": "CUSTOM:AzureWood"
+      },
+      {
+        "value": "CUSTOM:StrippedAzureWood"
+      }
+    ],
+    "blocks": [],
+    "functions": [],
+    "name": "azure_logs",
+    "namespace": "mod"
+  }
+}

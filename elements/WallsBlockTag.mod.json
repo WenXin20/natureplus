@@ -1,0 +1,25 @@
+{
+  "_fv": 10,
+  "_type": "tag",
+  "definition": {
+    "type": "Blocks",
+    "items": [],
+    "blocks": [
+      {
+        "value": "CUSTOM:AzureWoodWall"
+      },
+      {
+        "value": "CUSTOM:StrippedAzureWoodWall"
+      },
+      {
+        "value": "CUSTOM:PlantStemWall"
+      },
+      {
+        "value": "CUSTOM:StrippedPlantStemWall"
+      }
+    ],
+    "functions": [],
+    "name": "walls",
+    "namespace": "minecraft"
+  }
+}

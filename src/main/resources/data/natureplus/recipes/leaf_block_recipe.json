@@ -1,0 +1,26 @@
+{
+  "group": "natureplus",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "01",
+    "23"
+  ],
+  "key": {
+    "0": {
+      "item": "minecraft:oak_leaves"
+    },
+    "1": {
+      "item": "minecraft:oak_leaves"
+    },
+    "2": {
+      "item": "minecraft:oak_leaves"
+    },
+    "3": {
+      "item": "minecraft:oak_leaves"
+    }
+  },
+  "result": {
+    "item": "natureplus:leaf_block",
+    "count": 4
+  }
+}

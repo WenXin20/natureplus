@@ -1,0 +1,12 @@
+{
+  "group": "natureplus",
+  "type": "minecraft:smelting",
+  "experience": 0.35,
+  "cookingtime": 100,
+  "ingredient": {
+    "item": "natureplus:mexican_sunflower_seeds"
+  },
+  "result": {
+    "item": "natureplus:cooked_mexican_sunflower_seeds"
+  }
+}

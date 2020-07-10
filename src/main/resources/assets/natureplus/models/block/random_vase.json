@@ -1,0 +1,10 @@
+{
+  "parent": "natureplus:custom/vase",
+  "textures": {
+    "all": "natureplus:blocks/vase_side",
+    "particle": "natureplus:blocks/vase_side",
+    "side": "natureplus:blocks/vase_side",
+    "top": "natureplus:blocks/vase_top",
+    "bottom": "natureplus:blocks/vase_bottom"
+  }
+}

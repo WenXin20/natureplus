@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "natureplus:stone_spade",
+    "natureplus:wooden_spade",
+    "natureplus:iron_spade",
+    "natureplus:golden_spade",
+    "natureplus:diamond_spade"
+  ]
+}

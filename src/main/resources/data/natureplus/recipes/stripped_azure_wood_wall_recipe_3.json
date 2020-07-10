@@ -1,0 +1,32 @@
+{
+  "group": "natureplus",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "012",
+    "345"
+  ],
+  "key": {
+    "0": {
+      "item": "natureplus:stripped_azure_log"
+    },
+    "1": {
+      "item": "natureplus:stripped_azure_log"
+    },
+    "2": {
+      "item": "natureplus:stripped_azure_log"
+    },
+    "3": {
+      "item": "natureplus:stripped_azure_log"
+    },
+    "4": {
+      "item": "natureplus:stripped_azure_log"
+    },
+    "5": {
+      "item": "natureplus:stripped_azure_log"
+    }
+  },
+  "result": {
+    "item": "natureplus:stripped_azure_wood_wall",
+    "count": 6
+  }
+}

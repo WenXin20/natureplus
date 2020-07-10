@@ -1,0 +1,10 @@
+{
+  "parent": "natureplus:custom/flower_pot_cross",
+  "textures": {
+    "all": "natureplus:blocks/mexican_sunflower7",
+    "particle": "block/flower_pot",
+    "flowerpot": "block/flower_pot",
+    "plant": "natureplus:blocks/mexican_sunflower7",
+    "dirt": "block/dirt"
+  }
+}

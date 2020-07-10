@@ -1,0 +1,46 @@
+{
+  "_fv": 10,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Crafting",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "recipeRetstackSize": 1,
+    "group": "",
+    "recipeShapeless": false,
+    "recipeSlots": [
+      {
+        "value": "CUSTOM:AzureLog"
+      },
+      {
+        "value": "TAG:natureplus:azure_planks"
+      },
+      {
+        "value": "CUSTOM:AzureLog"
+      },
+      {
+        "value": "TAG:natureplus:azure_planks"
+      },
+      {
+        "value": ""
+      },
+      {
+        "value": "TAG:natureplus:azure_planks"
+      },
+      {
+        "value": "CUSTOM:AzureLog"
+      },
+      {
+        "value": "TAG:natureplus:azure_planks"
+      },
+      {
+        "value": "CUSTOM:AzureLog"
+      }
+    ],
+    "recipeReturnStack": {
+      "value": "CUSTOM:AzureCrate"
+    },
+    "name": "azure_crate_recipe",
+    "namespace": "mod"
+  }
+}

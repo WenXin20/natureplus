@@ -1,0 +1,28 @@
+{
+  "_fv": 10,
+  "_type": "tag",
+  "definition": {
+    "type": "Items",
+    "items": [
+      {
+        "value": "CUSTOM:Spade"
+      },
+      {
+        "value": "CUSTOM:WoodenSpade"
+      },
+      {
+        "value": "CUSTOM:IronSpade"
+      },
+      {
+        "value": "CUSTOM:GoldenSpade"
+      },
+      {
+        "value": "CUSTOM:DiamondSpade"
+      }
+    ],
+    "blocks": [],
+    "functions": [],
+    "name": "spade",
+    "namespace": "forge"
+  }
+}

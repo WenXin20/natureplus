@@ -1,0 +1,42 @@
+{
+  "group": "natureplus",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "012",
+    "345",
+    "678"
+  ],
+  "key": {
+    "0": {
+      "item": "minecraft:gold_nugget"
+    },
+    "1": {
+      "item": "minecraft:gold_nugget"
+    },
+    "2": {
+      "item": "minecraft:gold_nugget"
+    },
+    "3": {
+      "item": "minecraft:gold_nugget"
+    },
+    "4": {
+      "item": "natureplus:cooked_mexican_sunflower_seeds"
+    },
+    "5": {
+      "item": "minecraft:gold_nugget"
+    },
+    "6": {
+      "item": "minecraft:gold_nugget"
+    },
+    "7": {
+      "item": "minecraft:gold_nugget"
+    },
+    "8": {
+      "item": "minecraft:gold_nugget"
+    }
+  },
+  "result": {
+    "item": "natureplus:golden_mexican_sunflower_seeds",
+    "count": 1
+  }
+}

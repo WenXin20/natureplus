@@ -1,0 +1,16 @@
+{
+  "group": "natureplus",
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "forge:seeds"
+    },
+    {
+      "tag": "forge:slimeballs"
+    }
+  ],
+  "result": {
+    "item": "natureplus:pea",
+    "count": 1
+  }
+}

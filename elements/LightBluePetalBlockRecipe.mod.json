@@ -1,0 +1,46 @@
+{
+  "_fv": 10,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Crafting",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "recipeRetstackSize": 8,
+    "group": "",
+    "recipeShapeless": false,
+    "recipeSlots": [
+      {
+        "value": "TAG:natureplus:petal_blocks"
+      },
+      {
+        "value": "TAG:natureplus:petal_blocks"
+      },
+      {
+        "value": "TAG:natureplus:petal_blocks"
+      },
+      {
+        "value": "TAG:natureplus:petal_blocks"
+      },
+      {
+        "value": "TAG:forge:dyes/light_blue"
+      },
+      {
+        "value": "TAG:natureplus:petal_blocks"
+      },
+      {
+        "value": "TAG:natureplus:petal_blocks"
+      },
+      {
+        "value": "TAG:natureplus:petal_blocks"
+      },
+      {
+        "value": "TAG:natureplus:petal_blocks"
+      }
+    ],
+    "recipeReturnStack": {
+      "value": "CUSTOM:LightBluePetalBlock"
+    },
+    "name": "light_blue_petal_block_recipe",
+    "namespace": "mod"
+  }
+}

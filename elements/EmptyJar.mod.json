@@ -1,0 +1,30 @@
+{
+  "_fv": 10,
+  "_type": "item",
+  "definition": {
+    "renderType": 0,
+    "texture": "empty_jar",
+    "customModelName": "Normal",
+    "name": "Empty Jar",
+    "creativeTab": {
+      "value": "CUSTOM:NaturePlusTab"
+    },
+    "stackSize": 64,
+    "enchantability": 0,
+    "useDuration": 0,
+    "toolType": 1.0,
+    "damageCount": 0,
+    "destroyAnyBlock": false,
+    "stayInGridWhenCrafting": false,
+    "damageOnCrafting": false,
+    "enableMeleeDamage": false,
+    "damageVsEntity": 0.0,
+    "specialInfo": [
+      "§bUsed to carry Butterfly Eggs & Cocoons"
+    ],
+    "hasGlow": false,
+    "guiBoundTo": "<NONE>",
+    "inventorySize": 9,
+    "inventoryStackSize": 64
+  }
+}

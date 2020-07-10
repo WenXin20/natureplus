@@ -1,0 +1,7 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "natureplus:blocks/vertical_plant_stem_planks",
+    "particle": "natureplus:blocks/vertical_plant_stem_planks"
+  }
+}

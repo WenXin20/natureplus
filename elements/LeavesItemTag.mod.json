@@ -1,0 +1,67 @@
+{
+  "_fv": 10,
+  "_type": "tag",
+  "definition": {
+    "type": "Items",
+    "items": [
+      {
+        "value": "CUSTOM:AzureLeaves"
+      },
+      {
+        "value": "CUSTOM:RedPetalBlock"
+      },
+      {
+        "value": "CUSTOM:LeafBlock"
+      },
+      {
+        "value": "CUSTOM:OrangePetalBlock"
+      },
+      {
+        "value": "CUSTOM:WhitePetalBlock"
+      },
+      {
+        "value": "CUSTOM:MagentaPetalBlock"
+      },
+      {
+        "value": "CUSTOM:LightBluePetalBlock"
+      },
+      {
+        "value": "CUSTOM:YellowPetalBlock"
+      },
+      {
+        "value": "CUSTOM:LimePetalBlock"
+      },
+      {
+        "value": "CUSTOM:PinkPetalBlock"
+      },
+      {
+        "value": "CUSTOM:GrayPetalBlock"
+      },
+      {
+        "value": "CUSTOM:LightGrayPetalBlock"
+      },
+      {
+        "value": "CUSTOM:CyanPetalBlock"
+      },
+      {
+        "value": "CUSTOM:PurplePetalBlock"
+      },
+      {
+        "value": "CUSTOM:BluePetalBlock"
+      },
+      {
+        "value": "CUSTOM:BrownPetalBlock"
+      },
+      {
+        "value": "CUSTOM:GreenPetalBlock"
+      },
+      {
+        "value": "CUSTOM:BlackPetalBlock"
+      }
+    ],
+    "blocks": [],
+    "functions": [],
+    "name": "leaves",
+    "namespace": "minecraft"
+  }
+}

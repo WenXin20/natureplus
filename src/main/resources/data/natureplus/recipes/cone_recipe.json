@@ -1,0 +1,30 @@
+{
+  "group": "natureplus",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " 1 ",
+    " 4 ",
+    "678"
+  ],
+  "key": {
+    "1": {
+      "item": "minecraft:orange_concrete"
+    },
+    "4": {
+      "item": "minecraft:orange_concrete"
+    },
+    "6": {
+      "item": "minecraft:orange_concrete"
+    },
+    "7": {
+      "item": "minecraft:orange_concrete"
+    },
+    "8": {
+      "item": "minecraft:orange_concrete"
+    }
+  },
+  "result": {
+    "item": "natureplus:cone_block",
+    "count": 1
+  }
+}

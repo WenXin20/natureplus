@@ -1,0 +1,42 @@
+{
+  "group": "natureplus",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "012",
+    "345",
+    "678"
+  ],
+  "key": {
+    "0": {
+      "item": "natureplus:pollen"
+    },
+    "1": {
+      "item": "natureplus:pollen"
+    },
+    "2": {
+      "item": "natureplus:pollen"
+    },
+    "3": {
+      "item": "natureplus:pollen"
+    },
+    "4": {
+      "item": "natureplus:pollen"
+    },
+    "5": {
+      "item": "natureplus:pollen"
+    },
+    "6": {
+      "item": "natureplus:pollen"
+    },
+    "7": {
+      "item": "natureplus:pollen"
+    },
+    "8": {
+      "item": "natureplus:pollen"
+    }
+  },
+  "result": {
+    "item": "natureplus:pollen_block",
+    "count": 1
+  }
+}

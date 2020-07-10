@@ -1,0 +1,26 @@
+{
+  "display": {
+    "icon": {
+      "item": "natureplus:kernel_pult_seed_packet"
+    },
+    "title": {
+      "translate": "advancements.spawn_kernel_pult_seed_packet.title"
+    },
+    "description": {
+      "translate": "advancements.spawn_kernel_pult_seed_packet.descr"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "spawn_kernel_pult_seed_packet": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "rewards": {
+    "experience": 1
+  },
+  "parent": "natureplus:spawn_sunflower_seed_packet"
+}

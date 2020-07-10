@@ -1,0 +1,26 @@
+{
+  "display": {
+    "icon": {
+      "item": "minecraft:allium"
+    },
+    "title": {
+      "translate": "advancements.giant_allium_advancement.title"
+    },
+    "description": {
+      "translate": "advancements.giant_allium_advancement.descr"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "giant_allium_advancement": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "rewards": {
+    "experience": 1
+  },
+  "parent": "natureplus:petals_advancement"
+}

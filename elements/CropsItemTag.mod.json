@@ -1,0 +1,22 @@
+{
+  "_fv": 10,
+  "_type": "tag",
+  "definition": {
+    "type": "Items",
+    "items": [
+      {
+        "value": "CUSTOM:Pea"
+      },
+      {
+        "value": "CUSTOM:MexicanSunflowerSeeds"
+      },
+      {
+        "value": "CUSTOM:Corn"
+      }
+    ],
+    "blocks": [],
+    "functions": [],
+    "name": "crops",
+    "namespace": "forge"
+  }
+}

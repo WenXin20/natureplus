@@ -1,0 +1,26 @@
+{
+  "group": "natureplus",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "01",
+    "23"
+  ],
+  "key": {
+    "0": {
+      "item": "natureplus:white_petal"
+    },
+    "1": {
+      "item": "natureplus:white_petal"
+    },
+    "2": {
+      "item": "natureplus:white_petal"
+    },
+    "3": {
+      "item": "natureplus:white_petal"
+    }
+  },
+  "result": {
+    "item": "natureplus:white_petal_block",
+    "count": 1
+  }
+}

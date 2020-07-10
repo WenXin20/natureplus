@@ -1,0 +1,20 @@
+{
+  "mappings": {
+    "default": {
+      "map": {
+        "side": "vase_side",
+        "top": "vase_top",
+        "bottom": "vase_bottom"
+      },
+      "name": "default"
+    },
+    "plant_vase": {
+      "map": {
+        "side": "plant_vase_side",
+        "top": "plant_vase_top",
+        "bottom": "plant_vase_bottom"
+      },
+      "name": "plant_vase"
+    }
+  }
+}

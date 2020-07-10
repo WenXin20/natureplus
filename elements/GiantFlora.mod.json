@@ -1,0 +1,327 @@
+{
+  "_fv": 10,
+  "_type": "biome",
+  "definition": {
+    "groundBlock": {
+      "value": "Blocks.GRASS"
+    },
+    "undergroundBlock": {
+      "value": "Blocks.DIRT#0"
+    },
+    "generateLakes": true,
+    "treeType": 0,
+    "vanillaTreeType": "Default",
+    "minHeight": 7,
+    "spawnVines": false,
+    "treeVines": {
+      "value": ""
+    },
+    "treeStem": {
+      "value": ""
+    },
+    "treeBranch": {
+      "value": ""
+    },
+    "treeFruits": {
+      "value": ""
+    },
+    "airColor": {
+      "value": -13421569,
+      "falpha": 0.0
+    },
+    "grassColor": {
+      "value": -16738048,
+      "falpha": 0.0
+    },
+    "waterColor": {
+      "value": -14329397,
+      "falpha": 0.0
+    },
+    "treesPerChunk": 1,
+    "grassPerChunk": 4,
+    "flowersPerChunk": 4,
+    "mushroomsPerChunk": 2,
+    "bigMushroomsChunk": 1,
+    "sandPathcesPerChunk": 1,
+    "gravelPatchesPerChunk": 1,
+    "reedsPerChunk": 1,
+    "cactiPerChunk": 1,
+    "rainingPossibility": 0.30000000000000004,
+    "temperature": 0.5,
+    "baseHeight": 0.1,
+    "heightVariation": 0.1,
+    "spawnBiome": true,
+    "biomeWeight": 10,
+    "biomeType": "WARM",
+    "biomeCategory": "FOREST",
+    "parent": {
+      "value": "No parent"
+    },
+    "biomeDictionaryTypes": [
+      "FOREST"
+    ],
+    "spawnEntries": [
+      {
+        "entity": {
+          "value": "EntityChicken"
+        },
+        "minGroup": 1,
+        "maxGroup": 5,
+        "weight": 8,
+        "spawnType": "creature"
+      },
+      {
+        "entity": {
+          "value": "EntityCod"
+        },
+        "minGroup": 1,
+        "maxGroup": 5,
+        "weight": 5,
+        "spawnType": "waterCreature"
+      },
+      {
+        "entity": {
+          "value": "EntityCow"
+        },
+        "minGroup": 1,
+        "maxGroup": 5,
+        "weight": 8,
+        "spawnType": "creature"
+      },
+      {
+        "entity": {
+          "value": "EntityCreeper"
+        },
+        "minGroup": 1,
+        "maxGroup": 3,
+        "weight": 15,
+        "spawnType": "monster"
+      },
+      {
+        "entity": {
+          "value": "EntityDonkey"
+        },
+        "minGroup": 1,
+        "maxGroup": 5,
+        "weight": 5,
+        "spawnType": "creature"
+      },
+      {
+        "entity": {
+          "value": "EntityEnderman"
+        },
+        "minGroup": 1,
+        "maxGroup": 3,
+        "weight": 15,
+        "spawnType": "monster"
+      },
+      {
+        "entity": {
+          "value": "EntityFox"
+        },
+        "minGroup": 1,
+        "maxGroup": 5,
+        "weight": 8,
+        "spawnType": "creature"
+      },
+      {
+        "entity": {
+          "value": "EntityParrot"
+        },
+        "minGroup": 1,
+        "maxGroup": 5,
+        "weight": 5,
+        "spawnType": "creature"
+      },
+      {
+        "entity": {
+          "value": "EntityPig"
+        },
+        "minGroup": 1,
+        "maxGroup": 5,
+        "weight": 8,
+        "spawnType": "creature"
+      },
+      {
+        "entity": {
+          "value": "EntityPufferfish"
+        },
+        "minGroup": 1,
+        "maxGroup": 5,
+        "weight": 5,
+        "spawnType": "waterCreature"
+      },
+      {
+        "entity": {
+          "value": "EntityRabbit"
+        },
+        "minGroup": 1,
+        "maxGroup": 5,
+        "weight": 8,
+        "spawnType": "creature"
+      },
+      {
+        "entity": {
+          "value": "EntitySalmon"
+        },
+        "minGroup": 1,
+        "maxGroup": 5,
+        "weight": 5,
+        "spawnType": "waterCreature"
+      },
+      {
+        "entity": {
+          "value": "EntitySheep"
+        },
+        "minGroup": 1,
+        "maxGroup": 5,
+        "weight": 8,
+        "spawnType": "creature"
+      },
+      {
+        "entity": {
+          "value": "EntitySkeleton"
+        },
+        "minGroup": 1,
+        "maxGroup": 3,
+        "weight": 15,
+        "spawnType": "monster"
+      },
+      {
+        "entity": {
+          "value": "EntitySpider"
+        },
+        "minGroup": 1,
+        "maxGroup": 3,
+        "weight": 15,
+        "spawnType": "monster"
+      },
+      {
+        "entity": {
+          "value": "EntitySquid"
+        },
+        "minGroup": 1,
+        "maxGroup": 5,
+        "weight": 5,
+        "spawnType": "waterCreature"
+      },
+      {
+        "entity": {
+          "value": "EntityTropicalFish"
+        },
+        "minGroup": 1,
+        "maxGroup": 5,
+        "weight": 5,
+        "spawnType": "waterCreature"
+      },
+      {
+        "entity": {
+          "value": "EntityWitch"
+        },
+        "minGroup": 1,
+        "maxGroup": 3,
+        "weight": 15,
+        "spawnType": "monster"
+      },
+      {
+        "entity": {
+          "value": "EntityWolf"
+        },
+        "minGroup": 1,
+        "maxGroup": 5,
+        "weight": 5,
+        "spawnType": "creature"
+      },
+      {
+        "entity": {
+          "value": "EntityZombie"
+        },
+        "minGroup": 1,
+        "maxGroup": 3,
+        "weight": 15,
+        "spawnType": "monster"
+      },
+      {
+        "entity": {
+          "value": "EntityZombieVillager"
+        },
+        "minGroup": 1,
+        "maxGroup": 3,
+        "weight": 15,
+        "spawnType": "monster"
+      },
+      {
+        "entity": {
+          "value": "CUSTOM:ConeheadZombie"
+        },
+        "minGroup": 1,
+        "maxGroup": 3,
+        "weight": 15,
+        "spawnType": "monster"
+      },
+      {
+        "entity": {
+          "value": "CUSTOM:PVZZombie"
+        },
+        "minGroup": 1,
+        "maxGroup": 3,
+        "weight": 15,
+        "spawnType": "monster"
+      },
+      {
+        "entity": {
+          "value": "CUSTOM:Peashooter"
+        },
+        "minGroup": 1,
+        "maxGroup": 3,
+        "weight": 8,
+        "spawnType": "creature"
+      },
+      {
+        "entity": {
+          "value": "CUSTOM:SnowPea"
+        },
+        "minGroup": 1,
+        "maxGroup": 3,
+        "weight": 8,
+        "spawnType": "creature"
+      },
+      {
+        "entity": {
+          "value": "CUSTOM:MonarchCaterpillar"
+        },
+        "minGroup": 1,
+        "maxGroup": 5,
+        "weight": 8,
+        "spawnType": "creature"
+      },
+      {
+        "entity": {
+          "value": "CUSTOM:MonarchButterfly"
+        },
+        "minGroup": 1,
+        "maxGroup": 3,
+        "weight": 5,
+        "spawnType": "creature"
+      },
+      {
+        "entity": {
+          "value": "CUSTOM:MonarchEgg"
+        },
+        "minGroup": 1,
+        "maxGroup": 3,
+        "weight": 8,
+        "spawnType": "creature"
+      },
+      {
+        "entity": {
+          "value": "EntityBee"
+        },
+        "minGroup": 1,
+        "maxGroup": 5,
+        "weight": 8,
+        "spawnType": "creature"
+      }
+    ]
+  }
+}

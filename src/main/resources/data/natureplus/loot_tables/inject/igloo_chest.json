@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:chest",
+  "pools": [
+    {
+      "name": "main",
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "natureplus:golden_plum",
+          "weight": 20
+        },
+        {
+          "type": "minecraft:item",
+          "name": "natureplus:golden_mexican_sunflower_seeds",
+          "weight": 20
+        },
+        {
+          "type": "empty",
+          "weight": 60
+        }
+      ]
+    }
+  ]
+}

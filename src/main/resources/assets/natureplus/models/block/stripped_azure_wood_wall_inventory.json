@@ -1,0 +1,7 @@
+{
+  "parent": "block/wall_inventory",
+  "textures": {
+    "wall": "natureplus:blocks/azure_stripped_log",
+    "particle": "natureplus:blocks/azure_stripped_log"
+  }
+}

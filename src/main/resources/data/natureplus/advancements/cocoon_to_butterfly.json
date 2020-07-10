@@ -1,0 +1,26 @@
+{
+  "display": {
+    "icon": {
+      "item": "natureplus:monarch_butterfly_icon"
+    },
+    "title": {
+      "translate": "advancements.cocoon_to_butterfly.title"
+    },
+    "description": {
+      "translate": "advancements.cocoon_to_butterfly.descr"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "cocoon_to_butterfly": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "rewards": {
+    "experience": 1
+  },
+  "parent": "natureplus:feed_caterpillar_advancement"
+}

@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "natureplus:block/peashooter_head"
+    },
+    "facing=east": {
+      "model": "natureplus:block/peashooter_head",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "natureplus:block/peashooter_head",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "natureplus:block/peashooter_head",
+      "y": 270
+    }
+  }
+}

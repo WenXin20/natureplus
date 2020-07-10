@@ -1,0 +1,119 @@
+{
+  "_fv": 10,
+  "_type": "mob",
+  "definition": {
+    "mobName": "Sunflower",
+    "mobLabel": "",
+    "mobModelName": "ModelSunflower",
+    "mobModelTexture": "sunflower.png",
+    "mobModelGlowTexture": "sunflower_glow.png",
+    "modelWidth": 0.7,
+    "modelHeight": 1.2000000000000002,
+    "modelShadowSize": 0.30000000000000004,
+    "mountedYOffset": 0.0,
+    "hasSpawnEgg": true,
+    "spawnEggBaseColor": {
+      "value": -13312,
+      "falpha": 0.0
+    },
+    "spawnEggDotColor": {
+      "value": -3381760,
+      "falpha": 0.0
+    },
+    "creativeTab": {
+      "value": "CUSTOM:PlantsVsZombiesTab"
+    },
+    "isBoss": false,
+    "bossBarColor": "PINK",
+    "bossBarType": "PROGRESS",
+    "equipmentMainHand": {
+      "value": ""
+    },
+    "equipmentOffHand": {
+      "value": ""
+    },
+    "equipmentHelmet": {
+      "value": ""
+    },
+    "equipmentBody": {
+      "value": ""
+    },
+    "equipmentLeggings": {
+      "value": ""
+    },
+    "equipmentBoots": {
+      "value": ""
+    },
+    "mobBehaviourType": "Creature",
+    "mobCreatureType": "UNDEFINED",
+    "attackStrength": 0,
+    "movementSpeed": 0.0,
+    "armorBaseValue": 0.0,
+    "trackingRange": 64,
+    "health": 15,
+    "xpAmount": 1,
+    "waterMob": false,
+    "flyingMob": false,
+    "inventorySize": 9,
+    "inventoryStackSize": 64,
+    "disableCollisions": false,
+    "ridable": false,
+    "canControlForward": false,
+    "canControlStrafe": false,
+    "immuneToFire": false,
+    "immuneToArrows": false,
+    "immuneToFallDamage": false,
+    "immuneToCactus": false,
+    "immuneToDrowning": false,
+    "immuneToLightning": false,
+    "immuneToPotions": false,
+    "immuneToPlayer": false,
+    "mobDrop": {
+      "value": ""
+    },
+    "livingSound": {
+      "value": ""
+    },
+    "hurtSound": {
+      "value": "entity.generic.hurt"
+    },
+    "deathSound": {
+      "value": "entity.generic.death"
+    },
+    "spawnParticles": false,
+    "particleToSpawn": {
+      "value": "EXPLOSION_NORMAL"
+    },
+    "particleSpawningShape": "Spread",
+    "particleSpawningRadious": 0.5,
+    "particleAmount": 4,
+    "whenMobIsHurt": {
+      "name": "SpadeRemoveSunflower"
+    },
+    "onMobTickUpdate": {
+      "name": "SunflowerSpawnSun"
+    },
+    "onInitialSpawn": {
+      "name": "EntityTimerSunflower"
+    },
+    "hasAI": true,
+    "aiBase": "(none)",
+    "aixml": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><block type=\"aitasks_container\" deletable=\"false\" x=\"424\" y=\"41\"><next><block type=\"watch_closest_entity\"><field name=\"radius\">6</field><field name=\"entity\">EntityPlayer</field><next><block type=\"watch_closest_entity\"><field name=\"radius\">6</field><field name=\"entity\">EntityMonster</field><next><block type=\"watch_closest_entity\"><field name=\"radius\">6</field><field name=\"entity\">EntityMob</field><next><block type=\"swim_in_water\"><next><block type=\"look_around\"/></next></block></next></block></next></block></next></block></next></block></xml>",
+    "breedable": false,
+    "tameable": false,
+    "breedTriggerItems": [],
+    "ranged": false,
+    "rangedAttackItem": {
+      "value": "CUSTOM:Pea"
+    },
+    "rangedItemType": "Pea",
+    "spawnThisMob": true,
+    "doesDespawnWhenIdle": false,
+    "spawningProbability": 8,
+    "mobSpawningType": "creature",
+    "minNumberOfMobsPerGroup": 1,
+    "maxNumberOfMobsPerGroup": 4,
+    "restrictionBiomes": [],
+    "spawnInDungeons": false
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "_fv": 10,
+  "_type": "tag",
+  "definition": {
+    "type": "Items",
+    "items": [
+      {
+        "value": "CUSTOM:PlantStemPlanks"
+      },
+      {
+        "value": "CUSTOM:VerticalPlantStemPlanks"
+      }
+    ],
+    "blocks": [],
+    "functions": [],
+    "name": "plant_stem_planks",
+    "namespace": "mod"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "group": "natureplus",
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "natureplus:petal_blocks"
+    },
+    {
+      "item": "minecraft:blue_dye"
+    }
+  ],
+  "result": {
+    "item": "natureplus:blue_petal_block",
+    "count": 1
+  }
+}

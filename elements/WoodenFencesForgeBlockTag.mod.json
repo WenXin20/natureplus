@@ -1,0 +1,19 @@
+{
+  "_fv": 10,
+  "_type": "tag",
+  "definition": {
+    "type": "Blocks",
+    "items": [],
+    "blocks": [
+      {
+        "value": "CUSTOM:AzureFence"
+      },
+      {
+        "value": "CUSTOM:PlantStemFence"
+      }
+    ],
+    "functions": [],
+    "name": "fences/wooden",
+    "namespace": "forge"
+  }
+}

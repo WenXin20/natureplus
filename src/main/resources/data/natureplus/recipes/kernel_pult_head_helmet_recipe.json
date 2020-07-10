@@ -1,0 +1,13 @@
+{
+  "group": "natureplus",
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "natureplus:kernel_pult_head"
+    }
+  ],
+  "result": {
+    "item": "natureplus:kernel_pult_head_helmet",
+    "count": 1
+  }
+}

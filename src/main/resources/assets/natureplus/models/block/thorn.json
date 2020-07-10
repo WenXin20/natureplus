@@ -1,0 +1,7 @@
+{
+  "parent": "block/cross",
+  "textures": {
+    "cross": "natureplus:blocks/thorn",
+    "particle": "natureplus:blocks/thorn"
+  }
+}

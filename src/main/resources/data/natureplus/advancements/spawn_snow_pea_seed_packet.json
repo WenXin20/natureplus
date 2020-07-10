@@ -1,0 +1,26 @@
+{
+  "display": {
+    "icon": {
+      "item": "natureplus:snow_pea_seed_packet"
+    },
+    "title": {
+      "translate": "advancements.spawn_snow_pea_seed_packet.title"
+    },
+    "description": {
+      "translate": "advancements.spawn_snow_pea_seed_packet.descr"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "spawn_snow_pea_seed_packet": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "rewards": {
+    "experience": 1
+  },
+  "parent": "natureplus:spawn_peashooter_seed_packet"
+}

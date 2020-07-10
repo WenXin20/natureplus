@@ -1,0 +1,8 @@
+{
+  "parent": "natureplus:custom/snow_pea_head",
+  "textures": {
+    "all": "natureplus:blocks/snow_pea_head",
+    "particle": "natureplus:blocks/snow_pea_head",
+    "0": "natureplus:blocks/snow_pea"
+  }
+}

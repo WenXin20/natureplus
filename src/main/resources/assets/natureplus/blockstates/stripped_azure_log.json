@@ -1,0 +1,28 @@
+{
+  "variants": {
+    "facing=south": {
+      "model": "natureplus:block/stripped_azure_log"
+    },
+    "facing=north": {
+      "model": "natureplus:block/stripped_azure_log"
+    },
+    "facing=east": {
+      "model": "natureplus:block/stripped_azure_log",
+      "x": 90
+    },
+    "facing=west": {
+      "model": "natureplus:block/stripped_azure_log",
+      "x": 90
+    },
+    "facing=up": {
+      "model": "natureplus:block/stripped_azure_log",
+      "x": 90,
+      "y": 90
+    },
+    "facing=down": {
+      "model": "natureplus:block/stripped_azure_log",
+      "x": 90,
+      "y": 90
+    }
+  }
+}

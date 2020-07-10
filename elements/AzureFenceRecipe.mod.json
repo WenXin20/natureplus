@@ -1,0 +1,46 @@
+{
+  "_fv": 10,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Crafting",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "recipeRetstackSize": 3,
+    "group": "",
+    "recipeShapeless": false,
+    "recipeSlots": [
+      {
+        "value": ""
+      },
+      {
+        "value": ""
+      },
+      {
+        "value": ""
+      },
+      {
+        "value": "TAG:natureplus:azure_planks"
+      },
+      {
+        "value": "Items.STICK"
+      },
+      {
+        "value": "TAG:natureplus:azure_planks"
+      },
+      {
+        "value": "TAG:natureplus:azure_planks"
+      },
+      {
+        "value": "Items.STICK"
+      },
+      {
+        "value": "TAG:natureplus:azure_planks"
+      }
+    ],
+    "recipeReturnStack": {
+      "value": "CUSTOM:AzureFence"
+    },
+    "name": "azure_fence_recipe",
+    "namespace": "mod"
+  }
+}

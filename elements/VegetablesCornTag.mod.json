@@ -1,0 +1,16 @@
+{
+  "_fv": 10,
+  "_type": "tag",
+  "definition": {
+    "type": "Items",
+    "items": [
+      {
+        "value": "CUSTOM:Corn"
+      }
+    ],
+    "blocks": [],
+    "functions": [],
+    "name": "vegetables/corn",
+    "namespace": "forge"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "variants": {
+    "facing=south": {
+      "model": "natureplus:block/thorn",
+      "x": 270
+    },
+    "facing=north": {
+      "model": "natureplus:block/thorn",
+      "x": 90
+    },
+    "facing=east": {
+      "model": "natureplus:block/thorn",
+      "x": 90,
+      "y": 90
+    },
+    "facing=west": {
+      "model": "natureplus:block/thorn",
+      "x": 270,
+      "y": 90
+    },
+    "facing=up": {
+      "model": "natureplus:block/thorn"
+    },
+    "facing=down": {
+      "model": "natureplus:block/thorn",
+      "x": 180
+    }
+  }
+}

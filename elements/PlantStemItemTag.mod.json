@@ -1,0 +1,25 @@
+{
+  "_fv": 10,
+  "_type": "tag",
+  "definition": {
+    "type": "Items",
+    "items": [
+      {
+        "value": "CUSTOM:PlantStem"
+      },
+      {
+        "value": "CUSTOM:PlantStemWood"
+      },
+      {
+        "value": "CUSTOM:StrippedPlantStem"
+      },
+      {
+        "value": "CUSTOM:StrippedPlantStemWood"
+      }
+    ],
+    "blocks": [],
+    "functions": [],
+    "name": "plant_stems",
+    "namespace": "mod"
+  }
+}

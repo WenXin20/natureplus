@@ -1,0 +1,46 @@
+{
+  "_fv": 10,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Crafting",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "recipeRetstackSize": 1,
+    "group": "",
+    "recipeShapeless": false,
+    "recipeSlots": [
+      {
+        "value": "CUSTOM:BlackPetal"
+      },
+      {
+        "value": "CUSTOM:BlackPetal"
+      },
+      {
+        "value": ""
+      },
+      {
+        "value": "CUSTOM:BlackPetal"
+      },
+      {
+        "value": "CUSTOM:BlackPetal"
+      },
+      {
+        "value": ""
+      },
+      {
+        "value": ""
+      },
+      {
+        "value": ""
+      },
+      {
+        "value": ""
+      }
+    ],
+    "recipeReturnStack": {
+      "value": "CUSTOM:BlackPetalBlock"
+    },
+    "name": "black_petal_block_recipe_2",
+    "namespace": "mod"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "natureplus:blocks/blue_petal_block",
+    "particle": "natureplus:blocks/blue_petal_block"
+  }
+}

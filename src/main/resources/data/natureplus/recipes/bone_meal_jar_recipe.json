@@ -1,0 +1,30 @@
+{
+  "group": "natureplus",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " 1 ",
+    "345",
+    " 7 "
+  ],
+  "key": {
+    "1": {
+      "tag": "minecraft:wooden_slabs"
+    },
+    "3": {
+      "item": "minecraft:glass_pane"
+    },
+    "4": {
+      "item": "minecraft:bone_block"
+    },
+    "5": {
+      "item": "minecraft:glass_pane"
+    },
+    "7": {
+      "item": "minecraft:glass_pane"
+    }
+  },
+  "result": {
+    "item": "natureplus:bone_meal_jar",
+    "count": 3
+  }
+}

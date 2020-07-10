@@ -1,0 +1,32 @@
+{
+  "group": "natureplus",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "012",
+    "345"
+  ],
+  "key": {
+    "0": {
+      "item": "natureplus:plant_stem_wood"
+    },
+    "1": {
+      "item": "natureplus:plant_stem_wood"
+    },
+    "2": {
+      "item": "natureplus:plant_stem_wood"
+    },
+    "3": {
+      "item": "natureplus:plant_stem_wood"
+    },
+    "4": {
+      "item": "natureplus:plant_stem_wood"
+    },
+    "5": {
+      "item": "natureplus:plant_stem_wood"
+    }
+  },
+  "result": {
+    "item": "natureplus:plant_stem_wall",
+    "count": 6
+  }
+}

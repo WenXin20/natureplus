@@ -1,0 +1,19 @@
+{
+  "group": "natureplus",
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "natureplus:empty_seed_packet"
+    },
+    {
+      "item": "natureplus:frozen_pea"
+    },
+    {
+      "item": "natureplus:sun"
+    }
+  ],
+  "result": {
+    "item": "natureplus:snow_pea_seed_packet",
+    "count": 1
+  }
+}

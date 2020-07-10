@@ -1,0 +1,25 @@
+{
+  "_fv": 10,
+  "_type": "food",
+  "definition": {
+    "renderType": 0,
+    "texture": "golden_mexican_sunflower_seeds",
+    "customModelName": "Normal",
+    "name": "§bGolden Mexican Sunflower Seeds",
+    "specialInfo": [],
+    "creativeTab": {
+      "value": "CUSTOM:NaturePlusTab"
+    },
+    "stackSize": 64,
+    "nutritionalValue": 6,
+    "saturation": 0.3,
+    "eatingSpeed": 16,
+    "forDogs": false,
+    "isAlwaysEdible": true,
+    "animation": "eat",
+    "hasGlow": false,
+    "onEaten": {
+      "name": "GoldenMexicanSunflowerSeedsEffects"
+    }
+  }
+}

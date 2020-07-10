@@ -1,0 +1,13 @@
+{
+  "group": "natureplus",
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "natureplus:azure_logs"
+    }
+  ],
+  "result": {
+    "item": "natureplus:azure_planks",
+    "count": 4
+  }
+}

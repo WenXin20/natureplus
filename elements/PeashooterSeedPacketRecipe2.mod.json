@@ -1,0 +1,46 @@
+{
+  "_fv": 10,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Crafting",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "recipeRetstackSize": 1,
+    "group": "",
+    "recipeShapeless": true,
+    "recipeSlots": [
+      {
+        "value": "CUSTOM:EmptySeedPacket"
+      },
+      {
+        "value": "TAG:forge:crops/pea"
+      },
+      {
+        "value": ""
+      },
+      {
+        "value": "CUSTOM:Sun"
+      },
+      {
+        "value": ""
+      },
+      {
+        "value": ""
+      },
+      {
+        "value": ""
+      },
+      {
+        "value": ""
+      },
+      {
+        "value": ""
+      }
+    ],
+    "recipeReturnStack": {
+      "value": "CUSTOM:PeashooterSeedPacket"
+    },
+    "name": "peashooter_seed_packet_recipe_2",
+    "namespace": "mod"
+  }
+}

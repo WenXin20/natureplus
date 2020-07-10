@@ -1,0 +1,10 @@
+{
+  "mappings": {
+    "default": {
+      "map": {
+        "head": "kernel_pult"
+      },
+      "name": "default"
+    }
+  }
+}

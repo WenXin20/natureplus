@@ -1,0 +1,42 @@
+{
+  "display": {
+    "icon": {
+      "item": "natureplus:cooked_mexican_sunflower_seeds"
+    },
+    "title": {
+      "translate": "advancements.cook_mexican_sunflower_seeds.title"
+    },
+    "description": {
+      "translate": "advancements.cook_mexican_sunflower_seeds.descr"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "cook_mexican_sunflower_seeds": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "natureplus:cooked_mexican_sunflower_seeds",
+            "count": {
+              "min": 1,
+              "max": 1
+            }
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "experience": 1,
+    "recipes": [
+      "natureplus:cooked_mexican_sunflower_seeds_furnace",
+      "natureplus:cooked_mexican_sunflower_seeds_campfire",
+      "natureplus:cooked_mexican_sunflower_seeds_smoker"
+    ]
+  },
+  "parent": "natureplus:plantsunflowercrop"
+}

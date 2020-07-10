@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "natureplus:blocks/plant_stem_top",
+    "up": "natureplus:blocks/plant_stem_top",
+    "north": "natureplus:blocks/plant_stem_side",
+    "east": "natureplus:blocks/plant_stem_side",
+    "south": "natureplus:blocks/plant_stem_side",
+    "west": "natureplus:blocks/plant_stem_side",
+    "particle": "natureplus:blocks/plant_stem_top"
+  }
+}

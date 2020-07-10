@@ -1,0 +1,47 @@
+{
+  "_fv": 10,
+  "_type": "gun",
+  "definition": {
+    "renderType": 1,
+    "texture": "corn_item",
+    "customModelName": "corn:default",
+    "name": "Corn",
+    "specialInfo": [
+      "§bRight-click to throw"
+    ],
+    "creativeTab": {
+      "value": "CUSTOM:PlantsVsZombiesTab"
+    },
+    "stackSize": 64,
+    "ammoItem": {
+      "value": "CUSTOM:Corn"
+    },
+    "shootConstantly": true,
+    "usageCount": 0,
+    "actionSound": {
+      "value": "CUSTOM:throw2"
+    },
+    "hasGlow": false,
+    "enableMeleeDamage": false,
+    "damageVsEntity": 0.0,
+    "bulletPower": 0.6,
+    "bulletDamage": 1.0,
+    "bulletKnockback": 0,
+    "bulletParticles": false,
+    "bulletIgnitesFire": false,
+    "bulletItemTexture": {
+      "value": "CUSTOM:Corn"
+    },
+    "bulletModel": "ModelCorn",
+    "customBulletModelTexture": "corn.png",
+    "onBulletHitsBlock": {
+      "name": "CornSplatSounds"
+    },
+    "onBulletHitsPlayer": {
+      "name": "CornSplatSounds"
+    },
+    "onBulletHitsEntity": {
+      "name": "CornEffects"
+    }
+  }
+}

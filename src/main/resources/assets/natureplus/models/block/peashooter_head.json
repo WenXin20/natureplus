@@ -1,0 +1,8 @@
+{
+  "parent": "natureplus:custom/peashooter_head",
+  "textures": {
+    "all": "natureplus:blocks/peashooter_head",
+    "particle": "natureplus:blocks/peashooter_head",
+    "head": "natureplus:blocks/peashooter2"
+  }
+}

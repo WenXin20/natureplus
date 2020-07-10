@@ -1,0 +1,37 @@
+{
+  "_fv": 10,
+  "_type": "tag",
+  "definition": {
+    "type": "Items",
+    "items": [
+      {
+        "value": "CUSTOM:AzureLog"
+      },
+      {
+        "value": "CUSTOM:StrippedAzureLog"
+      },
+      {
+        "value": "CUSTOM:AzureWood"
+      },
+      {
+        "value": "CUSTOM:StrippedAzureWood"
+      },
+      {
+        "value": "CUSTOM:PlantStem"
+      },
+      {
+        "value": "CUSTOM:PlantStemWood"
+      },
+      {
+        "value": "CUSTOM:StrippedPlantStem"
+      },
+      {
+        "value": "CUSTOM:StrippedPlantStemWood"
+      }
+    ],
+    "blocks": [],
+    "functions": [],
+    "name": "logs",
+    "namespace": "minecraft"
+  }
+}

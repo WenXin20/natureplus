@@ -1,0 +1,21 @@
+[
+  {
+    "modid": "flora_and_fauna",
+    "name": "Flora and Fauna",
+    "description": "This mod adds animals & plants.",
+    "version": "0.1.4",
+    "credits": "Created using mod maker MCreator - https://mcreator.net/about",
+    "logoFile": "",
+    "mcversion": "1.12.2",
+    "url": "https://mcreator.net",
+    "updateUrl": "",
+    "authorList": [
+      "newvi",
+      "MCreator"
+    ],
+    "dependencies": [],
+    "dependants": [],
+    "requiredMods": [],
+    "useDependencyInformation": "true"
+  }
+]

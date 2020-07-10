@@ -1,0 +1,13 @@
+{
+  "group": "natureplus",
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "natureplus:peashooter_head"
+    }
+  ],
+  "result": {
+    "item": "natureplus:peashooter_head_helmet",
+    "count": 1
+  }
+}

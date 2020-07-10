@@ -1,0 +1,26 @@
+{
+  "display": {
+    "icon": {
+      "item": "minecraft:golden_sword"
+    },
+    "title": {
+      "translate": "advancements.kill_pvz_zombie.title"
+    },
+    "description": {
+      "translate": "advancements.kill_pvz_zombie.descr"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "kill_pvz_zombie": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "rewards": {
+    "experience": 1
+  },
+  "parent": "natureplus:plants_vs_zombies_advancement"
+}

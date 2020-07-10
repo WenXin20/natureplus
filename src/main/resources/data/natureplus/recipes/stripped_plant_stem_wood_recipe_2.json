@@ -1,0 +1,26 @@
+{
+  "group": "natureplus",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "01",
+    "23"
+  ],
+  "key": {
+    "0": {
+      "item": "natureplus:stripped_plant_stem"
+    },
+    "1": {
+      "item": "natureplus:stripped_plant_stem"
+    },
+    "2": {
+      "item": "natureplus:stripped_plant_stem"
+    },
+    "3": {
+      "item": "natureplus:stripped_plant_stem"
+    }
+  },
+  "result": {
+    "item": "natureplus:stripped_plant_stem_wood",
+    "count": 3
+  }
+}

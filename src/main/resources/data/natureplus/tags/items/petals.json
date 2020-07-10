@@ -1,0 +1,22 @@
+{
+  "replace": false,
+  "values": [
+    "natureplus:white_petal",
+    "natureplus:orange_petal",
+    "natureplus:magenta_petal",
+    "natureplus:light_blue_petal",
+    "natureplus:yellow_petal",
+    "natureplus:lime_petal",
+    "natureplus:pink_petal",
+    "natureplus:gray_petal",
+    "natureplus:light_gray_petal",
+    "natureplus:cyan_petal",
+    "natureplus:purple_petal",
+    "natureplus:blue_petal",
+    "natureplus:brown_petal",
+    "natureplus:green_petal",
+    "natureplus:red_petal",
+    "natureplus:black_petal",
+    "natureplus:wither_petal"
+  ]
+}

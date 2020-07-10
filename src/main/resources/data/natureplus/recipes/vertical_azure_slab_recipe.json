@@ -1,0 +1,22 @@
+{
+  "group": "natureplus",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "012"
+  ],
+  "key": {
+    "0": {
+      "item": "natureplus:vertical_azure_planks"
+    },
+    "1": {
+      "item": "natureplus:vertical_azure_planks"
+    },
+    "2": {
+      "item": "natureplus:vertical_azure_planks"
+    }
+  },
+  "result": {
+    "item": "natureplus:vertical_azure_slab",
+    "count": 6
+  }
+}

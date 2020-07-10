@@ -1,0 +1,28 @@
+{
+  "mappings": {
+    "default": {
+      "map": {
+        "flowerpot": "flower_pot",
+        "plant": "mexican_sunflower7",
+        "dirt": "dirt"
+      },
+      "name": "default"
+    },
+    "potted_azure_sapling": {
+      "map": {
+        "flowerpot": "flower_pot",
+        "plant": "azure_sapling",
+        "dirt": "dirt"
+      },
+      "name": "potted_azure_sapling"
+    },
+    "potted_thorns": {
+      "map": {
+        "flowerpot": "flower_pot",
+        "plant": "thorn",
+        "dirt": "dirt"
+      },
+      "name": "potted_thorns"
+    }
+  }
+}

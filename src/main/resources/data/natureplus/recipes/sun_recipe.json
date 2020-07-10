@@ -1,0 +1,22 @@
+{
+  "group": "natureplus",
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "natureplus:small_sun"
+    },
+    {
+      "item": "natureplus:small_sun"
+    },
+    {
+      "item": "natureplus:small_sun"
+    },
+    {
+      "item": "natureplus:small_sun"
+    }
+  ],
+  "result": {
+    "item": "natureplus:sun",
+    "count": 1
+  }
+}

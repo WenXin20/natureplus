@@ -1,0 +1,25 @@
+{
+  "_fv": 10,
+  "_type": "tag",
+  "definition": {
+    "type": "Blocks",
+    "items": [],
+    "blocks": [
+      {
+        "value": "CUSTOM:AzurePlanks"
+      },
+      {
+        "value": "CUSTOM:VerticalAzurePlanks"
+      },
+      {
+        "value": "CUSTOM:PlantStemPlanks"
+      },
+      {
+        "value": "CUSTOM:VerticalPlantStemPlanks"
+      }
+    ],
+    "functions": [],
+    "name": "planks",
+    "namespace": "minecraft"
+  }
+}

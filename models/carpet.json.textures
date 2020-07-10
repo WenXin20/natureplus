@@ -1,0 +1,112 @@
+{
+  "mappings": {
+    "default": {
+      "map": {
+        "texture": "azure_leaves"
+      },
+      "name": "default"
+    },
+    "white_petal_carpet": {
+      "map": {
+        "texture": "white_petal_block"
+      },
+      "name": "white_petal_carpet"
+    },
+    "orange_petal_carpet": {
+      "map": {
+        "texture": "orange_petal_block"
+      },
+      "name": "orange_petal_carpet"
+    },
+    "magenta_petal_carpet": {
+      "map": {
+        "texture": "magenta_petal_block"
+      },
+      "name": "magenta_petal_carpet"
+    },
+    "light_blue_petal_carpet": {
+      "map": {
+        "texture": "light_blue_petal_block"
+      },
+      "name": "light_blue_petal_carpet"
+    },
+    "yellow_petal_carpet": {
+      "map": {
+        "texture": "yellow_petal_block"
+      },
+      "name": "yellow_petal_carpet"
+    },
+    "lime_petal_carpet": {
+      "map": {
+        "texture": "lime_petal_block"
+      },
+      "name": "lime_petal_carpet"
+    },
+    "pink_petal_carpet": {
+      "map": {
+        "texture": "pink_petal_block"
+      },
+      "name": "pink_petal_carpet"
+    },
+    "gray_petal_carpet": {
+      "map": {
+        "texture": "gray_petal_block"
+      },
+      "name": "gray_petal_carpet"
+    },
+    "light_gray_petal_carpet": {
+      "map": {
+        "texture": "light_gray_petal_block"
+      },
+      "name": "light_gray_petal_carpet"
+    },
+    "cyan_petal_carpet": {
+      "map": {
+        "texture": "cyan_petal_block"
+      },
+      "name": "cyan_petal_carpet"
+    },
+    "purple_petal_carpet": {
+      "map": {
+        "texture": "purple_petal_block"
+      },
+      "name": "purple_petal_carpet"
+    },
+    "blue_petal_carpet": {
+      "map": {
+        "texture": "blue_petal_block"
+      },
+      "name": "blue_petal_carpet"
+    },
+    "brown_petal_carpet": {
+      "map": {
+        "texture": "brown_petal_block"
+      },
+      "name": "brown_petal_carpet"
+    },
+    "green_petal_carpet": {
+      "map": {
+        "texture": "green_petal_block"
+      },
+      "name": "green_petal_carpet"
+    },
+    "red_petal_carpet": {
+      "map": {
+        "texture": "red_petal_block"
+      },
+      "name": "red_petal_carpet"
+    },
+    "black_petal_carpet": {
+      "map": {
+        "texture": "black_petal_block"
+      },
+      "name": "black_petal_carpet"
+    },
+    "leaf_carpet": {
+      "map": {
+        "texture": "leaf_block"
+      },
+      "name": "leaf_carpet"
+    }
+  }
+}

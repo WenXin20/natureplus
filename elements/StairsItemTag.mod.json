@@ -1,0 +1,25 @@
+{
+  "_fv": 10,
+  "_type": "tag",
+  "definition": {
+    "type": "Items",
+    "items": [
+      {
+        "value": "CUSTOM:VerticalAzureStairs"
+      },
+      {
+        "value": "CUSTOM:AzureStairs"
+      },
+      {
+        "value": "CUSTOM:PlantStemStairs"
+      },
+      {
+        "value": "CUSTOM:VerticalPlantStemStairs"
+      }
+    ],
+    "blocks": [],
+    "functions": [],
+    "name": "stairs",
+    "namespace": "minecraft"
+  }
+}

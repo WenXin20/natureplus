@@ -1,0 +1,22 @@
+{
+  "_fv": 10,
+  "_type": "tag",
+  "definition": {
+    "type": "Items",
+    "items": [
+      {
+        "value": "CUSTOM:Pea"
+      },
+      {
+        "value": "CUSTOM:RoastedPea"
+      },
+      {
+        "value": "CUSTOM:Corn"
+      }
+    ],
+    "blocks": [],
+    "functions": [],
+    "name": "vegetables",
+    "namespace": "forge"
+  }
+}

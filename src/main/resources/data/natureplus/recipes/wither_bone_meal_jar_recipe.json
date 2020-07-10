@@ -1,0 +1,22 @@
+{
+  "group": "natureplus",
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "natureplus:bone_meal_jar"
+    },
+    {
+      "item": "minecraft:wither_skeleton_skull"
+    },
+    {
+      "item": "natureplus:bone_meal_jar"
+    },
+    {
+      "item": "natureplus:bone_meal_jar"
+    }
+  ],
+  "result": {
+    "item": "natureplus:wither_bone_meal_jar",
+    "count": 3
+  }
+}

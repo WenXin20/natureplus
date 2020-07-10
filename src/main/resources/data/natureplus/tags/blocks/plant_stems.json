@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "natureplus:plant_stem",
+    "natureplus:plant_stem_wood",
+    "natureplus:stripped_plant_stem",
+    "natureplus:stripped_plant_stem_wood"
+  ]
+}

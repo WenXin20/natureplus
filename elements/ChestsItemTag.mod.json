@@ -1,0 +1,25 @@
+{
+  "_fv": 10,
+  "_type": "tag",
+  "definition": {
+    "type": "Items",
+    "items": [
+      {
+        "value": "CUSTOM:AzureCrate"
+      },
+      {
+        "value": "CUSTOM:StrippedAzureCrate"
+      },
+      {
+        "value": "CUSTOM:PlantStemCrate"
+      },
+      {
+        "value": "CUSTOM:StrippedPlantStemCrate"
+      }
+    ],
+    "blocks": [],
+    "functions": [],
+    "name": "chests",
+    "namespace": "forge"
+  }
+}

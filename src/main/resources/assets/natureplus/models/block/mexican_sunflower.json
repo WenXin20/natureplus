@@ -1,0 +1,7 @@
+{
+  "parent": "block/cross",
+  "textures": {
+    "cross": "natureplus:blocks/mexican_sunflower7",
+    "particle": "natureplus:blocks/mexican_sunflower7"
+  }
+}

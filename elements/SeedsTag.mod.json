@@ -1,0 +1,19 @@
+{
+  "_fv": 10,
+  "_type": "tag",
+  "definition": {
+    "type": "Items",
+    "items": [
+      {
+        "value": "CUSTOM:MexicanSunflowerSeeds"
+      },
+      {
+        "value": "CUSTOM:CookedMexicanSunflowerSeeds"
+      }
+    ],
+    "blocks": [],
+    "functions": [],
+    "name": "seeds",
+    "namespace": "forge"
+  }
+}

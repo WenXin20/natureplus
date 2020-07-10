@@ -1,0 +1,14 @@
+{
+  "_fv": 10,
+  "_type": "overlay",
+  "definition": {
+    "priority": "HIGHEST",
+    "components": [],
+    "baseTexture": "freezing_overlay.png",
+    "baseTextureW": 1920,
+    "baseTextureH": 1080,
+    "displayCondition": {
+      "name": "FreezingPotionEffects"
+    }
+  }
+}

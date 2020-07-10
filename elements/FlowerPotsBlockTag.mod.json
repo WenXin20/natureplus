@@ -1,0 +1,22 @@
+{
+  "_fv": 10,
+  "_type": "tag",
+  "definition": {
+    "type": "Blocks",
+    "items": [],
+    "blocks": [
+      {
+        "value": "CUSTOM:MexicanSunflowerFlowerPot"
+      },
+      {
+        "value": "CUSTOM:AzureSaplingFlowerPot"
+      },
+      {
+        "value": "CUSTOM:ThornsFlowerPot"
+      }
+    ],
+    "functions": [],
+    "name": "flower_pots",
+    "namespace": "minecraft"
+  }
+}

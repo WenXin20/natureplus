@@ -1,0 +1,19 @@
+{
+  "group": "natureplus",
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "natureplus:empty_seed_packet"
+    },
+    {
+      "tag": "forge:crops/pea"
+    },
+    {
+      "item": "natureplus:sun"
+    }
+  ],
+  "result": {
+    "item": "natureplus:peashooter_seed_packet",
+    "count": 1
+  }
+}

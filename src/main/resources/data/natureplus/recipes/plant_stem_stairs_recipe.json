@@ -1,0 +1,33 @@
+{
+  "group": "natureplus",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "0  ",
+    "34 ",
+    "678"
+  ],
+  "key": {
+    "0": {
+      "item": "natureplus:plant_stem_planks"
+    },
+    "3": {
+      "item": "natureplus:plant_stem_planks"
+    },
+    "4": {
+      "item": "natureplus:plant_stem_planks"
+    },
+    "6": {
+      "item": "natureplus:plant_stem_planks"
+    },
+    "7": {
+      "item": "natureplus:plant_stem_planks"
+    },
+    "8": {
+      "item": "natureplus:plant_stem_planks"
+    }
+  },
+  "result": {
+    "item": "natureplus:plant_stem_stairs",
+    "count": 4
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "_fv": 10,
+  "_type": "tag",
+  "definition": {
+    "type": "Items",
+    "items": [
+      {
+        "value": "CUSTOM:AzureTrapdoor"
+      },
+      {
+        "value": "CUSTOM:AzureGlassTrapdoor"
+      },
+      {
+        "value": "CUSTOM:PlantStemTrapdoor"
+      },
+      {
+        "value": "CUSTOM:PlantStemGlassTrapdoor"
+      }
+    ],
+    "blocks": [],
+    "functions": [],
+    "name": "trapdoors",
+    "namespace": "minecraft"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "group": "natureplus",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "012",
+    "3 5",
+    "678"
+  ],
+  "key": {
+    "0": {
+      "item": "natureplus:stripped_azure_wood"
+    },
+    "1": {
+      "tag": "natureplus:azure_planks"
+    },
+    "2": {
+      "item": "natureplus:stripped_azure_wood"
+    },
+    "3": {
+      "tag": "natureplus:azure_planks"
+    },
+    "5": {
+      "tag": "natureplus:azure_planks"
+    },
+    "6": {
+      "item": "natureplus:stripped_azure_wood"
+    },
+    "7": {
+      "tag": "natureplus:azure_planks"
+    },
+    "8": {
+      "item": "natureplus:stripped_azure_wood"
+    }
+  },
+  "result": {
+    "item": "natureplus:stripped_azure_crate",
+    "count": 1
+  }
+}

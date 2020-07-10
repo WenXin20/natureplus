@@ -1,0 +1,52 @@
+{
+  "_fv": 10,
+  "_type": "plant",
+  "definition": {
+    "renderType": 12,
+    "texture": "mexican_sunflower7",
+    "customModelName": "Cross model",
+    "plantType": "normal",
+    "growapableSpawnType": "Plains",
+    "growapableMaxHeight": 1,
+    "name": "Mexican Sunflower",
+    "specialInfo": [],
+    "creativeTab": {
+      "value": "CUSTOM:NaturePlusTab"
+    },
+    "hardness": 0.0,
+    "resistance": 1.0,
+    "luminance": 0.0,
+    "unbreakable": false,
+    "soundOnStep": {
+      "value": "PLANT"
+    },
+    "customDrop": {
+      "value": ""
+    },
+    "dropAmount": 1,
+    "forceTicking": false,
+    "emissiveRendering": false,
+    "hasTileEntity": false,
+    "isReplaceable": false,
+    "colorOnMap": "GOLD",
+    "creativePickItem": {
+      "value": ""
+    },
+    "offsetType": "XZ",
+    "aiPathNodeType": "DEFAULT",
+    "flammability": 30,
+    "fireSpreadSpeed": 0,
+    "frequencyOnChunks": 2,
+    "spawnWorldTypes": [
+      "Surface"
+    ],
+    "restrictionBiomes": [
+      {
+        "value": "plains"
+      },
+      {
+        "value": "mutated_plains"
+      }
+    ]
+  }
+}

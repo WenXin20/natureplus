@@ -1,0 +1,25 @@
+{
+  "_fv": 10,
+  "_type": "achievement",
+  "definition": {
+    "achievementName": "Yum!",
+    "achievementDescription": "Consume a Golden Mexican Sunflower Seed",
+    "achievementIcon": {
+      "value": "CUSTOM:GoldenMexicanSunflowerSeeds"
+    },
+    "background": "Default",
+    "disableDisplay": false,
+    "showPopup": true,
+    "announceToChat": true,
+    "hideIfNotCompleted": false,
+    "rewardLoot": [],
+    "rewardRecipes": [],
+    "rewardFunction": "No function",
+    "rewardXP": 1,
+    "achievementType": "goal",
+    "parent": {
+      "value": "CUSTOM:CookMexicanSunflowerSeeds"
+    },
+    "triggerxml": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><block type=\"item_consumed\" x=\"52\" y=\"25\"><value name=\"item\"><block type=\"mcitem_all\"><field name=\"value\">CUSTOM:GoldenMexicanSunflowerSeeds</field></block></value><next><block type=\"advancement_trigger\" deletable=\"false\"/></next></block></xml>"
+  }
+}

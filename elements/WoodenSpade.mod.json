@@ -1,0 +1,51 @@
+{
+  "_fv": 10,
+  "_type": "tool",
+  "definition": {
+    "renderType": 0,
+    "texture": "wooden_spade",
+    "customModelName": "Normal",
+    "name": "Wooden Spade",
+    "specialInfo": [
+      "§bRemoves plants,",
+      "§bstunts insect growth"
+    ],
+    "creativeTab": {
+      "value": "CUSTOM:PlantsVsZombiesTab"
+    },
+    "toolType": "Spade",
+    "harvestLevel": 0,
+    "efficiency": 2.0,
+    "attackSpeed": 1.0,
+    "enchantability": 15,
+    "damageVsEntity": 2.5,
+    "usageCount": 59,
+    "blocksAffected": [],
+    "hasGlow": false,
+    "repairItems": [
+      {
+        "value": "Blocks.PLANKS#0"
+      },
+      {
+        "value": "Blocks.PLANKS#1"
+      },
+      {
+        "value": "Blocks.PLANKS#2"
+      },
+      {
+        "value": "Blocks.PLANKS#3"
+      },
+      {
+        "value": "Blocks.PLANKS#4"
+      },
+      {
+        "value": "Blocks.PLANKS#5"
+      }
+    ],
+    "stayInGridWhenCrafting": false,
+    "damageOnCrafting": false,
+    "onEntityHitWith": {
+      "name": "SpadeRemovePeashooter"
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "parent": "block/slab",
+  "textures": {
+    "bottom": "natureplus:blocks/vertical_plant_stem_planks",
+    "top": "natureplus:blocks/vertical_plant_stem_planks",
+    "side": "natureplus:blocks/vertical_plant_stem_planks"
+  }
+}

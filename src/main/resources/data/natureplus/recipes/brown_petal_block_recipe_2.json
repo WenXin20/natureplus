@@ -1,0 +1,26 @@
+{
+  "group": "natureplus",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "01",
+    "23"
+  ],
+  "key": {
+    "0": {
+      "item": "natureplus:brown_petal"
+    },
+    "1": {
+      "item": "natureplus:brown_petal"
+    },
+    "2": {
+      "item": "natureplus:brown_petal"
+    },
+    "3": {
+      "item": "natureplus:brown_petal"
+    }
+  },
+  "result": {
+    "item": "natureplus:brown_petal_block",
+    "count": 1
+  }
+}

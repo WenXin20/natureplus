@@ -1,0 +1,9 @@
+{
+  "parent": "natureplus:custom/crate",
+  "textures": {
+    "all": "natureplus:blocks/azure_planks",
+    "particle": "natureplus:blocks/azure_planks",
+    "crate_frame": "natureplus:blocks/azure_stripped_log",
+    "crate_center": "natureplus:blocks/azure_planks"
+  }
+}

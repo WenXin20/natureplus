@@ -1,0 +1,26 @@
+{
+  "display": {
+    "icon": {
+      "item": "minecraft:blue_orchid"
+    },
+    "title": {
+      "translate": "advancements.giant_blue_orchid_advancement.title"
+    },
+    "description": {
+      "translate": "advancements.giant_blue_orchid_advancement.descr"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "giant_blue_orchid_advancement": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "rewards": {
+    "experience": 1
+  },
+  "parent": "natureplus:petals_advancement"
+}

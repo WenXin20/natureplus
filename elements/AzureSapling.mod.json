@@ -1,0 +1,49 @@
+{
+  "_fv": 10,
+  "_type": "plant",
+  "definition": {
+    "renderType": 12,
+    "texture": "azure_sapling",
+    "customModelName": "Cross model",
+    "plantType": "growapable",
+    "growapableSpawnType": "Plains",
+    "growapableMaxHeight": 1,
+    "name": "Azure Sapling",
+    "specialInfo": [],
+    "creativeTab": {
+      "value": "CUSTOM:NaturePlusTab"
+    },
+    "hardness": 0.0,
+    "resistance": 0.0,
+    "luminance": 0.0,
+    "unbreakable": false,
+    "soundOnStep": {
+      "value": "PLANT"
+    },
+    "customDrop": {
+      "value": ""
+    },
+    "dropAmount": 1,
+    "forceTicking": false,
+    "emissiveRendering": false,
+    "hasTileEntity": false,
+    "isReplaceable": false,
+    "colorOnMap": "LIGHT_BLUE",
+    "creativePickItem": {
+      "value": ""
+    },
+    "offsetType": "XZ",
+    "aiPathNodeType": "DEFAULT",
+    "flammability": 0,
+    "fireSpreadSpeed": 0,
+    "frequencyOnChunks": 0,
+    "spawnWorldTypes": [],
+    "restrictionBiomes": [],
+    "onTickUpdate": {
+      "name": "GrowAzureTree"
+    },
+    "onRightClicked": {
+      "name": "GrowAzureTreeBonemeal"
+    }
+  }
+}

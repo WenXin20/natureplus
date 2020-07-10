@@ -1,0 +1,46 @@
+{
+  "_fv": 10,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Crafting",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "recipeRetstackSize": 4,
+    "group": "",
+    "recipeShapeless": false,
+    "recipeSlots": [
+      {
+        "value": "CUSTOM:VerticalPlantStemPlanks"
+      },
+      {
+        "value": ""
+      },
+      {
+        "value": ""
+      },
+      {
+        "value": "CUSTOM:VerticalPlantStemPlanks"
+      },
+      {
+        "value": "CUSTOM:VerticalPlantStemPlanks"
+      },
+      {
+        "value": ""
+      },
+      {
+        "value": "CUSTOM:VerticalPlantStemPlanks"
+      },
+      {
+        "value": "CUSTOM:VerticalPlantStemPlanks"
+      },
+      {
+        "value": "CUSTOM:VerticalPlantStemPlanks"
+      }
+    ],
+    "recipeReturnStack": {
+      "value": "CUSTOM:VerticalPlantStemStairs"
+    },
+    "name": "vertical_plant_stem_stairs_recipe",
+    "namespace": "mod"
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "_fv": 10,
+  "_type": "loottable",
+  "definition": {
+    "type": "Chest",
+    "pools": [
+      {
+        "minrolls": 2,
+        "maxrolls": 4,
+        "minbonusrolls": 1,
+        "maxbonusrolls": 1,
+        "hasbonusrolls": false,
+        "entries": [
+          {
+            "type": "item",
+            "item": {
+              "value": "CUSTOM:GoldenPlum"
+            },
+            "weight": 20
+          },
+          {
+            "type": "item",
+            "item": {
+              "value": "CUSTOM:EnchantedGoldenPlum"
+            },
+            "weight": 2
+          },
+          {
+            "type": "item",
+            "item": {
+              "value": "CUSTOM:GoldenMexicanSunflowerSeeds"
+            },
+            "weight": 20
+          },
+          {
+            "type": "item",
+            "item": {
+              "value": "Blocks.AIR"
+            },
+            "weight": 58
+          }
+        ]
+      }
+    ],
+    "name": "inject/desert_pyramid",
+    "namespace": "mod"
+  }
+}

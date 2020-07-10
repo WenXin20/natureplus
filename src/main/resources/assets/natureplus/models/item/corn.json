@@ -1,0 +1,7 @@
+{
+  "parent": "natureplus:custom/corn",
+  "textures": {
+    "corn": "natureplus:blocks/corn",
+    "particle": "natureplus:items/corn_item"
+  }
+}

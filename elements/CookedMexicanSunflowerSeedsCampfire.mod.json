@@ -1,0 +1,20 @@
+{
+  "_fv": 10,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Campfire cooking",
+    "xpReward": 0.35,
+    "cookingTime": 100,
+    "recipeRetstackSize": 1,
+    "group": "",
+    "recipeShapeless": false,
+    "campfireCookingInputStack": {
+      "value": "CUSTOM:MexicanSunflowerSeeds"
+    },
+    "campfireCookingReturnStack": {
+      "value": "CUSTOM:CookedMexicanSunflowerSeeds"
+    },
+    "name": "cooked_mexican_sunflower_seeds_campfire",
+    "namespace": "mod"
+  }
+}

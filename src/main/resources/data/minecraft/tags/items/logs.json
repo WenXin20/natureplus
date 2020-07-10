@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "natureplus:azure_log",
+    "natureplus:stripped_azure_log",
+    "natureplus:azure_wood",
+    "natureplus:stripped_azure_wood",
+    "natureplus:plant_stem",
+    "natureplus:plant_stem_wood",
+    "natureplus:stripped_plant_stem",
+    "natureplus:stripped_plant_stem_wood"
+  ]
+}

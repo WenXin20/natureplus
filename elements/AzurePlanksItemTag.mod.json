@@ -1,0 +1,19 @@
+{
+  "_fv": 10,
+  "_type": "tag",
+  "definition": {
+    "type": "Items",
+    "items": [
+      {
+        "value": "CUSTOM:AzurePlanks"
+      },
+      {
+        "value": "CUSTOM:VerticalAzurePlanks"
+      }
+    ],
+    "blocks": [],
+    "functions": [],
+    "name": "azure_planks",
+    "namespace": "mod"
+  }
+}

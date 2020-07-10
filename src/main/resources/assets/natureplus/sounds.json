@@ -1,0 +1,200 @@
+{
+  "zombie_gulp": {
+    "category": "master",
+    "sounds": [
+      {
+        "name": "natureplus:gulp",
+        "stream": false
+      }
+    ]
+  },
+  "pea_splat": {
+    "category": "master",
+    "sounds": [
+      {
+        "name": "natureplus:splat",
+        "stream": false
+      }
+    ]
+  },
+  "pea_splat2": {
+    "category": "master",
+    "sounds": [
+      {
+        "name": "natureplus:splat2",
+        "stream": false
+      }
+    ]
+  },
+  "pea_splat3": {
+    "category": "master",
+    "sounds": [
+      {
+        "name": "natureplus:splat3",
+        "stream": false
+      }
+    ]
+  },
+  "peashooter_firing2": {
+    "category": "master",
+    "sounds": [
+      {
+        "name": "natureplus:peashooter_throw2",
+        "stream": false
+      }
+    ]
+  },
+  "snow_pea_firing": {
+    "category": "master",
+    "sounds": [
+      {
+        "name": "natureplus:snow_pea_firing",
+        "stream": false
+      }
+    ]
+  },
+  "butterfly_flying": {
+    "category": "master",
+    "sounds": [
+      {
+        "name": "natureplus:butterfly_flying",
+        "stream": false
+      }
+    ]
+  },
+  "zombie_bite": {
+    "category": "master",
+    "sounds": [
+      {
+        "name": "natureplus:zombiebite",
+        "stream": false
+      }
+    ]
+  },
+  "peashooter_firing": {
+    "category": "master",
+    "sounds": [
+      {
+        "name": "natureplus:peashooter_throw",
+        "stream": false
+      }
+    ]
+  },
+  "bug_squish": {
+    "category": "master",
+    "sounds": [
+      {
+        "name": "natureplus:bug_squish",
+        "stream": false
+      }
+    ]
+  },
+  "squitch": {
+    "category": "master",
+    "sounds": [
+      {
+        "name": "natureplus:squitch",
+        "stream": false
+      }
+    ]
+  },
+  "sunflower_collect": {
+    "category": "master",
+    "sounds": [
+      {
+        "name": "natureplus:sunflower_collect",
+        "stream": false
+      }
+    ]
+  },
+  "plant": {
+    "category": "master",
+    "sounds": [
+      {
+        "name": "natureplus:plant",
+        "stream": false
+      }
+    ]
+  },
+  "plant2": {
+    "category": "master",
+    "sounds": [
+      {
+        "name": "natureplus:plant2",
+        "stream": false
+      }
+    ]
+  },
+  "plant_water": {
+    "category": "master",
+    "sounds": [
+      {
+        "name": "natureplus:plant_water",
+        "stream": false
+      }
+    ]
+  },
+  "shovel": {
+    "category": "master",
+    "sounds": [
+      {
+        "name": "natureplus:shovel",
+        "stream": false
+      }
+    ]
+  },
+  "vase_breaking": {
+    "category": "master",
+    "sounds": [
+      {
+        "name": "natureplus:vase_breaking",
+        "stream": false
+      }
+    ]
+  },
+  "kernel_pult": {
+    "category": "master",
+    "sounds": [
+      {
+        "name": "natureplus:kernelpult",
+        "stream": false
+      }
+    ]
+  },
+  "kernel_pult2": {
+    "category": "master",
+    "sounds": [
+      {
+        "name": "natureplus:kernelpult2",
+        "stream": false
+      }
+    ]
+  },
+  "throw": {
+    "category": "master",
+    "sounds": [
+      {
+        "name": "natureplus:throw",
+        "stream": false
+      }
+    ]
+  },
+  "throw2": {
+    "category": "master",
+    "sounds": [
+      {
+        "name": "natureplus:throw2",
+        "stream": false
+      }
+    ]
+  },
+  "swoosh": {
+    "category": "master",
+    "sounds": [
+      {
+        "name": "natureplus:swoosh",
+        "stream": false
+      }
+    ]
+  }
+}

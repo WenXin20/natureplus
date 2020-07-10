@@ -1,0 +1,7 @@
+{
+  "parent": "block/template_orientable_trapdoor_bottom",
+  "textures": {
+    "texture": "natureplus:blocks/azure_glass_trapdoor",
+    "particle": "natureplus:blocks/azure_glass_trapdoor"
+  }
+}

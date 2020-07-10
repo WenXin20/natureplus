@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "natureplus:block/plant_stem_slab"
+    },
+    "type=top": {
+      "model": "natureplus:block/plant_stem_slab_top"
+    },
+    "type=double": {
+      "model": "natureplus:block/plant_stem_slab_full"
+    }
+  }
+}

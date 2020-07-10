@@ -1,0 +1,20 @@
+{
+  "_fv": 10,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Smoking",
+    "xpReward": 0.35,
+    "cookingTime": 50,
+    "recipeRetstackSize": 1,
+    "group": "",
+    "recipeShapeless": false,
+    "smokingInputStack": {
+      "value": "CUSTOM:MexicanSunflowerSeeds"
+    },
+    "smokingReturnStack": {
+      "value": "CUSTOM:CookedMexicanSunflowerSeeds"
+    },
+    "name": "cooked_mexican_sunflower_seeds_smoker",
+    "namespace": "mod"
+  }
+}

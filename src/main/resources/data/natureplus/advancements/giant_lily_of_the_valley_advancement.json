@@ -1,0 +1,26 @@
+{
+  "display": {
+    "icon": {
+      "item": "minecraft:lily_of_the_valley"
+    },
+    "title": {
+      "translate": "advancements.giant_lily_of_the_valley_advancement.title"
+    },
+    "description": {
+      "translate": "advancements.giant_lily_of_the_valley_advancement.descr"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "giant_lily_of_the_valley_advancement": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "rewards": {
+    "experience": 1
+  },
+  "parent": "natureplus:petals_advancement"
+}

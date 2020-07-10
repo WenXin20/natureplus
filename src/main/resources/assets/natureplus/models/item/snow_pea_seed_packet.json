@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "natureplus:items/snow_pea_seed_packet"
+  }
+}

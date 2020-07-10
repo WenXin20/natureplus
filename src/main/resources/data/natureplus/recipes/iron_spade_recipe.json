@@ -1,0 +1,24 @@
+{
+  "group": "natureplus",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "0",
+    "1",
+    "2"
+  ],
+  "key": {
+    "0": {
+      "tag": "forge:ingots/iron"
+    },
+    "1": {
+      "tag": "forge:rods/wooden"
+    },
+    "2": {
+      "item": "minecraft:red_terracotta"
+    }
+  },
+  "result": {
+    "item": "natureplus:iron_spade",
+    "count": 1
+  }
+}

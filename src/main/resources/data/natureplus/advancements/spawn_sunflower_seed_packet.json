@@ -1,0 +1,26 @@
+{
+  "display": {
+    "icon": {
+      "item": "natureplus:sunflower_seed_packet"
+    },
+    "title": {
+      "translate": "advancements.spawn_sunflower_seed_packet.title"
+    },
+    "description": {
+      "translate": "advancements.spawn_sunflower_seed_packet.descr"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "spawn_sunflower_seed_packet": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "rewards": {
+    "experience": 1
+  },
+  "parent": "natureplus:plants_vs_zombies_advancement"
+}

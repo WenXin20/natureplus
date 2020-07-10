@@ -1,0 +1,30 @@
+{
+  "group": "natureplus",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " 1 ",
+    "345",
+    " 7 "
+  ],
+  "key": {
+    "1": {
+      "item": "minecraft:paper"
+    },
+    "3": {
+      "item": "minecraft:paper"
+    },
+    "4": {
+      "tag": "forge:dyes/light_blue"
+    },
+    "5": {
+      "item": "minecraft:paper"
+    },
+    "7": {
+      "item": "minecraft:paper"
+    }
+  },
+  "result": {
+    "item": "natureplus:empty_seed_packet",
+    "count": 4
+  }
+}

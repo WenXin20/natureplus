@@ -1,0 +1,8 @@
+{
+  "parent": "natureplus:custom/crop_cross",
+  "textures": {
+    "all": "natureplus:blocks/mexican_sunflower_crop_age4_2",
+    "particle": "natureplus:blocks/mexican_sunflower_crop_age4_2",
+    "cross": "natureplus:blocks/mexican_sunflower_crop_age4_2"
+  }
+}

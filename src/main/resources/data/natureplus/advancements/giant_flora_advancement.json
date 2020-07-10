@@ -1,0 +1,29 @@
+{
+  "display": {
+    "background": "minecraft:textures/block/stone.png",
+    "icon": {
+      "item": "natureplus:plant_stem"
+    },
+    "title": {
+      "translate": "advancements.giant_flora_advancement.title"
+    },
+    "description": {
+      "translate": "advancements.giant_flora_advancement.descr"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "giant_flora_advancement": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "biome": "natureplus:giant_flora"
+      }
+    }
+  },
+  "rewards": {
+    "experience": 1
+  }
+}

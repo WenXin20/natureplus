@@ -1,0 +1,7 @@
+{
+  "parent": "block/template_wall_side",
+  "textures": {
+    "wall": "natureplus:blocks/azure_stripped_log",
+    "particle": "natureplus:blocks/azure_stripped_log"
+  }
+}

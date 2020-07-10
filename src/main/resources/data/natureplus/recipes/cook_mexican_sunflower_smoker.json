@@ -1,0 +1,12 @@
+{
+  "group": "natureplus",
+  "type": "minecraft:smoking",
+  "experience": 0.35,
+  "cookingtime": 100,
+  "ingredient": {
+    "item": "natureplus:mexican_sunflower"
+  },
+  "result": {
+    "item": "minecraft:orange_dye"
+  }
+}

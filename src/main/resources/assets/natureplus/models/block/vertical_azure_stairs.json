@@ -1,0 +1,8 @@
+{
+  "parent": "block/stairs",
+  "textures": {
+    "bottom": "natureplus:blocks/vertical_azure_planks",
+    "top": "natureplus:blocks/vertical_azure_planks",
+    "side": "natureplus:blocks/vertical_azure_planks"
+  }
+}

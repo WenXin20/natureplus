@@ -1,0 +1,293 @@
+{
+  "credit": "Made with Blockbench",
+  "elements": [
+    {
+      "name": "corn",
+      "from": [
+        6,
+        0,
+        6
+      ],
+      "to": [
+        10,
+        3,
+        10
+      ],
+      "rotation": {
+        "angle": 0,
+        "axis": "y",
+        "origin": [
+          7.5,
+          0,
+          8.5
+        ]
+      },
+      "faces": {
+        "north": {
+          "uv": [
+            4,
+            4,
+            8,
+            7
+          ],
+          "texture": "#corn"
+        },
+        "east": {
+          "uv": [
+            0,
+            4,
+            4,
+            7
+          ],
+          "texture": "#corn"
+        },
+        "south": {
+          "uv": [
+            12,
+            4,
+            16,
+            7
+          ],
+          "texture": "#corn"
+        },
+        "west": {
+          "uv": [
+            8,
+            4,
+            12,
+            7
+          ],
+          "texture": "#corn"
+        },
+        "up": {
+          "uv": [
+            8,
+            4,
+            4,
+            0
+          ],
+          "texture": "#corn"
+        },
+        "down": {
+          "uv": [
+            12,
+            0,
+            8,
+            4
+          ],
+          "texture": "#corn"
+        }
+      }
+    },
+    {
+      "name": "corn",
+      "from": [
+        6.5,
+        2.5,
+        6.5
+      ],
+      "to": [
+        9.5,
+        4.5,
+        9.5
+      ],
+      "rotation": {
+        "angle": 0,
+        "axis": "y",
+        "origin": [
+          7.5,
+          0.5,
+          8.5
+        ]
+      },
+      "faces": {
+        "north": {
+          "uv": [
+            3,
+            10,
+            6,
+            12
+          ],
+          "texture": "#corn"
+        },
+        "east": {
+          "uv": [
+            0,
+            10,
+            3,
+            12
+          ],
+          "texture": "#corn"
+        },
+        "south": {
+          "uv": [
+            9,
+            10,
+            12,
+            12
+          ],
+          "texture": "#corn"
+        },
+        "west": {
+          "uv": [
+            6,
+            10,
+            9,
+            12
+          ],
+          "texture": "#corn"
+        },
+        "up": {
+          "uv": [
+            6,
+            10,
+            3,
+            7
+          ],
+          "texture": "#corn"
+        },
+        "down": {
+          "uv": [
+            9,
+            7,
+            6,
+            10
+          ],
+          "texture": "#corn"
+        }
+      }
+    }
+  ],
+  "display": {
+    "thirdperson_righthand": {
+      "rotation": [
+        75,
+        45,
+        0
+      ],
+      "translation": [
+        0,
+        2.75,
+        5.5
+      ],
+      "scale": [
+        0.85,
+        0.85,
+        0.85
+      ]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [
+        75,
+        45,
+        0
+      ],
+      "translation": [
+        0,
+        2.75,
+        5.5
+      ],
+      "scale": [
+        0.85,
+        0.85,
+        0.85
+      ]
+    },
+    "firstperson_righthand": {
+      "rotation": [
+        0,
+        45,
+        0
+      ],
+      "translation": [
+        1.5,
+        6.75,
+        0
+      ],
+      "scale": [
+        0.85,
+        0.85,
+        0.85
+      ]
+    },
+    "firstperson_lefthand": {
+      "rotation": [
+        0,
+        45,
+        0
+      ],
+      "translation": [
+        1.5,
+        6.75,
+        0
+      ],
+      "scale": [
+        0.85,
+        0.85,
+        0.85
+      ]
+    },
+    "ground": {
+      "translation": [
+        0,
+        3,
+        0
+      ],
+      "scale": [
+        0.85,
+        0.85,
+        0.85
+      ]
+    },
+    "gui": {
+      "rotation": [
+        30,
+        225,
+        0
+      ],
+      "translation": [
+        0,
+        5.75,
+        0
+      ],
+      "scale": [
+        1.47,
+        1.47,
+        1.47
+      ]
+    },
+    "head": {
+      "translation": [
+        0,
+        14.5,
+        0
+      ]
+    },
+    "fixed": {
+      "translation": [
+        0,
+        7.25,
+        -0.25
+      ],
+      "scale": [
+        1.35,
+        1.35,
+        1.35
+      ]
+    }
+  },
+  "groups": [
+    {
+      "name": "corn",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "children": [
+        0,
+        1
+      ]
+    }
+  ]
+}

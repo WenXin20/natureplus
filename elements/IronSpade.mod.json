@@ -1,0 +1,36 @@
+{
+  "_fv": 10,
+  "_type": "tool",
+  "definition": {
+    "renderType": 0,
+    "texture": "iron_spade",
+    "customModelName": "Normal",
+    "name": "Iron Spade",
+    "specialInfo": [
+      "§bRemoves plants,",
+      "§bstunts insect growth"
+    ],
+    "creativeTab": {
+      "value": "CUSTOM:PlantsVsZombiesTab"
+    },
+    "toolType": "Spade",
+    "harvestLevel": 2,
+    "efficiency": 6.0,
+    "attackSpeed": 1.0,
+    "enchantability": 14,
+    "damageVsEntity": 4.5,
+    "usageCount": 250,
+    "blocksAffected": [],
+    "hasGlow": false,
+    "repairItems": [
+      {
+        "value": "Items.IRON_INGOT"
+      }
+    ],
+    "stayInGridWhenCrafting": false,
+    "damageOnCrafting": false,
+    "onEntityHitWith": {
+      "name": "SpadeRemovePeashooter"
+    }
+  }
+}

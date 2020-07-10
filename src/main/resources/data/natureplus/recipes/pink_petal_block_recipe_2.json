@@ -1,0 +1,26 @@
+{
+  "group": "natureplus",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "01",
+    "23"
+  ],
+  "key": {
+    "0": {
+      "item": "natureplus:pink_petal"
+    },
+    "1": {
+      "item": "natureplus:pink_petal"
+    },
+    "2": {
+      "item": "natureplus:pink_petal"
+    },
+    "3": {
+      "item": "natureplus:pink_petal"
+    }
+  },
+  "result": {
+    "item": "natureplus:pink_petal_block",
+    "count": 1
+  }
+}

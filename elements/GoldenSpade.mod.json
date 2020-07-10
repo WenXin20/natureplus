@@ -1,0 +1,36 @@
+{
+  "_fv": 10,
+  "_type": "tool",
+  "definition": {
+    "renderType": 0,
+    "texture": "golden_spade",
+    "customModelName": "Normal",
+    "name": "Golden Spade",
+    "specialInfo": [
+      "§bRemoves plants,",
+      "§bstunts insect growth"
+    ],
+    "creativeTab": {
+      "value": "CUSTOM:PlantsVsZombiesTab"
+    },
+    "toolType": "Spade",
+    "harvestLevel": 1,
+    "efficiency": 10.0,
+    "attackSpeed": 1.0,
+    "enchantability": 22,
+    "damageVsEntity": 2.5,
+    "usageCount": 32,
+    "blocksAffected": [],
+    "hasGlow": false,
+    "repairItems": [
+      {
+        "value": "Items.GOLD_INGOT"
+      }
+    ],
+    "stayInGridWhenCrafting": false,
+    "damageOnCrafting": false,
+    "onEntityHitWith": {
+      "name": "SpadeRemovePeashooter"
+    }
+  }
+}

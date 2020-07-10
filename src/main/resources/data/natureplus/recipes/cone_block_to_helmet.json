@@ -1,0 +1,13 @@
+{
+  "group": "natureplus",
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "natureplus:cone_block"
+    }
+  ],
+  "result": {
+    "item": "natureplus:cone_helmet",
+    "count": 1
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "display": {
+    "icon": {
+      "item": "minecraft:oxeye_daisy"
+    },
+    "title": {
+      "translate": "advancements.giant_oxeye_daisy_advancement.title"
+    },
+    "description": {
+      "translate": "advancements.giant_oxeye_daisy_advancement.descr"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "giant_oxeye_daisy_advancement": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "rewards": {
+    "experience": 1
+  },
+  "parent": "natureplus:petals_advancement"
+}

@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "natureplus:blocks/azure_stripped_log_top",
+    "up": "natureplus:blocks/azure_stripped_log_top",
+    "north": "natureplus:blocks/azure_stripped_log",
+    "east": "natureplus:blocks/azure_stripped_log",
+    "south": "natureplus:blocks/azure_stripped_log",
+    "west": "natureplus:blocks/azure_stripped_log",
+    "particle": "natureplus:blocks/azure_stripped_log_top"
+  }
+}

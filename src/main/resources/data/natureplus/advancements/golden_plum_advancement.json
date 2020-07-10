@@ -1,0 +1,31 @@
+{
+  "display": {
+    "icon": {
+      "item": "natureplus:golden_plum"
+    },
+    "title": {
+      "translate": "advancements.golden_plum_advancement.title"
+    },
+    "description": {
+      "translate": "advancements.golden_plum_advancement.descr"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "golden_plum_advancement": {
+      "trigger": "minecraft:consume_item",
+      "conditions": {
+        "item": {
+          "item": "natureplus:golden_plum"
+        }
+      }
+    }
+  },
+  "rewards": {
+    "experience": 2
+  },
+  "parent": "natureplus:plum_advancement"
+}

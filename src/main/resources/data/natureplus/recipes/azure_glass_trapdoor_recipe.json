@@ -1,0 +1,32 @@
+{
+  "group": "natureplus",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "012",
+    "345"
+  ],
+  "key": {
+    "0": {
+      "tag": "natureplus:azure_planks"
+    },
+    "1": {
+      "item": "minecraft:glass"
+    },
+    "2": {
+      "tag": "natureplus:azure_planks"
+    },
+    "3": {
+      "tag": "natureplus:azure_planks"
+    },
+    "4": {
+      "item": "minecraft:glass"
+    },
+    "5": {
+      "tag": "natureplus:azure_planks"
+    }
+  },
+  "result": {
+    "item": "natureplus:azure_glass_trapdoor",
+    "count": 2
+  }
+}

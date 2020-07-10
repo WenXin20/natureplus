@@ -1,0 +1,8 @@
+{
+  "parent": "block/outer_stairs",
+  "textures": {
+    "bottom": "natureplus:blocks/plant_stem_planks",
+    "top": "natureplus:blocks/plant_stem_planks",
+    "side": "natureplus:blocks/plant_stem_planks"
+  }
+}

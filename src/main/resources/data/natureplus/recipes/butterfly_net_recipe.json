@@ -1,0 +1,30 @@
+{
+  "group": "natureplus",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "  2",
+    " 45",
+    "6 8"
+  ],
+  "key": {
+    "2": {
+      "tag": "forge:string"
+    },
+    "4": {
+      "tag": "forge:rods/wooden"
+    },
+    "5": {
+      "tag": "forge:string"
+    },
+    "6": {
+      "tag": "forge:rods/wooden"
+    },
+    "8": {
+      "tag": "forge:string"
+    }
+  },
+  "result": {
+    "item": "natureplus:butterfly_net",
+    "count": 1
+  }
+}

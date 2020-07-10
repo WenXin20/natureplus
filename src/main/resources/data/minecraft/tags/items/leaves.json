@@ -1,0 +1,23 @@
+{
+  "replace": false,
+  "values": [
+    "natureplus:azure_leaves",
+    "natureplus:red_petal_block",
+    "natureplus:leaf_block",
+    "natureplus:orange_petal_block",
+    "natureplus:white_petal_block",
+    "natureplus:magenta_petal_block",
+    "natureplus:light_blue_petal_block",
+    "natureplus:yellow_petal_block",
+    "natureplus:lime_petal_block",
+    "natureplus:pink_petal_block",
+    "natureplus:gray_petal_block",
+    "natureplus:light_gray_petal_block",
+    "natureplus:cyan_petal_block",
+    "natureplus:purple_petal_block",
+    "natureplus:blue_petal_block",
+    "natureplus:brown_petal_block",
+    "natureplus:green_petal_block",
+    "natureplus:black_petal_block"
+  ]
+}

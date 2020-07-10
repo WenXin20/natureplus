@@ -1,0 +1,19 @@
+{
+  "_fv": 10,
+  "_type": "tag",
+  "definition": {
+    "type": "Items",
+    "items": [
+      {
+        "value": "CUSTOM:MexicanSunflower"
+      },
+      {
+        "value": "CUSTOM:Thorns"
+      }
+    ],
+    "blocks": [],
+    "functions": [],
+    "name": "small_flowers",
+    "namespace": "minecraft"
+  }
+}

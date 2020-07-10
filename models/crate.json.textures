@@ -1,0 +1,46 @@
+{
+  "mappings": {
+    "default": {
+      "map": {
+        "crate_frame": "oak_log",
+        "crate_center": "oak_planks"
+      },
+      "name": "default"
+    },
+    "oak_crate": {
+      "map": {
+        "crate_frame": "oak_log",
+        "crate_center": "oak_planks"
+      },
+      "name": "oak_crate"
+    },
+    "azure_crate": {
+      "map": {
+        "crate_frame": "azure_log_side",
+        "crate_center": "azure_planks"
+      },
+      "name": "azure_crate"
+    },
+    "stripped_azure_crate": {
+      "map": {
+        "crate_frame": "azure_stripped_log",
+        "crate_center": "azure_planks"
+      },
+      "name": "stripped_azure_crate"
+    },
+    "plant_stem_crate": {
+      "map": {
+        "crate_frame": "plant_stem_side",
+        "crate_center": "plant_stem_planks"
+      },
+      "name": "plant_stem_crate"
+    },
+    "stripped_plant_stem_crate": {
+      "map": {
+        "crate_frame": "stripped_plant_stem_side",
+        "crate_center": "plant_stem_planks"
+      },
+      "name": "stripped_plant_stem_crate"
+    }
+  }
+}

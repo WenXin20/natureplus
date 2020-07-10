@@ -1,0 +1,7 @@
+{
+  "parent": "block/cross",
+  "textures": {
+    "cross": "natureplus:blocks/azure_sapling",
+    "particle": "natureplus:blocks/azure_sapling"
+  }
+}

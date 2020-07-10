@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "natureplus:azure_crate",
+    "natureplus:stripped_azure_crate",
+    "natureplus:plant_stem_crate",
+    "natureplus:stripped_plant_stem_crate"
+  ]
+}
