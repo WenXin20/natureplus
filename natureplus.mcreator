@@ -7545,7 +7545,7 @@
       "type": "item",
       "sortid": 118,
       "compiles": true,
-      "locked_code": false,
+      "locked_code": true,
       "ids": {},
       "registry_name": "butterfly_net"
     },
@@ -7563,7 +7563,7 @@
       "type": "item",
       "sortid": 120,
       "compiles": true,
-      "locked_code": false,
+      "locked_code": true,
       "ids": {},
       "registry_name": "monarch_butterfly_net"
     },
@@ -7912,7 +7912,7 @@
       "type": "item",
       "sortid": 119,
       "compiles": true,
-      "locked_code": false,
+      "locked_code": true,
       "ids": {},
       "registry_name": "bee_butterfly_net"
     },
