@@ -1,9 +1,13 @@
 
 package net.wenxin.natureplus.enchantment;
 
-import org.omg.CORBA.ObjectHolder;
-
 import net.wenxin.natureplus.NatureplusModElements;
+
+import net.minecraftforge.registries.ObjectHolder;
+
+import net.minecraft.inventory.EquipmentSlotType;
+import net.minecraft.enchantment.EnchantmentType;
+import net.minecraft.enchantment.Enchantment;
 
 @NatureplusModElements.ModElement.Tag
 public class UprootEnchantmentEnchantment extends NatureplusModElements.ModElement {

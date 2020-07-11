@@ -4,6 +4,12 @@ package net.wenxin.natureplus.itemgroup;
 import net.wenxin.natureplus.item.PeashooterSeedPacketItem;
 import net.wenxin.natureplus.NatureplusModElements;
 
+import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.api.distmarker.Dist;
+
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.ItemGroup;
+
 @NatureplusModElements.ModElement.Tag
 public class PlantsVsZombiesTabItemGroup extends NatureplusModElements.ModElement {
 	public PlantsVsZombiesTabItemGroup(NatureplusModElements instance) {

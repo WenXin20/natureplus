@@ -3,6 +3,12 @@ package net.wenxin.natureplus.procedures;
 import net.wenxin.natureplus.block.AzureSaplingBlock;
 import net.wenxin.natureplus.NatureplusModElements;
 
+import net.minecraft.world.World;
+import net.minecraft.item.ItemStack;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.item.ItemEntity;
+import net.minecraft.entity.Entity;
+
 import java.util.Map;
 
 @NatureplusModElements.ModElement.Tag

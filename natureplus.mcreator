@@ -989,7 +989,7 @@
       "name": "AzureCrate",
       "type": "block",
       "sortid": 11,
-      "compiles": false,
+      "compiles": true,
       "locked_code": true,
       "ids": {},
       "registry_name": "azure_crate"
@@ -1590,7 +1590,7 @@
       "name": "AddStrippable",
       "type": "code",
       "sortid": 263,
-      "compiles": false,
+      "compiles": true,
       "locked_code": true,
       "ids": {},
       "registry_name": "add_strippable"
@@ -8004,6 +8004,15 @@
           }
         ]
       }
+    },
+    {
+      "name": "WhiteBalloon",
+      "type": "mob",
+      "sortid": 678,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "white_balloon"
     }
   ],
   "variable_elements": [
@@ -8156,17 +8165,19 @@
       "advancements.consume_golden_mexican_sunflower_seeds.descr": "Consume a Golden Mexican Sunflower Seed",
       "item.natureplus.light_gray_petal": "Light Gray Petal",
       "advancements.break_random_vase.descr": "Break a Random Vase",
+      "item.natureplus.white_balloon": "White Balloon Spawn Egg",
       "block.natureplus.plant_vase": "Plant Vase",
       "item.minecraft.tipped_arrow.effect.freezing_potion": "Arrow of Potion of Freezing",
       "item.natureplus.light_blue_petal": "Light Blue Petal",
       "item.natureplus.wither_petal": "Wither Petal",
+      "entity.natureplus.white_balloon": "White Balloon",
       "item.mexicansunflower.name": "Inventory Tab Icon",
       "item.natureplus.wooden_spade": "Wooden Spade",
       "item.natureplus.monarch_egg_item": "Monarch Egg",
       "block.natureplus.random_vase": "Random Vase",
-      "advancements.giant_pink_tulip_advancement.title": "Giant Pink Tulips",
-      "block.natureplus.plant_stem_wall": "Plant Stem Wood Wall",
       "block.natureplus.azure_wood": "Azure Wood",
+      "block.natureplus.plant_stem_wall": "Plant Stem Wood Wall",
+      "advancements.giant_pink_tulip_advancement.title": "Giant Pink Tulips",
       "advancements.craft_butterfly_net.descr": "Craft a Butterfly Net",
       "item.natureplus.sun": "Sun",
       "block.natureplus.blue_petal_block": "Blue Petals Block",

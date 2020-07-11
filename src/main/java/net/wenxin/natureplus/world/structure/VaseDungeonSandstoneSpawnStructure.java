@@ -3,6 +3,30 @@ package net.wenxin.natureplus.world.structure;
 
 import net.wenxin.natureplus.NatureplusModElements;
 
+import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
+
+import net.minecraft.world.server.ServerWorld;
+import net.minecraft.world.gen.placement.Placement;
+import net.minecraft.world.gen.placement.IPlacementConfig;
+import net.minecraft.world.gen.feature.template.Template;
+import net.minecraft.world.gen.feature.template.PlacementSettings;
+import net.minecraft.world.gen.feature.template.BlockIgnoreStructureProcessor;
+import net.minecraft.world.gen.feature.NoFeatureConfig;
+import net.minecraft.world.gen.feature.IFeatureConfig;
+import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.gen.Heightmap;
+import net.minecraft.world.gen.GenerationStage;
+import net.minecraft.world.gen.ChunkGenerator;
+import net.minecraft.world.dimension.DimensionType;
+import net.minecraft.world.biome.Biome;
+import net.minecraft.world.IWorld;
+import net.minecraft.util.math.ChunkPos;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.Rotation;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.Mirror;
+
 import java.util.Random;
 
 @NatureplusModElements.ModElement.Tag

@@ -2,6 +2,10 @@ package net.wenxin.natureplus.procedures;
 
 import net.wenxin.natureplus.NatureplusModElements;
 
+import net.minecraft.util.DamageSource;
+import net.minecraft.entity.item.ItemEntity;
+import net.minecraft.entity.Entity;
+
 import java.util.Map;
 
 @NatureplusModElements.ModElement.Tag

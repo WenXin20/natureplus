@@ -4,6 +4,19 @@ import net.wenxin.natureplus.block.ThornsFlowerPotBlock;
 import net.wenxin.natureplus.block.ThornsBlock;
 import net.wenxin.natureplus.NatureplusModElements;
 
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.event.entity.player.PlayerInteractEvent;
+import net.minecraftforge.common.MinecraftForge;
+
+import net.minecraft.world.World;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.Hand;
+import net.minecraft.item.ItemStack;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.Entity;
+import net.minecraft.block.Blocks;
+
 import java.util.Map;
 
 @NatureplusModElements.ModElement.Tag

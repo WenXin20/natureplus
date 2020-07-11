@@ -3,6 +3,31 @@ package net.wenxin.natureplus.procedures;
 import net.wenxin.natureplus.item.BoneMealJarItem;
 import net.wenxin.natureplus.NatureplusModElements;
 
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.event.entity.player.PlayerInteractEvent;
+import net.minecraftforge.common.MinecraftForge;
+
+import net.minecraft.world.server.ServerWorld;
+import net.minecraft.world.gen.feature.template.Template;
+import net.minecraft.world.gen.feature.template.PlacementSettings;
+import net.minecraft.world.World;
+import net.minecraft.util.math.ChunkPos;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.Rotation;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.Mirror;
+import net.minecraft.util.Hand;
+import net.minecraft.server.MinecraftServer;
+import net.minecraft.particles.ParticleTypes;
+import net.minecraft.item.ItemStack;
+import net.minecraft.entity.player.ServerPlayerEntity;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.Entity;
+import net.minecraft.block.Blocks;
+import net.minecraft.advancements.AdvancementProgress;
+import net.minecraft.advancements.Advancement;
+
 import java.util.Map;
 import java.util.Iterator;
 

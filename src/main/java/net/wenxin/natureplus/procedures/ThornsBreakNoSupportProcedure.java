@@ -3,6 +3,14 @@ package net.wenxin.natureplus.procedures;
 import net.wenxin.natureplus.block.ThornsBlock;
 import net.wenxin.natureplus.NatureplusModElements;
 
+import net.minecraft.world.World;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.Direction;
+import net.minecraft.state.DirectionProperty;
+import net.minecraft.item.ItemStack;
+import net.minecraft.entity.item.ItemEntity;
+import net.minecraft.block.BlockState;
+
 import java.util.Map;
 
 @NatureplusModElements.ModElement.Tag

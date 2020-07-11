@@ -2,6 +2,9 @@ package net.wenxin.natureplus.procedures;
 
 import net.wenxin.natureplus.NatureplusModElements;
 
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.Entity;
+
 import java.util.Map;
 
 @NatureplusModElements.ModElement.Tag

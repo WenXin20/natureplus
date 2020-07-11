@@ -2,6 +2,14 @@ package net.wenxin.natureplus.procedures;
 
 import net.wenxin.natureplus.NatureplusModElements;
 
+import net.minecraftforge.registries.ForgeRegistries;
+
+import net.minecraft.world.World;
+import net.minecraft.util.SoundCategory;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.Entity;
+
 import java.util.Map;
 
 @NatureplusModElements.ModElement.Tag
