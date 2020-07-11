@@ -9,41 +9,16 @@ import net.wenxin.natureplus.block.PlantVaseBlock;
 import net.wenxin.natureplus.NatureplusModVariables;
 import net.wenxin.natureplus.NatureplusModElements;
 
-import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.event.world.BlockEvent;
-import net.minecraftforge.common.MinecraftForge;
-
-import net.minecraft.world.World;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.SoundCategory;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.server.MinecraftServer;
-import net.minecraft.item.ItemStack;
-import net.minecraft.entity.player.ServerPlayerEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.item.ItemEntity;
-import net.minecraft.entity.Entity;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.Block;
-import net.minecraft.advancements.AdvancementProgress;
-import net.minecraft.advancements.Advancement;
-
 import java.util.Map;
-import java.util.Iterator;
 
 @NatureplusModElements.ModElement.Tag
 public class PlantVaseRandomOutputRedstoneProcedure extends NatureplusModElements.ModElement {
 	public PlantVaseRandomOutputRedstoneProcedure(NatureplusModElements instance) {
-		super(instance, 606);
+		super(instance, 674);
 		MinecraftForge.EVENT_BUS.register(this);
 	}
 
 	public static void executeProcedure(Map<String, Object> dependencies) {
-		if (dependencies.get("entity") == null) {
-			System.err.println("Failed to load dependency entity for procedure PlantVaseRandomOutputRedstone!");
-			return;
-		}
 		if (dependencies.get("x") == null) {
 			System.err.println("Failed to load dependency x for procedure PlantVaseRandomOutputRedstone!");
 			return;
@@ -60,7 +35,6 @@ public class PlantVaseRandomOutputRedstoneProcedure extends NatureplusModElement
 			System.err.println("Failed to load dependency world for procedure PlantVaseRandomOutputRedstone!");
 			return;
 		}
-		Entity entity = (Entity) dependencies.get("entity");
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
@@ -107,29 +81,15 @@ public class PlantVaseRandomOutputRedstoneProcedure extends NatureplusModElement
 						world.addEntity(entityToSpawn);
 					}
 				}
-				world.setBlockState(new BlockPos((int) x, (int) y, (int) z), Blocks.AIR.getDefaultState(), 3);
-				world.playEvent(2001, new BlockPos((int) x, (int) y, (int) z),
-						Block.getStateId(world.getBlockState(new BlockPos((int) x, (int) y, (int) z))));
-				if (entity instanceof ServerPlayerEntity) {
-					Advancement _adv = ((MinecraftServer) ((ServerPlayerEntity) entity).server).getAdvancementManager()
-							.getAdvancement(new ResourceLocation("natureplus:break_plant_vase"));
-					AdvancementProgress _ap = ((ServerPlayerEntity) entity).getAdvancements().getProgress(_adv);
-					if (!_ap.isDone()) {
-						Iterator _iterator = _ap.getRemaningCriteria().iterator();
-						while (_iterator.hasNext()) {
-							String _criterion = (String) _iterator.next();
-							((ServerPlayerEntity) entity).getAdvancements().grantCriterion(_adv, _criterion);
-						}
-					}
-				}
 			}
 		}
 	}
 
 	@SubscribeEvent
-	public void onBlockPlace(BlockEvent.EntityPlaceEvent event) {
-		Entity entity = event.getEntity();
+	public void onBlockBreak(BlockEvent.BreakEvent event) {
+		Entity entity = event.getPlayer();
 		java.util.HashMap<String, Object> dependencies = new java.util.HashMap<>();
+		dependencies.put("xpAmount", event.getExpToDrop());
 		dependencies.put("x", (int) event.getPos().getX());
 		dependencies.put("y", (int) event.getPos().getY());
 		dependencies.put("z", (int) event.getPos().getZ());

@@ -2,13 +2,6 @@ package net.wenxin.natureplus.procedures;
 
 import net.wenxin.natureplus.NatureplusModElements;
 
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.server.MinecraftServer;
-import net.minecraft.entity.player.ServerPlayerEntity;
-import net.minecraft.entity.Entity;
-import net.minecraft.advancements.AdvancementProgress;
-import net.minecraft.advancements.Advancement;
-
 import java.util.Map;
 import java.util.Iterator;
 

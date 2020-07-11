@@ -989,7 +989,7 @@
       "name": "AzureCrate",
       "type": "block",
       "sortid": 11,
-      "compiles": true,
+      "compiles": false,
       "locked_code": true,
       "ids": {},
       "registry_name": "azure_crate"
@@ -1590,7 +1590,7 @@
       "name": "AddStrippable",
       "type": "code",
       "sortid": 263,
-      "compiles": true,
+      "compiles": false,
       "locked_code": true,
       "ids": {},
       "registry_name": "add_strippable"
@@ -6530,43 +6530,6 @@
       }
     },
     {
-      "name": "MonarchCaterpillarGrowthDecreaseTime",
-      "type": "procedure",
-      "sortid": 588,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "monarch_caterpillar_growth_decrease_time",
-      "metadata": {
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          },
-          {
-            "name": "sourceentity",
-            "type": "entity"
-          },
-          {
-            "name": "x",
-            "type": "number"
-          },
-          {
-            "name": "y",
-            "type": "number"
-          },
-          {
-            "name": "z",
-            "type": "number"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
-      }
-    },
-    {
       "name": "Sun",
       "type": "item",
       "sortid": 153,
@@ -6940,72 +6903,6 @@
       "locked_code": false,
       "ids": {},
       "registry_name": "plant_vase_random_output",
-      "metadata": {
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          },
-          {
-            "name": "x",
-            "type": "number"
-          },
-          {
-            "name": "y",
-            "type": "number"
-          },
-          {
-            "name": "z",
-            "type": "number"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
-      }
-    },
-    {
-      "name": "RandomVaseRandomOutputRedstone",
-      "type": "procedure",
-      "sortid": 605,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "random_vase_random_output_redstone",
-      "metadata": {
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          },
-          {
-            "name": "x",
-            "type": "number"
-          },
-          {
-            "name": "y",
-            "type": "number"
-          },
-          {
-            "name": "z",
-            "type": "number"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
-      }
-    },
-    {
-      "name": "PlantVaseRandomOutputRedstone",
-      "type": "procedure",
-      "sortid": 606,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "plant_vase_random_output_redstone",
       "metadata": {
         "dependencies": [
           {
@@ -8012,6 +7909,101 @@
       "locked_code": true,
       "ids": {},
       "registry_name": "render_glow_cutout"
+    },
+    {
+      "name": "PlantVaseRandomOutputRedstone",
+      "type": "procedure",
+      "sortid": 674,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "plant_vase_random_output_redstone",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "RandomVaseRandomOutputRedstone",
+      "type": "procedure",
+      "sortid": 675,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "random_vase_random_output_redstone",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "MonarchCaterpillarGrowthDecreaseTime",
+      "type": "procedure",
+      "sortid": 677,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "monarch_caterpillar_growth_decrease_time",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
     }
   ],
   "variable_elements": [

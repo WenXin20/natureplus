@@ -4,12 +4,6 @@ package net.wenxin.natureplus.fuel;
 import net.wenxin.natureplus.block.AzureWoodBlock;
 import net.wenxin.natureplus.NatureplusModElements;
 
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.event.furnace.FurnaceFuelBurnTimeEvent;
-import net.minecraftforge.common.MinecraftForge;
-
-import net.minecraft.item.ItemStack;
-
 @NatureplusModElements.ModElement.Tag
 public class AzureWoodFuelFuel extends NatureplusModElements.ModElement {
 	public AzureWoodFuelFuel(NatureplusModElements instance) {

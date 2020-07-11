@@ -1,36 +1,14 @@
 
 package net.wenxin.natureplus.item;
 
+import org.omg.CORBA.ObjectHolder;
+
 import net.wenxin.natureplus.procedures.ConeHatGrantAdvancementProcedure;
 import net.wenxin.natureplus.itemgroup.PlantsVsZombiesTabItemGroup;
 import net.wenxin.natureplus.NatureplusModElements;
 
-import net.minecraftforge.registries.ObjectHolder;
-import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.api.distmarker.Dist;
-
-import net.minecraft.world.World;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.item.crafting.Ingredient;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Item;
-import net.minecraft.item.IArmorMaterial;
-import net.minecraft.item.ArmorItem;
-import net.minecraft.inventory.EquipmentSlotType;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.Entity;
-import net.minecraft.client.renderer.model.ModelRenderer;
-import net.minecraft.client.renderer.entity.model.EntityModel;
-import net.minecraft.client.renderer.entity.model.BipedModel;
-import net.minecraft.block.Blocks;
-
 import java.util.Map;
 import java.util.HashMap;
-
-import com.mojang.blaze3d.vertex.IVertexBuilder;
-import com.mojang.blaze3d.matrix.MatrixStack;
 
 @NatureplusModElements.ModElement.Tag
 public class ConeHelmetItem extends NatureplusModElements.ModElement {

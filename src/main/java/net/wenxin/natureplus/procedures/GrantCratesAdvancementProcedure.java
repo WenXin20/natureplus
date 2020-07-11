@@ -6,20 +6,6 @@ import net.wenxin.natureplus.block.PlantStemCrateBlock;
 import net.wenxin.natureplus.block.AzureCrateBlock;
 import net.wenxin.natureplus.NatureplusModElements;
 
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.event.entity.player.PlayerEvent;
-import net.minecraftforge.common.MinecraftForge;
-
-import net.minecraft.world.World;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.server.MinecraftServer;
-import net.minecraft.item.ItemStack;
-import net.minecraft.entity.player.ServerPlayerEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.Entity;
-import net.minecraft.advancements.AdvancementProgress;
-import net.minecraft.advancements.Advancement;
-
 import java.util.Map;
 import java.util.Iterator;
 

@@ -4,23 +4,6 @@ package net.wenxin.natureplus.gui.overlay;
 import net.wenxin.natureplus.procedures.FreezingPotionEffectsProcedure;
 import net.wenxin.natureplus.NatureplusModElements;
 
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.eventbus.api.EventPriority;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.client.event.RenderGameOverlayEvent;
-import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.api.distmarker.Dist;
-
-import net.minecraft.world.World;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.client.Minecraft;
-
-import com.mojang.blaze3d.systems.RenderSystem;
-import com.mojang.blaze3d.platform.GlStateManager;
-
-import com.google.common.collect.ImmutableMap;
-
 @NatureplusModElements.ModElement.Tag
 public class FreezingOverlayOverlay extends NatureplusModElements.ModElement {
 	public FreezingOverlayOverlay(NatureplusModElements instance) {

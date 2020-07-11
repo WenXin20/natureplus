@@ -3,10 +3,6 @@ package net.wenxin.natureplus.procedures;
 import net.wenxin.natureplus.block.MexicanSunflowerCropStage3Block;
 import net.wenxin.natureplus.NatureplusModElements;
 
-import net.minecraft.world.World;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.block.Blocks;
-
 import java.util.Map;
 
 @NatureplusModElements.ModElement.Tag

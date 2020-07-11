@@ -4,12 +4,6 @@ package net.wenxin.natureplus.fuel;
 import net.wenxin.natureplus.block.PlantStemFenceBlock;
 import net.wenxin.natureplus.NatureplusModElements;
 
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.event.furnace.FurnaceFuelBurnTimeEvent;
-import net.minecraftforge.common.MinecraftForge;
-
-import net.minecraft.item.ItemStack;
-
 @NatureplusModElements.ModElement.Tag
 public class PlantStemFenceFuelFuel extends NatureplusModElements.ModElement {
 	public PlantStemFenceFuelFuel(NatureplusModElements instance) {

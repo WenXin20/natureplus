@@ -4,16 +4,6 @@ import net.wenxin.natureplus.item.MonarchButterflyNetItem;
 import net.wenxin.natureplus.entity.MonarchButterflyEntity;
 import net.wenxin.natureplus.NatureplusModElements;
 
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.event.entity.EntityJoinWorldEvent;
-import net.minecraftforge.common.MinecraftForge;
-
-import net.minecraft.world.World;
-import net.minecraft.util.text.StringTextComponent;
-import net.minecraft.item.ItemStack;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.Entity;
-
 import java.util.Map;
 
 @NatureplusModElements.ModElement.Tag
