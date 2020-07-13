@@ -1,0 +1,64 @@
+{
+  "_fv": 10,
+  "_type": "tag",
+  "definition": {
+    "type": "Items",
+    "items": [
+      {
+        "value": "CUSTOM:WhiteBalloonItem"
+      },
+      {
+        "value": "CUSTOM:OrangeBalloonItem"
+      },
+      {
+        "value": "CUSTOM:MagentaBalloonItem"
+      },
+      {
+        "value": "CUSTOM:LightBlueBalloonItem"
+      },
+      {
+        "value": "CUSTOM:YellowBalloonItem"
+      },
+      {
+        "value": "CUSTOM:LimeBalloonItem"
+      },
+      {
+        "value": "CUSTOM:PinkBalloonItem"
+      },
+      {
+        "value": "CUSTOM:GrayBalloonItem"
+      },
+      {
+        "value": "CUSTOM:LightGrayBalloonItem"
+      },
+      {
+        "value": "CUSTOM:CyanBalloonItem"
+      },
+      {
+        "value": "CUSTOM:PurpleBalloonItem"
+      },
+      {
+        "value": "CUSTOM:BlueBalloonItem"
+      },
+      {
+        "value": "CUSTOM:BrownBalloonItem"
+      },
+      {
+        "value": "CUSTOM:GreenBalloonItem"
+      },
+      {
+        "value": "CUSTOM:RedBalloonItem"
+      },
+      {
+        "value": "CUSTOM:BlackBalloonItem"
+      },
+      {
+        "value": "CUSTOM:UndyedBalloonItem"
+      }
+    ],
+    "blocks": [],
+    "functions": [],
+    "name": "balloons",
+    "namespace": "mod"
+  }
+}

@@ -45,7 +45,7 @@ public class AzureSaplingBlock extends NatureplusModElements.ModElement {
 	@ObjectHolder("natureplus:azure_sapling")
 	public static final Block block = null;
 	public AzureSaplingBlock(NatureplusModElements instance) {
-		super(instance, 26);
+		super(instance, 22);
 	}
 
 	@Override

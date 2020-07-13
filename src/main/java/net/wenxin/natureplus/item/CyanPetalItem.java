@@ -21,7 +21,7 @@ public class CyanPetalItem extends NatureplusModElements.ModElement {
 	@ObjectHolder("natureplus:cyan_petal")
 	public static final Item block = null;
 	public CyanPetalItem(NatureplusModElements instance) {
-		super(instance, 94);
+		super(instance, 90);
 	}
 
 	@Override

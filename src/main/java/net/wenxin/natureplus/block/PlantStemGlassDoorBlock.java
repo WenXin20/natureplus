@@ -35,7 +35,7 @@ public class PlantStemGlassDoorBlock extends NatureplusModElements.ModElement {
 	@ObjectHolder("natureplus:plant_stem_glass_door")
 	public static final Block block = null;
 	public PlantStemGlassDoorBlock(NatureplusModElements instance) {
-		super(instance, 43);
+		super(instance, 39);
 	}
 
 	@Override

@@ -13,7 +13,7 @@ import net.minecraft.item.ItemGroup;
 @NatureplusModElements.ModElement.Tag
 public class PlantsVsZombiesTabItemGroup extends NatureplusModElements.ModElement {
 	public PlantsVsZombiesTabItemGroup(NatureplusModElements instance) {
-		super(instance, 498);
+		super(instance, 532);
 	}
 
 	@Override

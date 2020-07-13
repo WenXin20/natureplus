@@ -37,7 +37,7 @@ public class AzureFenceBlock extends NatureplusModElements.ModElement {
 	@ObjectHolder("natureplus:azure_fence")
 	public static final Block block = null;
 	public AzureFenceBlock(NatureplusModElements instance) {
-		super(instance, 15);
+		super(instance, 11);
 	}
 
 	@Override

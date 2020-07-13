@@ -12,7 +12,7 @@ import java.util.Map;
 @NatureplusModElements.ModElement.Tag
 public class EnchantedGoldenPlumEffectsProcedure extends NatureplusModElements.ModElement {
 	public EnchantedGoldenPlumEffectsProcedure(NatureplusModElements instance) {
-		super(instance, 272);
+		super(instance, 306);
 	}
 
 	public static void executeProcedure(Map<String, Object> dependencies) {

@@ -196,5 +196,32 @@
         "stream": false
       }
     ]
+  },
+  "balloon_inflate": {
+    "category": "master",
+    "sounds": [
+      {
+        "name": "natureplus:balloon_inflate",
+        "stream": false
+      }
+    ]
+  },
+  "balloon_pop": {
+    "category": "master",
+    "sounds": [
+      {
+        "name": "natureplus:balloon_pop",
+        "stream": false
+      }
+    ]
+  },
+  "balloon_rub": {
+    "category": "master",
+    "sounds": [
+      {
+        "name": "natureplus:balloon_rub",
+        "stream": false
+      }
+    ]
   }
 }

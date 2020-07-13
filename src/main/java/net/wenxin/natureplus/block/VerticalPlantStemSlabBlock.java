@@ -30,7 +30,7 @@ public class VerticalPlantStemSlabBlock extends NatureplusModElements.ModElement
 	@ObjectHolder("natureplus:vertical_plant_stem_slab")
 	public static final Block block = null;
 	public VerticalPlantStemSlabBlock(NatureplusModElements instance) {
-		super(instance, 41);
+		super(instance, 37);
 	}
 
 	@Override

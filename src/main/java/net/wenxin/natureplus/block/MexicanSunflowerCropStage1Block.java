@@ -48,7 +48,7 @@ public class MexicanSunflowerCropStage1Block extends NatureplusModElements.ModEl
 	@ObjectHolder("natureplus:mexican_sunflower_crop_age1")
 	public static final Block block = null;
 	public MexicanSunflowerCropStage1Block(NatureplusModElements instance) {
-		super(instance, 156);
+		super(instance, 190);
 	}
 
 	@Override

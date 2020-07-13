@@ -60,5 +60,16 @@ public static class ModelButterfly extends EntityModel<Entity> {
 
 	public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5, Entity e) {
 		super.setRotationAngles(f, f1, f2, f3, f4, f5, e);
+		this.antenna_left.rotateAngleX = MathHelper.cos(f2 * 0.03F) * (float)Math.PI * 0.15F;
+		this.antenna_right.rotateAngleX = MathHelper.cos(f2 * 0.031F) * (float)Math.PI * 0.15F;
+		
+		boolean flag = e.getMotion().lengthSquared() < 2.0E-7D; //e.onGround &&
+		if (flag) {
+			this.wing_right.rotateAngleZ = 1.0F + -(MathHelper.cos(f2 * 0.4F) * (float)Math.PI * 0.18F);
+			this.wing_left.rotateAngleZ = -1.0F + (MathHelper.cos(f2 * 0.4F) * (float)Math.PI * 0.18F);
+		} else {
+			this.wing_right.rotateAngleZ = -(MathHelper.cos(f2 * 1.7F) * (float)Math.PI * 0.3F);
+			this.wing_left.rotateAngleZ = MathHelper.cos(f2 * 1.7F) * (float)Math.PI * 0.3F;
+		}
 	}
 }

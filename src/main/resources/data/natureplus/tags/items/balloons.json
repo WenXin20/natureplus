@@ -1,0 +1,22 @@
+{
+  "replace": false,
+  "values": [
+    "natureplus:white_balloon_item",
+    "natureplus:orange_balloon_item",
+    "natureplus:magenta_balloon_item",
+    "natureplus:light_blue_balloon_item",
+    "natureplus:yellow_balloon_item",
+    "natureplus:lime_balloon_item",
+    "natureplus:pink_balloon_item",
+    "natureplus:gray_balloon_item",
+    "natureplus:light_gray_balloon_item",
+    "natureplus:cyan_balloon_item",
+    "natureplus:purple_balloon_item",
+    "natureplus:blue_balloon_item",
+    "natureplus:brown_balloon_item",
+    "natureplus:green_balloon_item",
+    "natureplus:red_balloon_item",
+    "natureplus:black_balloon_item",
+    "natureplus:undyed_balloon_item"
+  ]
+}

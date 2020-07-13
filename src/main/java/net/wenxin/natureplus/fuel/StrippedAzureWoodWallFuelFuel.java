@@ -13,7 +13,7 @@ import net.minecraft.item.ItemStack;
 @NatureplusModElements.ModElement.Tag
 public class StrippedAzureWoodWallFuelFuel extends NatureplusModElements.ModElement {
 	public StrippedAzureWoodWallFuelFuel(NatureplusModElements instance) {
-		super(instance, 219);
+		super(instance, 253);
 		MinecraftForge.EVENT_BUS.register(this);
 	}
 

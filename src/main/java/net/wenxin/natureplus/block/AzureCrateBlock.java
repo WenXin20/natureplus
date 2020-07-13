@@ -88,7 +88,7 @@ public class AzureCrateBlock extends NatureplusModElements.ModElement implements
 	@ObjectHolder("natureplus:azure_crate")
 	public static final TileEntityType<CustomTileEntity> tileEntityType = null;
 	public AzureCrateBlock(NatureplusModElements instance) {
-		super(instance, 11);
+		super(instance, 7);
 		FMLJavaModLoadingContext.get().getModEventBus().register(this);
 	}
 

@@ -36,7 +36,7 @@ public class SunflowerHeadHelmetItem extends NatureplusModElements.ModElement {
 	@ObjectHolder("natureplus:sunflower_head_boots")
 	public static final Item boots = null;
 	public SunflowerHeadHelmetItem(NatureplusModElements instance) {
-		super(instance, 132);
+		super(instance, 166);
 	}
 
 	@Override

@@ -98,5 +98,9 @@ public static class ModelKernelPult extends EntityModel<Entity> {
 		super.setRotationAngles(f, f1, f2, f3, f4, f5, e);
 		this.head.rotateAngleY = f3 / (180F / (float) Math.PI);
 		this.head.rotateAngleX = f4 / (180F / (float) Math.PI);
+		
+		this.catapult.rotateAngleX = -0.5F + MathHelper.cos(f2 * 0.25F) * (float)Math.PI * 0.05F;
+		
+		this.corn_kernel.rotateAngleX = -0.4363F + MathHelper.cos(f2 * 0.25F) * (float)Math.PI * 0.1F;
 	}
 }

@@ -4,6 +4,9 @@ import net.wenxin.natureplus.entity.MonarchCaterpillarEntity;
 import net.wenxin.natureplus.NatureplusModElements;
 
 import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.event.entity.player.PlayerInteractEvent;
+import net.minecraftforge.common.MinecraftForge;
 
 import net.minecraft.world.server.ServerWorld;
 import net.minecraft.world.World;
@@ -25,7 +28,8 @@ import java.util.Map;
 @NatureplusModElements.ModElement.Tag
 public class MonarchCaterpillarGrowthDecreaseTimeProcedure extends NatureplusModElements.ModElement {
 	public MonarchCaterpillarGrowthDecreaseTimeProcedure(NatureplusModElements instance) {
-		super(instance, 677);
+		super(instance, 705);
+		MinecraftForge.EVENT_BUS.register(this);
 	}
 
 	public static void executeProcedure(Map<String, Object> dependencies) {
@@ -162,5 +166,26 @@ public class MonarchCaterpillarGrowthDecreaseTimeProcedure extends NatureplusMod
 							(int) 1);
 			}
 		}
+	}
+
+	@SubscribeEvent
+	public void onRightClickEntity(PlayerInteractEvent.EntityInteract event) {
+		Entity entity = event.getTarget();
+		PlayerEntity sourceentity = event.getPlayer();
+		if (event.getHand() != sourceentity.getActiveHand())
+			return;
+		int i = event.getPos().getX();
+		int j = event.getPos().getY();
+		int k = event.getPos().getZ();
+		World world = event.getWorld();
+		java.util.HashMap<String, Object> dependencies = new java.util.HashMap<>();
+		dependencies.put("x", i);
+		dependencies.put("y", j);
+		dependencies.put("z", k);
+		dependencies.put("world", world);
+		dependencies.put("entity", entity);
+		dependencies.put("sourceentity", sourceentity);
+		dependencies.put("event", event);
+		this.executeProcedure(dependencies);
 	}
 }

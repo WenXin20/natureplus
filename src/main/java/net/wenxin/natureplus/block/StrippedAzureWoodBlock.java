@@ -33,7 +33,7 @@ public class StrippedAzureWoodBlock extends NatureplusModElements.ModElement {
 	@ObjectHolder("natureplus:stripped_azure_wood")
 	public static final Block block = null;
 	public StrippedAzureWoodBlock(NatureplusModElements instance) {
-		super(instance, 8);
+		super(instance, 4);
 	}
 
 	@Override

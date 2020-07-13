@@ -9,6 +9,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.api.distmarker.Dist;
 
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.item.ItemStack;
@@ -36,7 +37,7 @@ public class KernelPultHeadHelmetItem extends NatureplusModElements.ModElement {
 	@ObjectHolder("natureplus:kernel_pult_head_boots")
 	public static final Item boots = null;
 	public KernelPultHeadHelmetItem(NatureplusModElements instance) {
-		super(instance, 138);
+		super(instance, 172);
 	}
 
 	@Override
@@ -156,6 +157,8 @@ public class KernelPultHeadHelmetItem extends NatureplusModElements.ModElement {
 		public void setRotationAngles(Entity e, float f, float f1, float f2, float f3, float f4) {
 			this.head.rotateAngleY = f3 / (180F / (float) Math.PI);
 			this.head.rotateAngleX = f4 / (180F / (float) Math.PI);
+			this.catapult.rotateAngleX = -0.5F + MathHelper.cos(f2 * 0.25F) * (float) Math.PI * 0.05F;
+			this.corn_kernel.rotateAngleX = -0.4363F + MathHelper.cos(f2 * 0.25F) * (float) Math.PI * 0.1F;
 		}
 	}
 }

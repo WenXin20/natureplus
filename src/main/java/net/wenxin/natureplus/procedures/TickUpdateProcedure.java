@@ -9,7 +9,7 @@ import java.util.Map;
 @NatureplusModElements.ModElement.Tag
 public class TickUpdateProcedure extends NatureplusModElements.ModElement {
 	public TickUpdateProcedure(NatureplusModElements instance) {
-		super(instance, 531);
+		super(instance, 565);
 	}
 
 	public static void executeProcedure(Map<String, Object> dependencies) {

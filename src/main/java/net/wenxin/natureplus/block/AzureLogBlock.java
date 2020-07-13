@@ -33,7 +33,7 @@ public class AzureLogBlock extends NatureplusModElements.ModElement {
 	@ObjectHolder("natureplus:azure_log")
 	public static final Block block = null;
 	public AzureLogBlock(NatureplusModElements instance) {
-		super(instance, 5);
+		super(instance, 1);
 	}
 
 	@Override

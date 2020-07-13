@@ -15,7 +15,7 @@ public class EmptySeedPacketItem extends NatureplusModElements.ModElement {
 	@ObjectHolder("natureplus:empty_seed_packet")
 	public static final Item block = null;
 	public EmptySeedPacketItem(NatureplusModElements instance) {
-		super(instance, 139);
+		super(instance, 173);
 	}
 
 	@Override

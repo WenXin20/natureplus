@@ -33,7 +33,7 @@ public class VerticalAzureStairsBlock extends NatureplusModElements.ModElement {
 	@ObjectHolder("natureplus:vertical_azure_stairs")
 	public static final Block block = null;
 	public VerticalAzureStairsBlock(NatureplusModElements instance) {
-		super(instance, 17);
+		super(instance, 13);
 	}
 
 	@Override

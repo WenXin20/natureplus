@@ -48,5 +48,9 @@ public static class ModelPeashooter extends EntityModel<Entity> {
 		super.setRotationAngles(f, f1, f2, f3, f4, f5, e);
 		this.head.rotateAngleY = f3 / (180F / (float) Math.PI);
 		this.head.rotateAngleX = f4 / (180F / (float) Math.PI);
+
+		this.head.rotationPointY = 14.5F + -(MathHelper.cos(f2 * 0.4F) * (float)Math.PI * 0.05F);
+		
+		this.disk.rotationPointY = -7.5F + -(MathHelper.cos(f2 * 0.4F) * (float)Math.PI * 0.05F);
 	}
 }

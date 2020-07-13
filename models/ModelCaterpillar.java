@@ -52,5 +52,22 @@ public static class ModelCaterpillar extends EntityModel<Entity> {
 
 	public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5, Entity e) {
 		super.setRotationAngles(f, f1, f2, f3, f4, f5, e);
+		this.antenna_left.rotateAngleX = MathHelper.cos(f2 * 0.03F) * (float)Math.PI * 0.15F;
+		this.antenna_right.rotateAngleX = MathHelper.cos(f2 * 0.031F) * (float)Math.PI * 0.15F;
+		
+//	    boolean flag = e.onGround;
+//	    if (flag) {
+//			this.main.rotateAngleX = 5.0F;
+//			this.tail_left.rotateAngleX =  5.0F;
+//			this.tail_right.rotateAngleX =  5.0F;
+//			this.antenna_left.rotateAngleX =  5.0F + MathHelper.cos(f2 * 0.03F) * (float)Math.PI * 0.15F;
+//			this.antenna_right.rotateAngleX =  5.0F + MathHelper.cos(f2 * 0.031F) * (float)Math.PI * 0.15F;
+//	    } else {
+//			this.main.rotateAngleX = 0.0F;
+//			this.tail_left.rotateAngleX =  0.0F;
+//			this.tail_right.rotateAngleX =  0.0F;
+//			this.antenna_left.rotateAngleX = MathHelper.cos(f2 * 0.03F) * (float)Math.PI * 0.15F;
+//			this.antenna_right.rotateAngleX = MathHelper.cos(f2 * 0.031F) * (float)Math.PI * 0.15F;
+//	    }
 	}
 }

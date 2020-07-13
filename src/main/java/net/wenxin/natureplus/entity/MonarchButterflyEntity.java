@@ -80,7 +80,7 @@ import java.util.HashMap;
 public class MonarchButterflyEntity extends NatureplusModElements.ModElement {
 	public static EntityType entity = null;
 	public MonarchButterflyEntity(NatureplusModElements instance) {
-		super(instance, 1);
+		super(instance, 117);
 		FMLJavaModLoadingContext.get().getModEventBus().register(this);
 	}
 

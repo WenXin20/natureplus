@@ -85,6 +85,12 @@ public class NatureplusModElements {
 		sounds.put(new ResourceLocation("natureplus", "throw"), new net.minecraft.util.SoundEvent(new ResourceLocation("natureplus", "throw")));
 		sounds.put(new ResourceLocation("natureplus", "throw2"), new net.minecraft.util.SoundEvent(new ResourceLocation("natureplus", "throw2")));
 		sounds.put(new ResourceLocation("natureplus", "swoosh"), new net.minecraft.util.SoundEvent(new ResourceLocation("natureplus", "swoosh")));
+		sounds.put(new ResourceLocation("natureplus", "balloon_inflate"),
+				new net.minecraft.util.SoundEvent(new ResourceLocation("natureplus", "balloon_inflate")));
+		sounds.put(new ResourceLocation("natureplus", "balloon_pop"),
+				new net.minecraft.util.SoundEvent(new ResourceLocation("natureplus", "balloon_pop")));
+		sounds.put(new ResourceLocation("natureplus", "balloon_rub"),
+				new net.minecraft.util.SoundEvent(new ResourceLocation("natureplus", "balloon_rub")));
 		try {
 			ModFileScanData modFileInfo = ModList.get().getModFileById("natureplus").getFile().getScanResult();
 			Set<ModFileScanData.AnnotationData> annotations = modFileInfo.getAnnotations();

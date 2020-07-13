@@ -30,7 +30,7 @@ import java.util.Iterator;
 @NatureplusModElements.ModElement.Tag
 public class SnowPeaSpawnProcedure extends NatureplusModElements.ModElement {
 	public SnowPeaSpawnProcedure(NatureplusModElements instance) {
-		super(instance, 513);
+		super(instance, 547);
 	}
 
 	public static void executeProcedure(Map<String, Object> dependencies) {

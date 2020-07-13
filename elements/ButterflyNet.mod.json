@@ -1,28 +1,26 @@
 {
   "_fv": 10,
-  "_type": "item",
+  "_type": "tool",
   "definition": {
     "renderType": 0,
     "texture": "butterfly_net",
     "customModelName": "Normal",
     "name": "Butterfly Net",
+    "specialInfo": [],
     "creativeTab": {
       "value": "CUSTOM:NaturePlusTab"
     },
-    "stackSize": 16,
+    "toolType": "Special",
+    "harvestLevel": 0,
+    "efficiency": 0.0,
+    "attackSpeed": 1.5,
     "enchantability": 0,
-    "useDuration": 0,
-    "toolType": 1.0,
-    "damageCount": 0,
-    "destroyAnyBlock": false,
-    "stayInGridWhenCrafting": false,
-    "damageOnCrafting": false,
-    "enableMeleeDamage": false,
-    "damageVsEntity": 0.0,
-    "specialInfo": [],
+    "damageVsEntity": 2.0,
+    "usageCount": 0,
+    "blocksAffected": [],
     "hasGlow": false,
-    "guiBoundTo": "<NONE>",
-    "inventorySize": 9,
-    "inventoryStackSize": 64
+    "repairItems": [],
+    "stayInGridWhenCrafting": false,
+    "damageOnCrafting": false
   }
 }

@@ -32,7 +32,7 @@ import java.util.Iterator;
 @NatureplusModElements.ModElement.Tag
 public class ButterflyNetCaptureMonarchButterflyProcedure extends NatureplusModElements.ModElement {
 	public ButterflyNetCaptureMonarchButterflyProcedure(NatureplusModElements instance) {
-		super(instance, 643);
+		super(instance, 674);
 		MinecraftForge.EVENT_BUS.register(this);
 	}
 

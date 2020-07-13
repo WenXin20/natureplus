@@ -2,6 +2,7 @@
 package net.wenxin.natureplus.entity;
 
 import net.wenxin.natureplus.itemgroup.PlantsVsZombiesTabItemGroup;
+import net.wenxin.natureplus.procedures.GrantKillPVZZombieProcedure;
 import net.wenxin.natureplus.item.IronSpadeItem;
 import net.wenxin.natureplus.NatureplusModElements;
 import net.wenxin.natureplus.entity.SunflowerEntity;
@@ -50,6 +51,8 @@ import net.minecraft.entity.CreatureAttribute;
 import net.minecraft.client.renderer.entity.model.BipedModel;
 import net.minecraft.client.renderer.entity.layers.BipedArmorLayer;
 import net.minecraft.client.renderer.entity.BipedRenderer;
+import java.util.Map;
+import java.util.HashMap;
 
 @NatureplusModElements.ModElement.Tag
 public class PVZZombieEntity extends NatureplusModElements.ModElement {
@@ -317,6 +320,22 @@ public class PVZZombieEntity extends NatureplusModElements.ModElement {
 		@Override
 		protected float getSoundVolume() {
 			return 1.0F;
+		}
+
+		@Override
+		public void onDeath(DamageSource source) {
+			super.onDeath(source);
+			double x = this.getPosX();
+			double y = this.getPosY();
+			double z = this.getPosZ();
+			Entity sourceentity = source.getTrueSource();
+			Entity entity = this;
+			{
+				Map<String, Object> $_dependencies = new HashMap<>();
+				$_dependencies.put("entity", entity);
+				$_dependencies.put("sourceentity", sourceentity);
+				GrantKillPVZZombieProcedure.executeProcedure($_dependencies);
+			}
 		}
 
 		@Override

@@ -36,7 +36,7 @@ import java.util.Iterator;
 @NatureplusModElements.ModElement.Tag
 public class MonarchEggSpawnProcedure extends NatureplusModElements.ModElement {
 	public MonarchEggSpawnProcedure(NatureplusModElements instance) {
-		super(instance, 532);
+		super(instance, 566);
 		MinecraftForge.EVENT_BUS.register(this);
 	}
 

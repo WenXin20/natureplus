@@ -87,7 +87,7 @@ public class StrippedAzureCrateBlock extends NatureplusModElements.ModElement im
 	@ObjectHolder("natureplus:stripped_azure_crate")
 	public static final TileEntityType<CustomTileEntity> tileEntityType = null;
 	public StrippedAzureCrateBlock(NatureplusModElements instance) {
-		super(instance, 12);
+		super(instance, 8);
 		FMLJavaModLoadingContext.get().getModEventBus().register(this);
 	}
 

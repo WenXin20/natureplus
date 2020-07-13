@@ -33,7 +33,7 @@ public class StrippedAzureLogBlock extends NatureplusModElements.ModElement {
 	@ObjectHolder("natureplus:stripped_azure_log")
 	public static final Block block = null;
 	public StrippedAzureLogBlock(NatureplusModElements instance) {
-		super(instance, 6);
+		super(instance, 2);
 	}
 
 	@Override

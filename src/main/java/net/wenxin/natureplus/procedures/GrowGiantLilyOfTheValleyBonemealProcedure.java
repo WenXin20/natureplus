@@ -34,7 +34,7 @@ import java.util.Iterator;
 @NatureplusModElements.ModElement.Tag
 public class GrowGiantLilyOfTheValleyBonemealProcedure extends NatureplusModElements.ModElement {
 	public GrowGiantLilyOfTheValleyBonemealProcedure(NatureplusModElements instance) {
-		super(instance, 573);
+		super(instance, 607);
 		MinecraftForge.EVENT_BUS.register(this);
 	}
 

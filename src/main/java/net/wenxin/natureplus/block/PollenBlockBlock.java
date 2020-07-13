@@ -39,7 +39,7 @@ public class PollenBlockBlock extends NatureplusModElements.ModElement {
 	@ObjectHolder("natureplus:pollen_block")
 	public static final Block block = null;
 	public PollenBlockBlock(NatureplusModElements instance) {
-		super(instance, 46);
+		super(instance, 42);
 	}
 
 	@Override

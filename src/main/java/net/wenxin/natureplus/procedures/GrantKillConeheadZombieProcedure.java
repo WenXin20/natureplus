@@ -3,15 +3,9 @@ package net.wenxin.natureplus.procedures;
 import net.wenxin.natureplus.entity.ConeheadZombieEntity;
 import net.wenxin.natureplus.NatureplusModElements;
 
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.event.entity.living.LivingDeathEvent;
-import net.minecraftforge.common.MinecraftForge;
-
-import net.minecraft.world.World;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.entity.player.ServerPlayerEntity;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.Entity;
 import net.minecraft.advancements.AdvancementProgress;
 import net.minecraft.advancements.Advancement;
@@ -22,8 +16,7 @@ import java.util.Iterator;
 @NatureplusModElements.ModElement.Tag
 public class GrantKillConeheadZombieProcedure extends NatureplusModElements.ModElement {
 	public GrantKillConeheadZombieProcedure(NatureplusModElements instance) {
-		super(instance, 662);
-		MinecraftForge.EVENT_BUS.register(this);
+		super(instance, 693);
 	}
 
 	public static void executeProcedure(Map<String, Object> dependencies) {
@@ -37,7 +30,7 @@ public class GrantKillConeheadZombieProcedure extends NatureplusModElements.ModE
 		}
 		Entity entity = (Entity) dependencies.get("entity");
 		Entity sourceentity = (Entity) dependencies.get("sourceentity");
-		if (((sourceentity instanceof PlayerEntity) && (entity instanceof ConeheadZombieEntity.CustomEntity))) {
+		if ((entity instanceof ConeheadZombieEntity.CustomEntity)) {
 			if (sourceentity instanceof ServerPlayerEntity) {
 				Advancement _adv = ((MinecraftServer) ((ServerPlayerEntity) sourceentity).server).getAdvancementManager()
 						.getAdvancement(new ResourceLocation("natureplus:kill_conehead_zombies"));
@@ -50,27 +43,6 @@ public class GrantKillConeheadZombieProcedure extends NatureplusModElements.ModE
 					}
 				}
 			}
-		}
-	}
-
-	@SubscribeEvent
-	public void onEntityDeath(LivingDeathEvent event) {
-		if (event != null && event.getEntity() != null) {
-			Entity entity = event.getEntity();
-			Entity sourceentity = event.getSource().getTrueSource();
-			double i = entity.getPosX();
-			double j = entity.getPosY();
-			double k = entity.getPosZ();
-			World world = entity.world;
-			java.util.HashMap<String, Object> dependencies = new java.util.HashMap<>();
-			dependencies.put("x", i);
-			dependencies.put("y", j);
-			dependencies.put("z", k);
-			dependencies.put("world", world);
-			dependencies.put("entity", entity);
-			dependencies.put("sourceentity", sourceentity);
-			dependencies.put("event", event);
-			this.executeProcedure(dependencies);
 		}
 	}
 }

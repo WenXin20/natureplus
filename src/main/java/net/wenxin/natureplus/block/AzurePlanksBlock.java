@@ -28,7 +28,7 @@ public class AzurePlanksBlock extends NatureplusModElements.ModElement {
 	@ObjectHolder("natureplus:azure_planks")
 	public static final Block block = null;
 	public AzurePlanksBlock(NatureplusModElements instance) {
-		super(instance, 9);
+		super(instance, 5);
 	}
 
 	@Override

@@ -23,7 +23,7 @@ import java.util.Map;
 @NatureplusModElements.ModElement.Tag
 public class MonarchButterflySpawnProcedure extends NatureplusModElements.ModElement {
 	public MonarchButterflySpawnProcedure(NatureplusModElements instance) {
-		super(instance, 533);
+		super(instance, 567);
 	}
 
 	public static void executeProcedure(Map<String, Object> dependencies) {
