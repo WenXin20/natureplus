@@ -55,9 +55,10 @@ public class SunflowerSpawnSunProcedure extends NatureplusModElements.ModElement
 		World world = (World) dependencies.get("world");
 		if ((((entity.getPersistentData().getDouble("timer_plant")) <= 1)
 				&& ((entity instanceof SunflowerEntity.CustomEntity) && (world.isDaytime())))) {
-			if ((((world.getEntitiesWithinAABB(PlayerEntity.class, new AxisAlignedBB(x - 8, y - 8, z - 8, x + 8, y + 8, z + 8), null).stream()
+			if ((((world.getEntitiesWithinAABB(PlayerEntity.class, new AxisAlignedBB(x - 16, y - 16, z - 16, x + 16, y + 16, z + 16), null).stream()
 					.sorted(Comparator.comparing(_ent -> _ent.getDistanceSq(x, y, z))).findFirst().orElse(null)) != null)
-					|| ((world.getEntitiesWithinAABB(ServerPlayerEntity.class, new AxisAlignedBB(x - 8, y - 8, z - 8, x + 8, y + 8, z + 8), null)
+					|| ((world
+							.getEntitiesWithinAABB(ServerPlayerEntity.class, new AxisAlignedBB(x - 16, y - 16, z - 16, x + 16, y + 16, z + 16), null)
 							.stream().sorted(Comparator.comparing(_ent -> _ent.getDistanceSq(x, y, z))).findFirst().orElse(null)) != null))) {
 				if (!world.isRemote) {
 					ItemEntity entityToSpawn = new ItemEntity(world, (entity.getPosX()), ((entity.getPosY()) + 1.2), (entity.getPosZ()),
