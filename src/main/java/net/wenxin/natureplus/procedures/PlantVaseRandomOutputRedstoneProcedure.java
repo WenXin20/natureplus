@@ -95,6 +95,7 @@ public class PlantVaseRandomOutputRedstoneProcedure extends NatureplusModElement
 						world.addEntity(entityToSpawn);
 					}
 				}
+				world.destroyBlock(new BlockPos((int) x, (int) y, (int) z), false);
 			}
 		}
 	}

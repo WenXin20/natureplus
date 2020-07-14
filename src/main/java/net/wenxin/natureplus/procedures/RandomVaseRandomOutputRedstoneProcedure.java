@@ -145,6 +145,7 @@ public class RandomVaseRandomOutputRedstoneProcedure extends NatureplusModElemen
 						}
 					}
 				}
+				world.destroyBlock(new BlockPos((int) x, (int) y, (int) z), false);
 			}
 		}
 	}

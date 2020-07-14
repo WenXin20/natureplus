@@ -14,7 +14,6 @@ import net.minecraft.world.server.ServerWorld;
 import net.minecraft.world.World;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.Hand;
 import net.minecraft.particles.ParticleTypes;
 import net.minecraft.item.ItemStack;
 import net.minecraft.entity.player.PlayerEntity;
@@ -78,9 +77,6 @@ public class RemoveBlackBalloonProcedure extends NatureplusModElements.ModElemen
 					ItemStack _setstack = new ItemStack(BlackBalloonItemItem.block, (int) (1));
 					_setstack.setCount((int) 1);
 					ItemHandlerHelper.giveItemToPlayer(((PlayerEntity) sourceentity), _setstack);
-				}
-				if (sourceentity instanceof LivingEntity) {
-					((LivingEntity) sourceentity).swingArm(Hand.MAIN_HAND);
 				}
 			}
 		}
