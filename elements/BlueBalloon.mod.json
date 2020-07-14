@@ -91,6 +91,9 @@
     "whenMobDies": {
       "name": "BalloonParticlesOnDeath"
     },
+    "whenMobIsHurt": {
+      "name": "RemoveBlueBalloon"
+    },
     "onMobTickUpdate": {
       "name": "BalloonUpwardsMovement"
     },

@@ -1,6 +1,7 @@
 
 package net.wenxin.natureplus.entity;
 
+import net.wenxin.natureplus.procedures.RemoveGrayBalloonProcedure;
 import net.wenxin.natureplus.procedures.BalloonUpwardsMovementProcedure;
 import net.wenxin.natureplus.procedures.BalloonParticlesOnDeathProcedure;
 import net.wenxin.natureplus.NatureplusModElements;
@@ -139,6 +140,21 @@ public class GrayBalloonEntity extends NatureplusModElements.ModElement {
 
 		@Override
 		public boolean attackEntityFrom(DamageSource source, float amount) {
+			double x = this.getPosX();
+			double y = this.getPosY();
+			double z = this.getPosZ();
+			Entity entity = this;
+			Entity sourceentity = source.getTrueSource();
+			{
+				Map<String, Object> $_dependencies = new HashMap<>();
+				$_dependencies.put("entity", entity);
+				$_dependencies.put("sourceentity", sourceentity);
+				$_dependencies.put("x", x);
+				$_dependencies.put("y", y);
+				$_dependencies.put("z", z);
+				$_dependencies.put("world", world);
+				RemoveGrayBalloonProcedure.executeProcedure($_dependencies);
+			}
 			if (source.getImmediateSource() instanceof PotionEntity)
 				return false;
 			if (source == DamageSource.FALL)

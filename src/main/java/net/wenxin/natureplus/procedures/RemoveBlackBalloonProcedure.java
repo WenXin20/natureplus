@@ -6,14 +6,12 @@ import net.wenxin.natureplus.NatureplusModElements;
 
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.items.ItemHandlerHelper;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.event.entity.living.LivingAttackEvent;
-import net.minecraftforge.common.MinecraftForge;
 
 import net.minecraft.world.server.ServerWorld;
 import net.minecraft.world.World;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.Hand;
 import net.minecraft.particles.ParticleTypes;
 import net.minecraft.item.ItemStack;
 import net.minecraft.entity.player.PlayerEntity;
@@ -26,7 +24,6 @@ import java.util.Map;
 public class RemoveBlackBalloonProcedure extends NatureplusModElements.ModElement {
 	public RemoveBlackBalloonProcedure(NatureplusModElements instance) {
 		super(instance, 739);
-		MinecraftForge.EVENT_BUS.register(this);
 	}
 
 	public static void executeProcedure(Map<String, Object> dependencies) {
@@ -78,28 +75,10 @@ public class RemoveBlackBalloonProcedure extends NatureplusModElements.ModElemen
 					_setstack.setCount((int) 1);
 					ItemHandlerHelper.giveItemToPlayer(((PlayerEntity) sourceentity), _setstack);
 				}
+				if (sourceentity instanceof LivingEntity) {
+					((LivingEntity) sourceentity).swingArm(Hand.MAIN_HAND);
+				}
 			}
-		}
-	}
-
-	@SubscribeEvent
-	public void onEntityAttacked(LivingAttackEvent event) {
-		if (event != null && event.getEntity() != null) {
-			Entity entity = event.getEntity();
-			Entity sourceentity = event.getSource().getTrueSource();
-			double i = entity.getPosX();
-			double j = entity.getPosY();
-			double k = entity.getPosZ();
-			World world = entity.world;
-			java.util.HashMap<String, Object> dependencies = new java.util.HashMap<>();
-			dependencies.put("x", i);
-			dependencies.put("y", j);
-			dependencies.put("z", k);
-			dependencies.put("world", world);
-			dependencies.put("entity", entity);
-			dependencies.put("sourceentity", sourceentity);
-			dependencies.put("event", event);
-			this.executeProcedure(dependencies);
 		}
 	}
 }
