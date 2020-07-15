@@ -29,6 +29,7 @@ import net.minecraft.item.SpawnEggItem;
 import net.minecraft.item.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Item;
+import net.minecraft.entity.monster.MonsterEntity;
 import net.minecraft.entity.ai.goal.SwimGoal;
 import net.minecraft.entity.ai.goal.RandomWalkingGoal;
 import net.minecraft.entity.ai.goal.LookRandomlyGoal;
@@ -39,7 +40,6 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EntitySpawnPlacementRegistry;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.CreatureEntity;
 import net.minecraft.entity.CreatureAttribute;
 import net.minecraft.client.renderer.model.ModelRenderer;
 import net.minecraft.client.renderer.entity.model.EntityModel;
@@ -92,7 +92,7 @@ public class GreenDragonflyEntity extends NatureplusModElements.ModElement {
 			};
 		});
 	}
-	public static class CustomEntity extends CreatureEntity {
+	public static class CustomEntity extends MonsterEntity {
 		public CustomEntity(FMLPlayMessages.SpawnEntity packet, World world) {
 			this(entity, world);
 		}
@@ -115,7 +115,7 @@ public class GreenDragonflyEntity extends NatureplusModElements.ModElement {
 		protected void registerGoals() {
 			super.registerGoals();
 			this.targetSelector.addGoal(1, new HurtByTargetGoal(this).setCallsForHelp(this.getClass()));
-			this.goalSelector.addGoal(2, new RandomWalkingGoal(this, 0.8, 20) {
+			this.goalSelector.addGoal(2, new RandomWalkingGoal(this, 1.5, 20) {
 				@Override
 				protected Vec3d getPosition() {
 					Random random = CustomEntity.this.getRNG();
@@ -174,7 +174,7 @@ public class GreenDragonflyEntity extends NatureplusModElements.ModElement {
 		protected void registerAttributes() {
 			super.registerAttributes();
 			if (this.getAttribute(SharedMonsterAttributes.MOVEMENT_SPEED) != null)
-				this.getAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.5);
+				this.getAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(1.5);
 			if (this.getAttribute(SharedMonsterAttributes.MAX_HEALTH) != null)
 				this.getAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(10);
 			if (this.getAttribute(SharedMonsterAttributes.ARMOR) != null)
@@ -184,7 +184,7 @@ public class GreenDragonflyEntity extends NatureplusModElements.ModElement {
 			this.getAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(1);
 			if (this.getAttribute(SharedMonsterAttributes.FLYING_SPEED) == null)
 				this.getAttributes().registerAttribute(SharedMonsterAttributes.FLYING_SPEED);
-			this.getAttribute(SharedMonsterAttributes.FLYING_SPEED).setBaseValue(0.5);
+			this.getAttribute(SharedMonsterAttributes.FLYING_SPEED).setBaseValue(1.5);
 		}
 
 		@Override
@@ -247,20 +247,20 @@ public class GreenDragonflyEntity extends NatureplusModElements.ModElement {
 			setRotationAngle(wing_back_right, 0.0F, 0.0873F, 0.0F);
 			wing_back_right.setTextureOffset(0, 0).addBox(-18.0F, 0.0F, -1.0F, 18.0F, 0.0F, 6.0F, 0.0F, false);
 			front_legs = new ModelRenderer(this);
-			front_legs.setRotationPoint(0.0F, 1.5F, 0.0F);
+			front_legs.setRotationPoint(0.0F, 1.5F, 1.0F);
 			main.addChild(front_legs);
-			front_legs.setTextureOffset(2, 4).addBox(-1.5F, -0.5F, 1.0F, 1.0F, 2.0F, 0.0F, 0.0F, false);
-			front_legs.setTextureOffset(0, 4).addBox(0.5F, -0.5F, 1.0F, 1.0F, 2.0F, 0.0F, 0.0F, false);
+			front_legs.setTextureOffset(2, 4).addBox(-1.5F, -0.5F, 0.0F, 1.0F, 2.0F, 0.0F, 0.0F, false);
+			front_legs.setTextureOffset(0, 4).addBox(0.5F, -0.5F, 0.0F, 1.0F, 2.0F, 0.0F, 0.0F, false);
 			middle_legs = new ModelRenderer(this);
-			middle_legs.setRotationPoint(0.0F, 1.5F, 3.0F);
+			middle_legs.setRotationPoint(0.0F, 1.5F, 4.0F);
 			main.addChild(middle_legs);
-			middle_legs.setTextureOffset(2, 0).addBox(-1.5F, -0.5F, 1.0F, 1.0F, 2.0F, 0.0F, 0.0F, false);
-			middle_legs.setTextureOffset(2, 2).addBox(0.5F, -0.5F, 1.0F, 1.0F, 2.0F, 0.0F, 0.0F, false);
+			middle_legs.setTextureOffset(2, 0).addBox(-1.5F, -0.5F, 0.0F, 1.0F, 2.0F, 0.0F, 0.0F, false);
+			middle_legs.setTextureOffset(2, 2).addBox(0.5F, -0.5F, 0.0F, 1.0F, 2.0F, 0.0F, 0.0F, false);
 			back_legs = new ModelRenderer(this);
-			back_legs.setRotationPoint(0.0F, 1.5F, 6.0F);
+			back_legs.setRotationPoint(0.0F, 1.5F, 7.0F);
 			main.addChild(back_legs);
-			back_legs.setTextureOffset(0, 2).addBox(-1.5F, -0.5F, 1.0F, 1.0F, 2.0F, 0.0F, 0.0F, false);
-			back_legs.setTextureOffset(0, 0).addBox(0.5F, -0.5F, 1.0F, 1.0F, 2.0F, 0.0F, 0.0F, false);
+			back_legs.setTextureOffset(0, 2).addBox(-1.5F, -0.5F, 0.0F, 1.0F, 2.0F, 0.0F, 0.0F, false);
+			back_legs.setTextureOffset(0, 0).addBox(0.5F, -0.5F, 0.0F, 1.0F, 2.0F, 0.0F, 0.0F, false);
 			head = new ModelRenderer(this);
 			head.setRotationPoint(0.0F, 21.0F, -5.0F);
 			head.setTextureOffset(0, 24).addBox(-1.5F, -2.0F, -3.0F, 3.0F, 3.0F, 3.0F, 0.0F, false);
@@ -283,22 +283,28 @@ public class GreenDragonflyEntity extends NatureplusModElements.ModElement {
 			this.head.rotateAngleY = f3 / (180F / (float) Math.PI);
 			this.head.rotateAngleX = f4 / (180F / (float) Math.PI);
 			boolean flag = e.getMotion().lengthSquared() < 2.0E-7D; // e.onGround &&
+			boolean flag2 = e.onGround && e.getMotion().lengthSquared() < 2.0E-7D;
 			if (flag) {
 				this.wing_front_right.rotateAngleZ = 0.8F + -(MathHelper.cos(f2 * 0.8F) * (float) Math.PI * 0.14F);
-				this.wing_back_right.rotateAngleZ = 0.8F + -(MathHelper.cos(f2 * 0.8F) * (float) Math.PI * 0.13F);
+				this.wing_back_right.rotateAngleZ = 0.8F + -(MathHelper.cos(f2 * 0.8F) * (float) Math.PI * 0.10F);
 				this.wing_front_left.rotateAngleZ = -0.8F + (MathHelper.cos(f2 * 0.8F) * (float) Math.PI * 0.14F);
-				this.wing_back_left.rotateAngleZ = -0.8F + (MathHelper.cos(f2 * 0.8F) * (float) Math.PI * 0.13F);
+				this.wing_back_left.rotateAngleZ = -0.8F + (MathHelper.cos(f2 * 0.8F) * (float) Math.PI * 0.10F);
 				this.front_legs.rotateAngleX = 0.0F;
 				this.middle_legs.rotateAngleX = 0.0F;
 				this.back_legs.rotateAngleX = 0.0F;
 			} else {
-				this.wing_front_right.rotateAngleZ = 0.8F + -(MathHelper.cos(f2 * 1.7F) * (float) Math.PI * 0.18F);
-				this.wing_back_right.rotateAngleZ = 0.8F + -(MathHelper.cos(f2 * 1.7F) * (float) Math.PI * 0.17F);
-				this.wing_front_left.rotateAngleZ = -0.8F + MathHelper.cos(f2 * 1.7F) * (float) Math.PI * 0.18F;
-				this.wing_back_left.rotateAngleZ = -0.8F + MathHelper.cos(f2 * 1.7F) * (float) Math.PI * 0.17F;
+				this.wing_front_right.rotateAngleZ = -(MathHelper.cos(f2 * 2.0F) * (float) Math.PI * 0.18F);
+				this.wing_back_right.rotateAngleZ = -(MathHelper.cos(f2 * 2.0F) * (float) Math.PI * 0.15F);
+				this.wing_front_left.rotateAngleZ = MathHelper.cos(f2 * 2.0F) * (float) Math.PI * 0.18F;
+				this.wing_back_left.rotateAngleZ = MathHelper.cos(f2 * 2.0F) * (float) Math.PI * 0.15F;
 				this.front_legs.rotateAngleX = ((float) Math.PI / 4F);
 				this.middle_legs.rotateAngleX = ((float) Math.PI / 4F);
 				this.back_legs.rotateAngleX = ((float) Math.PI / 4F);
+			}
+			if (flag2) {
+				this.main.rotateAngleX = -0.0873F;
+			} else {
+				this.main.rotateAngleX = -0.0873F + -(MathHelper.cos(f2 * 0.05F) * (float) Math.PI * 0.01F);
 			}
 		}
 	}

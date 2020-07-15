@@ -31,7 +31,6 @@ public static class ModelDragonfly extends EntityModel<Entity> {
 		wing_front_left = new ModelRenderer(this);
 		wing_front_left.setRotationPoint(0.5F, -1.501F, 2.0F);
 		main.addChild(wing_front_left);
-		setRotationAngle(wing_front_left, 0.0F, 0.0F, -0.0873F);
 		wing_front_left.setTextureOffset(0, 18).addBox(0.0F, 0.0F, -4.0F, 18.0F, 0.0F, 6.0F, 0.0F, false);
 
 		wing_back_left = new ModelRenderer(this);
@@ -52,22 +51,22 @@ public static class ModelDragonfly extends EntityModel<Entity> {
 		wing_back_right.setTextureOffset(0, 0).addBox(-18.0F, 0.0F, -1.0F, 18.0F, 0.0F, 6.0F, 0.0F, false);
 
 		front_legs = new ModelRenderer(this);
-		front_legs.setRotationPoint(0.0F, 1.5F, 0.0F);
+		front_legs.setRotationPoint(0.0F, 1.5F, 1.0F);
 		main.addChild(front_legs);
-		front_legs.setTextureOffset(2, 4).addBox(-1.5F, -0.5F, 1.0F, 1.0F, 2.0F, 0.0F, 0.0F, false);
-		front_legs.setTextureOffset(0, 4).addBox(0.5F, -0.5F, 1.0F, 1.0F, 2.0F, 0.0F, 0.0F, false);
+		front_legs.setTextureOffset(2, 4).addBox(-1.5F, -0.5F, 0.0F, 1.0F, 2.0F, 0.0F, 0.0F, false);
+		front_legs.setTextureOffset(0, 4).addBox(0.5F, -0.5F, 0.0F, 1.0F, 2.0F, 0.0F, 0.0F, false);
 
 		middle_legs = new ModelRenderer(this);
-		middle_legs.setRotationPoint(0.0F, 1.5F, 3.0F);
+		middle_legs.setRotationPoint(0.0F, 1.5F, 4.0F);
 		main.addChild(middle_legs);
-		middle_legs.setTextureOffset(2, 0).addBox(-1.5F, -0.5F, 1.0F, 1.0F, 2.0F, 0.0F, 0.0F, false);
-		middle_legs.setTextureOffset(2, 2).addBox(0.5F, -0.5F, 1.0F, 1.0F, 2.0F, 0.0F, 0.0F, false);
+		middle_legs.setTextureOffset(2, 0).addBox(-1.5F, -0.5F, 0.0F, 1.0F, 2.0F, 0.0F, 0.0F, false);
+		middle_legs.setTextureOffset(2, 2).addBox(0.5F, -0.5F, 0.0F, 1.0F, 2.0F, 0.0F, 0.0F, false);
 
 		back_legs = new ModelRenderer(this);
-		back_legs.setRotationPoint(0.0F, 1.5F, 6.0F);
+		back_legs.setRotationPoint(0.0F, 1.5F, 7.0F);
 		main.addChild(back_legs);
-		back_legs.setTextureOffset(0, 2).addBox(-1.5F, -0.5F, 1.0F, 1.0F, 2.0F, 0.0F, 0.0F, false);
-		back_legs.setTextureOffset(0, 0).addBox(0.5F, -0.5F, 1.0F, 1.0F, 2.0F, 0.0F, 0.0F, false);
+		back_legs.setTextureOffset(0, 2).addBox(-1.5F, -0.5F, 0.0F, 1.0F, 2.0F, 0.0F, 0.0F, false);
+		back_legs.setTextureOffset(0, 0).addBox(0.5F, -0.5F, 0.0F, 1.0F, 2.0F, 0.0F, 0.0F, false);
 
 		head = new ModelRenderer(this);
 		head.setRotationPoint(0.0F, 21.0F, -5.0F);
@@ -93,24 +92,30 @@ public static class ModelDragonfly extends EntityModel<Entity> {
 		this.head.rotateAngleX = f4 / (180F / (float) Math.PI);
 	
 		boolean flag = e.getMotion().lengthSquared() < 2.0E-7D; //e.onGround &&
+		boolean flag2 = e.onGround && e.getMotion().lengthSquared() < 2.0E-7D;
 		if (flag) {
 			this.wing_front_right.rotateAngleZ = 0.8F + -(MathHelper.cos(f2 * 0.8F) * (float)Math.PI * 0.14F);
-			this.wing_back_right.rotateAngleZ = 0.8F + -(MathHelper.cos(f2 * 0.8F) * (float)Math.PI * 0.13F);
+			this.wing_back_right.rotateAngleZ = 0.8F + -(MathHelper.cos(f2 * 0.8F) * (float)Math.PI * 0.10F);
 			this.wing_front_left.rotateAngleZ = -0.8F + (MathHelper.cos(f2 * 0.8F) * (float)Math.PI * 0.14F);
-			this.wing_back_left.rotateAngleZ = -0.8F + (MathHelper.cos(f2 * 0.8F) * (float)Math.PI * 0.13F);
+			this.wing_back_left.rotateAngleZ = -0.8F + (MathHelper.cos(f2 * 0.8F) * (float)Math.PI * 0.10F);
 			
 			this.front_legs.rotateAngleX = 0.0F;
 			this.middle_legs.rotateAngleX = 0.0F;
 			this.back_legs.rotateAngleX = 0.0F;
 		} else {
-			this.wing_front_right.rotateAngleZ = 0.8F + -(MathHelper.cos(f2 * 1.7F) * (float)Math.PI * 0.18F);
-			this.wing_back_right.rotateAngleZ = 0.8F + -(MathHelper.cos(f2 * 1.7F) * (float)Math.PI * 0.17F);
-			this.wing_front_left.rotateAngleZ = -0.8F + MathHelper.cos(f2 * 1.7F) * (float)Math.PI * 0.18F;
-			this.wing_back_left.rotateAngleZ = -0.8F + MathHelper.cos(f2 * 1.7F) * (float)Math.PI * 0.17F;
+			this.wing_front_right.rotateAngleZ = -(MathHelper.cos(f2 * 2.0F) * (float)Math.PI * 0.18F);
+			this.wing_back_right.rotateAngleZ = -(MathHelper.cos(f2 * 2.0F) * (float)Math.PI * 0.15F);
+			this.wing_front_left.rotateAngleZ = MathHelper.cos(f2 * 2.0F) * (float)Math.PI * 0.18F;
+			this.wing_back_left.rotateAngleZ = MathHelper.cos(f2 * 2.0F) * (float)Math.PI * 0.15F;
 			
 			this.front_legs.rotateAngleX = ((float)Math.PI / 4F);
 			this.middle_legs.rotateAngleX = ((float)Math.PI / 4F);
 			this.back_legs.rotateAngleX = ((float)Math.PI / 4F);
+		}
+		if (flag2) {
+			this.main.rotateAngleX = -0.0873F;
+		} else {
+			this.main.rotateAngleX = -0.0873F + -(MathHelper.cos(f2 * 0.05F) * (float)Math.PI * 0.01F);
 		}
 	}
 }
