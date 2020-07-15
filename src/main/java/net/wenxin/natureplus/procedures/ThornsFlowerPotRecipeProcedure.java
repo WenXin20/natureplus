@@ -22,7 +22,7 @@ import java.util.Map;
 @NatureplusModElements.ModElement.Tag
 public class ThornsFlowerPotRecipeProcedure extends NatureplusModElements.ModElement {
 	public ThornsFlowerPotRecipeProcedure(NatureplusModElements instance) {
-		super(instance, 368);
+		super(instance, 373);
 		MinecraftForge.EVENT_BUS.register(this);
 	}
 

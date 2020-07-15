@@ -34,7 +34,7 @@ import java.util.Iterator;
 @NatureplusModElements.ModElement.Tag
 public class GrowGiantCornflowerBonemealProcedure extends NatureplusModElements.ModElement {
 	public GrowGiantCornflowerBonemealProcedure(NatureplusModElements instance) {
-		super(instance, 592);
+		super(instance, 597);
 		MinecraftForge.EVENT_BUS.register(this);
 	}
 

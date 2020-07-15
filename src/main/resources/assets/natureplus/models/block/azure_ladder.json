@@ -1,0 +1,8 @@
+{
+  "parent": "natureplus:custom/ladder",
+  "textures": {
+    "all": "natureplus:blocks/azure_ladder",
+    "particle": "natureplus:blocks/azure_ladder",
+    "texture": "natureplus:blocks/azure_ladder"
+  }
+}

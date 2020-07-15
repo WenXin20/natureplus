@@ -34,7 +34,7 @@ public class AzureLeavesBlock extends NatureplusModElements.ModElement {
 	@ObjectHolder("natureplus:azure_leaves")
 	public static final Block block = null;
 	public AzureLeavesBlock(NatureplusModElements instance) {
-		super(instance, 20);
+		super(instance, 21);
 	}
 
 	@Override

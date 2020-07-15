@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "natureplus:block/plant_stem_ladder"
+    },
+    "facing=east": {
+      "model": "natureplus:block/plant_stem_ladder",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "natureplus:block/plant_stem_ladder",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "natureplus:block/plant_stem_ladder",
+      "y": 270
+    }
+  }
+}

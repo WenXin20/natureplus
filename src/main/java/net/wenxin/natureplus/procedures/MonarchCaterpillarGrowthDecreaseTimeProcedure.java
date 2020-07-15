@@ -28,7 +28,7 @@ import java.util.Map;
 @NatureplusModElements.ModElement.Tag
 public class MonarchCaterpillarGrowthDecreaseTimeProcedure extends NatureplusModElements.ModElement {
 	public MonarchCaterpillarGrowthDecreaseTimeProcedure(NatureplusModElements instance) {
-		super(instance, 705);
+		super(instance, 710);
 		MinecraftForge.EVENT_BUS.register(this);
 	}
 

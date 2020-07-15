@@ -1,0 +1,8 @@
+{
+  "parent": "natureplus:custom/ladder",
+  "textures": {
+    "all": "natureplus:blocks/plant_stem_ladder",
+    "particle": "natureplus:blocks/plant_stem_ladder",
+    "texture": "natureplus:blocks/plant_stem_ladder"
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "group": "natureplus",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "0 2",
+    "345",
+    "6 8"
+  ],
+  "key": {
+    "0": {
+      "tag": "forge:rods/wooden"
+    },
+    "2": {
+      "tag": "forge:rods/wooden"
+    },
+    "3": {
+      "tag": "forge:rods/wooden"
+    },
+    "4": {
+      "tag": "natureplus:azure_planks"
+    },
+    "5": {
+      "tag": "forge:rods/wooden"
+    },
+    "6": {
+      "tag": "forge:rods/wooden"
+    },
+    "8": {
+      "tag": "forge:rods/wooden"
+    }
+  },
+  "result": {
+    "item": "natureplus:azure_ladder",
+    "count": 3
+  }
+}

@@ -94,10 +94,10 @@ public static class ModelDragonfly extends EntityModel<Entity> {
 		boolean flag = e.getMotion().lengthSquared() < 2.0E-7D; //e.onGround &&
 		boolean flag2 = e.onGround && e.getMotion().lengthSquared() < 2.0E-7D;
 		if (flag) {
-			this.wing_front_right.rotateAngleZ = 0.8F + -(MathHelper.cos(f2 * 0.8F) * (float)Math.PI * 0.14F);
-			this.wing_back_right.rotateAngleZ = 0.8F + -(MathHelper.cos(f2 * 0.8F) * (float)Math.PI * 0.10F);
-			this.wing_front_left.rotateAngleZ = -0.8F + (MathHelper.cos(f2 * 0.8F) * (float)Math.PI * 0.14F);
-			this.wing_back_left.rotateAngleZ = -0.8F + (MathHelper.cos(f2 * 0.8F) * (float)Math.PI * 0.10F);
+			this.wing_front_right.rotateAngleZ = 0.1F + -(MathHelper.cos(f2 * 0.8F) * (float)Math.PI * 0.14F);
+			this.wing_back_right.rotateAngleZ = 0.1F + -(MathHelper.cos(f2 * 0.8F) * (float)Math.PI * 0.10F);
+			this.wing_front_left.rotateAngleZ = -0.1F + (MathHelper.cos(f2 * 0.8F) * (float)Math.PI * 0.14F);
+			this.wing_back_left.rotateAngleZ = -0.1F + (MathHelper.cos(f2 * 0.8F) * (float)Math.PI * 0.10F);
 			
 			this.front_legs.rotateAngleX = 0.0F;
 			this.middle_legs.rotateAngleX = 0.0F;

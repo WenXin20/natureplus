@@ -64,7 +64,7 @@ public class SnowPeaHeadBlock extends NatureplusModElements.ModElement implement
 	public void clientLoad(FMLClientSetupEvent event) {
 		RenderTypeLookup.setRenderLayer(block, RenderType.getTranslucent());
 	}
-	public static class CustomBlock extends Block {
+	public static class CustomBlock extends Block implements IWaterLoggable {
 		public static final DirectionProperty FACING = HorizontalBlock.HORIZONTAL_FACING;
 		public CustomBlock() {
 			super(Block.Properties.create(Material.LEAVES).sound(SoundType.GLASS).hardnessAndResistance(2f, 1f).lightValue(0).notSolid());

@@ -1,0 +1,16 @@
+{
+  "mappings": {
+    "default": {
+      "map": {
+        "texture": "azure_ladder"
+      },
+      "name": "default"
+    },
+    "plant_stem_ladder": {
+      "map": {
+        "texture": "plant_stem_ladder"
+      },
+      "name": "plant_stem_ladder"
+    }
+  }
+}

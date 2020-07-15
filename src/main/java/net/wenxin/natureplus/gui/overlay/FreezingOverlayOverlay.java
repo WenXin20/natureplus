@@ -24,7 +24,7 @@ import com.google.common.collect.ImmutableMap;
 @NatureplusModElements.ModElement.Tag
 public class FreezingOverlayOverlay extends NatureplusModElements.ModElement {
 	public FreezingOverlayOverlay(NatureplusModElements instance) {
-		super(instance, 665);
+		super(instance, 670);
 	}
 
 	@Override

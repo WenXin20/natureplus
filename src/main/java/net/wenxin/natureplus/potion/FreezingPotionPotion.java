@@ -27,7 +27,7 @@ public class FreezingPotionPotion extends NatureplusModElements.ModElement {
 	@ObjectHolder("natureplus:freezing_potion")
 	public static final Potion potionType = null;
 	public FreezingPotionPotion(NatureplusModElements instance) {
-		super(instance, 663);
+		super(instance, 668);
 		FMLJavaModLoadingContext.get().getModEventBus().register(this);
 	}
 

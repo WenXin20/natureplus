@@ -34,7 +34,7 @@ import java.util.Random;
 @NatureplusModElements.ModElement.Tag
 public class GiantOrangeTulipStructure extends NatureplusModElements.ModElement {
 	public GiantOrangeTulipStructure(NatureplusModElements instance) {
-		super(instance, 596);
+		super(instance, 601);
 	}
 
 	@Override

@@ -34,7 +34,7 @@ public class PlantStemStairsBlock extends NatureplusModElements.ModElement {
 	@ObjectHolder("natureplus:plant_stem_stairs")
 	public static final Block block = null;
 	public PlantStemStairsBlock(NatureplusModElements instance) {
-		super(instance, 34);
+		super(instance, 35);
 	}
 
 	@Override

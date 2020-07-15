@@ -40,7 +40,7 @@ public class PinkPetalCarpetBlock extends NatureplusModElements.ModElement {
 	@ObjectHolder("natureplus:pink_petal_carpet")
 	public static final Block block = null;
 	public PinkPetalCarpetBlock(NatureplusModElements instance) {
-		super(instance, 68);
+		super(instance, 70);
 	}
 
 	@Override

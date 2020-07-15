@@ -34,7 +34,7 @@ import java.util.Iterator;
 @NatureplusModElements.ModElement.Tag
 public class GrowGiantWhiteTulipBonemealProcedure extends NatureplusModElements.ModElement {
 	public GrowGiantWhiteTulipBonemealProcedure(NatureplusModElements instance) {
-		super(instance, 603);
+		super(instance, 608);
 		MinecraftForge.EVENT_BUS.register(this);
 	}
 

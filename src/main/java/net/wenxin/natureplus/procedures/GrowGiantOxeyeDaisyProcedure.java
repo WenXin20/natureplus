@@ -34,7 +34,7 @@ import java.util.Iterator;
 @NatureplusModElements.ModElement.Tag
 public class GrowGiantOxeyeDaisyProcedure extends NatureplusModElements.ModElement {
 	public GrowGiantOxeyeDaisyProcedure(NatureplusModElements instance) {
-		super(instance, 590);
+		super(instance, 595);
 		MinecraftForge.EVENT_BUS.register(this);
 	}
 

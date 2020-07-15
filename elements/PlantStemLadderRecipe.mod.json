@@ -1,0 +1,46 @@
+{
+  "_fv": 10,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Crafting",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "recipeRetstackSize": 3,
+    "group": "",
+    "recipeShapeless": false,
+    "recipeSlots": [
+      {
+        "value": "TAG:forge:rods/wooden"
+      },
+      {
+        "value": ""
+      },
+      {
+        "value": "TAG:forge:rods/wooden"
+      },
+      {
+        "value": "TAG:forge:rods/wooden"
+      },
+      {
+        "value": "TAG:natureplus:plant_stem_planks"
+      },
+      {
+        "value": "TAG:forge:rods/wooden"
+      },
+      {
+        "value": "TAG:forge:rods/wooden"
+      },
+      {
+        "value": ""
+      },
+      {
+        "value": "TAG:forge:rods/wooden"
+      }
+    ],
+    "recipeReturnStack": {
+      "value": "CUSTOM:PlantStemLadder"
+    },
+    "name": "plant_stem_ladder_recipe",
+    "namespace": "mod"
+  }
+}

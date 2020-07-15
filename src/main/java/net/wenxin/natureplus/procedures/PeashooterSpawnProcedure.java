@@ -30,7 +30,7 @@ import java.util.Iterator;
 @NatureplusModElements.ModElement.Tag
 public class PeashooterSpawnProcedure extends NatureplusModElements.ModElement {
 	public PeashooterSpawnProcedure(NatureplusModElements instance) {
-		super(instance, 521);
+		super(instance, 526);
 	}
 
 	public static void executeProcedure(Map<String, Object> dependencies) {

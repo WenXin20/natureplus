@@ -34,7 +34,7 @@ public class LeafBlockBlock extends NatureplusModElements.ModElement {
 	@ObjectHolder("natureplus:leaf_block")
 	public static final Block block = null;
 	public LeafBlockBlock(NatureplusModElements instance) {
-		super(instance, 43);
+		super(instance, 45);
 	}
 
 	@Override

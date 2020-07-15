@@ -30,7 +30,7 @@ import java.util.Iterator;
 @NatureplusModElements.ModElement.Tag
 public class KernelPultSpawnProcedure extends NatureplusModElements.ModElement {
 	public KernelPultSpawnProcedure(NatureplusModElements instance) {
-		super(instance, 656);
+		super(instance, 661);
 	}
 
 	public static void executeProcedure(Map<String, Object> dependencies) {

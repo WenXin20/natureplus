@@ -26,7 +26,7 @@ import java.util.Iterator;
 @NatureplusModElements.ModElement.Tag
 public class GrantCratesAdvancementProcedure extends NatureplusModElements.ModElement {
 	public GrantCratesAdvancementProcedure(NatureplusModElements instance) {
-		super(instance, 294);
+		super(instance, 299);
 		MinecraftForge.EVENT_BUS.register(this);
 	}
 

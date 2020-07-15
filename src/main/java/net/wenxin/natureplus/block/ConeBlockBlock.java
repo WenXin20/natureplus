@@ -63,7 +63,8 @@ public class ConeBlockBlock extends NatureplusModElements.ModElement implements 
 	public void clientLoad(FMLClientSetupEvent event) {
 		RenderTypeLookup.setRenderLayer(block, RenderType.getCutout());
 	}
-	public static class CustomBlock extends Block {
+	public static class CustomBlock extends Block implements IWaterLoggable {
+
 		public CustomBlock() {
 			super(Block.Properties.create(Material.WOOD).sound(SoundType.CORAL).hardnessAndResistance(1f, 10f).lightValue(0).harvestLevel(0)
 					.harvestTool(ToolType.AXE).notSolid());

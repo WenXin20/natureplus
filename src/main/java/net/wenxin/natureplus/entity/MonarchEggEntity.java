@@ -52,7 +52,7 @@ import com.mojang.blaze3d.matrix.MatrixStack;
 public class MonarchEggEntity extends NatureplusModElements.ModElement {
 	public static EntityType entity = null;
 	public MonarchEggEntity(NatureplusModElements instance) {
-		super(instance, 120);
+		super(instance, 122);
 		FMLJavaModLoadingContext.get().getModEventBus().register(this);
 	}
 

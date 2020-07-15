@@ -27,7 +27,7 @@ import java.util.Iterator;
 @NatureplusModElements.ModElement.Tag
 public class PlantMexicanSunflowerCropProcedure extends NatureplusModElements.ModElement {
 	public PlantMexicanSunflowerCropProcedure(NatureplusModElements instance) {
-		super(instance, 194);
+		super(instance, 199);
 	}
 
 	public static void executeProcedure(Map<String, Object> dependencies) {

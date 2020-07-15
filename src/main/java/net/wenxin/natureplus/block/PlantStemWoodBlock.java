@@ -33,7 +33,7 @@ public class PlantStemWoodBlock extends NatureplusModElements.ModElement {
 	@ObjectHolder("natureplus:plant_stem_wood")
 	public static final Block block = null;
 	public PlantStemWoodBlock(NatureplusModElements instance) {
-		super(instance, 25);
+		super(instance, 26);
 	}
 
 	@Override

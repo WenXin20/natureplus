@@ -12,7 +12,7 @@ import java.util.Map;
 @NatureplusModElements.ModElement.Tag
 public class GrowStage3to4Procedure extends NatureplusModElements.ModElement {
 	public GrowStage3to4Procedure(NatureplusModElements instance) {
-		super(instance, 197);
+		super(instance, 202);
 	}
 
 	public static void executeProcedure(Map<String, Object> dependencies) {

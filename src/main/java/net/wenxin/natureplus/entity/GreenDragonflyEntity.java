@@ -1,6 +1,7 @@
 
 package net.wenxin.natureplus.entity;
 
+import net.wenxin.natureplus.procedures.IsNightInWorldProcedure;
 import net.wenxin.natureplus.itemgroup.NaturePlusTabItemGroup;
 import net.wenxin.natureplus.NatureplusModElements;
 
@@ -29,9 +30,12 @@ import net.minecraft.item.SpawnEggItem;
 import net.minecraft.item.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Item;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.monster.MonsterEntity;
 import net.minecraft.entity.ai.goal.SwimGoal;
 import net.minecraft.entity.ai.goal.RandomWalkingGoal;
+import net.minecraft.entity.ai.goal.NearestAttackableTargetGoal;
+import net.minecraft.entity.ai.goal.MeleeAttackGoal;
 import net.minecraft.entity.ai.goal.LookRandomlyGoal;
 import net.minecraft.entity.ai.goal.HurtByTargetGoal;
 import net.minecraft.entity.ai.controller.FlyingMovementController;
@@ -52,18 +56,20 @@ import java.util.Random;
 import com.mojang.blaze3d.vertex.IVertexBuilder;
 import com.mojang.blaze3d.matrix.MatrixStack;
 
+import com.google.common.collect.ImmutableMap;
+
 @NatureplusModElements.ModElement.Tag
 public class GreenDragonflyEntity extends NatureplusModElements.ModElement {
 	public static EntityType entity = null;
 	public GreenDragonflyEntity(NatureplusModElements instance) {
-		super(instance, 761);
+		super(instance, 123);
 		FMLJavaModLoadingContext.get().getModEventBus().register(this);
 	}
 
 	@Override
 	public void initElements() {
 		entity = (EntityType.Builder.<CustomEntity>create(CustomEntity::new, EntityClassification.CREATURE).setShouldReceiveVelocityUpdates(true)
-				.setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(CustomEntity::new).size(1.5f, 0.4f)).build("green_dragonfly")
+				.setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(CustomEntity::new).size(1f, 0.4f)).build("green_dragonfly")
 						.setRegistryName("green_dragonfly");
 		elements.entities.add(() -> entity);
 		elements.items.add(() -> new SpawnEggItem(entity, -16751104, -16764160, new Item.Properties().group(NaturePlusTabItemGroup.tab))
@@ -115,7 +121,29 @@ public class GreenDragonflyEntity extends NatureplusModElements.ModElement {
 		protected void registerGoals() {
 			super.registerGoals();
 			this.targetSelector.addGoal(1, new HurtByTargetGoal(this).setCallsForHelp(this.getClass()));
-			this.goalSelector.addGoal(2, new RandomWalkingGoal(this, 1.5, 20) {
+			this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 1.8, false));
+			this.targetSelector.addGoal(3, new NearestAttackableTargetGoal(this, MonarchButterflyEntity.CustomEntity.class, true, false));
+			this.targetSelector.addGoal(4, new NearestAttackableTargetGoal(this, MonarchCaterpillarEntity.CustomEntity.class, true, false));
+			this.targetSelector.addGoal(5, new NearestAttackableTargetGoal(this, PlayerEntity.class, true, false) {
+				@Override
+				public boolean shouldExecute() {
+					double x = CustomEntity.this.getPosX();
+					double y = CustomEntity.this.getPosY();
+					double z = CustomEntity.this.getPosZ();
+					Entity entity = CustomEntity.this;
+					return super.shouldExecute() && IsNightInWorldProcedure.executeProcedure(ImmutableMap.of("world", world));
+				}
+
+				@Override
+				public boolean shouldContinueExecuting() {
+					double x = CustomEntity.this.getPosX();
+					double y = CustomEntity.this.getPosY();
+					double z = CustomEntity.this.getPosZ();
+					Entity entity = CustomEntity.this;
+					return super.shouldContinueExecuting() && IsNightInWorldProcedure.executeProcedure(ImmutableMap.of("world", world));
+				}
+			});
+			this.goalSelector.addGoal(6, new RandomWalkingGoal(this, 1.5, 20) {
 				@Override
 				protected Vec3d getPosition() {
 					Random random = CustomEntity.this.getRNG();
@@ -125,9 +153,8 @@ public class GreenDragonflyEntity extends NatureplusModElements.ModElement {
 					return new Vec3d(dir_x, dir_y, dir_z);
 				}
 			});
-			this.goalSelector.addGoal(3, new RandomWalkingGoal(this, 0.5));
-			this.goalSelector.addGoal(4, new LookRandomlyGoal(this));
-			this.goalSelector.addGoal(5, new SwimGoal(this));
+			this.goalSelector.addGoal(7, new LookRandomlyGoal(this));
+			this.goalSelector.addGoal(8, new SwimGoal(this));
 		}
 
 		@Override
@@ -230,7 +257,6 @@ public class GreenDragonflyEntity extends NatureplusModElements.ModElement {
 			wing_front_left = new ModelRenderer(this);
 			wing_front_left.setRotationPoint(0.5F, -1.501F, 2.0F);
 			main.addChild(wing_front_left);
-			setRotationAngle(wing_front_left, 0.0F, 0.0F, -0.0873F);
 			wing_front_left.setTextureOffset(0, 18).addBox(0.0F, 0.0F, -4.0F, 18.0F, 0.0F, 6.0F, 0.0F, false);
 			wing_back_left = new ModelRenderer(this);
 			wing_back_left.setRotationPoint(0.5F, -1.501F, 5.0F);
@@ -285,10 +311,10 @@ public class GreenDragonflyEntity extends NatureplusModElements.ModElement {
 			boolean flag = e.getMotion().lengthSquared() < 2.0E-7D; // e.onGround &&
 			boolean flag2 = e.onGround && e.getMotion().lengthSquared() < 2.0E-7D;
 			if (flag) {
-				this.wing_front_right.rotateAngleZ = 0.8F + -(MathHelper.cos(f2 * 0.8F) * (float) Math.PI * 0.14F);
-				this.wing_back_right.rotateAngleZ = 0.8F + -(MathHelper.cos(f2 * 0.8F) * (float) Math.PI * 0.10F);
-				this.wing_front_left.rotateAngleZ = -0.8F + (MathHelper.cos(f2 * 0.8F) * (float) Math.PI * 0.14F);
-				this.wing_back_left.rotateAngleZ = -0.8F + (MathHelper.cos(f2 * 0.8F) * (float) Math.PI * 0.10F);
+				this.wing_front_right.rotateAngleZ = 0.1F + -(MathHelper.cos(f2 * 0.8F) * (float) Math.PI * 0.14F);
+				this.wing_back_right.rotateAngleZ = 0.1F + -(MathHelper.cos(f2 * 0.8F) * (float) Math.PI * 0.10F);
+				this.wing_front_left.rotateAngleZ = -0.1F + (MathHelper.cos(f2 * 0.8F) * (float) Math.PI * 0.14F);
+				this.wing_back_left.rotateAngleZ = -0.1F + (MathHelper.cos(f2 * 0.8F) * (float) Math.PI * 0.10F);
 				this.front_legs.rotateAngleX = 0.0F;
 				this.middle_legs.rotateAngleX = 0.0F;
 				this.back_legs.rotateAngleX = 0.0F;

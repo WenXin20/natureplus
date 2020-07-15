@@ -34,7 +34,7 @@ import java.util.Random;
 @NatureplusModElements.ModElement.Tag
 public class GiantAzureBluetStructure extends NatureplusModElements.ModElement {
 	public GiantAzureBluetStructure(NatureplusModElements instance) {
-		super(instance, 502);
+		super(instance, 507);
 	}
 
 	@Override

@@ -28,7 +28,7 @@ public class SpadeItem extends NatureplusModElements.ModElement {
 	@ObjectHolder("natureplus:stone_spade")
 	public static final Item block = null;
 	public SpadeItem(NatureplusModElements instance) {
-		super(instance, 179);
+		super(instance, 184);
 	}
 
 	@Override

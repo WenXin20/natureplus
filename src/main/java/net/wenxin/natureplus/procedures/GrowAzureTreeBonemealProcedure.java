@@ -34,7 +34,7 @@ import java.util.Iterator;
 @NatureplusModElements.ModElement.Tag
 public class GrowAzureTreeBonemealProcedure extends NatureplusModElements.ModElement {
 	public GrowAzureTreeBonemealProcedure(NatureplusModElements instance) {
-		super(instance, 255);
+		super(instance, 260);
 		MinecraftForge.EVENT_BUS.register(this);
 	}
 

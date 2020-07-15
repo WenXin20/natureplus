@@ -37,7 +37,7 @@ public class KernelPultHeadHelmetItem extends NatureplusModElements.ModElement {
 	@ObjectHolder("natureplus:kernel_pult_head_boots")
 	public static final Item boots = null;
 	public KernelPultHeadHelmetItem(NatureplusModElements instance) {
-		super(instance, 172);
+		super(instance, 177);
 	}
 
 	@Override
