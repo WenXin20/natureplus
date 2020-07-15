@@ -76,7 +76,7 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 public class SunflowerEntity extends NatureplusModElements.ModElement {
 	public static EntityType entity = null;
 	public SunflowerEntity(NatureplusModElements instance) {
-		super(instance, 116);
+		super(instance, 160);
 		FMLJavaModLoadingContext.get().getModEventBus().register(this);
 	}
 

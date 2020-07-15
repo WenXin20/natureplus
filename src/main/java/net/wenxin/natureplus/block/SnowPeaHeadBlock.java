@@ -11,6 +11,7 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.api.distmarker.Dist;
 
 import net.minecraft.world.storage.loot.LootContext;
+import net.minecraft.world.IWorldReader;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.util.math.shapes.ISelectionContext;
@@ -45,11 +46,10 @@ import java.util.Collections;
 @NatureplusModElements.ModElement.Tag
 public class SnowPeaHeadBlock extends NatureplusModElements.ModElement implements IWaterLoggable {
 	public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
-
 	@ObjectHolder("natureplus:snow_pea_head")
 	public static final Block block = null;
 	public SnowPeaHeadBlock(NatureplusModElements instance) {
-		super(instance, 132);
+		super(instance, 174);
 	}
 
 	@Override
@@ -69,8 +69,12 @@ public class SnowPeaHeadBlock extends NatureplusModElements.ModElement implement
 		public CustomBlock() {
 			super(Block.Properties.create(Material.LEAVES).sound(SoundType.GLASS).hardnessAndResistance(2f, 1f).lightValue(0).notSolid());
 			this.setDefaultState(this.stateContainer.getBaseState().with(FACING, Direction.NORTH).with(WATERLOGGED, false));
-
 			setRegistryName("snow_pea_head");
+		}
+
+		@Override
+		public float[] getBeaconColorMultiplier(BlockState state, IWorldReader world, BlockPos pos, BlockPos beaconPos) {
+			return new float[]{0.4f, 0.8f, 1f};
 		}
 
 		@Override

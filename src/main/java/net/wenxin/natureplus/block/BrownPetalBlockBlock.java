@@ -34,7 +34,7 @@ public class BrownPetalBlockBlock extends NatureplusModElements.ModElement {
 	@ObjectHolder("natureplus:brown_petal_block")
 	public static final Block block = null;
 	public BrownPetalBlockBlock(NatureplusModElements instance) {
-		super(instance, 56);
+		super(instance, 58);
 	}
 
 	@Override

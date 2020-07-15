@@ -59,7 +59,7 @@ import java.util.HashMap;
 public class ConeheadZombieEntity extends NatureplusModElements.ModElement {
 	public static EntityType entity = null;
 	public ConeheadZombieEntity(NatureplusModElements instance) {
-		super(instance, 121);
+		super(instance, 165);
 		FMLJavaModLoadingContext.get().getModEventBus().register(this);
 	}
 

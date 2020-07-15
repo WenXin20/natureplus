@@ -51,7 +51,7 @@ public class PeashooterHeadBlock extends NatureplusModElements.ModElement implem
 	@ObjectHolder("natureplus:peashooter_head")
 	public static final Block block = null;
 	public PeashooterHeadBlock(NatureplusModElements instance) {
-		super(instance, 130);
+		super(instance, 172);
 	}
 
 	@Override

@@ -72,7 +72,7 @@ import net.minecraft.tags.ItemTags;
 public class MonarchCaterpillarEntity extends NatureplusModElements.ModElement {
 	public static EntityType entity = null;
 	public MonarchCaterpillarEntity(NatureplusModElements instance) {
-		super(instance, 119);
+		super(instance, 121);
 		FMLJavaModLoadingContext.get().getModEventBus().register(this);
 	}
 

@@ -72,7 +72,7 @@ import java.util.HashMap;
 public class PeashooterEntity extends NatureplusModElements.ModElement {
 	public static EntityType entity = null;
 	public PeashooterEntity(NatureplusModElements instance) {
-		super(instance, 117);
+		super(instance, 161);
 		FMLJavaModLoadingContext.get().getModEventBus().register(this);
 	}
 

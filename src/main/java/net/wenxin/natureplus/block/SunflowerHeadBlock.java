@@ -72,7 +72,7 @@ public class SunflowerHeadBlock extends NatureplusModElements.ModElement impleme
 	@ObjectHolder("natureplus:sunflower_head")
 	public static final Block block = null;
 	public SunflowerHeadBlock(NatureplusModElements instance) {
-		super(instance, 128);
+		super(instance, 170);
 	}
 
 	@Override

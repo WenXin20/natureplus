@@ -68,7 +68,7 @@ import java.util.HashMap;
 public class KernelPultEntity extends NatureplusModElements.ModElement {
 	public static EntityType entity = null;
 	public KernelPultEntity(NatureplusModElements instance) {
-		super(instance, 119);
+		super(instance, 163);
 		FMLJavaModLoadingContext.get().getModEventBus().register(this);
 	}
 

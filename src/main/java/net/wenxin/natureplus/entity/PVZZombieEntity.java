@@ -58,7 +58,7 @@ import java.util.HashMap;
 public class PVZZombieEntity extends NatureplusModElements.ModElement {
 	public static EntityType entity = null;
 	public PVZZombieEntity(NatureplusModElements instance) {
-		super(instance, 120);
+		super(instance, 164);
 		FMLJavaModLoadingContext.get().getModEventBus().register(this);
 	}
 

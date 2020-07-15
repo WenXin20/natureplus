@@ -34,7 +34,7 @@ public class GlassSlabBlock extends NatureplusModElements.ModElement {
 	@ObjectHolder("natureplus:glass_slab")
 	public static final Block block = null;
 	public GlassSlabBlock(NatureplusModElements instance) {
-		super(instance, 80);
+		super(instance, 82);
 	}
 
 	@Override

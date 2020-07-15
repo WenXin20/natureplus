@@ -77,7 +77,7 @@ import java.util.HashMap;
 public class SnowPeaEntity extends NatureplusModElements.ModElement {
 	public static EntityType entity = null;
 	public SnowPeaEntity(NatureplusModElements instance) {
-		super(instance, 118);
+		super(instance, 162);
 		FMLJavaModLoadingContext.get().getModEventBus().register(this);
 	}
 
