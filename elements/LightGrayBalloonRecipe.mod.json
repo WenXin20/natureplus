@@ -10,7 +10,7 @@
     "recipeShapeless": true,
     "recipeSlots": [
       {
-        "value": "TAG:"
+        "value": "TAG:natureplus:balloons"
       },
       {
         "value": "TAG:forge:dyes/light_gray"

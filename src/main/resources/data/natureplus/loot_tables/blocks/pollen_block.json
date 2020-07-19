@@ -67,7 +67,7 @@
                   "function": "minecraft:explosion_decay"
                 }
               ],
-              "name": "minecraft:pollen"
+              "name": "natureplus:pollen"
             }
           ]
         }

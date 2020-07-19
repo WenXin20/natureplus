@@ -1968,87 +1968,6 @@
       "registry_name": "azure_glass_trapdoor_recipe"
     },
     {
-      "name": "DesertPyramidLoot",
-      "type": "loottable",
-      "sortid": 333,
-      "compiles": true,
-      "locked_code": true,
-      "ids": {},
-      "registry_name": "desert_pyramid_loot"
-    },
-    {
-      "name": "AbandonedMineshaftLoot",
-      "type": "loottable",
-      "sortid": 334,
-      "compiles": true,
-      "locked_code": true,
-      "ids": {},
-      "registry_name": "abandoned_mineshaft_loot"
-    },
-    {
-      "name": "SimpleDungeonLoot",
-      "type": "loottable",
-      "sortid": 335,
-      "compiles": true,
-      "locked_code": true,
-      "ids": {},
-      "registry_name": "simple_dungeon_loot"
-    },
-    {
-      "name": "StrongholdCorridorLoot",
-      "type": "loottable",
-      "sortid": 336,
-      "compiles": true,
-      "locked_code": true,
-      "ids": {},
-      "registry_name": "stronghold_corridor_loot"
-    },
-    {
-      "name": "UnderwaterRuinBigLoot",
-      "type": "loottable",
-      "sortid": 337,
-      "compiles": true,
-      "locked_code": true,
-      "ids": {},
-      "registry_name": "underwater_ruin_big_loot"
-    },
-    {
-      "name": "WoodlandMansionLoot",
-      "type": "loottable",
-      "sortid": 338,
-      "compiles": true,
-      "locked_code": true,
-      "ids": {},
-      "registry_name": "woodland_mansion_loot"
-    },
-    {
-      "name": "VillageSavannaHouseLoot",
-      "type": "loottable",
-      "sortid": 339,
-      "compiles": true,
-      "locked_code": true,
-      "ids": {},
-      "registry_name": "village_savanna_house_loot"
-    },
-    {
-      "name": "VillageTaigaHouseLoot",
-      "type": "loottable",
-      "sortid": 340,
-      "compiles": true,
-      "locked_code": true,
-      "ids": {},
-      "registry_name": "village_taiga_house_loot"
-    },
-    {
-      "name": "IglooLoot",
-      "type": "loottable",
-      "sortid": 341,
-      "compiles": true,
-      "locked_code": true,
-      "ids": {},
-      "registry_name": "igloo_loot"
-    },
-    {
       "name": "LootHandler",
       "type": "code",
       "sortid": 342,
@@ -10185,7 +10104,6 @@
       "advancements.spawn_kernel_pult_seed_packet.descr": "Spawn a Kernel-Pult using a seed packet",
       "block.natureplus.potted_azure_sapling": "Potted Azure Sapling",
       "item.natureplus.cyan_balloon_item": "Cyan Balloon",
-      "enchantment.natureplus.uproot.desc": "§bUproots plants with a right-click",
       "advancements.golden_plum_advancement.descr": "Consume a Golden Plum",
       "item.mexicansunflowerseeds.name": "Mexican Sunflower Seeds",
       "block.natureplus.pollen_block": "Pollen Block",
@@ -10279,6 +10197,7 @@
       "item.natureplus.brown_petal": "Brown Petal",
       "item.natureplus.red_dragonfly": "Red Dragonfly Spawn Egg",
       "entity.natureplus.blue_dragonfly": "Blue Dragonfly",
+      "enchantment.natureplus.uproot_enchantment.desc": "§bUproots plants with a right-click",
       "block.natureplus.gray_petal_block": "Gray Petals Block",
       "block.natureplus.light_blue_petal_carpet": "Light Blue Petals Carpet",
       "item.natureplus.peashooter_head_helmet": "Peashooter Head",
