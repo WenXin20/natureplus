@@ -110,11 +110,6 @@ public class MonarchCocoonEntity extends NatureplusModElements.ModElement {
 		}
 
 		@Override
-		public net.minecraft.util.SoundEvent getAmbientSound() {
-			return (net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(""));
-		}
-
-		@Override
 		public net.minecraft.util.SoundEvent getHurtSound(DamageSource ds) {
 			return (net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.turtle.egg_crack"));
 		}
@@ -122,11 +117,6 @@ public class MonarchCocoonEntity extends NatureplusModElements.ModElement {
 		@Override
 		public net.minecraft.util.SoundEvent getDeathSound() {
 			return (net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.turtle.egg_break"));
-		}
-
-		@Override
-		protected float getSoundVolume() {
-			return 1.0F;
 		}
 
 		@Override
@@ -141,10 +131,9 @@ public class MonarchCocoonEntity extends NatureplusModElements.ModElement {
 		}
 
 		@Override
-		public ILivingEntityData onInitialSpawn(IWorld iworld, DifficultyInstance difficulty, SpawnReason reason, ILivingEntityData livingdata,
+		public ILivingEntityData onInitialSpawn(IWorld world, DifficultyInstance difficulty, SpawnReason reason, ILivingEntityData livingdata,
 				CompoundNBT tag) {
-			ILivingEntityData retval = super.onInitialSpawn(iworld, difficulty, reason, livingdata, tag);
-			World world = iworld.getWorld();
+			ILivingEntityData retval = super.onInitialSpawn(world, difficulty, reason, livingdata, tag);
 			double x = this.getPosX();
 			double y = this.getPosY();
 			double z = this.getPosZ();

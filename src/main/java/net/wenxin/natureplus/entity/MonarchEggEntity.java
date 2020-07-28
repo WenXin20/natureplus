@@ -3,6 +3,7 @@ package net.wenxin.natureplus.entity;
 
 import net.wenxin.natureplus.procedures.MonarchCaterpillarSpawnProcedure;
 import net.wenxin.natureplus.procedures.EntityTimerProcedure;
+import net.wenxin.natureplus.procedures.ButterflyEggNaturalSpawnProcedure;
 import net.wenxin.natureplus.itemgroup.NaturePlusTabItemGroup;
 import net.wenxin.natureplus.NatureplusModElements;
 
@@ -40,13 +41,14 @@ import net.minecraft.entity.CreatureAttribute;
 import net.minecraft.client.renderer.model.ModelRenderer;
 import net.minecraft.client.renderer.entity.model.EntityModel;
 import net.minecraft.client.renderer.entity.MobRenderer;
-import net.minecraft.block.material.Material;
 
 import java.util.Map;
 import java.util.HashMap;
 
 import com.mojang.blaze3d.vertex.IVertexBuilder;
 import com.mojang.blaze3d.matrix.MatrixStack;
+
+import com.google.common.collect.ImmutableMap;
 
 @NatureplusModElements.ModElement.Tag
 public class MonarchEggEntity extends NatureplusModElements.ModElement {
@@ -72,8 +74,12 @@ public class MonarchEggEntity extends NatureplusModElements.ModElement {
 			biome.getSpawns(EntityClassification.CREATURE).add(new Biome.SpawnListEntry(entity, 8, 1, 4));
 		}
 		EntitySpawnPlacementRegistry.register(entity, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES,
-				(entityType, world, reason, pos,
-						random) -> (world.getBlockState(pos.down()).getMaterial() == Material.ORGANIC && world.getLightSubtracted(pos, 0) > 8));
+				(entityType, world, reason, pos, random) -> {
+					int x = pos.getX();
+					int y = pos.getY();
+					int z = pos.getZ();
+					return ButterflyEggNaturalSpawnProcedure.executeProcedure(ImmutableMap.of("x", x, "y", y, "z", z, "world", world));
+				});
 	}
 
 	@SubscribeEvent
@@ -125,11 +131,6 @@ public class MonarchEggEntity extends NatureplusModElements.ModElement {
 		}
 
 		@Override
-		public net.minecraft.util.SoundEvent getAmbientSound() {
-			return (net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(""));
-		}
-
-		@Override
 		public net.minecraft.util.SoundEvent getHurtSound(DamageSource ds) {
 			return (net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.turtle.egg_crack"));
 		}
@@ -137,11 +138,6 @@ public class MonarchEggEntity extends NatureplusModElements.ModElement {
 		@Override
 		public net.minecraft.util.SoundEvent getDeathSound() {
 			return (net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.turtle.egg_break"));
-		}
-
-		@Override
-		protected float getSoundVolume() {
-			return 1.0F;
 		}
 
 		@Override
@@ -156,10 +152,9 @@ public class MonarchEggEntity extends NatureplusModElements.ModElement {
 		}
 
 		@Override
-		public ILivingEntityData onInitialSpawn(IWorld iworld, DifficultyInstance difficulty, SpawnReason reason, ILivingEntityData livingdata,
+		public ILivingEntityData onInitialSpawn(IWorld world, DifficultyInstance difficulty, SpawnReason reason, ILivingEntityData livingdata,
 				CompoundNBT tag) {
-			ILivingEntityData retval = super.onInitialSpawn(iworld, difficulty, reason, livingdata, tag);
-			World world = iworld.getWorld();
+			ILivingEntityData retval = super.onInitialSpawn(world, difficulty, reason, livingdata, tag);
 			double x = this.getPosX();
 			double y = this.getPosY();
 			double z = this.getPosZ();

@@ -15,6 +15,7 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.Entity;
 
 import java.util.Map;
+import java.util.HashMap;
 
 @NatureplusModElements.ModElement.Tag
 public class NameMonarchButterflyProcedure extends NatureplusModElements.ModElement {
@@ -45,7 +46,7 @@ public class NameMonarchButterflyProcedure extends NatureplusModElements.ModElem
 		double j = entity.getPosY();
 		double k = entity.getPosZ();
 		World world = event.getWorld().getWorld();
-		java.util.HashMap<String, Object> dependencies = new java.util.HashMap<>();
+		Map<String, Object> dependencies = new HashMap<>();
 		dependencies.put("x", i);
 		dependencies.put("y", j);
 		dependencies.put("z", k);

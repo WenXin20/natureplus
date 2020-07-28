@@ -1,6 +1,7 @@
 
 package net.wenxin.natureplus.block;
 
+import net.wenxin.natureplus.procedures.MexicanSunflowerNaturalSpawnProcedure;
 import net.wenxin.natureplus.itemgroup.NaturePlusTabItemGroup;
 import net.wenxin.natureplus.NatureplusModElements;
 
@@ -27,7 +28,6 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.Direction;
 import net.minecraft.potion.Effects;
 import net.minecraft.item.ItemStack;
@@ -45,6 +45,8 @@ import net.minecraft.block.Block;
 import java.util.Random;
 import java.util.List;
 import java.util.Collections;
+
+import com.google.common.collect.ImmutableMap;
 
 @NatureplusModElements.ModElement.Tag
 public class MexicanSunflowerBlock extends NatureplusModElements.ModElement {
@@ -76,24 +78,22 @@ public class MexicanSunflowerBlock extends NatureplusModElements.ModElement {
 			}
 
 			@Override
-			public boolean place(IWorld iworld, ChunkGenerator generator, Random random, BlockPos pos, BlockClusterFeatureConfig config) {
-				DimensionType dimensionType = iworld.getDimension().getType();
+			public boolean place(IWorld world, ChunkGenerator generator, Random random, BlockPos pos, BlockClusterFeatureConfig config) {
+				DimensionType dimensionType = world.getDimension().getType();
 				boolean dimensionCriteria = false;
 				if (dimensionType == DimensionType.OVERWORLD)
 					dimensionCriteria = true;
 				if (!dimensionCriteria)
 					return false;
-				return super.place(iworld, generator, random, pos, config);
+				int x = pos.getX();
+				int y = pos.getY();
+				int z = pos.getZ();
+				if (!MexicanSunflowerNaturalSpawnProcedure.executeProcedure(ImmutableMap.of("x", x, "y", y, "z", z, "world", world)))
+					return false;
+				return super.place(world, generator, random, pos, config);
 			}
 		};
 		for (Biome biome : ForgeRegistries.BIOMES.getValues()) {
-			boolean biomeCriteria = false;
-			if (ForgeRegistries.BIOMES.getKey(biome).equals(new ResourceLocation("plains")))
-				biomeCriteria = true;
-			if (ForgeRegistries.BIOMES.getKey(biome).equals(new ResourceLocation("sunflower_plains")))
-				biomeCriteria = true;
-			if (!biomeCriteria)
-				continue;
 			biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
 					feature.withConfiguration(
 							(new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(block.getDefaultState()), new SimpleBlockPlacer()))

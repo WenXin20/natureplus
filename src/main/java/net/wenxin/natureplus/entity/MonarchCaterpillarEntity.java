@@ -3,6 +3,7 @@ package net.wenxin.natureplus.entity;
 
 import net.wenxin.natureplus.procedures.MonarchCocoonSpawnProcedure;
 import net.wenxin.natureplus.procedures.EntityTimerProcedure;
+import net.wenxin.natureplus.procedures.ButterflyEggNaturalSpawnProcedure;
 import net.wenxin.natureplus.itemgroup.NaturePlusTabItemGroup;
 import net.wenxin.natureplus.NatureplusModElements;
 
@@ -21,8 +22,17 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.World;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.DifficultyInstance;
+import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.SoundEvents;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.DamageSource;
+import net.minecraft.tags.ItemTags;
+import net.minecraft.pathfinding.PathNavigator;
+import net.minecraft.pathfinding.ClimberPathNavigator;
+import net.minecraft.network.datasync.EntityDataManager;
+import net.minecraft.network.datasync.DataSerializers;
+import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.item.SpawnEggItem;
@@ -49,24 +59,12 @@ import net.minecraft.entity.CreatureAttribute;
 import net.minecraft.client.renderer.model.ModelRenderer;
 import net.minecraft.client.renderer.entity.model.EntityModel;
 import net.minecraft.client.renderer.entity.MobRenderer;
-import net.minecraft.block.material.Material;
+import net.minecraft.block.BlockState;
 
 import com.mojang.blaze3d.vertex.IVertexBuilder;
 import com.mojang.blaze3d.matrix.MatrixStack;
-import net.minecraft.entity.Pose;
-import net.minecraft.entity.EntitySize;
-import net.minecraftforge.common.Tags;
-import net.minecraft.network.datasync.DataSerializers;
-import net.minecraft.network.datasync.EntityDataManager;
-import net.minecraft.network.datasync.DataParameter;
-import net.minecraft.pathfinding.PathNavigator;
-import net.minecraft.pathfinding.ClimberPathNavigator;
-import net.minecraft.entity.ai.controller.MovementController;
-import net.minecraft.util.math.MathHelper;
-import net.minecraft.util.SoundEvents;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.block.BlockState;
-import net.minecraft.tags.ItemTags;
+
+import com.google.common.collect.ImmutableMap;
 
 @NatureplusModElements.ModElement.Tag
 public class MonarchCaterpillarEntity extends NatureplusModElements.ModElement {
@@ -92,8 +90,12 @@ public class MonarchCaterpillarEntity extends NatureplusModElements.ModElement {
 			biome.getSpawns(EntityClassification.CREATURE).add(new Biome.SpawnListEntry(entity, 8, 1, 5));
 		}
 		EntitySpawnPlacementRegistry.register(entity, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES,
-				(animal, world, reason, pos,
-						random) -> (world.getBlockState(pos.down()).getMaterial() == Material.ORGANIC && world.getLightSubtracted(pos, 0) > 8));
+				(entityType, world, reason, pos, random) -> {
+					int x = pos.getX();
+					int y = pos.getY();
+					int z = pos.getZ();
+					return ButterflyEggNaturalSpawnProcedure.executeProcedure(ImmutableMap.of("x", x, "y", y, "z", z, "world", world));
+				});
 	}
 
 	@SubscribeEvent
@@ -125,70 +127,66 @@ public class MonarchCaterpillarEntity extends NatureplusModElements.ModElement {
 			this.goalSelector.addGoal(1, new WaterAvoidingRandomWalkingGoal(this, 0.5));
 			this.goalSelector.addGoal(1, new TemptGoal(this, 0.8, Ingredient.fromTag(ItemTags.LEAVES), false));
 			this.goalSelector.addGoal(1, new TemptGoal(this, 0.8, Ingredient.fromTag(ItemTags.FLOWERS), false));
-			this.goalSelector.addGoal(1, new TemptGoal(this, 0.8, Ingredient.fromItems(Items.GRASS, Items.TALL_GRASS, Items.FERN, Items.LARGE_FERN, Items.SWEET_BERRIES), false));
+			this.goalSelector.addGoal(1, new TemptGoal(this, 0.8,
+					Ingredient.fromItems(Items.GRASS, Items.TALL_GRASS, Items.FERN, Items.LARGE_FERN, Items.SWEET_BERRIES), false));
 			this.goalSelector.addGoal(2, new AvoidEntityGoal(this, ParrotEntity.class, (float) 6, 0.8, 0.5));
 			this.goalSelector.addGoal(3, new PanicGoal(this, 0.8));
 			this.goalSelector.addGoal(4, new EatGrassGoal(this));
 			this.goalSelector.addGoal(6, new LookRandomlyGoal(this));
 			this.goalSelector.addGoal(7, new SwimGoal(this));
 		}
-	   	
-   		public static final DataParameter<Byte> CLIMBING = EntityDataManager.createKey(CustomEntity.class, DataSerializers.BYTE);
+		public static final DataParameter<Byte> CLIMBING = EntityDataManager.createKey(CustomEntity.class, DataSerializers.BYTE);
+		/**
+		 * Returns new PathNavigateGround instance
+		 */
+		protected PathNavigator createNavigator(World worldIn) {
+			return new ClimberPathNavigator(this, worldIn);
+		}
 
-	   	/**
-	   	 * Returns new PathNavigateGround instance
-	   	 */
-	   	protected PathNavigator createNavigator(World worldIn) {
-	   	   return new ClimberPathNavigator(this, worldIn);
-	   	}
+		protected void registerData() {
+			super.registerData();
+			this.dataManager.register(CLIMBING, (byte) 0);
+		}
 
-	    protected void registerData() {
-	       super.registerData();
-	       this.dataManager.register(CLIMBING, (byte)0);
-	    }
-	
-	    /**
-	     * Called to update the entity's position/logic.
-	     */
-	    public void tick() {
-	       super.tick();
-	       if (!this.world.isRemote) {
-	          this.setBesideClimbableBlock(this.collidedHorizontally);
-	       }
-	
-	    }
+		/**
+		 * Called to update the entity's position/logic.
+		 */
+		public void tick() {
+			super.tick();
+			if (!this.world.isRemote) {
+				this.setBesideClimbableBlock(this.collidedHorizontally);
+			}
+		}
 
-	   	/**
-	     * Returns true if this entity should move as if it were on a ladder (either because it's actually on a ladder, or
-	     * for AI reasons)
-	     */
-	    public boolean isOnLadder() {
-	       return this.isBesideClimbableBlock();
-	    }
+		/**
+		 * Returns true if this entity should move as if it were on a ladder (either
+		 * because it's actually on a ladder, or for AI reasons)
+		 */
+		public boolean isOnLadder() {
+			return this.isBesideClimbableBlock();
+		}
 
-	    /**
-	     * Returns true if the WatchableObject (Byte) is 0x01 otherwise returns false. The WatchableObject is updated using
-	     * setBesideClimableBlock.
-	     */
-	    public boolean isBesideClimbableBlock() {
-	       return (this.dataManager.get(CLIMBING) & 1) != 0;
-	    }
- 
-	    /**
-	     * Updates the WatchableObject (Byte) created in entityInit(), setting it to 0x01 if par1 is true or 0x00 if it is
-	     * false.
-	     */
-	    public void setBesideClimbableBlock(boolean climbing) {
-	        byte b0 = this.dataManager.get(CLIMBING);
-	        if (climbing) {
-	            b0 = (byte)(b0 | 1);
-	        } else {
-	            b0 = (byte)(b0 & -2);
-	        }
-	 
-	        this.dataManager.set(CLIMBING, b0);
+		/**
+		 * Returns true if the WatchableObject (Byte) is 0x01 otherwise returns false.
+		 * The WatchableObject is updated using setBesideClimableBlock.
+		 */
+		public boolean isBesideClimbableBlock() {
+			return (this.dataManager.get(CLIMBING) & 1) != 0;
+		}
 
-	    }
+		/**
+		 * Updates the WatchableObject (Byte) created in entityInit(), setting it to
+		 * 0x01 if par1 is true or 0x00 if it is false.
+		 */
+		public void setBesideClimbableBlock(boolean climbing) {
+			byte b0 = this.dataManager.get(CLIMBING);
+			if (climbing) {
+				b0 = (byte) (b0 | 1);
+			} else {
+				b0 = (byte) (b0 & -2);
+			}
+			this.dataManager.set(CLIMBING, b0);
+		}
 
 		@Override
 		public CreatureAttribute getCreatureAttribute() {
@@ -220,10 +218,10 @@ public class MonarchCaterpillarEntity extends NatureplusModElements.ModElement {
 			return (net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("natureplus:bug_squish"));
 		}
 
-	   	protected void playStepSound(BlockPos pos, BlockState blockIn) {
-	   	   this.playSound(SoundEvents.ENTITY_PARROT_STEP, 0.15F, 1.0F);
-	   	}
-	   	
+		protected void playStepSound(BlockPos pos, BlockState blockIn) {
+			this.playSound(SoundEvents.ENTITY_PARROT_STEP, 0.15F, 1.0F);
+		}
+
 		@Override
 		protected float getSoundVolume() {
 			return 1.0F;
@@ -283,32 +281,26 @@ public class MonarchCaterpillarEntity extends NatureplusModElements.ModElement {
 	// Exported for Minecraft version 1.15
 	// Paste this class into your mod and generate all required imports
 	public static class ModelCaterpillar extends EntityModel<Entity> {
-	private final ModelRenderer main;
-	private final ModelRenderer antenna_left;
-	private final ModelRenderer antenna_right;
-	private final ModelRenderer tail_left;
-	private final ModelRenderer tail_right;
-	
+		private final ModelRenderer main;
+		private final ModelRenderer antenna_left;
+		private final ModelRenderer antenna_right;
+		private final ModelRenderer tail_left;
+		private final ModelRenderer tail_right;
 		public ModelCaterpillar() {
 			textureWidth = 32;
 			textureHeight = 32;
-			
 			main = new ModelRenderer(this);
 			main.setRotationPoint(1.0F, 24.0F, -5.0F);
 			main.setTextureOffset(0, 0).addBox(-2.0F, -2.0F, 0.0F, 2.0F, 2.0F, 10.0F, 0.0F, false);
-			
 			antenna_left = new ModelRenderer(this);
 			antenna_left.setRotationPoint(-0.75F, 22.5F, -5.0F);
 			antenna_left.setTextureOffset(0, 9).addBox(1.5F, -1.5F, -3.0F, 0.0F, 3.0F, 3.0F, 0.0F, false);
-	
 			antenna_right = new ModelRenderer(this);
 			antenna_right.setRotationPoint(0.75F, 22.5F, -5.0F);
 			antenna_right.setTextureOffset(6, 9).addBox(-1.5F, -1.5F, -3.0F, 0.0F, 3.0F, 3.0F, 0.0F, false);
-	
 			tail_left = new ModelRenderer(this);
 			tail_left.setRotationPoint(-0.75F, 22.5F, 5.0F);
 			tail_left.setTextureOffset(0, 0).addBox(1.5F, -1.5F, 0.0F, 0.0F, 3.0F, 3.0F, 0.0F, false);
-	
 			tail_right = new ModelRenderer(this);
 			tail_right.setRotationPoint(0.75F, 22.5F, 5.0F);
 			tail_right.setTextureOffset(0, 3).addBox(-1.5F, -1.5F, 0.0F, 0.0F, 3.0F, 3.0F, 0.0F, false);
@@ -331,23 +323,26 @@ public class MonarchCaterpillarEntity extends NatureplusModElements.ModElement {
 		}
 
 		public void setRotationAngles(Entity e, float f, float f1, float f2, float f3, float f4) {
-			this.antenna_left.rotateAngleX = MathHelper.cos(f2 * 0.03F) * (float)Math.PI * 0.15F;
-			this.antenna_right.rotateAngleX = MathHelper.cos(f2 * 0.031F) * (float)Math.PI * 0.15F;
-			
-//	      	boolean flag = e.onGround;
-//	     	if (flag) {
-//				this.main.rotateAngleX = 5.0F;
-//				this.tail_left.rotateAngleX =  5.0F;
-//				this.tail_right.rotateAngleX =  5.0F;
-//				this.antenna_left.rotateAngleX =  5.0F + MathHelper.cos(f2 * 0.03F) * (float)Math.PI * 0.15F;
-//				this.antenna_right.rotateAngleX =  5.0F + MathHelper.cos(f2 * 0.031F) * (float)Math.PI * 0.15F;
-//	      	} else {
-//				this.main.rotateAngleX = 0.0F;
-//				this.tail_left.rotateAngleX =  0.0F;
-//				this.tail_right.rotateAngleX =  0.0F;
-//				this.antenna_left.rotateAngleX = MathHelper.cos(f2 * 0.03F) * (float)Math.PI * 0.15F;
-//				this.antenna_right.rotateAngleX = MathHelper.cos(f2 * 0.031F) * (float)Math.PI * 0.15F;
-//	      	}
+			this.antenna_left.rotateAngleX = MathHelper.cos(f2 * 0.03F) * (float) Math.PI * 0.15F;
+			this.antenna_right.rotateAngleX = MathHelper.cos(f2 * 0.031F) * (float) Math.PI * 0.15F;
+			// boolean flag = e.onGround;
+			// if (flag) {
+			// this.main.rotateAngleX = 5.0F;
+			// this.tail_left.rotateAngleX = 5.0F;
+			// this.tail_right.rotateAngleX = 5.0F;
+			// this.antenna_left.rotateAngleX = 5.0F + MathHelper.cos(f2 * 0.03F) *
+			// (float)Math.PI * 0.15F;
+			// this.antenna_right.rotateAngleX = 5.0F + MathHelper.cos(f2 * 0.031F) *
+			// (float)Math.PI * 0.15F;
+			// } else {
+			// this.main.rotateAngleX = 0.0F;
+			// this.tail_left.rotateAngleX = 0.0F;
+			// this.tail_right.rotateAngleX = 0.0F;
+			// this.antenna_left.rotateAngleX = MathHelper.cos(f2 * 0.03F) * (float)Math.PI
+			// * 0.15F;
+			// this.antenna_right.rotateAngleX = MathHelper.cos(f2 * 0.031F) *
+			// (float)Math.PI * 0.15F;
+			// }
 		}
 	}
 }

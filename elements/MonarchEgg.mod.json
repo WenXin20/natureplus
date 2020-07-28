@@ -81,6 +81,9 @@
     "deathSound": {
       "value": "entity.turtle.egg_break"
     },
+    "stepSound": {
+      "value": ""
+    },
     "spawnParticles": false,
     "particleToSpawn": {
       "value": "EXPLOSION_NORMAL"
@@ -107,6 +110,9 @@
     "rangedItemType": "Default item",
     "spawnThisMob": true,
     "doesDespawnWhenIdle": false,
+    "spawningCondition": {
+      "name": "ButterflyEggNaturalSpawn"
+    },
     "spawningProbability": 8,
     "mobSpawningType": "creature",
     "minNumberOfMobsPerGroup": 1,

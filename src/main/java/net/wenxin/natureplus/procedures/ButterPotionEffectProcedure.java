@@ -25,9 +25,9 @@ public class ButterPotionEffectProcedure extends NatureplusModElements.ModElemen
 		}
 		Entity entity = (Entity) dependencies.get("entity");
 		if ((new Object() {
-			boolean check() {
-				if (entity instanceof LivingEntity) {
-					Collection<EffectInstance> effects = ((LivingEntity) entity).getActivePotionEffects();
+			boolean check(LivingEntity _entity) {
+				if (_entity instanceof LivingEntity) {
+					Collection<EffectInstance> effects = _entity.getActivePotionEffects();
 					for (EffectInstance effect : effects) {
 						if (effect.getPotion() == ButterPotionPotion.potion)
 							return true;
@@ -35,7 +35,7 @@ public class ButterPotionEffectProcedure extends NatureplusModElements.ModElemen
 				}
 				return false;
 			}
-		}.check())) {
+		}.check((LivingEntity) entity))) {
 			if ((!((entity instanceof PlayerEntity) ? ((PlayerEntity) entity).abilities.isCreativeMode : false))) {
 				entity.setMotion(0, (entity.getMotion().getY()), 0);
 				if (entity instanceof LivingEntity)
@@ -43,9 +43,9 @@ public class ButterPotionEffectProcedure extends NatureplusModElements.ModElemen
 			}
 		}
 		return (new Object() {
-			boolean check() {
-				if (entity instanceof LivingEntity) {
-					Collection<EffectInstance> effects = ((LivingEntity) entity).getActivePotionEffects();
+			boolean check(LivingEntity _entity) {
+				if (_entity instanceof LivingEntity) {
+					Collection<EffectInstance> effects = _entity.getActivePotionEffects();
 					for (EffectInstance effect : effects) {
 						if (effect.getPotion() == ButterPotionPotion.potion)
 							return true;
@@ -53,6 +53,6 @@ public class ButterPotionEffectProcedure extends NatureplusModElements.ModElemen
 				}
 				return false;
 			}
-		}.check());
+		}.check((LivingEntity) entity));
 	}
 }

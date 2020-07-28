@@ -22,6 +22,7 @@ import net.minecraft.advancements.Advancement;
 
 import java.util.Map;
 import java.util.Iterator;
+import java.util.HashMap;
 
 @NatureplusModElements.ModElement.Tag
 public class GrantCratesAdvancementProcedure extends NatureplusModElements.ModElement {
@@ -71,7 +72,7 @@ public class GrantCratesAdvancementProcedure extends NatureplusModElements.ModEl
 		double j = entity.getPosY();
 		double k = entity.getPosZ();
 		ItemStack itemStack = event.getCrafting();
-		java.util.HashMap<String, Object> dependencies = new java.util.HashMap<>();
+		Map<String, Object> dependencies = new HashMap<>();
 		dependencies.put("x", i);
 		dependencies.put("y", j);
 		dependencies.put("z", k);

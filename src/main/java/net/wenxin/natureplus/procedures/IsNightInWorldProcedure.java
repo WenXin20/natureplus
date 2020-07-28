@@ -2,7 +2,7 @@ package net.wenxin.natureplus.procedures;
 
 import net.wenxin.natureplus.NatureplusModElements;
 
-import net.minecraft.world.World;
+import net.minecraft.world.IWorld;
 
 import java.util.Map;
 
@@ -17,7 +17,7 @@ public class IsNightInWorldProcedure extends NatureplusModElements.ModElement {
 			System.err.println("Failed to load dependency world for procedure IsNightInWorld!");
 			return false;
 		}
-		World world = (World) dependencies.get("world");
-		return (!(world.isDaytime()));
+		IWorld world = (IWorld) dependencies.get("world");
+		return (!(world.getWorld().isDaytime()));
 	}
 }

@@ -13,6 +13,8 @@ import net.minecraftforge.common.MinecraftForge;
 
 import net.minecraft.world.server.ServerWorld;
 import net.minecraft.world.World;
+import net.minecraft.world.IWorld;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.Hand;
@@ -21,8 +23,10 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.Entity;
+import net.minecraft.client.Minecraft;
 
 import java.util.Map;
+import java.util.HashMap;
 
 @NatureplusModElements.ModElement.Tag
 public class EmptyJarCaptureMonarchCocoonProcedure extends NatureplusModElements.ModElement {
@@ -61,10 +65,10 @@ public class EmptyJarCaptureMonarchCocoonProcedure extends NatureplusModElements
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
-		World world = (World) dependencies.get("world");
+		IWorld world = (IWorld) dependencies.get("world");
 		if (((((sourceentity instanceof LivingEntity) ? ((LivingEntity) sourceentity).getHeldItemMainhand() : ItemStack.EMPTY)
 				.getItem() == new ItemStack(EmptyJarItem.block, (int) (1)).getItem()) && (entity instanceof MonarchCocoonEntity.CustomEntity))) {
-			world.playSound((PlayerEntity) null, x, y, z,
+			world.playSound(world.getWorld().isRemote ? Minecraft.getInstance().player : (PlayerEntity) null, new BlockPos(x, y, z),
 					(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("item.bottle.fill")),
 					SoundCategory.NEUTRAL, (float) 1, (float) 1);
 			if (sourceentity instanceof PlayerEntity) {
@@ -86,11 +90,11 @@ public class EmptyJarCaptureMonarchCocoonProcedure extends NatureplusModElements
 							(int) 1);
 			}
 			if (sourceentity instanceof LivingEntity) {
-				((LivingEntity) sourceentity).swingArm(Hand.MAIN_HAND);
+				((LivingEntity) sourceentity).swing(Hand.MAIN_HAND, true);
 			}
 		} else if (((((sourceentity instanceof LivingEntity) ? ((LivingEntity) sourceentity).getHeldItemOffhand() : ItemStack.EMPTY)
 				.getItem() == new ItemStack(EmptyJarItem.block, (int) (1)).getItem()) && (entity instanceof MonarchCocoonEntity.CustomEntity))) {
-			world.playSound((PlayerEntity) null, x, y, z,
+			world.playSound(world.getWorld().isRemote ? Minecraft.getInstance().player : (PlayerEntity) null, new BlockPos(x, y, z),
 					(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("item.bottle.fill")),
 					SoundCategory.NEUTRAL, (float) 1, (float) 1);
 			if (sourceentity instanceof PlayerEntity) {
@@ -112,7 +116,7 @@ public class EmptyJarCaptureMonarchCocoonProcedure extends NatureplusModElements
 							(int) 1);
 			}
 			if (sourceentity instanceof LivingEntity) {
-				((LivingEntity) sourceentity).swingArm(Hand.OFF_HAND);
+				((LivingEntity) sourceentity).swing(Hand.OFF_HAND, true);
 			}
 		}
 	}
@@ -127,7 +131,7 @@ public class EmptyJarCaptureMonarchCocoonProcedure extends NatureplusModElements
 		int j = event.getPos().getY();
 		int k = event.getPos().getZ();
 		World world = event.getWorld();
-		java.util.HashMap<String, Object> dependencies = new java.util.HashMap<>();
+		Map<String, Object> dependencies = new HashMap<>();
 		dependencies.put("x", i);
 		dependencies.put("y", j);
 		dependencies.put("z", k);

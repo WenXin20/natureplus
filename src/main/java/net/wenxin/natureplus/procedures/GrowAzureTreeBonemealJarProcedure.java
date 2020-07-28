@@ -12,6 +12,7 @@ import net.minecraft.world.server.ServerWorld;
 import net.minecraft.world.gen.feature.template.Template;
 import net.minecraft.world.gen.feature.template.PlacementSettings;
 import net.minecraft.world.World;
+import net.minecraft.world.IWorld;
 import net.minecraft.util.math.ChunkPos;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.Rotation;
@@ -30,6 +31,7 @@ import net.minecraft.advancements.Advancement;
 
 import java.util.Map;
 import java.util.Iterator;
+import java.util.HashMap;
 
 @NatureplusModElements.ModElement.Tag
 public class GrowAzureTreeBonemealJarProcedure extends NatureplusModElements.ModElement {
@@ -63,7 +65,7 @@ public class GrowAzureTreeBonemealJarProcedure extends NatureplusModElements.Mod
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
-		World world = (World) dependencies.get("world");
+		IWorld world = (IWorld) dependencies.get("world");
 		if (((world.canBlockSeeSky(new BlockPos((int) x, (int) y, (int) z)))
 				&& ((((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY)
 						.getItem() == new ItemStack(BoneMealJarItem.block, (int) (1)).getItem())
@@ -73,11 +75,11 @@ public class GrowAzureTreeBonemealJarProcedure extends NatureplusModElements.Mod
 				((ServerWorld) world).spawnParticle(ParticleTypes.HAPPY_VILLAGER, (x + 0.5), (y + 0.5), (z + 0.5), (int) 25, 0.25, 0.25, 0.25, 5);
 			}
 			if (entity instanceof LivingEntity) {
-				((LivingEntity) entity).swingArm(Hand.MAIN_HAND);
+				((LivingEntity) entity).swing(Hand.MAIN_HAND, true);
 			}
-			if ((!(world.isRemote))) {
+			if ((!(world.getWorld().isRemote))) {
 				if ((Math.random() <= 0.25)) {
-					if (!world.isRemote) {
+					if (!world.getWorld().isRemote) {
 						Template template = ((ServerWorld) world.getWorld()).getSaveHandler().getStructureTemplateManager()
 								.getTemplateDefaulted(new ResourceLocation("natureplus", "azure_tree1"));
 						if (template != null) {
@@ -86,7 +88,7 @@ public class GrowAzureTreeBonemealJarProcedure extends NatureplusModElements.Mod
 						}
 					}
 				} else if ((Math.random() <= 0.25)) {
-					if (!world.isRemote) {
+					if (!world.getWorld().isRemote) {
 						Template template = ((ServerWorld) world.getWorld()).getSaveHandler().getStructureTemplateManager()
 								.getTemplateDefaulted(new ResourceLocation("natureplus", "azure_tree2"));
 						if (template != null) {
@@ -95,7 +97,7 @@ public class GrowAzureTreeBonemealJarProcedure extends NatureplusModElements.Mod
 						}
 					}
 				} else if ((Math.random() <= 0.25)) {
-					if (!world.isRemote) {
+					if (!world.getWorld().isRemote) {
 						Template template = ((ServerWorld) world.getWorld()).getSaveHandler().getStructureTemplateManager()
 								.getTemplateDefaulted(new ResourceLocation("natureplus", "azure_tree3"));
 						if (template != null) {
@@ -104,7 +106,7 @@ public class GrowAzureTreeBonemealJarProcedure extends NatureplusModElements.Mod
 						}
 					}
 				} else {
-					if (!world.isRemote) {
+					if (!world.getWorld().isRemote) {
 						Template template = ((ServerWorld) world.getWorld()).getSaveHandler().getStructureTemplateManager()
 								.getTemplateDefaulted(new ResourceLocation("natureplus", "azure_tree4"));
 						if (template != null) {
@@ -142,11 +144,11 @@ public class GrowAzureTreeBonemealJarProcedure extends NatureplusModElements.Mod
 				((ServerWorld) world).spawnParticle(ParticleTypes.HAPPY_VILLAGER, (x + 0.5), (y + 0.5), (z + 0.5), (int) 25, 0.25, 0.25, 0.25, 5);
 			}
 			if (entity instanceof LivingEntity) {
-				((LivingEntity) entity).swingArm(Hand.OFF_HAND);
+				((LivingEntity) entity).swing(Hand.OFF_HAND, true);
 			}
-			if ((!(world.isRemote))) {
+			if ((!(world.getWorld().isRemote))) {
 				if ((Math.random() <= 0.25)) {
-					if (!world.isRemote) {
+					if (!world.getWorld().isRemote) {
 						Template template = ((ServerWorld) world.getWorld()).getSaveHandler().getStructureTemplateManager()
 								.getTemplateDefaulted(new ResourceLocation("natureplus", "azure_tree1"));
 						if (template != null) {
@@ -155,7 +157,7 @@ public class GrowAzureTreeBonemealJarProcedure extends NatureplusModElements.Mod
 						}
 					}
 				} else if ((Math.random() <= 0.25)) {
-					if (!world.isRemote) {
+					if (!world.getWorld().isRemote) {
 						Template template = ((ServerWorld) world.getWorld()).getSaveHandler().getStructureTemplateManager()
 								.getTemplateDefaulted(new ResourceLocation("natureplus", "azure_tree2"));
 						if (template != null) {
@@ -164,7 +166,7 @@ public class GrowAzureTreeBonemealJarProcedure extends NatureplusModElements.Mod
 						}
 					}
 				} else if ((Math.random() <= 0.25)) {
-					if (!world.isRemote) {
+					if (!world.getWorld().isRemote) {
 						Template template = ((ServerWorld) world.getWorld()).getSaveHandler().getStructureTemplateManager()
 								.getTemplateDefaulted(new ResourceLocation("natureplus", "azure_tree3"));
 						if (template != null) {
@@ -173,7 +175,7 @@ public class GrowAzureTreeBonemealJarProcedure extends NatureplusModElements.Mod
 						}
 					}
 				} else {
-					if (!world.isRemote) {
+					if (!world.getWorld().isRemote) {
 						Template template = ((ServerWorld) world.getWorld()).getSaveHandler().getStructureTemplateManager()
 								.getTemplateDefaulted(new ResourceLocation("natureplus", "azure_tree4"));
 						if (template != null) {
@@ -214,7 +216,7 @@ public class GrowAzureTreeBonemealJarProcedure extends NatureplusModElements.Mod
 		int j = event.getPos().getY();
 		int k = event.getPos().getZ();
 		World world = event.getWorld();
-		java.util.HashMap<String, Object> dependencies = new java.util.HashMap<>();
+		Map<String, Object> dependencies = new HashMap<>();
 		dependencies.put("x", i);
 		dependencies.put("y", j);
 		dependencies.put("z", k);

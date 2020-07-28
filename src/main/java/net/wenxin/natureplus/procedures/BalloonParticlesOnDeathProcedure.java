@@ -3,7 +3,7 @@ package net.wenxin.natureplus.procedures;
 import net.wenxin.natureplus.NatureplusModElements;
 
 import net.minecraft.world.server.ServerWorld;
-import net.minecraft.world.World;
+import net.minecraft.world.IWorld;
 import net.minecraft.particles.ParticleTypes;
 import net.minecraft.entity.Entity;
 
@@ -25,7 +25,7 @@ public class BalloonParticlesOnDeathProcedure extends NatureplusModElements.ModE
 			return;
 		}
 		Entity entity = (Entity) dependencies.get("entity");
-		World world = (World) dependencies.get("world");
+		IWorld world = (IWorld) dependencies.get("world");
 		if (world instanceof ServerWorld) {
 			((ServerWorld) world).spawnParticle(ParticleTypes.EXPLOSION, (entity.getPosX()), (entity.getPosY()), (entity.getPosZ()), (int) 1, 0.15,
 					2.15, 0.15, 0.5);

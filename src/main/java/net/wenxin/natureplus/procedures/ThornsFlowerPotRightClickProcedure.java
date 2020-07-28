@@ -6,7 +6,7 @@ import net.wenxin.natureplus.NatureplusModElements;
 
 import net.minecraftforge.items.ItemHandlerHelper;
 
-import net.minecraft.world.World;
+import net.minecraft.world.IWorld;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.Hand;
 import net.minecraft.item.ItemStack;
@@ -48,7 +48,7 @@ public class ThornsFlowerPotRightClickProcedure extends NatureplusModElements.Mo
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
-		World world = (World) dependencies.get("world");
+		IWorld world = (IWorld) dependencies.get("world");
 		if (((ThornsFlowerPotBlock.block.getDefaultState().getBlock() == (world.getBlockState(new BlockPos((int) x, (int) y, (int) z))).getBlock())
 				&& ((new ItemStack(Blocks.AIR, (int) (1))
 						.getItem() == ((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY).getItem())
@@ -56,7 +56,7 @@ public class ThornsFlowerPotRightClickProcedure extends NatureplusModElements.Mo
 								.getItem() == ((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemOffhand() : ItemStack.EMPTY)
 										.getItem())))) {
 			if (entity instanceof LivingEntity) {
-				((LivingEntity) entity).swingArm(Hand.MAIN_HAND);
+				((LivingEntity) entity).swing(Hand.MAIN_HAND, true);
 			}
 			world.setBlockState(new BlockPos((int) x, (int) y, (int) z), Blocks.AIR.getDefaultState(), 3);
 			world.setBlockState(new BlockPos((int) x, (int) y, (int) z), Blocks.FLOWER_POT.getDefaultState(), 3);

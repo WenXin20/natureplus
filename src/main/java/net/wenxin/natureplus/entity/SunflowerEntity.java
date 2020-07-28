@@ -2,6 +2,7 @@
 package net.wenxin.natureplus.entity;
 
 import net.wenxin.natureplus.procedures.SunflowerSpawnSunProcedure;
+import net.wenxin.natureplus.procedures.SunflowerNaturalSpawnProcedure;
 import net.wenxin.natureplus.procedures.SpadeRemoveSunflowerProcedure;
 import net.wenxin.natureplus.procedures.EntityTimerSunflowerProcedure;
 import net.wenxin.natureplus.itemgroup.PlantsVsZombiesTabItemGroup;
@@ -9,9 +10,8 @@ import net.wenxin.natureplus.item.PeaItem;
 import net.wenxin.natureplus.item.FrozenPeaItem;
 import net.wenxin.natureplus.item.CornItem;
 import net.wenxin.natureplus.block.SunflowerHeadBlock;
+import net.wenxin.natureplus.RenderTypeDictionary;
 import net.wenxin.natureplus.NatureplusModElements;
-import net.wenxin.natureplus.RenderGlowCutout;
-
 
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.fml.network.FMLPlayMessages;
@@ -28,13 +28,16 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.World;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.DifficultyInstance;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.DamageSource;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.item.SpawnEggItem;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.Item;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.monster.MonsterEntity;
+import net.minecraft.entity.monster.CreeperEntity;
 import net.minecraft.entity.ai.goal.SwimGoal;
 import net.minecraft.entity.ai.goal.LookRandomlyGoal;
 import net.minecraft.entity.ai.goal.LookAtGoal;
@@ -54,23 +57,12 @@ import net.minecraft.client.renderer.entity.model.EntityModel;
 import net.minecraft.client.renderer.entity.layers.LayerRenderer;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.client.renderer.entity.IEntityRenderer;
-import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.IRenderTypeBuffer;
-import net.minecraft.block.material.Material;
 
 import com.mojang.blaze3d.vertex.IVertexBuilder;
 import com.mojang.blaze3d.matrix.MatrixStack;
-import net.minecraft.item.ItemStack;
-import net.minecraft.entity.monster.CreeperEntity;
-import net.minecraft.util.math.MathHelper;
-import com.mojang.blaze3d.platform.GlStateManager;
-import com.mojang.blaze3d.systems.RenderSystem;
-import net.minecraft.client.renderer.RenderState;
-import net.minecraft.client.renderer.RenderType;
-import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
-import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
+
+import com.google.common.collect.ImmutableMap;
 
 @NatureplusModElements.ModElement.Tag
 public class SunflowerEntity extends NatureplusModElements.ModElement {
@@ -83,8 +75,8 @@ public class SunflowerEntity extends NatureplusModElements.ModElement {
 	@Override
 	public void initElements() {
 		entity = (EntityType.Builder.<CustomEntity>create(CustomEntity::new, EntityClassification.CREATURE).setShouldReceiveVelocityUpdates(true)
-				.setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(CustomEntity::new).size(0.7f, 1.2f))
-						.build("sunflower").setRegistryName("sunflower");
+				.setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(CustomEntity::new).size(0.7f, 1.2f)).build("sunflower")
+						.setRegistryName("sunflower");
 		elements.entities.add(() -> entity);
 		elements.items.add(() -> new SpawnEggItem(entity, -13312, -3381760, new Item.Properties().group(PlantsVsZombiesTabItemGroup.tab))
 				.setRegistryName("sunflower"));
@@ -96,8 +88,12 @@ public class SunflowerEntity extends NatureplusModElements.ModElement {
 			biome.getSpawns(EntityClassification.CREATURE).add(new Biome.SpawnListEntry(entity, 15, 1, 4));
 		}
 		EntitySpawnPlacementRegistry.register(entity, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES,
-				(animal, world, reason, pos,
-						random) -> (world.getBlockState(pos.down()).getMaterial() == Material.ORGANIC && world.getLightSubtracted(pos, 0) > 8));
+				(entityType, world, reason, pos, random) -> {
+					int x = pos.getX();
+					int y = pos.getY();
+					int z = pos.getZ();
+					return SunflowerNaturalSpawnProcedure.executeProcedure(ImmutableMap.of("x", x, "y", y, "z", z, "world", world));
+				});
 	}
 
 	@SubscribeEvent
@@ -259,7 +255,7 @@ public class SunflowerEntity extends NatureplusModElements.ModElement {
 			if (this.getAttribute(SharedMonsterAttributes.ATTACK_DAMAGE) == null)
 				this.getAttributes().registerAttribute(SharedMonsterAttributes.ATTACK_DAMAGE);
 			this.getAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(0);
-      		this.getAttribute(SharedMonsterAttributes.KNOCKBACK_RESISTANCE).setBaseValue(1.0D);
+			this.getAttribute(SharedMonsterAttributes.KNOCKBACK_RESISTANCE).setBaseValue(1.0D);
 		}
 	}
 
@@ -271,12 +267,13 @@ public class SunflowerEntity extends NatureplusModElements.ModElement {
 
 		public void render(MatrixStack matrixStackIn, IRenderTypeBuffer bufferIn, int packedLightIn, T entitylivingbaseIn, float limbSwing,
 				float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch) {
-//			IVertexBuilder ivertexbuilder = bufferIn.getBuffer(RenderType.getEyes(new ResourceLocation("natureplus:textures/sunflower_glow.png")));
-			IVertexBuilder ivertexbuilder = bufferIn.getBuffer(RenderGlowCutout.getEntityGlow(new ResourceLocation("natureplus:textures/sunflower_glow.png")));
-			this.getEntityModel().render(matrixStackIn, ivertexbuilder, 15728640, OverlayTexture.NO_OVERLAY, 1, 1, 1, 1);
+			if (!entitylivingbaseIn.isInvisible()) {
+				IVertexBuilder ivertexbuilder = bufferIn
+						.getBuffer(RenderTypeDictionary.getEntityGlow(new ResourceLocation("natureplus:textures/sunflower_glow.png")));
+				this.getEntityModel().render(matrixStackIn, ivertexbuilder, 15728640, OverlayTexture.NO_OVERLAY, 1, 1, 1, 1);
+			}
 		}
 	}
-
 
 	// Made with Blockbench 3.5.4
 	// Exported for Minecraft version 1.15
@@ -326,8 +323,7 @@ public class SunflowerEntity extends NatureplusModElements.ModElement {
 		public void setRotationAngles(Entity e, float f, float f1, float f2, float f3, float f4) {
 			this.head.rotateAngleY = f3 / (180F / (float) Math.PI);
 			this.head.rotateAngleX = f4 / (180F / (float) Math.PI);
-			
-			this.head.rotationPointY = 14.5F + -(MathHelper.cos(f2 * 0.4F) * (float)Math.PI * 0.025F);
+			this.head.rotationPointY = 14.5F + -(MathHelper.cos(f2 * 0.4F) * (float) Math.PI * 0.025F);
 		}
 	}
 }

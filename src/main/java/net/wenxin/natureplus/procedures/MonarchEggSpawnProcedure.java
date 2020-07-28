@@ -11,6 +11,7 @@ import net.minecraftforge.common.MinecraftForge;
 
 import net.minecraft.world.server.ServerWorld;
 import net.minecraft.world.World;
+import net.minecraft.world.IWorld;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.ResourceLocation;
@@ -27,11 +28,13 @@ import net.minecraft.entity.MobEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ILivingEntityData;
 import net.minecraft.entity.Entity;
+import net.minecraft.client.Minecraft;
 import net.minecraft.advancements.AdvancementProgress;
 import net.minecraft.advancements.Advancement;
 
 import java.util.Map;
 import java.util.Iterator;
+import java.util.HashMap;
 
 @NatureplusModElements.ModElement.Tag
 public class MonarchEggSpawnProcedure extends NatureplusModElements.ModElement {
@@ -70,7 +73,7 @@ public class MonarchEggSpawnProcedure extends NatureplusModElements.ModElement {
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
-		World world = (World) dependencies.get("world");
+		IWorld world = (IWorld) dependencies.get("world");
 		if ((((entity.getPersistentData().getDouble("timer_insect")) > 1) && ((entity instanceof MonarchButterflyEntity.CustomEntity)
 				&& (ItemTags.getCollection().getOrCreate(new ResourceLocation(("flowers").toLowerCase(java.util.Locale.ENGLISH)))
 						.contains(((sourceentity instanceof LivingEntity) ? ((LivingEntity) sourceentity).getHeldItemMainhand() : ItemStack.EMPTY)
@@ -86,9 +89,10 @@ public class MonarchEggSpawnProcedure extends NatureplusModElements.ModElement {
 							.contains(((sourceentity instanceof LivingEntity) ? ((LivingEntity) sourceentity).getHeldItemMainhand() : ItemStack.EMPTY)
 									.getItem())))) {
 				entity.getPersistentData().putDouble("timer_insect", 2000);
-				if (!world.isRemote) {
-					Entity entityToSpawn = new MonarchEggEntity.CustomEntity(MonarchEggEntity.entity, world);
-					entityToSpawn.setLocationAndAngles((entity.getPosX()), (entity.getPosY()), (entity.getPosZ()), world.rand.nextFloat() * 360F, 0);
+				if (world instanceof World && !world.getWorld().isRemote) {
+					Entity entityToSpawn = new MonarchEggEntity.CustomEntity(MonarchEggEntity.entity, world.getWorld());
+					entityToSpawn.setLocationAndAngles((entity.getPosX()), (entity.getPosY()), (entity.getPosZ()),
+							world.getRandom().nextFloat() * 360F, 0);
 					if (entityToSpawn instanceof MobEntity)
 						((MobEntity) entityToSpawn).onInitialSpawn(world, world.getDifficultyForLocation(new BlockPos(entityToSpawn)),
 								SpawnReason.MOB_SUMMONED, (ILivingEntityData) null, (CompoundNBT) null);
@@ -105,7 +109,7 @@ public class MonarchEggSpawnProcedure extends NatureplusModElements.ModElement {
 										.getItem() == p.getItem(),
 								(int) 1);
 				}
-				world.playSound((PlayerEntity) null, x, y, z,
+				world.playSound(world.getWorld().isRemote ? Minecraft.getInstance().player : (PlayerEntity) null, new BlockPos(x, y, z),
 						(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.turtle.lay_egg")),
 						SoundCategory.NEUTRAL, (float) 1, (float) 1);
 				if (sourceentity instanceof ServerPlayerEntity) {
@@ -121,16 +125,17 @@ public class MonarchEggSpawnProcedure extends NatureplusModElements.ModElement {
 					}
 				}
 				if (sourceentity instanceof LivingEntity) {
-					((LivingEntity) sourceentity).swingArm(Hand.MAIN_HAND);
+					((LivingEntity) sourceentity).swing(Hand.MAIN_HAND, true);
 				}
 			} else if (((entity instanceof MonarchButterflyEntity.CustomEntity)
 					&& (ItemTags.getCollection().getOrCreate(new ResourceLocation(("flowers").toLowerCase(java.util.Locale.ENGLISH)))
 							.contains(((sourceentity instanceof LivingEntity) ? ((LivingEntity) sourceentity).getHeldItemOffhand() : ItemStack.EMPTY)
 									.getItem())))) {
 				entity.getPersistentData().putDouble("timer_insect", 2000);
-				if (!world.isRemote) {
-					Entity entityToSpawn = new MonarchEggEntity.CustomEntity(MonarchEggEntity.entity, world);
-					entityToSpawn.setLocationAndAngles((entity.getPosX()), (entity.getPosY()), (entity.getPosZ()), world.rand.nextFloat() * 360F, 0);
+				if (world instanceof World && !world.getWorld().isRemote) {
+					Entity entityToSpawn = new MonarchEggEntity.CustomEntity(MonarchEggEntity.entity, world.getWorld());
+					entityToSpawn.setLocationAndAngles((entity.getPosX()), (entity.getPosY()), (entity.getPosZ()),
+							world.getRandom().nextFloat() * 360F, 0);
 					if (entityToSpawn instanceof MobEntity)
 						((MobEntity) entityToSpawn).onInitialSpawn(world, world.getDifficultyForLocation(new BlockPos(entityToSpawn)),
 								SpawnReason.MOB_SUMMONED, (ILivingEntityData) null, (CompoundNBT) null);
@@ -147,7 +152,7 @@ public class MonarchEggSpawnProcedure extends NatureplusModElements.ModElement {
 										.getItem() == p.getItem(),
 								(int) 1);
 				}
-				world.playSound((PlayerEntity) null, x, y, z,
+				world.playSound(world.getWorld().isRemote ? Minecraft.getInstance().player : (PlayerEntity) null, new BlockPos(x, y, z),
 						(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.turtle.lay_egg")),
 						SoundCategory.NEUTRAL, (float) 1, (float) 1);
 				if (sourceentity instanceof ServerPlayerEntity) {
@@ -163,7 +168,7 @@ public class MonarchEggSpawnProcedure extends NatureplusModElements.ModElement {
 					}
 				}
 				if (sourceentity instanceof LivingEntity) {
-					((LivingEntity) sourceentity).swingArm(Hand.OFF_HAND);
+					((LivingEntity) sourceentity).swing(Hand.OFF_HAND, true);
 				}
 			}
 		}
@@ -179,7 +184,7 @@ public class MonarchEggSpawnProcedure extends NatureplusModElements.ModElement {
 		int j = event.getPos().getY();
 		int k = event.getPos().getZ();
 		World world = event.getWorld();
-		java.util.HashMap<String, Object> dependencies = new java.util.HashMap<>();
+		Map<String, Object> dependencies = new HashMap<>();
 		dependencies.put("x", i);
 		dependencies.put("y", j);
 		dependencies.put("z", k);

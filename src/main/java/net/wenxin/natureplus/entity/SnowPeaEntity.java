@@ -2,12 +2,14 @@
 package net.wenxin.natureplus.entity;
 
 import net.wenxin.natureplus.procedures.SpadeRemoveSnowPeaProcedure;
+import net.wenxin.natureplus.procedures.SnowPeaNaturalSpawnProcedure;
+import net.wenxin.natureplus.procedures.DisablePushingOfMobsProcedure;
 import net.wenxin.natureplus.itemgroup.PlantsVsZombiesTabItemGroup;
-import net.wenxin.natureplus.item.FrozenPeaItem;
 import net.wenxin.natureplus.item.PeaItem;
+import net.wenxin.natureplus.item.FrozenPeaItem;
 import net.wenxin.natureplus.item.CornItem;
 import net.wenxin.natureplus.block.SnowPeaHeadBlock;
-import net.wenxin.natureplus.procedures.DisablePushingOfMobsProcedure;
+import net.wenxin.natureplus.RenderTypeDictionary;
 import net.wenxin.natureplus.NatureplusModElements;
 
 import net.minecraftforge.registries.ForgeRegistries;
@@ -23,18 +25,23 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraft.world.gen.Heightmap;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.World;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.DamageSource;
 import net.minecraft.item.SpawnEggItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Item;
-import net.minecraft.entity.monster.MonsterEntity;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.monster.IMob;
+import net.minecraft.entity.monster.CreeperEntity;
 import net.minecraft.entity.ai.goal.SwimGoal;
 import net.minecraft.entity.ai.goal.RangedAttackGoal;
 import net.minecraft.entity.ai.goal.NearestAttackableTargetGoal;
 import net.minecraft.entity.ai.goal.LookRandomlyGoal;
+import net.minecraft.entity.ai.goal.LookAtGoal;
 import net.minecraft.entity.ai.goal.HurtByTargetGoal;
 import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.MobEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.IRangedAttackMob;
 import net.minecraft.entity.EntityType;
@@ -43,35 +50,21 @@ import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.CreatureEntity;
 import net.minecraft.entity.CreatureAttribute;
+import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.client.renderer.model.ModelRenderer;
 import net.minecraft.client.renderer.entity.model.EntityModel;
+import net.minecraft.client.renderer.entity.layers.LayerRenderer;
 import net.minecraft.client.renderer.entity.MobRenderer;
-import net.minecraft.block.material.Material;
+import net.minecraft.client.renderer.entity.IEntityRenderer;
+import net.minecraft.client.renderer.IRenderTypeBuffer;
+
+import java.util.Map;
+import java.util.HashMap;
 
 import com.mojang.blaze3d.vertex.IVertexBuilder;
 import com.mojang.blaze3d.matrix.MatrixStack;
-import net.minecraft.entity.MobEntity;
-import net.minecraft.entity.monster.CreeperEntity;
-import net.minecraft.entity.monster.IMob;
-import net.minecraft.client.renderer.RenderType;
-import net.minecraft.client.renderer.IRenderTypeBuffer;
-import com.mojang.blaze3d.systems.RenderSystem;
-import javax.annotation.Nullable;
-import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
-import net.minecraft.client.renderer.RenderState;
-import net.minecraft.client.renderer.RenderType.State;
-import net.minecraft.client.renderer.texture.AtlasTexture;
-import net.minecraft.block.material.PushReaction;
-import net.minecraft.entity.ai.goal.LookAtGoal;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.util.math.MathHelper;
-import net.minecraft.entity.ILivingEntityData;
-import net.minecraft.world.IWorld;
-import net.minecraft.world.DifficultyInstance;
-import net.minecraft.entity.SpawnReason;
-import net.minecraft.nbt.CompoundNBT;
-import java.util.Map;
-import java.util.HashMap;
+
+import com.google.common.collect.ImmutableMap;
 
 @NatureplusModElements.ModElement.Tag
 public class SnowPeaEntity extends NatureplusModElements.ModElement {
@@ -94,60 +87,15 @@ public class SnowPeaEntity extends NatureplusModElements.ModElement {
 	@Override
 	public void init(FMLCommonSetupEvent event) {
 		for (Biome biome : ForgeRegistries.BIOMES.getValues()) {
-			boolean biomeCriteria = false;
-			if (ForgeRegistries.BIOMES.getKey(biome).equals(new ResourceLocation("mountains")))
-				biomeCriteria = true;
-			if (ForgeRegistries.BIOMES.getKey(biome).equals(new ResourceLocation("taiga")))
-				biomeCriteria = true;
-			if (ForgeRegistries.BIOMES.getKey(biome).equals(new ResourceLocation("frozen_ocean")))
-				biomeCriteria = true;
-			if (ForgeRegistries.BIOMES.getKey(biome).equals(new ResourceLocation("frozen_river")))
-				biomeCriteria = true;
-			if (ForgeRegistries.BIOMES.getKey(biome).equals(new ResourceLocation("snowy_tundra")))
-				biomeCriteria = true;
-			if (ForgeRegistries.BIOMES.getKey(biome).equals(new ResourceLocation("snowy_mountains")))
-				biomeCriteria = true;
-			if (ForgeRegistries.BIOMES.getKey(biome).equals(new ResourceLocation("taiga_hills")))
-				biomeCriteria = true;
-			if (ForgeRegistries.BIOMES.getKey(biome).equals(new ResourceLocation("mountain_edge")))
-				biomeCriteria = true;
-			if (ForgeRegistries.BIOMES.getKey(biome).equals(new ResourceLocation("snowy_beach")))
-				biomeCriteria = true;
-			if (ForgeRegistries.BIOMES.getKey(biome).equals(new ResourceLocation("snowy_taiga")))
-				biomeCriteria = true;
-			if (ForgeRegistries.BIOMES.getKey(biome).equals(new ResourceLocation("snowy_taiga_hills")))
-				biomeCriteria = true;
-			if (ForgeRegistries.BIOMES.getKey(biome).equals(new ResourceLocation("giant_tree_taiga")))
-				biomeCriteria = true;
-			if (ForgeRegistries.BIOMES.getKey(biome).equals(new ResourceLocation("giant_tree_taiga_hills")))
-				biomeCriteria = true;
-			if (ForgeRegistries.BIOMES.getKey(biome).equals(new ResourceLocation("wooded_mountains")))
-				biomeCriteria = true;
-			if (ForgeRegistries.BIOMES.getKey(biome).equals(new ResourceLocation("cold_ocean")))
-				biomeCriteria = true;
-			if (ForgeRegistries.BIOMES.getKey(biome).equals(new ResourceLocation("deep_cold_ocean")))
-				biomeCriteria = true;
-			if (ForgeRegistries.BIOMES.getKey(biome).equals(new ResourceLocation("deep_frozen_ocean")))
-				biomeCriteria = true;
-			if (ForgeRegistries.BIOMES.getKey(biome).equals(new ResourceLocation("taiga_mountains")))
-				biomeCriteria = true;
-			if (ForgeRegistries.BIOMES.getKey(biome).equals(new ResourceLocation("ice_spikes")))
-				biomeCriteria = true;
-			if (ForgeRegistries.BIOMES.getKey(biome).equals(new ResourceLocation("snowy_taiga_mountains")))
-				biomeCriteria = true;
-			if (ForgeRegistries.BIOMES.getKey(biome).equals(new ResourceLocation("giant_spruce_taiga")))
-				biomeCriteria = true;
-			if (ForgeRegistries.BIOMES.getKey(biome).equals(new ResourceLocation("giant_spruce_taiga_hills")))
-				biomeCriteria = true;
-			if (ForgeRegistries.BIOMES.getKey(biome).equals(new ResourceLocation("modified_gravelly_mountains")))
-				biomeCriteria = true;
-			if (!biomeCriteria)
-				continue;
 			biome.getSpawns(EntityClassification.CREATURE).add(new Biome.SpawnListEntry(entity, 15, 1, 3));
 		}
 		EntitySpawnPlacementRegistry.register(entity, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES,
-				(animal, world, reason, pos,
-						random) -> (world.getBlockState(pos.down()).getMaterial() == Material.ORGANIC && world.getLightSubtracted(pos, 0) > 8));
+				(entityType, world, reason, pos, random) -> {
+					int x = pos.getX();
+					int y = pos.getY();
+					int z = pos.getZ();
+					return SnowPeaNaturalSpawnProcedure.executeProcedure(ImmutableMap.of("x", x, "y", y, "z", z, "world", world));
+				});
 	}
 
 	@SubscribeEvent
@@ -155,6 +103,9 @@ public class SnowPeaEntity extends NatureplusModElements.ModElement {
 	public void registerModels(ModelRegistryEvent event) {
 		RenderingRegistry.registerEntityRenderingHandler(entity, renderManager -> {
 			return new MobRenderer(renderManager, new ModelSnowPea(), 0.4f) {
+				{
+					this.addLayer(new TranslucentLayer<>(this));
+				}
 				@Override
 				public ResourceLocation getEntityTexture(Entity entity) {
 					return new ResourceLocation("natureplus:textures/snow_pea.png");
@@ -168,7 +119,7 @@ public class SnowPeaEntity extends NatureplusModElements.ModElement {
 		}
 
 		public boolean hasTransparency() {
-		    return true;
+			return true;
 		}
 
 		public CustomEntity(EntityType<CustomEntity> type, World world) {
@@ -237,14 +188,14 @@ public class SnowPeaEntity extends NatureplusModElements.ModElement {
 
 		@Override
 		public net.minecraft.util.SoundEvent getDeathSound() {
-			return (net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.generic.death"));
+			return (net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("block.glass.break"));
 		}
 
 		@Override
 		protected float getSoundVolume() {
 			return 1.0F;
 		}
-	
+
 		@Override
 		public boolean attackEntityFrom(DamageSource source, float amount) {
 			double x = this.getPosX();
@@ -301,11 +252,27 @@ public class SnowPeaEntity extends NatureplusModElements.ModElement {
 			if (this.getAttribute(SharedMonsterAttributes.ATTACK_DAMAGE) == null)
 				this.getAttributes().registerAttribute(SharedMonsterAttributes.ATTACK_DAMAGE);
 			this.getAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(3);
-      		this.getAttribute(SharedMonsterAttributes.KNOCKBACK_RESISTANCE).setBaseValue(1.0D);
+			this.getAttribute(SharedMonsterAttributes.KNOCKBACK_RESISTANCE).setBaseValue(1.0D);
 		}
 
 		public void attackEntityWithRangedAttack(LivingEntity target, float flval) {
 			FrozenPeaItem.shoot(this, target);
+		}
+	}
+
+	@OnlyIn(Dist.CLIENT)
+	private static class TranslucentLayer<T extends Entity, M extends EntityModel<T>> extends LayerRenderer<T, M> {
+		public TranslucentLayer(IEntityRenderer<T, M> er) {
+			super(er);
+		}
+
+		public void render(MatrixStack matrixStackIn, IRenderTypeBuffer bufferIn, int packedLightIn, T entitylivingbaseIn, float limbSwing,
+				float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch) {
+			if (!entitylivingbaseIn.isInvisible()) {
+				IVertexBuilder ivertexbuilder = bufferIn
+						.getBuffer(RenderTypeDictionary.getEntityTranslucent(new ResourceLocation("natureplus:textures/snow_pea_translucent.png")));
+				this.getEntityModel().render(matrixStackIn, ivertexbuilder, 15728640, OverlayTexture.NO_OVERLAY, 1, 1, 1, 1);
+			}
 		}
 	}
 
@@ -319,7 +286,6 @@ public class SnowPeaEntity extends NatureplusModElements.ModElement {
 		public ModelSnowPea() {
 			textureWidth = 64;
 			textureHeight = 64;
-
 			main = new ModelRenderer(this);
 			main.setRotationPoint(0.0F, 24.0F, 1.0F);
 			main.setTextureOffset(14, 28).addBox(-1.0F, -8.0F, -1.0F, 2.0F, 8.0F, 2.0F, 0.0F, false);
@@ -327,12 +293,10 @@ public class SnowPeaEntity extends NatureplusModElements.ModElement {
 			main.setTextureOffset(16, 0).addBox(-5.0F, -0.5F, 0.0F, 5.0F, 0.0F, 5.0F, 0.0F, false);
 			main.setTextureOffset(10, 15).addBox(0.0F, -0.5F, -5.0F, 5.0F, 0.0F, 5.0F, 0.0F, false);
 			main.setTextureOffset(0, 15).addBox(-5.0F, -0.5F, -5.0F, 5.0F, 0.0F, 5.0F, 0.0F, false);
-	
 			disk = new ModelRenderer(this);
 			disk.setRotationPoint(0.0F, -8.0F, 0.0F);
 			main.addChild(disk);
 			disk.setTextureOffset(0, 25).addBox(-2.0F, -1.0F, -2.0F, 4.0F, 1.0F, 4.0F, 0.0F, false);
-
 			head = new ModelRenderer(this);
 			head.setRotationPoint(0.0F, 14.0F, 1.0F);
 			head.setTextureOffset(0, 0).addBox(-3.0F, -5.0F, -5.0F, 6.0F, 6.0F, 9.0F, 0.0F, false);
@@ -353,7 +317,6 @@ public class SnowPeaEntity extends NatureplusModElements.ModElement {
 				float alpha) {
 			main.render(matrixStack, buffer, packedLight, packedOverlay);
 			head.render(matrixStack, buffer, packedLight, packedOverlay);
-	    
 		}
 
 		public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
@@ -365,10 +328,8 @@ public class SnowPeaEntity extends NatureplusModElements.ModElement {
 		public void setRotationAngles(Entity e, float f, float f1, float f2, float f3, float f4) {
 			this.head.rotateAngleY = f3 / (180F / (float) Math.PI);
 			this.head.rotateAngleX = f4 / (180F / (float) Math.PI);
-
-			this.head.rotationPointY = 14.5F + -(MathHelper.cos(f2 * 0.4F) * (float)Math.PI * 0.05F);
-			
-			this.disk.rotationPointY = -7.5F + -(MathHelper.cos(f2 * 0.4F) * (float)Math.PI * 0.05F);
+			this.head.rotationPointY = 14.5F + -(MathHelper.cos(f2 * 0.4F) * (float) Math.PI * 0.05F);
+			this.disk.rotationPointY = -7.5F + -(MathHelper.cos(f2 * 0.4F) * (float) Math.PI * 0.05F);
 		}
 	}
 }

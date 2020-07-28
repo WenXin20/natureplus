@@ -6,6 +6,7 @@
     "texture": "mexican_sunflower7",
     "customModelName": "Cross model",
     "plantType": "normal",
+    "staticPlantGenerationType": "Flower",
     "growapableSpawnType": "Plains",
     "growapableMaxHeight": 1,
     "name": "Mexican Sunflower",
@@ -40,13 +41,9 @@
     "spawnWorldTypes": [
       "Surface"
     ],
-    "restrictionBiomes": [
-      {
-        "value": "plains"
-      },
-      {
-        "value": "mutated_plains"
-      }
-    ]
+    "restrictionBiomes": [],
+    "generateCondition": {
+      "name": "MexicanSunflowerNaturalSpawn"
+    }
   }
 }

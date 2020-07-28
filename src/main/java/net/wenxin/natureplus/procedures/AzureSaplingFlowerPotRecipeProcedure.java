@@ -9,6 +9,7 @@ import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.common.MinecraftForge;
 
 import net.minecraft.world.World;
+import net.minecraft.world.IWorld;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.Hand;
 import net.minecraft.item.ItemStack;
@@ -18,6 +19,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.block.Blocks;
 
 import java.util.Map;
+import java.util.HashMap;
 
 @NatureplusModElements.ModElement.Tag
 public class AzureSaplingFlowerPotRecipeProcedure extends NatureplusModElements.ModElement {
@@ -51,7 +53,7 @@ public class AzureSaplingFlowerPotRecipeProcedure extends NatureplusModElements.
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
-		World world = (World) dependencies.get("world");
+		IWorld world = (IWorld) dependencies.get("world");
 		if (((((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY)
 				.getItem() == new ItemStack(AzureSaplingBlock.block, (int) (1)).getItem())
 				&& ((world.getBlockState(new BlockPos((int) x, (int) y, (int) z))).getBlock() == Blocks.FLOWER_POT.getDefaultState().getBlock()))) {
@@ -64,7 +66,7 @@ public class AzureSaplingFlowerPotRecipeProcedure extends NatureplusModElements.
 			}
 			world.setBlockState(new BlockPos((int) x, (int) y, (int) z), Blocks.AIR.getDefaultState(), 3);
 			if (entity instanceof LivingEntity) {
-				((LivingEntity) entity).swingArm(Hand.MAIN_HAND);
+				((LivingEntity) entity).swing(Hand.MAIN_HAND, true);
 			}
 			world.setBlockState(new BlockPos((int) x, (int) y, (int) z), AzureSaplingFlowerPotBlock.block.getDefaultState(), 3);
 		}
@@ -80,7 +82,7 @@ public class AzureSaplingFlowerPotRecipeProcedure extends NatureplusModElements.
 			}
 			world.setBlockState(new BlockPos((int) x, (int) y, (int) z), Blocks.AIR.getDefaultState(), 3);
 			if (entity instanceof LivingEntity) {
-				((LivingEntity) entity).swingArm(Hand.OFF_HAND);
+				((LivingEntity) entity).swing(Hand.OFF_HAND, true);
 			}
 			world.setBlockState(new BlockPos((int) x, (int) y, (int) z), AzureSaplingFlowerPotBlock.block.getDefaultState(), 3);
 		}
@@ -95,7 +97,7 @@ public class AzureSaplingFlowerPotRecipeProcedure extends NatureplusModElements.
 		int j = event.getPos().getY();
 		int k = event.getPos().getZ();
 		World world = event.getWorld();
-		java.util.HashMap<String, Object> dependencies = new java.util.HashMap<>();
+		Map<String, Object> dependencies = new HashMap<>();
 		dependencies.put("x", i);
 		dependencies.put("y", j);
 		dependencies.put("z", k);

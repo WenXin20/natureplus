@@ -1,7 +1,7 @@
 
 package net.wenxin.natureplus.entity;
 
-import net.wenxin.natureplus.procedures.IsNightInWorldProcedure;
+import net.wenxin.natureplus.procedures.DragonflyNaturalSpawnProcedure;
 import net.wenxin.natureplus.itemgroup.NaturePlusTabItemGroup;
 import net.wenxin.natureplus.NatureplusModElements;
 
@@ -30,8 +30,6 @@ import net.minecraft.item.SpawnEggItem;
 import net.minecraft.item.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Item;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.monster.MonsterEntity;
 import net.minecraft.entity.ai.goal.SwimGoal;
 import net.minecraft.entity.ai.goal.RandomWalkingGoal;
 import net.minecraft.entity.ai.goal.NearestAttackableTargetGoal;
@@ -44,11 +42,11 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EntitySpawnPlacementRegistry;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.CreatureEntity;
 import net.minecraft.entity.CreatureAttribute;
 import net.minecraft.client.renderer.model.ModelRenderer;
 import net.minecraft.client.renderer.entity.model.EntityModel;
 import net.minecraft.client.renderer.entity.MobRenderer;
-import net.minecraft.block.material.Material;
 import net.minecraft.block.BlockState;
 
 import java.util.Random;
@@ -79,11 +77,15 @@ public class GreenDragonflyEntity extends NatureplusModElements.ModElement {
 	@Override
 	public void init(FMLCommonSetupEvent event) {
 		for (Biome biome : ForgeRegistries.BIOMES.getValues()) {
-			biome.getSpawns(EntityClassification.CREATURE).add(new Biome.SpawnListEntry(entity, 8, 1, 5));
+			biome.getSpawns(EntityClassification.CREATURE).add(new Biome.SpawnListEntry(entity, 5, 1, 5));
 		}
 		EntitySpawnPlacementRegistry.register(entity, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES,
-				(entityType, world, reason, pos,
-						random) -> (world.getBlockState(pos.down()).getMaterial() == Material.ORGANIC && world.getLightSubtracted(pos, 0) > 8));
+				(entityType, world, reason, pos, random) -> {
+					int x = pos.getX();
+					int y = pos.getY();
+					int z = pos.getZ();
+					return DragonflyNaturalSpawnProcedure.executeProcedure(ImmutableMap.of("x", x, "y", y, "z", z, "world", world));
+				});
 	}
 
 	@SubscribeEvent
@@ -98,7 +100,7 @@ public class GreenDragonflyEntity extends NatureplusModElements.ModElement {
 			};
 		});
 	}
-	public static class CustomEntity extends MonsterEntity {
+	public static class CustomEntity extends CreatureEntity {
 		public CustomEntity(FMLPlayMessages.SpawnEntity packet, World world) {
 			this(entity, world);
 		}
@@ -124,26 +126,7 @@ public class GreenDragonflyEntity extends NatureplusModElements.ModElement {
 			this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 1.8, false));
 			this.targetSelector.addGoal(3, new NearestAttackableTargetGoal(this, MonarchButterflyEntity.CustomEntity.class, true, false));
 			this.targetSelector.addGoal(4, new NearestAttackableTargetGoal(this, MonarchCaterpillarEntity.CustomEntity.class, true, false));
-			this.targetSelector.addGoal(5, new NearestAttackableTargetGoal(this, PlayerEntity.class, true, false) {
-				@Override
-				public boolean shouldExecute() {
-					double x = CustomEntity.this.getPosX();
-					double y = CustomEntity.this.getPosY();
-					double z = CustomEntity.this.getPosZ();
-					Entity entity = CustomEntity.this;
-					return super.shouldExecute() && IsNightInWorldProcedure.executeProcedure(ImmutableMap.of("world", world));
-				}
-
-				@Override
-				public boolean shouldContinueExecuting() {
-					double x = CustomEntity.this.getPosX();
-					double y = CustomEntity.this.getPosY();
-					double z = CustomEntity.this.getPosZ();
-					Entity entity = CustomEntity.this;
-					return super.shouldContinueExecuting() && IsNightInWorldProcedure.executeProcedure(ImmutableMap.of("world", world));
-				}
-			});
-			this.goalSelector.addGoal(6, new RandomWalkingGoal(this, 1.5, 20) {
+			this.goalSelector.addGoal(5, new RandomWalkingGoal(this, 1.5, 20) {
 				@Override
 				protected Vec3d getPosition() {
 					Random random = CustomEntity.this.getRNG();
@@ -153,8 +136,8 @@ public class GreenDragonflyEntity extends NatureplusModElements.ModElement {
 					return new Vec3d(dir_x, dir_y, dir_z);
 				}
 			});
-			this.goalSelector.addGoal(7, new LookRandomlyGoal(this));
-			this.goalSelector.addGoal(8, new SwimGoal(this));
+			this.goalSelector.addGoal(6, new LookRandomlyGoal(this));
+			this.goalSelector.addGoal(7, new SwimGoal(this));
 		}
 
 		@Override
@@ -173,11 +156,6 @@ public class GreenDragonflyEntity extends NatureplusModElements.ModElement {
 		}
 
 		@Override
-		public net.minecraft.util.SoundEvent getAmbientSound() {
-			return (net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(""));
-		}
-
-		@Override
 		public net.minecraft.util.SoundEvent getHurtSound(DamageSource ds) {
 			return (net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("natureplus:squitch"));
 		}
@@ -185,11 +163,6 @@ public class GreenDragonflyEntity extends NatureplusModElements.ModElement {
 		@Override
 		public net.minecraft.util.SoundEvent getDeathSound() {
 			return (net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("natureplus:bug_squish"));
-		}
-
-		@Override
-		protected float getSoundVolume() {
-			return 1.0F;
 		}
 
 		@Override

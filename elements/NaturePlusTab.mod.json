@@ -6,6 +6,6 @@
     "icon": {
       "value": "CUSTOM:AzureSapling"
     },
-    "showSearch": false
+    "showSearch": true
   }
 }

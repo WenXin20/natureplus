@@ -8,7 +8,8 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.items.ItemHandlerHelper;
 
 import net.minecraft.world.server.ServerWorld;
-import net.minecraft.world.World;
+import net.minecraft.world.IWorld;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.Hand;
@@ -17,6 +18,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.Entity;
+import net.minecraft.client.Minecraft;
 
 import java.util.Map;
 
@@ -56,14 +58,14 @@ public class RemoveBlueBalloonProcedure extends NatureplusModElements.ModElement
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
-		World world = (World) dependencies.get("world");
-		if ((!(world.isRemote))) {
+		IWorld world = (IWorld) dependencies.get("world");
+		if ((!(world.getWorld().isRemote))) {
 			if (((entity instanceof BlueBalloonEntity.CustomEntity) && ((sourceentity.isSneaking())
 					&& (((sourceentity instanceof LivingEntity) ? ((LivingEntity) sourceentity).getHeldItemMainhand() : ItemStack.EMPTY)
 							.getItem() == (ItemStack.EMPTY).getItem())))) {
 				if (!entity.world.isRemote)
 					entity.remove();
-				world.playSound((PlayerEntity) null, x, y, z,
+				world.playSound(world.getWorld().isRemote ? Minecraft.getInstance().player : (PlayerEntity) null, new BlockPos(x, y, z),
 						(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("natureplus:balloon_rub")),
 						SoundCategory.NEUTRAL, (float) 1, (float) 1);
 				if (world instanceof ServerWorld) {
@@ -76,7 +78,7 @@ public class RemoveBlueBalloonProcedure extends NatureplusModElements.ModElement
 					ItemHandlerHelper.giveItemToPlayer(((PlayerEntity) sourceentity), _setstack);
 				}
 				if (sourceentity instanceof LivingEntity) {
-					((LivingEntity) sourceentity).swingArm(Hand.MAIN_HAND);
+					((LivingEntity) sourceentity).swing(Hand.MAIN_HAND, true);
 				}
 			}
 		}

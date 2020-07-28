@@ -10,6 +10,57 @@
       },
       {
         "value": "CUSTOM:Thorns"
+      },
+      {
+        "value": "CUSTOM:WhitePetalCarpet"
+      },
+      {
+        "value": "CUSTOM:OrangePetalCarpet"
+      },
+      {
+        "value": "CUSTOM:MagentaPetalCarpet"
+      },
+      {
+        "value": "CUSTOM:LightBluePetalCarpet"
+      },
+      {
+        "value": "CUSTOM:YellowPetalCarpet"
+      },
+      {
+        "value": "CUSTOM:LimePetalCarpet"
+      },
+      {
+        "value": "CUSTOM:PinkPetalCarpet"
+      },
+      {
+        "value": "CUSTOM:GrayPetalCarpet"
+      },
+      {
+        "value": "CUSTOM:LightGrayPetalCarpet"
+      },
+      {
+        "value": "CUSTOM:CyanPetalCarpet"
+      },
+      {
+        "value": "CUSTOM:PurplePetalCarpet"
+      },
+      {
+        "value": "CUSTOM:BluePetalCarpet"
+      },
+      {
+        "value": "CUSTOM:BrownPetalCarpet"
+      },
+      {
+        "value": "CUSTOM:GreenPetalCarpet"
+      },
+      {
+        "value": "CUSTOM:RedPetalCarpet"
+      },
+      {
+        "value": "CUSTOM:BlackPetalCarpet"
+      },
+      {
+        "value": "CUSTOM:WitherPetalCarpet"
       }
     ],
     "functions": [],

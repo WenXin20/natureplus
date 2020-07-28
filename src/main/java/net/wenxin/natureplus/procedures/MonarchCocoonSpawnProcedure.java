@@ -7,6 +7,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 import net.minecraft.world.server.ServerWorld;
 import net.minecraft.world.World;
+import net.minecraft.world.IWorld;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.ResourceLocation;
@@ -17,6 +18,7 @@ import net.minecraft.entity.SpawnReason;
 import net.minecraft.entity.MobEntity;
 import net.minecraft.entity.ILivingEntityData;
 import net.minecraft.entity.Entity;
+import net.minecraft.client.Minecraft;
 
 import java.util.Map;
 
@@ -51,21 +53,21 @@ public class MonarchCocoonSpawnProcedure extends NatureplusModElements.ModElemen
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
-		World world = (World) dependencies.get("world");
+		IWorld world = (IWorld) dependencies.get("world");
 		if (((entity.getPersistentData().getDouble("timer_insect")) > 0)) {
 			entity.getPersistentData().putDouble("timer_insect", ((entity.getPersistentData().getDouble("timer_insect")) - 1));
 			if (((entity.getPersistentData().getDouble("timer_insect")) == 1)) {
 				if (!entity.world.isRemote)
 					entity.remove();
-				if (!world.isRemote) {
-					Entity entityToSpawn = new MonarchCocoonEntity.CustomEntity(MonarchCocoonEntity.entity, world);
-					entityToSpawn.setLocationAndAngles(x, y, z, world.rand.nextFloat() * 360F, 0);
+				if (world instanceof World && !world.getWorld().isRemote) {
+					Entity entityToSpawn = new MonarchCocoonEntity.CustomEntity(MonarchCocoonEntity.entity, world.getWorld());
+					entityToSpawn.setLocationAndAngles(x, y, z, world.getRandom().nextFloat() * 360F, 0);
 					if (entityToSpawn instanceof MobEntity)
 						((MobEntity) entityToSpawn).onInitialSpawn(world, world.getDifficultyForLocation(new BlockPos(entityToSpawn)),
 								SpawnReason.MOB_SUMMONED, (ILivingEntityData) null, (CompoundNBT) null);
 					world.addEntity(entityToSpawn);
 				}
-				world.playSound((PlayerEntity) null, x, y, z,
+				world.playSound(world.getWorld().isRemote ? Minecraft.getInstance().player : (PlayerEntity) null, new BlockPos(x, y, z),
 						(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("block.wool.place")),
 						SoundCategory.NEUTRAL, (float) 1, (float) 1);
 				if (world instanceof ServerWorld) {

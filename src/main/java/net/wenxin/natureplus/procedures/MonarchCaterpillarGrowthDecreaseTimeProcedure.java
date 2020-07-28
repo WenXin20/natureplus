@@ -10,6 +10,8 @@ import net.minecraftforge.common.MinecraftForge;
 
 import net.minecraft.world.server.ServerWorld;
 import net.minecraft.world.World;
+import net.minecraft.world.IWorld;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.Hand;
@@ -20,10 +22,12 @@ import net.minecraft.item.BlockItem;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.Entity;
+import net.minecraft.client.Minecraft;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.BlockState;
 
 import java.util.Map;
+import java.util.HashMap;
 
 @NatureplusModElements.ModElement.Tag
 public class MonarchCaterpillarGrowthDecreaseTimeProcedure extends NatureplusModElements.ModElement {
@@ -62,7 +66,7 @@ public class MonarchCaterpillarGrowthDecreaseTimeProcedure extends NatureplusMod
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
-		World world = (World) dependencies.get("world");
+		IWorld world = (IWorld) dependencies.get("world");
 		if ((((ItemTags.getCollection().getOrCreate(new ResourceLocation(("minecraft:leaves").toLowerCase(java.util.Locale.ENGLISH)))
 				.contains(((sourceentity instanceof LivingEntity) ? ((LivingEntity) sourceentity).getHeldItemMainhand() : ItemStack.EMPTY).getItem()))
 				|| ((ItemTags.getCollection().getOrCreate(new ResourceLocation(("minecraft:flowers").toLowerCase(java.util.Locale.ENGLISH))).contains(
@@ -97,7 +101,7 @@ public class MonarchCaterpillarGrowthDecreaseTimeProcedure extends NatureplusMod
 												: ItemStack.EMPTY))).getMaterial() == net.minecraft.block.material.Material.TALL_PLANTS)))))
 				&& ((entity instanceof MonarchCaterpillarEntity.CustomEntity) && ((entity.getPersistentData().getDouble("timer_insect")) > 100)))) {
 			entity.getPersistentData().putDouble("timer_insect", ((entity.getPersistentData().getDouble("timer_insect")) - 100));
-			world.playSound((PlayerEntity) null, x, y, z,
+			world.playSound(world.getWorld().isRemote ? Minecraft.getInstance().player : (PlayerEntity) null, new BlockPos(x, y, z),
 					(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.generic.eat")),
 					SoundCategory.NEUTRAL, (float) 1, (float) 1);
 			if (world instanceof ServerWorld) {
@@ -105,7 +109,7 @@ public class MonarchCaterpillarGrowthDecreaseTimeProcedure extends NatureplusMod
 						0.25, 0.25, 0.25, 0.05);
 			}
 			if (sourceentity instanceof LivingEntity) {
-				((LivingEntity) sourceentity).swingArm(Hand.MAIN_HAND);
+				((LivingEntity) sourceentity).swing(Hand.MAIN_HAND, true);
 			}
 			if ((!((sourceentity instanceof PlayerEntity) ? ((PlayerEntity) sourceentity).abilities.isCreativeMode : false))) {
 				if (sourceentity instanceof PlayerEntity)
@@ -148,7 +152,7 @@ public class MonarchCaterpillarGrowthDecreaseTimeProcedure extends NatureplusMod
 												: ItemStack.EMPTY))).getMaterial() == net.minecraft.block.material.Material.TALL_PLANTS)))))
 				&& ((entity instanceof MonarchCaterpillarEntity.CustomEntity) && ((entity.getPersistentData().getDouble("timer_insect")) > 100)))) {
 			entity.getPersistentData().putDouble("timer_insect", ((entity.getPersistentData().getDouble("timer_insect")) - 100));
-			world.playSound((PlayerEntity) null, x, y, z,
+			world.playSound(world.getWorld().isRemote ? Minecraft.getInstance().player : (PlayerEntity) null, new BlockPos(x, y, z),
 					(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.generic.eat")),
 					SoundCategory.NEUTRAL, (float) 1, (float) 1);
 			if (world instanceof ServerWorld) {
@@ -156,7 +160,7 @@ public class MonarchCaterpillarGrowthDecreaseTimeProcedure extends NatureplusMod
 						0.25, 0.25, 0.25, 0.05);
 			}
 			if (sourceentity instanceof LivingEntity) {
-				((LivingEntity) sourceentity).swingArm(Hand.OFF_HAND);
+				((LivingEntity) sourceentity).swing(Hand.OFF_HAND, true);
 			}
 			if ((!((sourceentity instanceof PlayerEntity) ? ((PlayerEntity) sourceentity).abilities.isCreativeMode : false))) {
 				if (sourceentity instanceof PlayerEntity)
@@ -178,7 +182,7 @@ public class MonarchCaterpillarGrowthDecreaseTimeProcedure extends NatureplusMod
 		int j = event.getPos().getY();
 		int k = event.getPos().getZ();
 		World world = event.getWorld();
-		java.util.HashMap<String, Object> dependencies = new java.util.HashMap<>();
+		Map<String, Object> dependencies = new HashMap<>();
 		dependencies.put("x", i);
 		dependencies.put("y", j);
 		dependencies.put("z", k);

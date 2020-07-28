@@ -20,7 +20,7 @@
     "enableMeleeDamage": false,
     "damageVsEntity": 0.0,
     "specialInfo": [
-      "§2§oCook or Plant"
+      "§7Cook or Plant"
     ],
     "hasGlow": false,
     "guiBoundTo": "<NONE>",

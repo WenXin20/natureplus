@@ -2,12 +2,13 @@
 package net.wenxin.natureplus.entity;
 
 import net.wenxin.natureplus.procedures.SpadeRemoveKernelPultProcedure;
+import net.wenxin.natureplus.procedures.KernelPultNaturalSpawnProcedure;
+import net.wenxin.natureplus.procedures.DisablePushingOfMobsProcedure;
 import net.wenxin.natureplus.itemgroup.PlantsVsZombiesTabItemGroup;
 import net.wenxin.natureplus.item.PeaItem;
 import net.wenxin.natureplus.item.FrozenPeaItem;
 import net.wenxin.natureplus.item.CornItem;
 import net.wenxin.natureplus.block.KernelPultHeadBlock;
-import net.wenxin.natureplus.procedures.DisablePushingOfMobsProcedure;
 import net.wenxin.natureplus.NatureplusModElements;
 
 import net.minecraftforge.registries.ForgeRegistries;
@@ -23,18 +24,23 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraft.world.gen.Heightmap;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.World;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.DamageSource;
 import net.minecraft.item.SpawnEggItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Item;
-import net.minecraft.entity.monster.MonsterEntity;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.monster.IMob;
+import net.minecraft.entity.monster.CreeperEntity;
 import net.minecraft.entity.ai.goal.SwimGoal;
 import net.minecraft.entity.ai.goal.RangedAttackGoal;
 import net.minecraft.entity.ai.goal.NearestAttackableTargetGoal;
 import net.minecraft.entity.ai.goal.LookRandomlyGoal;
+import net.minecraft.entity.ai.goal.LookAtGoal;
 import net.minecraft.entity.ai.goal.HurtByTargetGoal;
 import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.MobEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.IRangedAttackMob;
 import net.minecraft.entity.EntityType;
@@ -46,23 +52,14 @@ import net.minecraft.entity.CreatureAttribute;
 import net.minecraft.client.renderer.model.ModelRenderer;
 import net.minecraft.client.renderer.entity.model.EntityModel;
 import net.minecraft.client.renderer.entity.MobRenderer;
-import net.minecraft.block.material.Material;
+
+import java.util.Map;
+import java.util.HashMap;
 
 import com.mojang.blaze3d.vertex.IVertexBuilder;
 import com.mojang.blaze3d.matrix.MatrixStack;
-import net.minecraft.entity.monster.CreeperEntity;
-import net.minecraft.entity.MobEntity;
-import net.minecraft.entity.monster.IMob;
-import net.minecraft.util.math.MathHelper;
-import net.minecraft.entity.ai.goal.LookAtGoal;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.ILivingEntityData;
-import net.minecraft.world.IWorld;
-import net.minecraft.world.DifficultyInstance;
-import net.minecraft.entity.SpawnReason;
-import net.minecraft.nbt.CompoundNBT;
-import java.util.Map;
-import java.util.HashMap;
+
+import com.google.common.collect.ImmutableMap;
 
 @NatureplusModElements.ModElement.Tag
 public class KernelPultEntity extends NatureplusModElements.ModElement {
@@ -88,8 +85,12 @@ public class KernelPultEntity extends NatureplusModElements.ModElement {
 			biome.getSpawns(EntityClassification.CREATURE).add(new Biome.SpawnListEntry(entity, 15, 1, 3));
 		}
 		EntitySpawnPlacementRegistry.register(entity, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES,
-				(animal, world, reason, pos,
-						random) -> (world.getBlockState(pos.down()).getMaterial() == Material.ORGANIC && world.getLightSubtracted(pos, 0) > 8));
+				(entityType, world, reason, pos, random) -> {
+					int x = pos.getX();
+					int y = pos.getY();
+					int z = pos.getZ();
+					return KernelPultNaturalSpawnProcedure.executeProcedure(ImmutableMap.of("x", x, "y", y, "z", z, "world", world));
+				});
 	}
 
 	@SubscribeEvent
@@ -239,29 +240,27 @@ public class KernelPultEntity extends NatureplusModElements.ModElement {
 			if (this.getAttribute(SharedMonsterAttributes.ATTACK_DAMAGE) == null)
 				this.getAttributes().registerAttribute(SharedMonsterAttributes.ATTACK_DAMAGE);
 			this.getAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(3);
-      		this.getAttribute(SharedMonsterAttributes.KNOCKBACK_RESISTANCE).setBaseValue(1.0D);
+			this.getAttribute(SharedMonsterAttributes.KNOCKBACK_RESISTANCE).setBaseValue(1.0D);
 		}
 
 		public void attackEntityWithRangedAttack(LivingEntity target, float flval) {
 			CornItem.shoot(this, target);
 		}
-
-//		@OnlyIn(Dist.CLIENT)
-//		public CustomEntity.CatapultPose getCatapultPose(){
-//			return CatapultPose.NORMAL;
-//		}
-//
-//		@OnlyIn(Dist.CLIENT)
-//		public static enum CatapultPose{
-//			NORMAL,
-//			ATTACKING;
-//		}
-//
-//		@Override
-//		public boolean isAggressive() {
-//			return true;
-//		}
-		
+		// @OnlyIn(Dist.CLIENT)
+		// public CustomEntity.CatapultPose getCatapultPose(){
+		// return CatapultPose.NORMAL;
+		// }
+		//
+		// @OnlyIn(Dist.CLIENT)
+		// public static enum CatapultPose{
+		// NORMAL,
+		// ATTACKING;
+		// }
+		//
+		// @Override
+		// public boolean isAggressive() {
+		// return true;
+		// }
 	}
 
 	// Made with Blockbench 3.5.4
@@ -283,7 +282,6 @@ public class KernelPultEntity extends NatureplusModElements.ModElement {
 			main = new ModelRenderer(this);
 			main.setRotationPoint(0.0F, 24.0F, 0.0F);
 			main.setTextureOffset(0, 0).addBox(-4.0F, -4.0F, -4.0F, 8.0F, 4.0F, 8.0F, 0.0F, false);
-			
 			leaves = new ModelRenderer(this);
 			leaves.setRotationPoint(0.0F, 0.0F, 0.0F);
 			main.addChild(leaves);
@@ -299,33 +297,27 @@ public class KernelPultEntity extends NatureplusModElements.ModElement {
 			leaves.setTextureOffset(28, 5).addBox(-9.0F, -0.5F, 0.0F, 5.0F, 0.0F, 4.0F, 0.0F, false);
 			leaves.setTextureOffset(0, 28).addBox(-9.0F, -0.5F, -4.0F, 5.0F, 0.0F, 4.0F, 0.0F, false);
 			leaves.setTextureOffset(13, 13).addBox(-9.0F, -0.5F, -9.0F, 5.0F, 0.0F, 5.0F, 0.0F, false);
-			
 			head = new ModelRenderer(this);
 			head.setRotationPoint(0.0F, 21.0F, 0.0F);
 			head.setTextureOffset(0, 12).addBox(-3.0F, -4.0F, -3.0F, 6.0F, 5.0F, 6.0F, 0.0F, false);
 			head.setTextureOffset(20, 31).addBox(-2.0F, -6.0F, -2.0F, 4.0F, 2.0F, 4.0F, 0.0F, false);
-			
 			catapult = new ModelRenderer(this);
 			catapult.setRotationPoint(0.0F, -5.0F, -0.5F);
 			head.addChild(catapult);
 			setRotationAngle(catapult, -0.6109F, 0.0F, 0.0F);
-			
 			catapult_arm1 = new ModelRenderer(this);
 			catapult_arm1.setRotationPoint(0.0F, 0.0F, 0.0F);
 			catapult.addChild(catapult_arm1);
-			
 			catapult_arm1.setTextureOffset(0, 12).addBox(-0.5F, -5.0F, -0.5F, 1.0F, 5.0F, 1.0F, 0.0F, false);
 			catapult_arm2 = new ModelRenderer(this);
 			catapult_arm2.setRotationPoint(0.0F, -4.5F, 0.0F);
 			catapult.addChild(catapult_arm2);
 			catapult_arm2.setTextureOffset(36, 9).addBox(-0.5F, -0.5F, 0.5F, 1.0F, 1.0F, 4.0F, 0.0F, false);
-			
 			catapult_arm3 = new ModelRenderer(this);
 			catapult_arm3.setRotationPoint(0.0F, -4.5F, 4.5F);
 			catapult.addChild(catapult_arm3);
 			setRotationAngle(catapult_arm3, 0.6109F, 0.0F, 0.0F);
 			catapult_arm3.setTextureOffset(0, 36).addBox(-0.5F, -0.6F, -0.25F, 1.0F, 1.0F, 4.0F, 0.0F, false);
-			
 			catapult_base = new ModelRenderer(this);
 			catapult_base.setRotationPoint(0.0F, -6.75F, 7.5F);
 			catapult.addChild(catapult_base);
@@ -335,7 +327,6 @@ public class KernelPultEntity extends NatureplusModElements.ModElement {
 			catapult_base.setTextureOffset(32, 35).addBox(2.0F, -1.5F, 0.75F, 1.0F, 3.0F, 4.0F, 0.0F, false);
 			catapult_base.setTextureOffset(10, 33).addBox(-3.0F, -1.5F, 0.75F, 1.0F, 3.0F, 4.0F, 0.0F, false);
 			catapult_base.setTextureOffset(31, 20).addBox(-2.0F, 0.5F, 0.75F, 4.0F, 1.0F, 4.0F, 0.0F, false);
-			
 			corn_kernel = new ModelRenderer(this);
 			corn_kernel.setRotationPoint(0.0F, 0.5F, 2.25F);
 			catapult_base.addChild(corn_kernel);
@@ -360,10 +351,8 @@ public class KernelPultEntity extends NatureplusModElements.ModElement {
 		public void setRotationAngles(Entity e, float f, float f1, float f2, float f3, float f4) {
 			this.head.rotateAngleY = f3 / (180F / (float) Math.PI);
 			this.head.rotateAngleX = f4 / (180F / (float) Math.PI);
-			
-			this.catapult.rotateAngleX = -0.5F + MathHelper.cos(f2 * 0.25F) * (float)Math.PI * 0.05F;
-			
-			this.corn_kernel.rotateAngleX = -0.4363F + MathHelper.cos(f2 * 0.25F) * (float)Math.PI * 0.1F;
+			this.catapult.rotateAngleX = -0.5F + MathHelper.cos(f2 * 0.25F) * (float) Math.PI * 0.05F;
+			this.corn_kernel.rotateAngleX = -0.4363F + MathHelper.cos(f2 * 0.25F) * (float) Math.PI * 0.1F;
 		}
 	}
 }

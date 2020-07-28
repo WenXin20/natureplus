@@ -13,6 +13,8 @@ import net.minecraftforge.common.MinecraftForge;
 
 import net.minecraft.world.server.ServerWorld;
 import net.minecraft.world.World;
+import net.minecraft.world.IWorld;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.Hand;
@@ -24,9 +26,11 @@ import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.Entity;
 import net.minecraft.enchantment.EnchantmentHelper;
+import net.minecraft.client.Minecraft;
 
 import java.util.Random;
 import java.util.Map;
+import java.util.HashMap;
 
 @NatureplusModElements.ModElement.Tag
 public class SpadeRemoveKernelPultProcedure extends NatureplusModElements.ModElement {
@@ -65,8 +69,8 @@ public class SpadeRemoveKernelPultProcedure extends NatureplusModElements.ModEle
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
-		World world = (World) dependencies.get("world");
-		if ((!(world.isRemote))) {
+		IWorld world = (IWorld) dependencies.get("world");
+		if ((!(world.getWorld().isRemote))) {
 			if (((entity instanceof KernelPultEntity.CustomEntity)
 					&& ((ItemTags.getCollection().getOrCreate(new ResourceLocation(("forge:spade").toLowerCase(java.util.Locale.ENGLISH)))
 							.contains(((sourceentity instanceof LivingEntity) ? ((LivingEntity) sourceentity).getHeldItemMainhand() : ItemStack.EMPTY)
@@ -76,11 +80,11 @@ public class SpadeRemoveKernelPultProcedure extends NatureplusModElements.ModEle
 											? ((LivingEntity) sourceentity).getHeldItemMainhand()
 											: ItemStack.EMPTY))) >= 1)))) {
 				if (sourceentity instanceof LivingEntity) {
-					((LivingEntity) sourceentity).swingArm(Hand.MAIN_HAND);
+					((LivingEntity) sourceentity).swing(Hand.MAIN_HAND, true);
 				}
 				if (!entity.world.isRemote)
 					entity.remove();
-				world.playSound((PlayerEntity) null, x, y, z,
+				world.playSound(world.getWorld().isRemote ? Minecraft.getInstance().player : (PlayerEntity) null, new BlockPos(x, y, z),
 						(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("natureplus:shovel")),
 						SoundCategory.NEUTRAL, (float) 1, (float) 1);
 				if (world instanceof ServerWorld) {
@@ -98,29 +102,29 @@ public class SpadeRemoveKernelPultProcedure extends NatureplusModElements.ModEle
 					}
 				}
 				if ((Math.random() < 0.25)) {
-					if (!world.isRemote) {
-						ItemEntity entityToSpawn = new ItemEntity(world, x, y, z, new ItemStack(CornItem.block, (int) (1)));
+					if (!world.getWorld().isRemote) {
+						ItemEntity entityToSpawn = new ItemEntity(world.getWorld(), x, y, z, new ItemStack(CornItem.block, (int) (1)));
 						entityToSpawn.setPickupDelay(10);
 						world.addEntity(entityToSpawn);
 					}
 				}
 				if ((Math.random() < 0.1)) {
-					if (!world.isRemote) {
-						ItemEntity entityToSpawn = new ItemEntity(world, x, y, z, new ItemStack(CornItem.block, (int) (1)));
+					if (!world.getWorld().isRemote) {
+						ItemEntity entityToSpawn = new ItemEntity(world.getWorld(), x, y, z, new ItemStack(CornItem.block, (int) (1)));
 						entityToSpawn.setPickupDelay(10);
 						world.addEntity(entityToSpawn);
 					}
 				}
 				if ((Math.random() < 0.25)) {
-					if (!world.isRemote) {
-						ItemEntity entityToSpawn = new ItemEntity(world, x, y, z, new ItemStack(YellowPetalItem.block, (int) (1)));
+					if (!world.getWorld().isRemote) {
+						ItemEntity entityToSpawn = new ItemEntity(world.getWorld(), x, y, z, new ItemStack(YellowPetalItem.block, (int) (1)));
 						entityToSpawn.setPickupDelay(10);
 						world.addEntity(entityToSpawn);
 					}
 				}
 				if ((Math.random() < 0.1)) {
-					if (!world.isRemote) {
-						ItemEntity entityToSpawn = new ItemEntity(world, x, y, z, new ItemStack(YellowPetalItem.block, (int) (1)));
+					if (!world.getWorld().isRemote) {
+						ItemEntity entityToSpawn = new ItemEntity(world.getWorld(), x, y, z, new ItemStack(YellowPetalItem.block, (int) (1)));
 						entityToSpawn.setPickupDelay(10);
 						world.addEntity(entityToSpawn);
 					}
@@ -134,11 +138,11 @@ public class SpadeRemoveKernelPultProcedure extends NatureplusModElements.ModEle
 											? ((LivingEntity) sourceentity).getHeldItemOffhand()
 											: ItemStack.EMPTY))) >= 1)))) {
 				if (entity instanceof LivingEntity) {
-					((LivingEntity) entity).swingArm(Hand.OFF_HAND);
+					((LivingEntity) entity).swing(Hand.OFF_HAND, true);
 				}
 				if (!entity.world.isRemote)
 					entity.remove();
-				world.playSound((PlayerEntity) null, x, y, z,
+				world.playSound(world.getWorld().isRemote ? Minecraft.getInstance().player : (PlayerEntity) null, new BlockPos(x, y, z),
 						(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("natureplus:shovel")),
 						SoundCategory.NEUTRAL, (float) 1, (float) 1);
 				if (world instanceof ServerWorld) {
@@ -156,29 +160,29 @@ public class SpadeRemoveKernelPultProcedure extends NatureplusModElements.ModEle
 					}
 				}
 				if ((Math.random() < 0.25)) {
-					if (!world.isRemote) {
-						ItemEntity entityToSpawn = new ItemEntity(world, x, y, z, new ItemStack(CornItem.block, (int) (1)));
+					if (!world.getWorld().isRemote) {
+						ItemEntity entityToSpawn = new ItemEntity(world.getWorld(), x, y, z, new ItemStack(CornItem.block, (int) (1)));
 						entityToSpawn.setPickupDelay(10);
 						world.addEntity(entityToSpawn);
 					}
 				}
 				if ((Math.random() < 0.1)) {
-					if (!world.isRemote) {
-						ItemEntity entityToSpawn = new ItemEntity(world, x, y, z, new ItemStack(CornItem.block, (int) (1)));
+					if (!world.getWorld().isRemote) {
+						ItemEntity entityToSpawn = new ItemEntity(world.getWorld(), x, y, z, new ItemStack(CornItem.block, (int) (1)));
 						entityToSpawn.setPickupDelay(10);
 						world.addEntity(entityToSpawn);
 					}
 				}
 				if ((Math.random() < 0.25)) {
-					if (!world.isRemote) {
-						ItemEntity entityToSpawn = new ItemEntity(world, x, y, z, new ItemStack(YellowPetalItem.block, (int) (1)));
+					if (!world.getWorld().isRemote) {
+						ItemEntity entityToSpawn = new ItemEntity(world.getWorld(), x, y, z, new ItemStack(YellowPetalItem.block, (int) (1)));
 						entityToSpawn.setPickupDelay(10);
 						world.addEntity(entityToSpawn);
 					}
 				}
 				if ((Math.random() < 0.1)) {
-					if (!world.isRemote) {
-						ItemEntity entityToSpawn = new ItemEntity(world, x, y, z, new ItemStack(YellowPetalItem.block, (int) (1)));
+					if (!world.getWorld().isRemote) {
+						ItemEntity entityToSpawn = new ItemEntity(world.getWorld(), x, y, z, new ItemStack(YellowPetalItem.block, (int) (1)));
 						entityToSpawn.setPickupDelay(10);
 						world.addEntity(entityToSpawn);
 					}
@@ -197,7 +201,7 @@ public class SpadeRemoveKernelPultProcedure extends NatureplusModElements.ModEle
 		int j = event.getPos().getY();
 		int k = event.getPos().getZ();
 		World world = event.getWorld();
-		java.util.HashMap<String, Object> dependencies = new java.util.HashMap<>();
+		Map<String, Object> dependencies = new HashMap<>();
 		dependencies.put("x", i);
 		dependencies.put("y", j);
 		dependencies.put("z", k);

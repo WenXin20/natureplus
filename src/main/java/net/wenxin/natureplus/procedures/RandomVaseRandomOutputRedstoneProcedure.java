@@ -18,6 +18,7 @@ import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.common.MinecraftForge;
 
 import net.minecraft.world.World;
+import net.minecraft.world.IWorld;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.ResourceLocation;
@@ -31,8 +32,10 @@ import net.minecraft.entity.MobEntity;
 import net.minecraft.entity.ILivingEntityData;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.Entity;
+import net.minecraft.client.Minecraft;
 
 import java.util.Map;
+import java.util.HashMap;
 
 @NatureplusModElements.ModElement.Tag
 public class RandomVaseRandomOutputRedstoneProcedure extends NatureplusModElements.ModElement {
@@ -61,46 +64,47 @@ public class RandomVaseRandomOutputRedstoneProcedure extends NatureplusModElemen
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
-		World world = (World) dependencies.get("world");
-		if ((!(world.isRemote))) {
+		IWorld world = (IWorld) dependencies.get("world");
+		if ((!(world.getWorld().isRemote))) {
 			if ((((world.getBlockState(new BlockPos((int) x, (int) y, (int) z))).getBlock() == RandomVaseBlock.block.getDefaultState().getBlock())
-					&& (world.isBlockPowered(new BlockPos((int) x, (int) y, (int) z))))) {
-				world.playSound((PlayerEntity) null, (x + 0.5), y, (z + 0.5),
+					&& (world.getWorld().isBlockPowered(new BlockPos((int) x, (int) y, (int) z))))) {
+				world.playSound(world.getWorld().isRemote ? Minecraft.getInstance().player : (PlayerEntity) null,
+						new BlockPos((x + 0.5), y, (z + 0.5)),
 						(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("natureplus:vase_breaking")),
 						SoundCategory.NEUTRAL, (float) 2, (float) 1);
 				NatureplusModVariables.i = (double) (Math.random() * 100);
 				if (((NatureplusModVariables.i) >= 40)) {
 					if (((NatureplusModVariables.i) >= 60)) {
-						if (!world.isRemote) {
-							Entity entityToSpawn = new PVZZombieEntity.CustomEntity(PVZZombieEntity.entity, world);
-							entityToSpawn.setLocationAndAngles((x + 0.5), y, (z + 0.5), world.rand.nextFloat() * 360F, 0);
+						if (world instanceof World && !world.getWorld().isRemote) {
+							Entity entityToSpawn = new PVZZombieEntity.CustomEntity(PVZZombieEntity.entity, world.getWorld());
+							entityToSpawn.setLocationAndAngles((x + 0.5), y, (z + 0.5), world.getRandom().nextFloat() * 360F, 0);
 							if (entityToSpawn instanceof MobEntity)
 								((MobEntity) entityToSpawn).onInitialSpawn(world, world.getDifficultyForLocation(new BlockPos(entityToSpawn)),
 										SpawnReason.MOB_SUMMONED, (ILivingEntityData) null, (CompoundNBT) null);
 							world.addEntity(entityToSpawn);
 						}
 					} else if ((((NatureplusModVariables.i) >= 50) && (!((NatureplusModVariables.i) >= 60)))) {
-						if (!world.isRemote) {
-							Entity entityToSpawn = new ConeheadZombieEntity.CustomEntity(ConeheadZombieEntity.entity, world);
-							entityToSpawn.setLocationAndAngles((x + 0.5), y, (z + 0.5), world.rand.nextFloat() * 360F, 0);
+						if (world instanceof World && !world.getWorld().isRemote) {
+							Entity entityToSpawn = new ConeheadZombieEntity.CustomEntity(ConeheadZombieEntity.entity, world.getWorld());
+							entityToSpawn.setLocationAndAngles((x + 0.5), y, (z + 0.5), world.getRandom().nextFloat() * 360F, 0);
 							if (entityToSpawn instanceof MobEntity)
 								((MobEntity) entityToSpawn).onInitialSpawn(world, world.getDifficultyForLocation(new BlockPos(entityToSpawn)),
 										SpawnReason.MOB_SUMMONED, (ILivingEntityData) null, (CompoundNBT) null);
 							world.addEntity(entityToSpawn);
 						}
 					} else if ((((NatureplusModVariables.i) >= 20) && (!((NatureplusModVariables.i) >= 50)))) {
-						if (!world.isRemote) {
-							Entity entityToSpawn = new ZombieEntity(EntityType.ZOMBIE, world);
-							entityToSpawn.setLocationAndAngles((x + 0.5), y, (z + 0.5), world.rand.nextFloat() * 360F, 0);
+						if (world instanceof World && !world.getWorld().isRemote) {
+							Entity entityToSpawn = new ZombieEntity(EntityType.ZOMBIE, world.getWorld());
+							entityToSpawn.setLocationAndAngles((x + 0.5), y, (z + 0.5), world.getRandom().nextFloat() * 360F, 0);
 							if (entityToSpawn instanceof MobEntity)
 								((MobEntity) entityToSpawn).onInitialSpawn(world, world.getDifficultyForLocation(new BlockPos(entityToSpawn)),
 										SpawnReason.MOB_SUMMONED, (ILivingEntityData) null, (CompoundNBT) null);
 							world.addEntity(entityToSpawn);
 						}
 					} else {
-						if (!world.isRemote) {
-							Entity entityToSpawn = new MonarchCaterpillarEntity.CustomEntity(MonarchCaterpillarEntity.entity, world);
-							entityToSpawn.setLocationAndAngles((x + 0.5), y, (z + 0.5), world.rand.nextFloat() * 360F, 0);
+						if (world instanceof World && !world.getWorld().isRemote) {
+							Entity entityToSpawn = new MonarchCaterpillarEntity.CustomEntity(MonarchCaterpillarEntity.entity, world.getWorld());
+							entityToSpawn.setLocationAndAngles((x + 0.5), y, (z + 0.5), world.getRandom().nextFloat() * 360F, 0);
 							if (entityToSpawn instanceof MobEntity)
 								((MobEntity) entityToSpawn).onInitialSpawn(world, world.getDifficultyForLocation(new BlockPos(entityToSpawn)),
 										SpawnReason.MOB_SUMMONED, (ILivingEntityData) null, (CompoundNBT) null);
@@ -109,36 +113,36 @@ public class RandomVaseRandomOutputRedstoneProcedure extends NatureplusModElemen
 					}
 				} else {
 					if (((NatureplusModVariables.i) >= 60)) {
-						if (!world.isRemote) {
-							ItemEntity entityToSpawn = new ItemEntity(world, (x + 0.5), y, (z + 0.5),
+						if (!world.getWorld().isRemote) {
+							ItemEntity entityToSpawn = new ItemEntity(world.getWorld(), (x + 0.5), y, (z + 0.5),
 									new ItemStack(PeashooterSeedPacketItem.block, (int) (1)));
 							entityToSpawn.setPickupDelay(10);
 							world.addEntity(entityToSpawn);
 						}
 					} else if ((((NatureplusModVariables.i) >= 40) && (!((NatureplusModVariables.i) >= 60)))) {
-						if (!world.isRemote) {
-							ItemEntity entityToSpawn = new ItemEntity(world, (x + 0.5), y, (z + 0.5),
+						if (!world.getWorld().isRemote) {
+							ItemEntity entityToSpawn = new ItemEntity(world.getWorld(), (x + 0.5), y, (z + 0.5),
 									new ItemStack(SunflowerSeedPacketItem.block, (int) (1)));
 							entityToSpawn.setPickupDelay(10);
 							world.addEntity(entityToSpawn);
 						}
 					} else if ((((NatureplusModVariables.i) >= 20) && (!((NatureplusModVariables.i) >= 40)))) {
-						if (!world.isRemote) {
-							ItemEntity entityToSpawn = new ItemEntity(world, (x + 0.5), y, (z + 0.5),
+						if (!world.getWorld().isRemote) {
+							ItemEntity entityToSpawn = new ItemEntity(world.getWorld(), (x + 0.5), y, (z + 0.5),
 									new ItemStack(KernelPultSeedPacketItem.block, (int) (1)));
 							entityToSpawn.setPickupDelay(10);
 							world.addEntity(entityToSpawn);
 						}
 					} else if ((((NatureplusModVariables.i) >= 10) && (!((NatureplusModVariables.i) >= 20)))) {
-						if (!world.isRemote) {
-							ItemEntity entityToSpawn = new ItemEntity(world, (x + 0.5), y, (z + 0.5),
+						if (!world.getWorld().isRemote) {
+							ItemEntity entityToSpawn = new ItemEntity(world.getWorld(), (x + 0.5), y, (z + 0.5),
 									new ItemStack(SnowPeaSeedPacketItem.block, (int) (1)));
 							entityToSpawn.setPickupDelay(10);
 							world.addEntity(entityToSpawn);
 						}
 					} else {
-						if (!world.isRemote) {
-							ItemEntity entityToSpawn = new ItemEntity(world, (x + 0.5), y, (z + 0.5),
+						if (!world.getWorld().isRemote) {
+							ItemEntity entityToSpawn = new ItemEntity(world.getWorld(), (x + 0.5), y, (z + 0.5),
 									new ItemStack(MonarchEggJarItem.block, (int) (1)));
 							entityToSpawn.setPickupDelay(10);
 							world.addEntity(entityToSpawn);
@@ -153,7 +157,7 @@ public class RandomVaseRandomOutputRedstoneProcedure extends NatureplusModElemen
 	@SubscribeEvent
 	public void onBlockBreak(BlockEvent.BreakEvent event) {
 		Entity entity = event.getPlayer();
-		java.util.HashMap<String, Object> dependencies = new java.util.HashMap<>();
+		Map<String, Object> dependencies = new HashMap<>();
 		dependencies.put("xpAmount", event.getExpToDrop());
 		dependencies.put("x", (int) event.getPos().getX());
 		dependencies.put("y", (int) event.getPos().getY());

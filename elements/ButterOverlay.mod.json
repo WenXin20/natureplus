@@ -5,8 +5,6 @@
     "priority": "LOW",
     "components": [],
     "baseTexture": "butter_overlay.png",
-    "baseTextureW": 1920,
-    "baseTextureH": 1080,
     "displayCondition": {
       "name": "ButterPotionEffect"
     }

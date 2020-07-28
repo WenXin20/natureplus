@@ -4,7 +4,7 @@ import net.wenxin.natureplus.potion.FreezingPotionPotion;
 import net.wenxin.natureplus.potion.ButterPotionPotion;
 import net.wenxin.natureplus.NatureplusModElements;
 
-import net.minecraft.world.World;
+import net.minecraft.world.IWorld;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.potion.Effects;
 import net.minecraft.potion.EffectInstance;
@@ -30,12 +30,12 @@ public class BalloonUpwardsMovementProcedure extends NatureplusModElements.ModEl
 			return;
 		}
 		Entity entity = (Entity) dependencies.get("entity");
-		World world = (World) dependencies.get("world");
-		if ((!(world.isRemote))) {
-			if (((!(world.isRaining())) && ((!(world.isThundering())) && ((!(new Object() {
-				boolean check() {
-					if (entity instanceof LivingEntity) {
-						Collection<EffectInstance> effects = ((LivingEntity) entity).getActivePotionEffects();
+		IWorld world = (IWorld) dependencies.get("world");
+		if ((!(world.getWorld().isRemote))) {
+			if (((!(world.getWorld().isRaining())) && ((!(world.getWorld().isThundering())) && ((!(new Object() {
+				boolean check(LivingEntity _entity) {
+					if (_entity instanceof LivingEntity) {
+						Collection<EffectInstance> effects = _entity.getActivePotionEffects();
 						for (EffectInstance effect : effects) {
 							if (effect.getPotion() == FreezingPotionPotion.potion)
 								return true;
@@ -43,10 +43,10 @@ public class BalloonUpwardsMovementProcedure extends NatureplusModElements.ModEl
 					}
 					return false;
 				}
-			}.check())) && ((!(new Object() {
-				boolean check() {
-					if (entity instanceof LivingEntity) {
-						Collection<EffectInstance> effects = ((LivingEntity) entity).getActivePotionEffects();
+			}.check((LivingEntity) entity))) && ((!(new Object() {
+				boolean check(LivingEntity _entity) {
+					if (_entity instanceof LivingEntity) {
+						Collection<EffectInstance> effects = _entity.getActivePotionEffects();
 						for (EffectInstance effect : effects) {
 							if (effect.getPotion() == ButterPotionPotion.potion)
 								return true;
@@ -54,10 +54,10 @@ public class BalloonUpwardsMovementProcedure extends NatureplusModElements.ModEl
 					}
 					return false;
 				}
-			}.check())) && ((!(new Object() {
-				boolean check() {
-					if (entity instanceof LivingEntity) {
-						Collection<EffectInstance> effects = ((LivingEntity) entity).getActivePotionEffects();
+			}.check((LivingEntity) entity))) && ((!(new Object() {
+				boolean check(LivingEntity _entity) {
+					if (_entity instanceof LivingEntity) {
+						Collection<EffectInstance> effects = _entity.getActivePotionEffects();
 						for (EffectInstance effect : effects) {
 							if (effect.getPotion() == Effects.SLOWNESS)
 								return true;
@@ -65,10 +65,10 @@ public class BalloonUpwardsMovementProcedure extends NatureplusModElements.ModEl
 					}
 					return false;
 				}
-			}.check())) && (!(new Object() {
-				boolean check() {
-					if (entity instanceof LivingEntity) {
-						Collection<EffectInstance> effects = ((LivingEntity) entity).getActivePotionEffects();
+			}.check((LivingEntity) entity))) && (!(new Object() {
+				boolean check(LivingEntity _entity) {
+					if (_entity instanceof LivingEntity) {
+						Collection<EffectInstance> effects = _entity.getActivePotionEffects();
 						for (EffectInstance effect : effects) {
 							if (effect.getPotion() == Effects.SLOW_FALLING)
 								return true;
@@ -76,7 +76,7 @@ public class BalloonUpwardsMovementProcedure extends NatureplusModElements.ModEl
 					}
 					return false;
 				}
-			}.check())))))))) {
+			}.check((LivingEntity) entity))))))))) {
 				if ((!(world.isAirBlock(new BlockPos((int) ((entity.getPosX()) - 1), (int) ((entity.getPosY()) + 3), (int) (entity.getPosZ())))))) {
 					entity.setMotion((entity.getMotion().getX()), (entity.getMotion().getY()), (entity.getMotion().getZ()));
 					if (entity instanceof LivingEntity)
@@ -87,10 +87,10 @@ public class BalloonUpwardsMovementProcedure extends NatureplusModElements.ModEl
 					if (entity instanceof LivingEntity)
 						((LivingEntity) entity).addPotionEffect(new EffectInstance(Effects.LEVITATION, (int) 60, (int) 3, (false), (false)));
 				}
-			} else if (((world.isRaining()) && ((!(world.isThundering())) && ((!(new Object() {
-				boolean check() {
-					if (entity instanceof LivingEntity) {
-						Collection<EffectInstance> effects = ((LivingEntity) entity).getActivePotionEffects();
+			} else if (((world.getWorld().isRaining()) && ((!(world.getWorld().isThundering())) && ((!(new Object() {
+				boolean check(LivingEntity _entity) {
+					if (_entity instanceof LivingEntity) {
+						Collection<EffectInstance> effects = _entity.getActivePotionEffects();
 						for (EffectInstance effect : effects) {
 							if (effect.getPotion() == FreezingPotionPotion.potion)
 								return true;
@@ -98,10 +98,10 @@ public class BalloonUpwardsMovementProcedure extends NatureplusModElements.ModEl
 					}
 					return false;
 				}
-			}.check())) && ((!(new Object() {
-				boolean check() {
-					if (entity instanceof LivingEntity) {
-						Collection<EffectInstance> effects = ((LivingEntity) entity).getActivePotionEffects();
+			}.check((LivingEntity) entity))) && ((!(new Object() {
+				boolean check(LivingEntity _entity) {
+					if (_entity instanceof LivingEntity) {
+						Collection<EffectInstance> effects = _entity.getActivePotionEffects();
 						for (EffectInstance effect : effects) {
 							if (effect.getPotion() == ButterPotionPotion.potion)
 								return true;
@@ -109,10 +109,10 @@ public class BalloonUpwardsMovementProcedure extends NatureplusModElements.ModEl
 					}
 					return false;
 				}
-			}.check())) && ((!(new Object() {
-				boolean check() {
-					if (entity instanceof LivingEntity) {
-						Collection<EffectInstance> effects = ((LivingEntity) entity).getActivePotionEffects();
+			}.check((LivingEntity) entity))) && ((!(new Object() {
+				boolean check(LivingEntity _entity) {
+					if (_entity instanceof LivingEntity) {
+						Collection<EffectInstance> effects = _entity.getActivePotionEffects();
 						for (EffectInstance effect : effects) {
 							if (effect.getPotion() == Effects.SLOWNESS)
 								return true;
@@ -120,10 +120,10 @@ public class BalloonUpwardsMovementProcedure extends NatureplusModElements.ModEl
 					}
 					return false;
 				}
-			}.check())) && (!(new Object() {
-				boolean check() {
-					if (entity instanceof LivingEntity) {
-						Collection<EffectInstance> effects = ((LivingEntity) entity).getActivePotionEffects();
+			}.check((LivingEntity) entity))) && (!(new Object() {
+				boolean check(LivingEntity _entity) {
+					if (_entity instanceof LivingEntity) {
+						Collection<EffectInstance> effects = _entity.getActivePotionEffects();
 						for (EffectInstance effect : effects) {
 							if (effect.getPotion() == Effects.SLOW_FALLING)
 								return true;
@@ -131,7 +131,7 @@ public class BalloonUpwardsMovementProcedure extends NatureplusModElements.ModEl
 					}
 					return false;
 				}
-			}.check())))))))) {
+			}.check((LivingEntity) entity))))))))) {
 				if ((!(world.isAirBlock(new BlockPos((int) ((entity.getPosX()) - 1), (int) ((entity.getPosY()) + 3), (int) (entity.getPosZ())))))) {
 					entity.setMotion((entity.getMotion().getX()), (entity.getMotion().getY()), (entity.getMotion().getZ()));
 					if (entity instanceof LivingEntity)
@@ -147,10 +147,10 @@ public class BalloonUpwardsMovementProcedure extends NatureplusModElements.ModEl
 					if (entity instanceof LivingEntity)
 						((LivingEntity) entity).addPotionEffect(new EffectInstance(Effects.LEVITATION, (int) 60, (int) 3, (false), (false)));
 				}
-			} else if (((world.isRaining()) && ((world.isThundering()) && ((!(new Object() {
-				boolean check() {
-					if (entity instanceof LivingEntity) {
-						Collection<EffectInstance> effects = ((LivingEntity) entity).getActivePotionEffects();
+			} else if (((world.getWorld().isRaining()) && ((world.getWorld().isThundering()) && ((!(new Object() {
+				boolean check(LivingEntity _entity) {
+					if (_entity instanceof LivingEntity) {
+						Collection<EffectInstance> effects = _entity.getActivePotionEffects();
 						for (EffectInstance effect : effects) {
 							if (effect.getPotion() == FreezingPotionPotion.potion)
 								return true;
@@ -158,10 +158,10 @@ public class BalloonUpwardsMovementProcedure extends NatureplusModElements.ModEl
 					}
 					return false;
 				}
-			}.check())) && ((!(new Object() {
-				boolean check() {
-					if (entity instanceof LivingEntity) {
-						Collection<EffectInstance> effects = ((LivingEntity) entity).getActivePotionEffects();
+			}.check((LivingEntity) entity))) && ((!(new Object() {
+				boolean check(LivingEntity _entity) {
+					if (_entity instanceof LivingEntity) {
+						Collection<EffectInstance> effects = _entity.getActivePotionEffects();
 						for (EffectInstance effect : effects) {
 							if (effect.getPotion() == ButterPotionPotion.potion)
 								return true;
@@ -169,10 +169,10 @@ public class BalloonUpwardsMovementProcedure extends NatureplusModElements.ModEl
 					}
 					return false;
 				}
-			}.check())) && ((!(new Object() {
-				boolean check() {
-					if (entity instanceof LivingEntity) {
-						Collection<EffectInstance> effects = ((LivingEntity) entity).getActivePotionEffects();
+			}.check((LivingEntity) entity))) && ((!(new Object() {
+				boolean check(LivingEntity _entity) {
+					if (_entity instanceof LivingEntity) {
+						Collection<EffectInstance> effects = _entity.getActivePotionEffects();
 						for (EffectInstance effect : effects) {
 							if (effect.getPotion() == Effects.SLOWNESS)
 								return true;
@@ -180,10 +180,10 @@ public class BalloonUpwardsMovementProcedure extends NatureplusModElements.ModEl
 					}
 					return false;
 				}
-			}.check())) && (!(new Object() {
-				boolean check() {
-					if (entity instanceof LivingEntity) {
-						Collection<EffectInstance> effects = ((LivingEntity) entity).getActivePotionEffects();
+			}.check((LivingEntity) entity))) && (!(new Object() {
+				boolean check(LivingEntity _entity) {
+					if (_entity instanceof LivingEntity) {
+						Collection<EffectInstance> effects = _entity.getActivePotionEffects();
 						for (EffectInstance effect : effects) {
 							if (effect.getPotion() == Effects.SLOW_FALLING)
 								return true;
@@ -191,7 +191,7 @@ public class BalloonUpwardsMovementProcedure extends NatureplusModElements.ModEl
 					}
 					return false;
 				}
-			}.check())))))))) {
+			}.check((LivingEntity) entity))))))))) {
 				if ((!(world.isAirBlock(new BlockPos((int) ((entity.getPosX()) - 1), (int) ((entity.getPosY()) + 3), (int) (entity.getPosZ())))))) {
 					entity.setMotion((entity.getMotion().getX()), (entity.getMotion().getY()), (entity.getMotion().getZ()));
 					if (entity instanceof LivingEntity)
@@ -209,9 +209,9 @@ public class BalloonUpwardsMovementProcedure extends NatureplusModElements.ModEl
 				}
 			}
 			if (((new Object() {
-				boolean check() {
-					if (entity instanceof LivingEntity) {
-						Collection<EffectInstance> effects = ((LivingEntity) entity).getActivePotionEffects();
+				boolean check(LivingEntity _entity) {
+					if (_entity instanceof LivingEntity) {
+						Collection<EffectInstance> effects = _entity.getActivePotionEffects();
 						for (EffectInstance effect : effects) {
 							if (effect.getPotion() == FreezingPotionPotion.potion)
 								return true;
@@ -219,10 +219,10 @@ public class BalloonUpwardsMovementProcedure extends NatureplusModElements.ModEl
 					}
 					return false;
 				}
-			}.check()) || ((new Object() {
-				boolean check() {
-					if (entity instanceof LivingEntity) {
-						Collection<EffectInstance> effects = ((LivingEntity) entity).getActivePotionEffects();
+			}.check((LivingEntity) entity)) || ((new Object() {
+				boolean check(LivingEntity _entity) {
+					if (_entity instanceof LivingEntity) {
+						Collection<EffectInstance> effects = _entity.getActivePotionEffects();
 						for (EffectInstance effect : effects) {
 							if (effect.getPotion() == ButterPotionPotion.potion)
 								return true;
@@ -230,10 +230,10 @@ public class BalloonUpwardsMovementProcedure extends NatureplusModElements.ModEl
 					}
 					return false;
 				}
-			}.check()) || ((new Object() {
-				boolean check() {
-					if (entity instanceof LivingEntity) {
-						Collection<EffectInstance> effects = ((LivingEntity) entity).getActivePotionEffects();
+			}.check((LivingEntity) entity)) || ((new Object() {
+				boolean check(LivingEntity _entity) {
+					if (_entity instanceof LivingEntity) {
+						Collection<EffectInstance> effects = _entity.getActivePotionEffects();
 						for (EffectInstance effect : effects) {
 							if (effect.getPotion() == Effects.SLOWNESS)
 								return true;
@@ -241,10 +241,10 @@ public class BalloonUpwardsMovementProcedure extends NatureplusModElements.ModEl
 					}
 					return false;
 				}
-			}.check()) || (new Object() {
-				boolean check() {
-					if (entity instanceof LivingEntity) {
-						Collection<EffectInstance> effects = ((LivingEntity) entity).getActivePotionEffects();
+			}.check((LivingEntity) entity)) || (new Object() {
+				boolean check(LivingEntity _entity) {
+					if (_entity instanceof LivingEntity) {
+						Collection<EffectInstance> effects = _entity.getActivePotionEffects();
 						for (EffectInstance effect : effects) {
 							if (effect.getPotion() == Effects.SLOW_FALLING)
 								return true;
@@ -252,7 +252,7 @@ public class BalloonUpwardsMovementProcedure extends NatureplusModElements.ModEl
 					}
 					return false;
 				}
-			}.check()))))) {
+			}.check((LivingEntity) entity)))))) {
 				entity.setMotion((entity.getMotion().getX()), (-0.1), (entity.getMotion().getZ()));
 			}
 		}

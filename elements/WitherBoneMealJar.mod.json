@@ -20,7 +20,8 @@
     "enableMeleeDamage": false,
     "damageVsEntity": 0.0,
     "specialInfo": [
-      "§bGrows giant Wither Roses"
+      "§bGrows giant Wither Roses",
+      "§4Do not grow near important structures (WIP)"
     ],
     "hasGlow": false,
     "guiBoundTo": "<NONE>",

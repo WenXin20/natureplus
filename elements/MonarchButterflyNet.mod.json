@@ -22,6 +22,9 @@
     "repairItems": [],
     "stayInGridWhenCrafting": false,
     "damageOnCrafting": false,
+    "onRightClickedInAir": {
+      "name": "ButterflyNetSoundAndParticles"
+    },
     "onRightClickedOnBlock": {
       "name": "MonarchButterflyRelease"
     }

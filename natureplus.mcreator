@@ -8,7 +8,7 @@
       "type": "item",
       "sortid": 102,
       "compiles": true,
-      "locked_code": false,
+      "locked_code": true,
       "ids": {},
       "registry_name": "mexican_sunflower_seeds"
     },
@@ -21,15 +21,6 @@
       "ids": {}
     },
     {
-      "name": "MexicanSunflowerCropStage1",
-      "type": "block",
-      "sortid": 195,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "mexican_sunflower_crop_age1"
-    },
-    {
       "name": "CookedMexicanSunflowerSeeds",
       "type": "food",
       "sortid": 103,
@@ -39,33 +30,6 @@
       "registry_name": "cooked_mexican_sunflower_seeds"
     },
     {
-      "name": "MexicanSunflowerCropStage2",
-      "type": "block",
-      "sortid": 196,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "mexican_sunflower_crop_age2"
-    },
-    {
-      "name": "MexicanSunflowerCropStage3",
-      "type": "block",
-      "sortid": 197,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "mexican_sunflower_crop_age3"
-    },
-    {
-      "name": "MexicanSunflowerCropStage4",
-      "type": "block",
-      "sortid": 198,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "mexican_sunflower_crop_age4"
-    },
-    {
       "name": "PlantMexicanSunflowerCrop",
       "type": "procedure",
       "sortid": 199,
@@ -73,112 +37,7 @@
       "locked_code": false,
       "ids": {},
       "metadata": {
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          },
-          {
-            "name": "x",
-            "type": "number"
-          },
-          {
-            "name": "y",
-            "type": "number"
-          },
-          {
-            "name": "z",
-            "type": "number"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
-      }
-    },
-    {
-      "name": "GrowStage1to2",
-      "type": "procedure",
-      "sortid": 200,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "metadata": {
-        "dependencies": [
-          {
-            "name": "x",
-            "type": "number"
-          },
-          {
-            "name": "y",
-            "type": "number"
-          },
-          {
-            "name": "z",
-            "type": "number"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
-      }
-    },
-    {
-      "name": "GrowStage2to3",
-      "type": "procedure",
-      "sortid": 201,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "metadata": {
-        "dependencies": [
-          {
-            "name": "x",
-            "type": "number"
-          },
-          {
-            "name": "y",
-            "type": "number"
-          },
-          {
-            "name": "z",
-            "type": "number"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
-      }
-    },
-    {
-      "name": "GrowStage3to4",
-      "type": "procedure",
-      "sortid": 202,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "metadata": {
-        "dependencies": [
-          {
-            "name": "x",
-            "type": "number"
-          },
-          {
-            "name": "y",
-            "type": "number"
-          },
-          {
-            "name": "z",
-            "type": "number"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
+        "dependencies": []
       }
     },
     {
@@ -189,28 +48,7 @@
       "locked_code": false,
       "ids": {},
       "metadata": {
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          },
-          {
-            "name": "x",
-            "type": "number"
-          },
-          {
-            "name": "y",
-            "type": "number"
-          },
-          {
-            "name": "z",
-            "type": "number"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
+        "dependencies": []
       }
     },
     {
@@ -221,24 +59,7 @@
       "locked_code": false,
       "ids": {},
       "metadata": {
-        "dependencies": [
-          {
-            "name": "x",
-            "type": "number"
-          },
-          {
-            "name": "y",
-            "type": "number"
-          },
-          {
-            "name": "z",
-            "type": "number"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
+        "dependencies": []
       }
     },
     {
@@ -248,102 +69,6 @@
       "compiles": true,
       "locked_code": false,
       "ids": {}
-    },
-    {
-      "name": "GrowStage1to2Bonemeal",
-      "type": "procedure",
-      "sortid": 206,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "metadata": {
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          },
-          {
-            "name": "x",
-            "type": "number"
-          },
-          {
-            "name": "y",
-            "type": "number"
-          },
-          {
-            "name": "z",
-            "type": "number"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
-      }
-    },
-    {
-      "name": "GrowStage2to3Bonemeal",
-      "type": "procedure",
-      "sortid": 207,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "metadata": {
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          },
-          {
-            "name": "x",
-            "type": "number"
-          },
-          {
-            "name": "y",
-            "type": "number"
-          },
-          {
-            "name": "z",
-            "type": "number"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
-      }
-    },
-    {
-      "name": "GrowStage3to4Bonemeal",
-      "type": "procedure",
-      "sortid": 208,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "metadata": {
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          },
-          {
-            "name": "x",
-            "type": "number"
-          },
-          {
-            "name": "y",
-            "type": "number"
-          },
-          {
-            "name": "z",
-            "type": "number"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
-      }
     },
     {
       "name": "SmallFlowersItemTag",
@@ -7374,32 +7099,7 @@
       "ids": {},
       "registry_name": "butterfly_net_capture_monarch_butterfly",
       "metadata": {
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          },
-          {
-            "name": "sourceentity",
-            "type": "entity"
-          },
-          {
-            "name": "x",
-            "type": "number"
-          },
-          {
-            "name": "y",
-            "type": "number"
-          },
-          {
-            "name": "z",
-            "type": "number"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
+        "dependencies": []
       }
     },
     {
@@ -7714,32 +7414,7 @@
       "ids": {},
       "registry_name": "butterfly_net_capture_bee",
       "metadata": {
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          },
-          {
-            "name": "sourceentity",
-            "type": "entity"
-          },
-          {
-            "name": "x",
-            "type": "number"
-          },
-          {
-            "name": "y",
-            "type": "number"
-          },
-          {
-            "name": "z",
-            "type": "number"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
+        "dependencies": []
       }
     },
     {
@@ -7792,15 +7467,6 @@
       "locked_code": false,
       "ids": {},
       "registry_name": "capture_bee_advancement"
-    },
-    {
-      "name": "RenderGlowCutout",
-      "type": "code",
-      "sortid": 707,
-      "compiles": true,
-      "locked_code": true,
-      "ids": {},
-      "registry_name": "render_glow_cutout"
     },
     {
       "name": "PlantVaseRandomOutputRedstone",
@@ -9593,7 +9259,7 @@
       "type": "tool",
       "sortid": 116,
       "compiles": true,
-      "locked_code": false,
+      "locked_code": true,
       "ids": {},
       "registry_name": "butterfly_net"
     },
@@ -9731,6 +9397,468 @@
       "locked_code": false,
       "ids": {},
       "registry_name": "plant_stem_ladder_fuel"
+    },
+    {
+      "name": "MobNBTHelper",
+      "type": "code",
+      "sortid": 772,
+      "compiles": true,
+      "locked_code": true,
+      "ids": {},
+      "registry_name": "mob_nbt_helper"
+    },
+    {
+      "name": "Message",
+      "type": "code",
+      "sortid": 773,
+      "compiles": true,
+      "locked_code": true,
+      "ids": {},
+      "registry_name": "message"
+    },
+    {
+      "name": "ButterflyNetSoundAndParticles",
+      "type": "procedure",
+      "sortid": 774,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "butterfly_net_sound_and_particles",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "SnowPeaNaturalSpawn",
+      "type": "procedure",
+      "sortid": 776,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "snow_pea_natural_spawn",
+      "metadata": {
+        "return_type": "LOGIC",
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "RenderTypeDictionary",
+      "type": "code",
+      "sortid": 777,
+      "compiles": true,
+      "locked_code": true,
+      "ids": {},
+      "registry_name": "render_type_dictionary"
+    },
+    {
+      "name": "ClientEventHandler",
+      "type": "code",
+      "sortid": 779,
+      "compiles": true,
+      "locked_code": true,
+      "ids": {},
+      "registry_name": "client_event_handler"
+    },
+    {
+      "name": "PeashooterNaturalSpawn",
+      "type": "procedure",
+      "sortid": 780,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "peashooter_natural_spawn",
+      "metadata": {
+        "return_type": "LOGIC",
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "MexicanSunflowerNaturalSpawn",
+      "type": "procedure",
+      "sortid": 781,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "mexican_sunflower_natural_spawn",
+      "metadata": {
+        "return_type": "LOGIC",
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "SunflowerNaturalSpawn",
+      "type": "procedure",
+      "sortid": 782,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "sunflower_natural_spawn",
+      "metadata": {
+        "return_type": "LOGIC",
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "KernelPultNaturalSpawn",
+      "type": "procedure",
+      "sortid": 783,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "kernel_pult_natural_spawn",
+      "metadata": {
+        "return_type": "LOGIC",
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "ZombieNaturalSpawn",
+      "type": "procedure",
+      "sortid": 784,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "zombie_natural_spawn",
+      "metadata": {
+        "return_type": "LOGIC",
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "DragonflyNaturalSpawn",
+      "type": "procedure",
+      "sortid": 786,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "dragonfly_natural_spawn",
+      "metadata": {
+        "return_type": "LOGIC",
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "HostileDragonflyNaturalSpawn",
+      "type": "procedure",
+      "sortid": 787,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "hostile_dragonfly_natural_spawn",
+      "metadata": {
+        "return_type": "LOGIC",
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "NatureplusWallHeadBlock",
+      "type": "code",
+      "sortid": 790,
+      "compiles": true,
+      "locked_code": true,
+      "ids": {},
+      "registry_name": "natureplus_wall_head_block"
+    },
+    {
+      "name": "NatureplusHeadBlock",
+      "type": "code",
+      "sortid": 791,
+      "compiles": true,
+      "locked_code": true,
+      "ids": {},
+      "registry_name": "natureplus_head_block"
+    },
+    {
+      "name": "NatureplusHeadBlocks",
+      "type": "code",
+      "sortid": 792,
+      "compiles": true,
+      "locked_code": true,
+      "ids": {},
+      "registry_name": "natureplus_head_blocks"
+    },
+    {
+      "name": "NatureplusHeadItem",
+      "type": "code",
+      "sortid": 793,
+      "compiles": true,
+      "locked_code": true,
+      "ids": {},
+      "registry_name": "natureplus_head_item"
+    },
+    {
+      "name": "ButterflyEggNaturalSpawn",
+      "type": "procedure",
+      "sortid": 794,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "butterfly_egg_natural_spawn",
+      "metadata": {
+        "return_type": "LOGIC",
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "CaterpillarNaturalSpawn",
+      "type": "procedure",
+      "sortid": 795,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "caterpillar_natural_spawn",
+      "metadata": {
+        "return_type": "LOGIC",
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "ButterflyNaturalSpawn",
+      "type": "procedure",
+      "sortid": 796,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "butterfly_natural_spawn",
+      "metadata": {
+        "return_type": "LOGIC",
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "MexicanSunflowerCrop",
+      "type": "block",
+      "sortid": 797,
+      "compiles": true,
+      "locked_code": true,
+      "ids": {},
+      "registry_name": "mexican_sunflower_crop"
+    },
+    {
+      "name": "CropsBlockTag",
+      "type": "tag",
+      "sortid": 798,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "crops_block_tag"
+    },
+    {
+      "name": "MexicanSunflowerCropDrops",
+      "type": "loottable",
+      "sortid": 799,
+      "compiles": true,
+      "locked_code": true,
+      "ids": {},
+      "registry_name": "mexican_sunflower_crop_drops"
     }
   ],
   "variable_elements": [
@@ -9884,19 +10012,20 @@
     "en_us": {
       "block.natureplus.stripped_plant_stem_crate": "Stripped Plant Stem Crate",
       "block.natureplus.vertical_azure_slab": "Vertical Azure Slab",
-      "item.natureplus.black_balloon_item": "Black Balloon",
-      "item.natureplus.yellow_petal": "Yellow Petal",
+      "natureplus.error.butterfly_net.blacklisted_mob": "This mob is blacklisted",
       "item.natureplus.sunflower_head_boots": "Peashooter Head Boots",
+      "item.natureplus.yellow_petal": "Yellow Petal",
+      "item.natureplus.black_balloon_item": "Black Balloon",
       "block.natureplus.red_petal_block": "Red Petals Block",
       "block.natureplus.snow_pea_head": "Snow Pea Head",
       "block.natureplus.plant_stem_fence": "Plant Stem Fence",
       "advancements.plants_vs_zombies_advancement.descr": "Gather Sun from a Sunflower",
-      "advancements.kill_conehead_zombies.title": "Give Me Your Cone!",
       "block.natureplus.cyan_petal_carpet": "Cyan Petals Carpet",
+      "advancements.kill_conehead_zombies.title": "Give Me Your Cone!",
       "item.natureplus.light_blue_balloon": "Light Blue Balloon Spawn Egg",
       "advancements.cone_hat.descr": "Place a cone on your head",
-      "block.natureplus.white_petal_block": "White Petals Block",
       "advancements.giant_blue_orchid_advancement.title": "Giant Blue Orchids",
+      "block.natureplus.white_petal_block": "White Petals Block",
       "advancements.consume_golden_mexican_sunflower_seeds.descr": "Consume a Golden Mexican Sunflower Seed",
       "item.natureplus.light_gray_petal": "Light Gray Petal",
       "entity.natureplus.black_balloon": "Black Balloon",
@@ -9941,6 +10070,7 @@
       "entity.natureplus.monarch_caterpillar": "Monarch Caterpillar",
       "entity.natureplus.monarch_egg": "Monarch Egg",
       "item.natureplus.kernel_pult_head_helmet": "Kernel-Pult Head",
+      "natureplus.error.butterfly_net.cannot_capture_boss": "§4You cannot capture bosses",
       "item.natureplus.green_balloon": "Green Balloon Spawn Egg",
       "advancements.plantsunflowercrop.descr": "Plant a Mexican Sunflower Seed",
       "item.natureplus.conehead_zombie": "Conehead Zombie Spawn Egg",
@@ -10009,18 +10139,15 @@
       "advancements.giant_cornflower_advancement.title": "Giant Cornflowers",
       "block.natureplus.plant_stem_door": "Plant Stem Door",
       "item.natureplus.roasted_pea": "Roasted Pea",
-      "block.natureplus.mexican_sunflower_crop_age1": "Mexican Sunflower Crop",
       "block.natureplus.vertical_plant_stem_stairs": "Vertical Plant Stem Stairs",
       "block.natureplus.plant_stem_glass_trapdoor": "Plant Stem Glass Trapdoor",
       "block.natureplus.cone_block": "Cone",
-      "block.natureplus.mexican_sunflower_crop_age3": "Mexican Sunflower Crop",
-      "block.natureplus.mexican_sunflower_crop_age2": "Mexican Sunflower Crop",
       "advancements.giant_allium_advancement.descr": "Grow a giant Allium",
       "advancements.giant_poppy_advancement.descr": "Grow a giant Poppy",
-      "block.natureplus.mexican_sunflower_crop_age4": "Mexican Sunflower Crop",
       "item.natureplus.cone_boots": "Cone Boots",
       "advancements.plantsunflowercrop.title": "Gardening Time!",
       "item.natureplus.monarch_cocoon": "Monarch Cocoon Spawn Egg",
+      "natureplus.tooltip.butterfly_net.hostile.key": "§4Hostile",
       "block.natureplus.potted_thorn": "Potted Thorn",
       "advancements.plum_advancement.title": "§5Plum-tastic!",
       "item.natureplus.pink_petal": "Pink Petal",
@@ -10101,6 +10228,7 @@
       "item.natureplus.snow_pea": "Snow Pea Spawn Egg",
       "item.natureplus.cyan_balloon": "Cyan Balloon Spawn Egg",
       "entity.natureplus.green_dragonfly": "Green Dragonfly",
+      "natureplus.tooltip.butterfly_net.capture.key": "§o§7Right-click on a mob to capture.",
       "advancements.spawn_kernel_pult_seed_packet.descr": "Spawn a Kernel-Pult using a seed packet",
       "block.natureplus.potted_azure_sapling": "Potted Azure Sapling",
       "item.natureplus.cyan_balloon_item": "Cyan Balloon",
@@ -10127,6 +10255,7 @@
       "item.natureplus.gray_balloon": "Gray Balloon Spawn Egg",
       "item.natureplus.sunflower_head_legs": "Peashooter Head Leggings",
       "advancements.break_plant_vase.descr": "Break a Plant Vase",
+      "natureplus.tooltip.butterfly_net.release_mob.key": "§o§7Right-click on a block to release.",
       "item.natureplus.black_petal": "Black Petal",
       "item.natureplus.snow_pea_head_helmet": "Snow Pea Head",
       "block.natureplus.azure_stairs": "Azure Stairs",
@@ -10168,6 +10297,8 @@
       "block.natureplus.azure_fence": "Azure Fence",
       "item.natureplus.cyan_petal": "Cyan Petal",
       "block.natureplus.stripped_plant_stem_wood": "Stripped Plant Stem Wood",
+      "natureplus.tooltip.butterfly_net.health.key": "§6Health: %d/%d",
+      "block.natureplus.mexican_sunflower_crop": "Mexican Sunflower Crop",
       "block.natureplus.brown_petal_carpet": "Brown Petals Carpet",
       "advancements.consume_golden_mexican_sunflower_seeds.title": "Yum!",
       "advancements.cone_hat.title": "Cone Hat",
@@ -10197,7 +10328,7 @@
       "item.natureplus.brown_petal": "Brown Petal",
       "item.natureplus.red_dragonfly": "Red Dragonfly Spawn Egg",
       "entity.natureplus.blue_dragonfly": "Blue Dragonfly",
-      "enchantment.natureplus.uproot_enchantment.desc": "§bUproots plants with a right-click",
+      "enchantment.natureplus.uproot_enchantment.desc": "§7Uproots pvz plants with a right-click",
       "block.natureplus.gray_petal_block": "Gray Petals Block",
       "block.natureplus.light_blue_petal_carpet": "Light Blue Petals Carpet",
       "item.natureplus.peashooter_head_helmet": "Peashooter Head",
@@ -10228,6 +10359,7 @@
       "entity.natureplus.peashooter": "Peashooter",
       "advancements.spawn_peashooter_seed_packet.descr": "Spawn a Peashooter using a seed packet",
       "block.natureplus.gray_petal_carpet": "Gray Petals Carpet",
+      "natureplus.tooltip.butterfly_net.mob_mod.key": "§9Mod: %s",
       "item.natureplus.light_blue_balloon_item": "Light Blue Balloon",
       "block.natureplus.potted_mexican_sunflower": "Potted Mexican Sunflower",
       "block.natureplus.azure_leaves": "Azure Leaves",
@@ -10235,6 +10367,7 @@
       "item.natureplus.green_balloon_item": "Green Balloon",
       "item.natureplus.monarch_cocoon_jar": "Monarch Cocoon Jar",
       "entity.natureplus.monarch_cocoon": "Monarch Cocoon",
+      "natureplus.tooltip.butterfly_net.mob_name.key": "§bCaptured %s",
       "entity.natureplus.kernel_pult": "Kernel-Pult",
       "block.natureplus.vertical_plant_stem_slab": "Vertical Plant Stem Slab",
       "itemGroup.tabplants_vs_zombies_tab": "Plants vs. Zombies",
@@ -10263,5 +10396,5 @@
     "modElementsPackage": "net.wenxin.natureplus",
     "lockBaseModFiles": false
   },
-  "mcreatorVersion": 202000428114
+  "mcreatorVersion": 202000430417
 }

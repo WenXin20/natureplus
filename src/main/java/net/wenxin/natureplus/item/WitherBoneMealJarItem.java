@@ -53,6 +53,7 @@ public class WitherBoneMealJarItem extends NatureplusModElements.ModElement {
 		public void addInformation(ItemStack itemstack, World world, List<ITextComponent> list, ITooltipFlag flag) {
 			super.addInformation(itemstack, world, list, flag);
 			list.add(new StringTextComponent("\u00A7bGrows giant Wither Roses"));
+			list.add(new StringTextComponent("\u00A74Do not grow near important structures (WIP)"));
 		}
 	}
 }

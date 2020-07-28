@@ -3,6 +3,7 @@ package net.wenxin.natureplus.item;
 
 import net.wenxin.natureplus.procedures.PlantMexicanSunflowerCropProcedure;
 import net.wenxin.natureplus.itemgroup.NaturePlusTabItemGroup;
+import net.wenxin.natureplus.block.MexicanSunflowerCropBlock;
 import net.wenxin.natureplus.NatureplusModElements;
 
 import net.minecraftforge.registries.ObjectHolder;
@@ -16,6 +17,7 @@ import net.minecraft.util.ActionResultType;
 import net.minecraft.item.ItemUseContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Item;
+import net.minecraft.item.BlockNamedItem;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.block.BlockState;
@@ -36,9 +38,9 @@ public class MexicanSunflowerSeedsItem extends NatureplusModElements.ModElement 
 	public void initElements() {
 		elements.items.add(() -> new ItemCustom());
 	}
-	public static class ItemCustom extends Item {
+	public static class ItemCustom extends BlockNamedItem {
 		public ItemCustom() {
-			super(new Item.Properties().group(NaturePlusTabItemGroup.tab).maxStackSize(64));
+			super(MexicanSunflowerCropBlock.block, (new Item.Properties().group(NaturePlusTabItemGroup.tab).maxStackSize(64)));
 			setRegistryName("mexican_sunflower_seeds");
 		}
 
@@ -60,7 +62,7 @@ public class MexicanSunflowerSeedsItem extends NatureplusModElements.ModElement 
 		@Override
 		public void addInformation(ItemStack itemstack, World world, List<ITextComponent> list, ITooltipFlag flag) {
 			super.addInformation(itemstack, world, list, flag);
-			list.add(new StringTextComponent("\u00A72\u00A7oCook or Plant"));
+			list.add(new StringTextComponent("\u00A77Cook or Plant"));
 		}
 
 		@Override

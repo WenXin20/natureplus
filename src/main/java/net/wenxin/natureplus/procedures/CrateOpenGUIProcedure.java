@@ -4,10 +4,12 @@ import net.wenxin.natureplus.NatureplusModElements;
 
 import net.minecraftforge.registries.ForgeRegistries;
 
-import net.minecraft.world.World;
+import net.minecraft.world.IWorld;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.client.Minecraft;
 
 import java.util.Map;
 
@@ -37,8 +39,8 @@ public class CrateOpenGUIProcedure extends NatureplusModElements.ModElement {
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
-		World world = (World) dependencies.get("world");
-		world.playSound((PlayerEntity) null, x, y, z,
+		IWorld world = (IWorld) dependencies.get("world");
+		world.playSound(world.getWorld().isRemote ? Minecraft.getInstance().player : (PlayerEntity) null, new BlockPos(x, y, z),
 				(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("block.barrel.open")),
 				SoundCategory.NEUTRAL, (float) 1, (float) 1);
 	}

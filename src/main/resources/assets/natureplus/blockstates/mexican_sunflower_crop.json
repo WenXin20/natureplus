@@ -1,0 +1,12 @@
+{
+    "variants": {
+        "age=0": { "model": "natureplus:block/mexican_sunflower_crop" },
+        "age=1": { "model": "natureplus:block/mexican_sunflower_crop_age1" },
+        "age=2": { "model": "natureplus:block/mexican_sunflower_crop_age2" },
+        "age=3": { "model": "natureplus:block/mexican_sunflower_crop_age3" },
+        "age=4": { "model": "natureplus:block/mexican_sunflower_crop_age4" },
+        "age=5": { "model": "natureplus:block/mexican_sunflower_crop_age5" },
+        "age=6": { "model": "natureplus:block/mexican_sunflower_crop_age6" },
+        "age=7": { "model": "natureplus:block/mexican_sunflower_crop_age7" }
+    }
+}

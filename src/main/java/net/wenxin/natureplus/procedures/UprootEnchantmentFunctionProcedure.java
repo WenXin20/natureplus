@@ -8,6 +8,7 @@ import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.common.MinecraftForge;
 
 import net.minecraft.world.World;
+import net.minecraft.world.IWorld;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.Hand;
@@ -21,6 +22,7 @@ import net.minecraft.block.Block;
 
 import java.util.Random;
 import java.util.Map;
+import java.util.HashMap;
 
 @NatureplusModElements.ModElement.Tag
 public class UprootEnchantmentFunctionProcedure extends NatureplusModElements.ModElement {
@@ -54,7 +56,7 @@ public class UprootEnchantmentFunctionProcedure extends NatureplusModElements.Mo
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
-		World world = (World) dependencies.get("world");
+		IWorld world = (IWorld) dependencies.get("world");
 		if ((((EnchantmentHelper.getEnchantmentLevel(UprootEnchantmentEnchantment.enchantment,
 				((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY))) >= 1)
 				&& ((!(world.getBlockState(new BlockPos((int) x, (int) y, (int) z)).isSolid())) && (((world
@@ -78,7 +80,8 @@ public class UprootEnchantmentFunctionProcedure extends NatureplusModElements.Mo
 																						(world.getBlockState(new BlockPos((int) x, (int) y, (int) z)))
 																								.getBlock())))))))))))) {
 			if ((!((entity instanceof PlayerEntity) ? ((PlayerEntity) entity).abilities.isCreativeMode : false))) {
-				Block.spawnDrops(world.getBlockState(new BlockPos((int) x, (int) y, (int) z)), world, new BlockPos((int) x, (int) y, (int) z));
+				Block.spawnDrops(world.getBlockState(new BlockPos((int) x, (int) y, (int) z)), world.getWorld(),
+						new BlockPos((int) x, (int) y, (int) z));
 				world.destroyBlock(new BlockPos((int) x, (int) y, (int) z), false);
 				{
 					ItemStack _ist = ((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY);
@@ -91,7 +94,7 @@ public class UprootEnchantmentFunctionProcedure extends NatureplusModElements.Mo
 				world.destroyBlock(new BlockPos((int) x, (int) y, (int) z), false);
 			}
 			if (entity instanceof LivingEntity) {
-				((LivingEntity) entity).swingArm(Hand.MAIN_HAND);
+				((LivingEntity) entity).swing(Hand.MAIN_HAND, true);
 			}
 		} else if ((((EnchantmentHelper.getEnchantmentLevel(UprootEnchantmentEnchantment.enchantment,
 				((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemOffhand() : ItemStack.EMPTY))) >= 1)
@@ -116,7 +119,8 @@ public class UprootEnchantmentFunctionProcedure extends NatureplusModElements.Mo
 																						(world.getBlockState(new BlockPos((int) x, (int) y, (int) z)))
 																								.getBlock())))))))))))) {
 			if ((!((entity instanceof PlayerEntity) ? ((PlayerEntity) entity).abilities.isCreativeMode : false))) {
-				Block.spawnDrops(world.getBlockState(new BlockPos((int) x, (int) y, (int) z)), world, new BlockPos((int) x, (int) y, (int) z));
+				Block.spawnDrops(world.getBlockState(new BlockPos((int) x, (int) y, (int) z)), world.getWorld(),
+						new BlockPos((int) x, (int) y, (int) z));
 				world.destroyBlock(new BlockPos((int) x, (int) y, (int) z), false);
 				{
 					ItemStack _ist = ((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemOffhand() : ItemStack.EMPTY);
@@ -129,7 +133,7 @@ public class UprootEnchantmentFunctionProcedure extends NatureplusModElements.Mo
 				world.destroyBlock(new BlockPos((int) x, (int) y, (int) z), false);
 			}
 			if (entity instanceof LivingEntity) {
-				((LivingEntity) entity).swingArm(Hand.OFF_HAND);
+				((LivingEntity) entity).swing(Hand.OFF_HAND, true);
 			}
 		}
 	}
@@ -143,7 +147,7 @@ public class UprootEnchantmentFunctionProcedure extends NatureplusModElements.Mo
 		int j = event.getPos().getY();
 		int k = event.getPos().getZ();
 		World world = event.getWorld();
-		java.util.HashMap<String, Object> dependencies = new java.util.HashMap<>();
+		Map<String, Object> dependencies = new HashMap<>();
 		dependencies.put("x", i);
 		dependencies.put("y", j);
 		dependencies.put("z", k);

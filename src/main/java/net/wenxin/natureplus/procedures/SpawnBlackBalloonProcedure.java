@@ -8,6 +8,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 import net.minecraft.world.server.ServerWorld;
 import net.minecraft.world.World;
+import net.minecraft.world.IWorld;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.ResourceLocation;
@@ -21,6 +22,7 @@ import net.minecraft.entity.MobEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ILivingEntityData;
 import net.minecraft.entity.Entity;
+import net.minecraft.client.Minecraft;
 
 import java.util.Map;
 
@@ -55,13 +57,13 @@ public class SpawnBlackBalloonProcedure extends NatureplusModElements.ModElement
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
-		World world = (World) dependencies.get("world");
+		IWorld world = (IWorld) dependencies.get("world");
 		if (((!(world.getBlockState(new BlockPos((int) x, (int) (y + 1), (int) z)).isSolid()))
 				&& (((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY)
 						.getItem() == new ItemStack(BlackBalloonItemItem.block, (int) (1)).getItem()))) {
-			if (!world.isRemote) {
-				Entity entityToSpawn = new BlackBalloonEntity.CustomEntity(BlackBalloonEntity.entity, world);
-				entityToSpawn.setLocationAndAngles((x + 0.5), (y + 1), (z + 0.5), world.rand.nextFloat() * 360F, 0);
+			if (world instanceof World && !world.getWorld().isRemote) {
+				Entity entityToSpawn = new BlackBalloonEntity.CustomEntity(BlackBalloonEntity.entity, world.getWorld());
+				entityToSpawn.setLocationAndAngles((x + 0.5), (y + 1), (z + 0.5), world.getRandom().nextFloat() * 360F, 0);
 				if (entityToSpawn instanceof MobEntity)
 					((MobEntity) entityToSpawn).onInitialSpawn(world, world.getDifficultyForLocation(new BlockPos(entityToSpawn)),
 							SpawnReason.MOB_SUMMONED, (ILivingEntityData) null, (CompoundNBT) null);
@@ -70,11 +72,11 @@ public class SpawnBlackBalloonProcedure extends NatureplusModElements.ModElement
 			if (world instanceof ServerWorld) {
 				((ServerWorld) world).spawnParticle(ParticleTypes.POOF, (x + 0.5), (y + 0.5), (z + 0.5), (int) 10, 0.15, 2.15, 0.15, 0.15);
 			}
-			world.playSound((PlayerEntity) null, x, y, z,
+			world.playSound(world.getWorld().isRemote ? Minecraft.getInstance().player : (PlayerEntity) null, new BlockPos(x, y, z),
 					(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("natureplus:balloon_inflate")),
 					SoundCategory.NEUTRAL, (float) 0.5, (float) 0.5);
 			if (entity instanceof LivingEntity) {
-				((LivingEntity) entity).swingArm(Hand.MAIN_HAND);
+				((LivingEntity) entity).swing(Hand.MAIN_HAND, true);
 			}
 			if ((!((entity instanceof PlayerEntity) ? ((PlayerEntity) entity).abilities.isCreativeMode : false))) {
 				if (entity instanceof PlayerEntity)
@@ -86,9 +88,9 @@ public class SpawnBlackBalloonProcedure extends NatureplusModElements.ModElement
 		} else if (((!(world.getBlockState(new BlockPos((int) x, (int) (y + 1), (int) z)).isSolid()))
 				&& (((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemOffhand() : ItemStack.EMPTY)
 						.getItem() == new ItemStack(BlackBalloonItemItem.block, (int) (1)).getItem()))) {
-			if (!world.isRemote) {
-				Entity entityToSpawn = new BlackBalloonEntity.CustomEntity(BlackBalloonEntity.entity, world);
-				entityToSpawn.setLocationAndAngles((x + 0.5), (y + 1), (z + 0.5), world.rand.nextFloat() * 360F, 0);
+			if (world instanceof World && !world.getWorld().isRemote) {
+				Entity entityToSpawn = new BlackBalloonEntity.CustomEntity(BlackBalloonEntity.entity, world.getWorld());
+				entityToSpawn.setLocationAndAngles((x + 0.5), (y + 1), (z + 0.5), world.getRandom().nextFloat() * 360F, 0);
 				if (entityToSpawn instanceof MobEntity)
 					((MobEntity) entityToSpawn).onInitialSpawn(world, world.getDifficultyForLocation(new BlockPos(entityToSpawn)),
 							SpawnReason.MOB_SUMMONED, (ILivingEntityData) null, (CompoundNBT) null);
@@ -97,11 +99,11 @@ public class SpawnBlackBalloonProcedure extends NatureplusModElements.ModElement
 			if (world instanceof ServerWorld) {
 				((ServerWorld) world).spawnParticle(ParticleTypes.POOF, (x + 0.5), (y + 0.5), (z + 0.5), (int) 10, 0.15, 2.15, 0.15, 0.15);
 			}
-			world.playSound((PlayerEntity) null, x, y, z,
+			world.playSound(world.getWorld().isRemote ? Minecraft.getInstance().player : (PlayerEntity) null, new BlockPos(x, y, z),
 					(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("natureplus:balloon_inflate")),
 					SoundCategory.NEUTRAL, (float) 0.5, (float) 0.5);
 			if (entity instanceof LivingEntity) {
-				((LivingEntity) entity).swingArm(Hand.OFF_HAND);
+				((LivingEntity) entity).swing(Hand.OFF_HAND, true);
 			}
 			if ((!((entity instanceof PlayerEntity) ? ((PlayerEntity) entity).abilities.isCreativeMode : false))) {
 				if (entity instanceof PlayerEntity)

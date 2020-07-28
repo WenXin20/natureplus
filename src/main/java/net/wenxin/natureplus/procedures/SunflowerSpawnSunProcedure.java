@@ -7,7 +7,8 @@ import net.wenxin.natureplus.NatureplusModElements;
 import net.minecraftforge.registries.ForgeRegistries;
 
 import net.minecraft.world.server.ServerWorld;
-import net.minecraft.world.World;
+import net.minecraft.world.IWorld;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.ResourceLocation;
@@ -17,6 +18,7 @@ import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.entity.Entity;
+import net.minecraft.client.Minecraft;
 
 import java.util.Map;
 import java.util.Comparator;
@@ -52,22 +54,26 @@ public class SunflowerSpawnSunProcedure extends NatureplusModElements.ModElement
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
-		World world = (World) dependencies.get("world");
+		IWorld world = (IWorld) dependencies.get("world");
 		if ((((entity.getPersistentData().getDouble("timer_plant")) <= 1)
-				&& ((entity instanceof SunflowerEntity.CustomEntity) && (world.isDaytime())))) {
-			if ((((world.getEntitiesWithinAABB(PlayerEntity.class, new AxisAlignedBB(x - 16, y - 16, z - 16, x + 16, y + 16, z + 16), null).stream()
-					.sorted(Comparator.comparing(_ent -> _ent.getDistanceSq(x, y, z))).findFirst().orElse(null)) != null)
+				&& ((entity instanceof SunflowerEntity.CustomEntity) && (world.getWorld().isDaytime())))) {
+			if ((((world
+					.getEntitiesWithinAABB(PlayerEntity.class,
+							new AxisAlignedBB(x - 32 / 2, y - 32 / 2, z - 32 / 2, x + 32 / 2, y + 32 / 2, z + 32 / 2), null)
+					.stream().sorted(Comparator.comparing(_ent -> _ent.getDistanceSq(x, y, z))).findFirst().orElse(null)) != null)
 					|| ((world
-							.getEntitiesWithinAABB(ServerPlayerEntity.class, new AxisAlignedBB(x - 16, y - 16, z - 16, x + 16, y + 16, z + 16), null)
+							.getEntitiesWithinAABB(ServerPlayerEntity.class,
+									new AxisAlignedBB(x - 32 / 2, y - 32 / 2, z - 32 / 2, x + 32 / 2, y + 32 / 2, z + 32 / 2), null)
 							.stream().sorted(Comparator.comparing(_ent -> _ent.getDistanceSq(x, y, z))).findFirst().orElse(null)) != null))) {
-				if (!world.isRemote) {
-					ItemEntity entityToSpawn = new ItemEntity(world, (entity.getPosX()), ((entity.getPosY()) + 1.2), (entity.getPosZ()),
+				if (!world.getWorld().isRemote) {
+					ItemEntity entityToSpawn = new ItemEntity(world.getWorld(), (entity.getPosX()), ((entity.getPosY()) + 1.2), (entity.getPosZ()),
 							new ItemStack(SunItem.block, (int) (1)));
 					entityToSpawn.setPickupDelay(10);
 					world.addEntity(entityToSpawn);
 				}
 				entity.getPersistentData().putDouble("timer_plant", 2000);
-				world.playSound((PlayerEntity) null, (entity.getPosX()), (entity.getPosY()), (entity.getPosZ()),
+				world.playSound(world.getWorld().isRemote ? Minecraft.getInstance().player : (PlayerEntity) null,
+						new BlockPos((entity.getPosX()), (entity.getPosY()), (entity.getPosZ())),
 						(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("natureplus:sunflower_collect")),
 						SoundCategory.NEUTRAL, (float) 1, (float) 1);
 			}

@@ -1,7 +1,8 @@
 {
-  "parent": "block/cube_all",
+  "parent": "block/cube_bottom_top",
   "textures": {
-    "all": "natureplus:blocks/azure_planks",
-    "particle": "natureplus:blocks/azure_planks"
+    "bottom": "natureplus:blocks/azure_planks",
+    "top": "natureplus:blocks/azure_planks",
+    "side": "natureplus:blocks/azure_planks"
   }
 }

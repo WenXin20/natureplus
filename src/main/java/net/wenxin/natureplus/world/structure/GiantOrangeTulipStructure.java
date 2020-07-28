@@ -41,10 +41,10 @@ public class GiantOrangeTulipStructure extends NatureplusModElements.ModElement 
 	public void init(FMLCommonSetupEvent event) {
 		Feature<NoFeatureConfig> feature = new Feature<NoFeatureConfig>(NoFeatureConfig::deserialize) {
 			@Override
-			public boolean place(IWorld iworld, ChunkGenerator generator, Random random, BlockPos pos, NoFeatureConfig config) {
-				int ci = pos.getX();
-				int ck = pos.getZ();
-				DimensionType dimensionType = iworld.getDimension().getType();
+			public boolean place(IWorld world, ChunkGenerator generator, Random random, BlockPos pos, NoFeatureConfig config) {
+				int ci = (pos.getX() >> 4) * 16;
+				int ck = (pos.getZ() >> 4) * 16;
+				DimensionType dimensionType = world.getDimension().getType();
 				boolean dimensionCriteria = false;
 				if (dimensionType == DimensionType.OVERWORLD)
 					dimensionCriteria = true;
@@ -53,11 +53,11 @@ public class GiantOrangeTulipStructure extends NatureplusModElements.ModElement 
 				if ((random.nextInt(1000000) + 1) <= 125000) {
 					int count = random.nextInt(1) + 1;
 					for (int a = 0; a < count; a++) {
-						int i = ci + random.nextInt(16) + 8;
-						int k = ck + random.nextInt(16) + 8;
-						int j = iworld.getHeight(Heightmap.Type.OCEAN_FLOOR_WG, i, k);
+						int i = ci + random.nextInt(16);
+						int k = ck + random.nextInt(16);
+						int j = world.getHeight(Heightmap.Type.OCEAN_FLOOR_WG, i, k);
 						j -= 1;
-						BlockState blockAt = iworld.getBlockState(new BlockPos(i, j, k));
+						BlockState blockAt = world.getBlockState(new BlockPos(i, j, k));
 						boolean blockCriteria = false;
 						if (blockAt.getBlock() == Blocks.GRASS_BLOCK.getDefaultState().getBlock())
 							blockCriteria = true;
@@ -65,18 +65,17 @@ public class GiantOrangeTulipStructure extends NatureplusModElements.ModElement 
 							blockCriteria = true;
 						if (!blockCriteria)
 							continue;
-						Template template = ((ServerWorld) iworld.getWorld()).getSaveHandler().getStructureTemplateManager()
-								.getTemplateDefaulted(new ResourceLocation("natureplus", "giant_orange_tulip1"));
-						if (template == null)
-							return false;
 						Rotation rotation = Rotation.values()[random.nextInt(3)];
 						Mirror mirror = Mirror.values()[random.nextInt(2)];
 						BlockPos spawnTo = new BlockPos(i, j + 1, k);
-						ServerWorld world = (ServerWorld) iworld.getWorld();
 						int x = spawnTo.getX();
 						int y = spawnTo.getY();
 						int z = spawnTo.getZ();
-						template.addBlocksToWorldChunk(iworld, spawnTo,
+						Template template = ((ServerWorld) world.getWorld()).getSaveHandler().getStructureTemplateManager()
+								.getTemplateDefaulted(new ResourceLocation("natureplus", "giant_orange_tulip1"));
+						if (template == null)
+							return false;
+						template.addBlocksToWorldChunk(world, spawnTo,
 								new PlacementSettings().setRotation(rotation).setRandom(random).setMirror(mirror)
 										.addProcessor(BlockIgnoreStructureProcessor.AIR).setChunk((ChunkPos) null).setIgnoreEntities(false));
 					}

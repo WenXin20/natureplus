@@ -6,10 +6,13 @@
     "texture": "azure_sapling",
     "customModelName": "Cross model",
     "plantType": "growapable",
+    "staticPlantGenerationType": "Flower",
     "growapableSpawnType": "Plains",
     "growapableMaxHeight": 1,
     "name": "Azure Sapling",
-    "specialInfo": [],
+    "specialInfo": [
+      "§4Do not grow near important structures (WIP)"
+    ],
     "creativeTab": {
       "value": "CUSTOM:NaturePlusTab"
     },
