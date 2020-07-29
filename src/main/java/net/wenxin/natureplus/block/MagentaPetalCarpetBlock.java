@@ -40,7 +40,7 @@ public class MagentaPetalCarpetBlock extends NatureplusModElements.ModElement {
 	@ObjectHolder("natureplus:magenta_petal_carpet")
 	public static final Block block = null;
 	public MagentaPetalCarpetBlock(NatureplusModElements instance) {
-		super(instance, 66);
+		super(instance, 68);
 	}
 
 	@Override

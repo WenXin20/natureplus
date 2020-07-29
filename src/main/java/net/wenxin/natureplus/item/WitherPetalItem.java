@@ -21,7 +21,7 @@ public class WitherPetalItem extends NatureplusModElements.ModElement {
 	@ObjectHolder("natureplus:wither_petal")
 	public static final Item block = null;
 	public WitherPetalItem(NatureplusModElements instance) {
-		super(instance, 99);
+		super(instance, 101);
 	}
 
 	@Override

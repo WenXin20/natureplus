@@ -26,7 +26,7 @@ import java.util.Comparator;
 @NatureplusModElements.ModElement.Tag
 public class SunflowerSpawnSunProcedure extends NatureplusModElements.ModElement {
 	public SunflowerSpawnSunProcedure(NatureplusModElements instance) {
-		super(instance, 636);
+		super(instance, 619);
 	}
 
 	public static void executeProcedure(Map<String, Object> dependencies) {

@@ -25,7 +25,7 @@ import java.util.Map;
 @NatureplusModElements.ModElement.Tag
 public class MonarchCocoonSpawnProcedure extends NatureplusModElements.ModElement {
 	public MonarchCocoonSpawnProcedure(NatureplusModElements instance) {
-		super(instance, 574);
+		super(instance, 557);
 	}
 
 	public static void executeProcedure(Map<String, Object> dependencies) {

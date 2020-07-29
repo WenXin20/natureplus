@@ -30,7 +30,7 @@ import java.util.Map;
 @NatureplusModElements.ModElement.Tag
 public class MonarchEggItemSpawnProcedure extends NatureplusModElements.ModElement {
 	public MonarchEggItemSpawnProcedure(NatureplusModElements instance) {
-		super(instance, 573);
+		super(instance, 556);
 	}
 
 	public static void executeProcedure(Map<String, Object> dependencies) {

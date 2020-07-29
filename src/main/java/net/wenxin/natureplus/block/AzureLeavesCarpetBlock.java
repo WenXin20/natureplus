@@ -40,7 +40,7 @@ public class AzureLeavesCarpetBlock extends NatureplusModElements.ModElement {
 	@ObjectHolder("natureplus:azure_leaf_carpet")
 	public static final Block block = null;
 	public AzureLeavesCarpetBlock(NatureplusModElements instance) {
-		super(instance, 22);
+		super(instance, 23);
 	}
 
 	@Override

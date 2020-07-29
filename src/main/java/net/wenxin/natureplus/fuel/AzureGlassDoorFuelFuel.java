@@ -13,7 +13,7 @@ import net.minecraft.item.ItemStack;
 @NatureplusModElements.ModElement.Tag
 public class AzureGlassDoorFuelFuel extends NatureplusModElements.ModElement {
 	public AzureGlassDoorFuelFuel(NatureplusModElements instance) {
-		super(instance, 561);
+		super(instance, 544);
 		MinecraftForge.EVENT_BUS.register(this);
 	}
 

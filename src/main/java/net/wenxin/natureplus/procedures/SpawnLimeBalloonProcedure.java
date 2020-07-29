@@ -29,7 +29,7 @@ import java.util.Map;
 @NatureplusModElements.ModElement.Tag
 public class SpawnLimeBalloonProcedure extends NatureplusModElements.ModElement {
 	public SpawnLimeBalloonProcedure(NatureplusModElements instance) {
-		super(instance, 723);
+		super(instance, 705);
 	}
 
 	public static void executeProcedure(Map<String, Object> dependencies) {

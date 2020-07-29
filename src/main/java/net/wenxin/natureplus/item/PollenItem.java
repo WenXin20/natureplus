@@ -26,7 +26,7 @@ public class PollenItem extends NatureplusModElements.ModElement {
 	@ObjectHolder("natureplus:pollen")
 	public static final Item block = null;
 	public PollenItem(NatureplusModElements instance) {
-		super(instance, 108);
+		super(instance, 110);
 	}
 
 	@Override

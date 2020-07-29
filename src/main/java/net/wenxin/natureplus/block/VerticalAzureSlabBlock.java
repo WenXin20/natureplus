@@ -30,7 +30,7 @@ public class VerticalAzureSlabBlock extends NatureplusModElements.ModElement {
 	@ObjectHolder("natureplus:vertical_azure_slab")
 	public static final Block block = null;
 	public VerticalAzureSlabBlock(NatureplusModElements instance) {
-		super(instance, 15);
+		super(instance, 16);
 	}
 
 	@Override

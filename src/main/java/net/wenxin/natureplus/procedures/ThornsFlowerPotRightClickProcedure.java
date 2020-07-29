@@ -20,7 +20,7 @@ import java.util.Map;
 @NatureplusModElements.ModElement.Tag
 public class ThornsFlowerPotRightClickProcedure extends NatureplusModElements.ModElement {
 	public ThornsFlowerPotRightClickProcedure(NatureplusModElements instance) {
-		super(instance, 372);
+		super(instance, 355);
 	}
 
 	public static void executeProcedure(Map<String, Object> dependencies) {

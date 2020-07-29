@@ -53,7 +53,7 @@ public class AzureLadderBlock extends NatureplusModElements.ModElement implement
 	@ObjectHolder("natureplus:azure_ladder")
 	public static final Block block = null;
 	public AzureLadderBlock(NatureplusModElements instance) {
-		super(instance, 20);
+		super(instance, 21);
 	}
 
 	@Override

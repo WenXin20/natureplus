@@ -34,7 +34,7 @@ import java.util.Random;
 @NatureplusModElements.ModElement.Tag
 public class AzureTreeStructure extends NatureplusModElements.ModElement {
 	public AzureTreeStructure(NatureplusModElements instance) {
-		super(instance, 280);
+		super(instance, 272);
 	}
 
 	@Override

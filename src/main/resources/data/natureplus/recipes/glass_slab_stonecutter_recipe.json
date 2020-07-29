@@ -1,0 +1,9 @@
+{
+  "group": "natureplus",
+  "type": "minecraft:stonecutting",
+  "count": 2,
+  "ingredient": {
+    "item": "minecraft:glass"
+  },
+  "result": "natureplus:glass_slab"
+}

@@ -31,7 +31,7 @@ import java.util.HashMap;
 @NatureplusModElements.ModElement.Tag
 public class StopTimerProcedure extends NatureplusModElements.ModElement {
 	public StopTimerProcedure(NatureplusModElements instance) {
-		super(instance, 587);
+		super(instance, 570);
 		MinecraftForge.EVENT_BUS.register(this);
 	}
 

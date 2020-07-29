@@ -56,7 +56,6 @@ public class MexicanSunflowerCropBlock extends NatureplusModElements.ModElement 
 	@Override
 	public void initElements() {
 		elements.blocks.add(() -> new CustomBlock());
-//		elements.items.add(() -> new BlockItem(block, new Item.Properties()).setRegistryName(block.getRegistryName()));
 	}
 
 	@Override

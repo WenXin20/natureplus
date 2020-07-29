@@ -28,7 +28,7 @@ public class VerticalPlantStemPlanksBlock extends NatureplusModElements.ModEleme
 	@ObjectHolder("natureplus:vertical_plant_stem_planks")
 	public static final Block block = null;
 	public VerticalPlantStemPlanksBlock(NatureplusModElements instance) {
-		super(instance, 29);
+		super(instance, 30);
 	}
 
 	@Override

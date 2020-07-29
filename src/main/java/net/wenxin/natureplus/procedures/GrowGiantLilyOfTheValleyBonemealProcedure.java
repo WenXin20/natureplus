@@ -36,7 +36,7 @@ import java.util.HashMap;
 @NatureplusModElements.ModElement.Tag
 public class GrowGiantLilyOfTheValleyBonemealProcedure extends NatureplusModElements.ModElement {
 	public GrowGiantLilyOfTheValleyBonemealProcedure(NatureplusModElements instance) {
-		super(instance, 612);
+		super(instance, 595);
 		MinecraftForge.EVENT_BUS.register(this);
 	}
 

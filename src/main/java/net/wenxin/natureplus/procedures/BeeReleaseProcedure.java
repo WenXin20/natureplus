@@ -32,7 +32,7 @@ import java.util.Map;
 @NatureplusModElements.ModElement.Tag
 public class BeeReleaseProcedure extends NatureplusModElements.ModElement {
 	public BeeReleaseProcedure(NatureplusModElements instance) {
-		super(instance, 704);
+		super(instance, 687);
 	}
 
 	public static void executeProcedure(Map<String, Object> dependencies) {

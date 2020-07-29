@@ -35,7 +35,7 @@ public class AzureDoorBlock extends NatureplusModElements.ModElement {
 	@ObjectHolder("natureplus:azure_door")
 	public static final Block block = null;
 	public AzureDoorBlock(NatureplusModElements instance) {
-		super(instance, 16);
+		super(instance, 17);
 	}
 
 	@Override

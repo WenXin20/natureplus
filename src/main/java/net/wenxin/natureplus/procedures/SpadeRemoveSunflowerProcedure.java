@@ -35,7 +35,7 @@ import java.util.HashMap;
 @NatureplusModElements.ModElement.Tag
 public class SpadeRemoveSunflowerProcedure extends NatureplusModElements.ModElement {
 	public SpadeRemoveSunflowerProcedure(NatureplusModElements instance) {
-		super(instance, 632);
+		super(instance, 615);
 		MinecraftForge.EVENT_BUS.register(this);
 	}
 

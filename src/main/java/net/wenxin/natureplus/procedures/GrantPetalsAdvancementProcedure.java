@@ -15,7 +15,7 @@ import java.util.Iterator;
 @NatureplusModElements.ModElement.Tag
 public class GrantPetalsAdvancementProcedure extends NatureplusModElements.ModElement {
 	public GrantPetalsAdvancementProcedure(NatureplusModElements instance) {
-		super(instance, 478);
+		super(instance, 461);
 	}
 
 	public static void executeProcedure(Map<String, Object> dependencies) {

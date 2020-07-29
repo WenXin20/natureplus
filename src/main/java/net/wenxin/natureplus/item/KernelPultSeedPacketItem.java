@@ -25,7 +25,7 @@ public class KernelPultSeedPacketItem extends NatureplusModElements.ModElement {
 	@ObjectHolder("natureplus:kernel_pult_seed_packet")
 	public static final Item block = null;
 	public KernelPultSeedPacketItem(NatureplusModElements instance) {
-		super(instance, 182);
+		super(instance, 184);
 	}
 
 	@Override

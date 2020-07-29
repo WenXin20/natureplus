@@ -34,7 +34,7 @@ public class PlantStemFenceGateBlock extends NatureplusModElements.ModElement {
 	@ObjectHolder("natureplus:plant_stem_fence_gate")
 	public static final Block block = null;
 	public PlantStemFenceGateBlock(NatureplusModElements instance) {
-		super(instance, 805);
+		super(instance, 36);
 	}
 
 	@Override

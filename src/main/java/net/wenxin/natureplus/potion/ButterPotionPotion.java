@@ -27,7 +27,7 @@ public class ButterPotionPotion extends NatureplusModElements.ModElement {
 	@ObjectHolder("natureplus:butter_potion")
 	public static final Potion potionType = null;
 	public ButterPotionPotion(NatureplusModElements instance) {
-		super(instance, 674);
+		super(instance, 657);
 		FMLJavaModLoadingContext.get().getModEventBus().register(this);
 	}
 

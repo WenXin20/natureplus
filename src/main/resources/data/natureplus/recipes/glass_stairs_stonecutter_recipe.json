@@ -1,0 +1,9 @@
+{
+  "group": "natureplus",
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "minecraft:glass"
+  },
+  "result": "natureplus:glass_stairs"
+}

@@ -15,7 +15,7 @@ import java.util.Collection;
 @NatureplusModElements.ModElement.Tag
 public class ButterPotionEffectProcedure extends NatureplusModElements.ModElement {
 	public ButterPotionEffectProcedure(NatureplusModElements instance) {
-		super(instance, 673);
+		super(instance, 656);
 	}
 
 	public static boolean executeProcedure(Map<String, Object> dependencies) {

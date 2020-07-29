@@ -40,7 +40,7 @@ public class LightGrayPetalCarpetBlock extends NatureplusModElements.ModElement 
 	@ObjectHolder("natureplus:light_gray_petal_carpet")
 	public static final Block block = null;
 	public LightGrayPetalCarpetBlock(NatureplusModElements instance) {
-		super(instance, 72);
+		super(instance, 74);
 	}
 
 	@Override

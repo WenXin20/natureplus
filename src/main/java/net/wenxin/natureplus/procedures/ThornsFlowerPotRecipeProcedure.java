@@ -24,7 +24,7 @@ import java.util.HashMap;
 @NatureplusModElements.ModElement.Tag
 public class ThornsFlowerPotRecipeProcedure extends NatureplusModElements.ModElement {
 	public ThornsFlowerPotRecipeProcedure(NatureplusModElements instance) {
-		super(instance, 373);
+		super(instance, 356);
 		MinecraftForge.EVENT_BUS.register(this);
 	}
 

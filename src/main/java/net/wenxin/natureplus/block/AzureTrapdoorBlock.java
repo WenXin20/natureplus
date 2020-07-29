@@ -35,7 +35,7 @@ public class AzureTrapdoorBlock extends NatureplusModElements.ModElement {
 	@ObjectHolder("natureplus:azure_trapdoor")
 	public static final Block block = null;
 	public AzureTrapdoorBlock(NatureplusModElements instance) {
-		super(instance, 18);
+		super(instance, 19);
 	}
 
 	@Override

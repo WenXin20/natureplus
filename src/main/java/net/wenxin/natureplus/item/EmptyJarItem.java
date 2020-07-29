@@ -21,7 +21,7 @@ public class EmptyJarItem extends NatureplusModElements.ModElement {
 	@ObjectHolder("natureplus:empty_jar")
 	public static final Item block = null;
 	public EmptyJarItem(NatureplusModElements instance) {
-		super(instance, 109);
+		super(instance, 111);
 	}
 
 	@Override

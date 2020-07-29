@@ -34,7 +34,7 @@ import java.util.Random;
 @NatureplusModElements.ModElement.Tag
 public class GiantAlliumStructure extends NatureplusModElements.ModElement {
 	public GiantAlliumStructure(NatureplusModElements instance) {
-		super(instance, 483);
+		super(instance, 466);
 	}
 
 	@Override

@@ -88,7 +88,7 @@ public class StrippedPlantStemCrateBlock extends NatureplusModElements.ModElemen
 	@ObjectHolder("natureplus:stripped_plant_stem_crate")
 	public static final TileEntityType<CustomTileEntity> tileEntityType = null;
 	public StrippedPlantStemCrateBlock(NatureplusModElements instance) {
-		super(instance, 30);
+		super(instance, 32);
 		FMLJavaModLoadingContext.get().getModEventBus().register(this);
 	}
 

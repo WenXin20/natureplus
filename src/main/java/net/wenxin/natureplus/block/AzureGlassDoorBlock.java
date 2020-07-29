@@ -35,7 +35,7 @@ public class AzureGlassDoorBlock extends NatureplusModElements.ModElement {
 	@ObjectHolder("natureplus:azure_glass_door")
 	public static final Block block = null;
 	public AzureGlassDoorBlock(NatureplusModElements instance) {
-		super(instance, 17);
+		super(instance, 18);
 	}
 
 	@Override
