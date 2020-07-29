@@ -53,7 +53,7 @@ public class PlantStemLadderBlock extends NatureplusModElements.ModElement imple
 	@ObjectHolder("natureplus:plant_stem_ladder")
 	public static final Block block = null;
 	public PlantStemLadderBlock(NatureplusModElements instance) {
-		super(instance, 43);
+		super(instance, 45);
 	}
 
 	@Override

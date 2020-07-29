@@ -52,7 +52,7 @@ public class FrozenPeaItem extends NatureplusModElements.ModElement {
 	@ObjectHolder("natureplus:entitybulletfrozen_pea")
 	public static final EntityType arrow = null;
 	public FrozenPeaItem(NatureplusModElements instance) {
-		super(instance, 190);
+		super(instance, 192);
 	}
 
 	@Override

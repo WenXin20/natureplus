@@ -31,7 +31,7 @@ public class MexicanSunflowerSeedsItem extends NatureplusModElements.ModElement 
 	@ObjectHolder("natureplus:mexican_sunflower_seeds")
 	public static final Item block = null;
 	public MexicanSunflowerSeedsItem(NatureplusModElements instance) {
-		super(instance, 102);
+		super(instance, 104);
 	}
 
 	@Override

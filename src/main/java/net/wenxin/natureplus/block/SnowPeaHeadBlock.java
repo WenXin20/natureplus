@@ -49,7 +49,7 @@ public class SnowPeaHeadBlock extends NatureplusModElements.ModElement implement
 	@ObjectHolder("natureplus:snow_pea_head")
 	public static final Block block = null;
 	public SnowPeaHeadBlock(NatureplusModElements instance) {
-		super(instance, 174);
+		super(instance, 176);
 	}
 
 	@Override

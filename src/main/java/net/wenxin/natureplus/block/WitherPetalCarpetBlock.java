@@ -54,7 +54,7 @@ public class WitherPetalCarpetBlock extends NatureplusModElements.ModElement {
 	@ObjectHolder("natureplus:wither_petal_carpet")
 	public static final Block block = null;
 	public WitherPetalCarpetBlock(NatureplusModElements instance) {
-		super(instance, 80);
+		super(instance, 82);
 	}
 
 	@Override

@@ -70,7 +70,7 @@ import com.google.common.collect.ImmutableMap;
 public class MonarchCaterpillarEntity extends NatureplusModElements.ModElement {
 	public static EntityType entity = null;
 	public MonarchCaterpillarEntity(NatureplusModElements instance) {
-		super(instance, 121);
+		super(instance, 123);
 		FMLJavaModLoadingContext.get().getModEventBus().register(this);
 	}
 

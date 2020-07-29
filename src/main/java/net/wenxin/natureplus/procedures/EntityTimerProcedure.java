@@ -18,6 +18,6 @@ public class EntityTimerProcedure extends NatureplusModElements.ModElement {
 			return;
 		}
 		Entity entity = (Entity) dependencies.get("entity");
-		entity.getPersistentData().putDouble("timer_insect", 5000);
+		entity.getPersistentData().putDouble("timer_insect", 8000);
 	}
 }

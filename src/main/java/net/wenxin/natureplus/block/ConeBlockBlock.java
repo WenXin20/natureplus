@@ -27,6 +27,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.Item;
 import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.item.BlockItem;
+import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.fluid.IFluidState;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.entity.MobEntity;
@@ -48,7 +49,7 @@ public class ConeBlockBlock extends NatureplusModElements.ModElement implements 
 	@ObjectHolder("natureplus:cone_block")
 	public static final Block block = null;
 	public ConeBlockBlock(NatureplusModElements instance) {
-		super(instance, 168);
+		super(instance, 170);
 	}
 
 	@Override
@@ -64,7 +65,6 @@ public class ConeBlockBlock extends NatureplusModElements.ModElement implements 
 		RenderTypeLookup.setRenderLayer(block, RenderType.getCutout());
 	}
 	public static class CustomBlock extends Block implements IWaterLoggable {
-
 		public CustomBlock() {
 			super(Block.Properties.create(Material.WOOD).sound(SoundType.CORAL).hardnessAndResistance(1f, 10f).lightValue(0).harvestLevel(0)
 					.harvestTool(ToolType.AXE).notSolid());
