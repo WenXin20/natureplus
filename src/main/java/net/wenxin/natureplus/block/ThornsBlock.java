@@ -1,7 +1,6 @@
 
 package net.wenxin.natureplus.block;
 
-import net.wenxin.natureplus.procedures.ThornsDamageProcedure;
 import net.wenxin.natureplus.procedures.ThornsBreakNoSupportProcedure;
 import net.wenxin.natureplus.itemgroup.NaturePlusTabItemGroup;
 import net.wenxin.natureplus.NatureplusModElements;
@@ -21,7 +20,9 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.api.distmarker.Dist;
 
 import net.minecraft.world.storage.loot.LootContext;
+import net.minecraft.world.server.ServerWorld;
 import net.minecraft.world.World;
+import net.minecraft.world.IWorldReader;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.util.text.ITextComponent;
@@ -37,7 +38,9 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.LockableLootTileEntity;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.state.properties.BlockStateProperties;
+import net.minecraft.state.properties.AttachFace;
 import net.minecraft.state.StateContainer;
+import net.minecraft.state.EnumProperty;
 import net.minecraft.state.DirectionProperty;
 import net.minecraft.state.BooleanProperty;
 import net.minecraft.pathfinding.PathNodeType;
@@ -58,7 +61,6 @@ import net.minecraft.fluid.IFluidState;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.entity.MobEntity;
-import net.minecraft.entity.Entity;
 import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.block.material.MaterialColor;
@@ -72,10 +74,9 @@ import net.minecraft.block.Block;
 import javax.annotation.Nullable;
 
 import java.util.stream.IntStream;
+import java.util.Random;
 import java.util.List;
 import java.util.Collections;
-import net.minecraft.world.server.ServerWorld;
-import java.util.Random;
 
 @NatureplusModElements.ModElement.Tag
 public class ThornsBlock extends NatureplusModElements.ModElement implements IWaterLoggable {
@@ -108,6 +109,7 @@ public class ThornsBlock extends NatureplusModElements.ModElement implements IWa
 	}
 	public static class CustomBlock extends Block implements IWaterLoggable {
 		public static final DirectionProperty FACING = BlockStateProperties.FACING;
+		public static final EnumProperty<AttachFace> FACE = BlockStateProperties.FACE;
 		public CustomBlock() {
 			super(Block.Properties.create(Material.PLANTS).sound(SoundType.PLANT).hardnessAndResistance(0.2f, 1f).lightValue(0).harvestLevel(1)
 					.harvestTool(ToolType.AXE).doesNotBlockMovement().notSolid());
@@ -167,6 +169,33 @@ public class ThornsBlock extends NatureplusModElements.ModElement implements IWa
 			return state.get(WATERLOGGED) ? Fluids.WATER.getStillFluidState(false) : super.getFluidState(state);
 		}
 
+		public boolean isValidPosition(BlockState state, IWorldReader worldIn, BlockPos pos) {
+			return getDirection(worldIn, pos, getFacing(state).getOpposite());
+		}
+
+		public static boolean getDirection(IWorldReader reader, BlockPos pos, Direction direction) {
+			BlockPos blockpos = pos.offset(direction);
+			return reader.getBlockState(blockpos).isSolidSide(reader, blockpos, direction.getOpposite());
+		}
+
+		protected static Direction getFacing(BlockState state) {
+			switch ((Direction) state.get(FACING)) {
+				case SOUTH :
+					return Direction.SOUTH;
+				case NORTH :
+				default :
+					return Direction.NORTH;
+				case EAST :
+					return Direction.EAST;
+				case WEST :
+					return Direction.WEST;
+				case UP :
+					return Direction.UP;
+				case DOWN :
+					return Direction.DOWN;
+			}
+		}
+
 		@Override
 		public int getFlammability(BlockState state, IBlockReader world, BlockPos pos, Direction face) {
 			return 5;
@@ -214,19 +243,6 @@ public class ThornsBlock extends NatureplusModElements.ModElement implements IWa
 				ThornsBreakNoSupportProcedure.executeProcedure($_dependencies);
 			}
 			world.getPendingBlockTicks().scheduleTick(new BlockPos(x, y, z), this, this.tickRate(world));
-		}
-
-		@Override
-		public void onEntityCollision(BlockState state, World world, BlockPos pos, Entity entity) {
-			super.onEntityCollision(state, world, pos, entity);
-			int x = pos.getX();
-			int y = pos.getY();
-			int z = pos.getZ();
-			{
-				java.util.HashMap<String, Object> $_dependencies = new java.util.HashMap<>();
-				$_dependencies.put("entity", entity);
-				ThornsDamageProcedure.executeProcedure($_dependencies);
-			}
 		}
 
 		@Override

@@ -14,15 +14,20 @@ import net.minecraft.world.storage.loot.LootContext;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.Direction;
+import net.minecraft.state.properties.SlabType;
+import net.minecraft.state.properties.Half;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Item;
 import net.minecraft.item.BlockItem;
+import net.minecraft.entity.EntityType;
 import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.block.material.MaterialColor;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.StairsBlock;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.SlabBlock;
+import net.minecraft.block.Blocks;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Block;
 
@@ -61,14 +66,87 @@ public class GlassSlabBlock extends NatureplusModElements.ModElement {
 			return false;
 		}
 
+		@Override
+		public boolean isTransparent(BlockState state) {
+			return state.get(SlabBlock.TYPE) == SlabType.DOUBLE;
+		}
+
+		@Override
 		@OnlyIn(Dist.CLIENT)
-		public boolean isSideInvisible(BlockState state, BlockState adjacentBlockState, Direction side) {
-			return adjacentBlockState.getBlock() == this ? true : super.isSideInvisible(state, adjacentBlockState, side);
+		public boolean isSideInvisible(BlockState blockState, BlockState state, Direction direction) {
+			if (state.getBlock() == Blocks.GLASS)
+				return true;
+			if (state.getBlock() == this)
+				if (isInvisibleToGlassSlab(blockState, state, direction))
+					return true;
+			if (state.getBlock() == GlassStairsBlock.block)
+				if (isInvisibleToGlassStairs(blockState, state, direction))
+					return true;
+			return super.isSideInvisible(blockState, state, direction);
+		}
+
+		private boolean isInvisibleToGlassSlab(BlockState blockState, BlockState state, Direction direction) {
+			SlabType type1 = blockState.get(SlabBlock.TYPE);
+			SlabType type2 = state.get(SlabBlock.TYPE);
+			if (type2 == SlabType.DOUBLE)
+				return true;
+			switch (direction) {
+				case UP :
+				case DOWN :
+					if (type1 != type2)
+						return true;
+					break;
+				case NORTH :
+				case EAST :
+				case SOUTH :
+				case WEST :
+					if (type1 == type2)
+						return true;
+					break;
+			}
+			return false;
+		}
+
+		private boolean isInvisibleToGlassStairs(BlockState blockState, BlockState state, Direction direction) {
+			SlabType type1 = blockState.get(SlabBlock.TYPE);
+			Half half2 = state.get(StairsBlock.HALF);
+			Direction facing2 = state.get(StairsBlock.FACING);
+			// up
+			if (direction == Direction.UP)
+				if (half2 == Half.BOTTOM)
+					return true;
+			// down
+			if (direction == Direction.DOWN)
+				if (half2 == Half.TOP)
+					return true;
+			// other stairs rear
+			if (facing2 == direction.getOpposite())
+				return true;
+			// sides
+			if (direction.getHorizontalIndex() != -1)
+				if (type1 == SlabType.BOTTOM && half2 == Half.BOTTOM)
+					return true;
+				else if (type1 == SlabType.TOP && half2 == Half.TOP)
+					return true;
+			return false;
 		}
 
 		@Override
 		public boolean propagatesSkylightDown(BlockState state, IBlockReader reader, BlockPos pos) {
 			return true;
+		}
+
+		@OnlyIn(Dist.CLIENT)
+		public float getAmbientOcclusionLightValue(BlockState state, IBlockReader worldIn, BlockPos pos) {
+			return 1.0F;
+		}
+
+		public boolean canEntitySpawn(BlockState state, IBlockReader worldIn, BlockPos pos, EntityType<?> type) {
+			return false;
+		}
+
+		public boolean causesSuffocation(BlockState state, IBlockReader worldIn, BlockPos pos) {
+			return false;
 		}
 
 		@Override

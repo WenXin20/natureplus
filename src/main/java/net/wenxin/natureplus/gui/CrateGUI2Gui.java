@@ -7,6 +7,7 @@ import net.wenxin.natureplus.procedures.CrateCloseGUIProcedure;
 import net.wenxin.natureplus.NatureplusModElements;
 import net.wenxin.natureplus.NatureplusMod;
 
+import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.items.SlotItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 import net.minecraftforge.items.IItemHandler;
@@ -21,8 +22,10 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.api.distmarker.Dist;
 
 import net.minecraft.world.World;
+import net.minecraft.world.IWorld;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.network.PacketBuffer;
@@ -351,7 +354,7 @@ public class CrateGUI2Gui extends NatureplusModElements.ModElement {
 			this.y = container.y;
 			this.z = container.z;
 			this.entity = container.entity;
-			this.xSize = 211;
+			this.xSize = 212;
 			this.ySize = 166;
 		}
 		private static final ResourceLocation texture = new ResourceLocation("natureplus:textures/crate_gui_2.png");
