@@ -133,5 +133,19 @@ public class ConeBlockBlock extends NatureplusModElements.ModElement implements 
 				return dropsOriginal;
 			return Collections.singletonList(new ItemStack(this, 1));
 		}
+
+//		@Override
+//		public EquipmentSlotType getEquipmentSlot(ItemStack stack) {
+//			return EquipmentSlotType.HEAD;
+//		}
+
+//		@Override
+//		public boolean isValidArmor(ItemStack stack, EquipmentSlotType armorType) {
+//			if (armorType == EquipmentSlotType.HEAD) {
+//				return true;
+//			} else {
+//				return false;
+//			}
+//		}
 	}
 }
