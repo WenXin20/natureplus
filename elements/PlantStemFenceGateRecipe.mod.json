@@ -5,7 +5,7 @@
     "recipeType": "Crafting",
     "xpReward": 0.0,
     "cookingTime": 200,
-    "recipeRetstackSize": 3,
+    "recipeRetstackSize": 1,
     "group": "",
     "recipeShapeless": false,
     "recipeSlots": [
@@ -19,28 +19,28 @@
         "value": ""
       },
       {
-        "value": "TAG:natureplus:azure_planks"
+        "value": "TAG:forge:rods/wooden"
+      },
+      {
+        "value": "TAG:natureplus:plant_stem_planks"
       },
       {
         "value": "TAG:forge:rods/wooden"
       },
       {
-        "value": "TAG:natureplus:azure_planks"
-      },
-      {
-        "value": "TAG:natureplus:azure_planks"
-      },
-      {
         "value": "TAG:forge:rods/wooden"
       },
       {
-        "value": "TAG:natureplus:azure_planks"
+        "value": "TAG:natureplus:plant_stem_planks"
+      },
+      {
+        "value": "TAG:forge:rods/wooden"
       }
     ],
     "recipeReturnStack": {
-      "value": "CUSTOM:AzureFence"
+      "value": "CUSTOM:PlantStemFenceGate"
     },
-    "name": "azure_fence_recipe",
+    "name": "plant_stem_fence_gate_recipe",
     "namespace": "mod"
   }
 }

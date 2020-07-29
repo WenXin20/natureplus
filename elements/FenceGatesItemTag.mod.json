@@ -1,0 +1,19 @@
+{
+  "_fv": 10,
+  "_type": "tag",
+  "definition": {
+    "type": "Items",
+    "items": [
+      {
+        "value": "CUSTOM:AzureFenceGate"
+      },
+      {
+        "value": "CUSTOM:PlantStemFenceGate"
+      }
+    ],
+    "blocks": [],
+    "functions": [],
+    "name": "fence_gates/wooden",
+    "namespace": "forge"
+  }
+}

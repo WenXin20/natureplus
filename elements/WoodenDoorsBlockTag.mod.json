@@ -1,0 +1,25 @@
+{
+  "_fv": 10,
+  "_type": "tag",
+  "definition": {
+    "type": "Blocks",
+    "items": [],
+    "blocks": [
+      {
+        "value": "CUSTOM:AzureDoor"
+      },
+      {
+        "value": "CUSTOM:AzureGlassDoor"
+      },
+      {
+        "value": "CUSTOM:PlantStemDoor"
+      },
+      {
+        "value": "CUSTOM:PlantStemGlassDoor"
+      }
+    ],
+    "functions": [],
+    "name": "wooden_doors",
+    "namespace": "minecraft"
+  }
+}

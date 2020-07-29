@@ -10,7 +10,7 @@
       "tag": "natureplus:plant_stem_planks"
     },
     "1": {
-      "item": "minecraft:stick"
+      "tag": "forge:rods/wooden"
     },
     "2": {
       "tag": "natureplus:plant_stem_planks"
@@ -19,7 +19,7 @@
       "tag": "natureplus:plant_stem_planks"
     },
     "4": {
-      "item": "minecraft:stick"
+      "tag": "forge:rods/wooden"
     },
     "5": {
       "tag": "natureplus:plant_stem_planks"

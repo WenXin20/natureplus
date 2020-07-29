@@ -1,0 +1,32 @@
+{
+  "group": "natureplus",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "012",
+    "345"
+  ],
+  "key": {
+    "0": {
+      "tag": "forge:rods/wooden"
+    },
+    "1": {
+      "tag": "natureplus:plant_stem_planks"
+    },
+    "2": {
+      "tag": "forge:rods/wooden"
+    },
+    "3": {
+      "tag": "forge:rods/wooden"
+    },
+    "4": {
+      "tag": "natureplus:plant_stem_planks"
+    },
+    "5": {
+      "tag": "forge:rods/wooden"
+    }
+  },
+  "result": {
+    "item": "natureplus:plant_stem_fence_gate",
+    "count": 1
+  }
+}
