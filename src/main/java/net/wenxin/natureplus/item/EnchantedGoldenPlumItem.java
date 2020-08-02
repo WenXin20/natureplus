@@ -34,7 +34,7 @@ public class EnchantedGoldenPlumItem extends NatureplusModElements.ModElement {
 	public static class FoodItemCustom extends Item {
 		public FoodItemCustom() {
 			super(new Item.Properties().group(NaturePlusTabItemGroup.tab).maxStackSize(64)
-					.food((new Food.Builder()).hunger(4).saturation(9.6f).setAlwaysEdible().build()));
+					.food((new Food.Builder()).hunger(4).saturation(1.2f).setAlwaysEdible().build()));
 			setRegistryName("enchanted_golden_plum");
 		}
 

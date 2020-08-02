@@ -26,7 +26,7 @@ public class PlumItem extends NatureplusModElements.ModElement {
 	public static class FoodItemCustom extends Item {
 		public FoodItemCustom() {
 			super(new Item.Properties().group(NaturePlusTabItemGroup.tab).maxStackSize(64)
-					.food((new Food.Builder()).hunger(4).saturation(2.4f).build()));
+					.food((new Food.Builder()).hunger(4).saturation(0.3f).build()));
 			setRegistryName("plum");
 		}
 
