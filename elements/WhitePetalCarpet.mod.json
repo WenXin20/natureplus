@@ -41,11 +41,11 @@
     "canProvidePower": false,
     "lightOpacity": 0,
     "material": {
-      "value": "PLANTS"
+      "value": "CARPET"
     },
     "tickRate": 10,
     "tickRandomly": false,
-    "isReplaceable": true,
+    "isReplaceable": false,
     "colorOnMap": "IRON",
     "creativePickItem": {
       "value": ""

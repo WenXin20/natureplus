@@ -29,9 +29,9 @@ import com.mojang.blaze3d.matrix.MatrixStack;
 public class SunflowerHeadHelmetItem extends NatureplusModElements.ModElement {
 	@ObjectHolder("natureplus:sunflower_head_helmet")
 	public static final Item helmet = null;
-	@ObjectHolder("natureplus:sunflower_head_body")
+	@ObjectHolder("natureplus:sunflower_head_chestplate")
 	public static final Item body = null;
-	@ObjectHolder("natureplus:sunflower_head_legs")
+	@ObjectHolder("natureplus:sunflower_head_leggings")
 	public static final Item legs = null;
 	@ObjectHolder("natureplus:sunflower_head_boots")
 	public static final Item boots = null;
@@ -64,7 +64,7 @@ public class SunflowerHeadHelmetItem extends NatureplusModElements.ModElement {
 
 			@OnlyIn(Dist.CLIENT)
 			public String getName() {
-				return "sunflower_head_";
+				return "sunflower_head";
 			}
 
 			public float getToughness() {

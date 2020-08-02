@@ -20,7 +20,6 @@ import net.minecraft.util.Direction;
 import net.minecraft.pathfinding.PathNodeType;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Item;
-import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.item.BlockItem;
 import net.minecraft.entity.MobEntity;
 import net.minecraft.client.renderer.RenderTypeLookup;
@@ -57,7 +56,7 @@ public class MagentaPetalCarpetBlock extends NatureplusModElements.ModElement {
 	}
 	public static class CustomBlock extends FallingBlock {
 		public CustomBlock() {
-			super(Block.Properties.create(Material.PLANTS).sound(SoundType.PLANT).hardnessAndResistance(0.2f, 1f).lightValue(0).harvestLevel(0)
+			super(Block.Properties.create(Material.CARPET).sound(SoundType.PLANT).hardnessAndResistance(0.2f, 1f).lightValue(0).harvestLevel(0)
 					.harvestTool(ToolType.AXE).notSolid());
 			setRegistryName("magenta_petal_carpet");
 		}
@@ -75,11 +74,6 @@ public class MagentaPetalCarpetBlock extends NatureplusModElements.ModElement {
 		@Override
 		public VoxelShape getShape(BlockState state, IBlockReader world, BlockPos pos, ISelectionContext context) {
 			return VoxelShapes.create(0D, 0D, 0D, 1D, 0.0625D, 1D);
-		}
-
-		@Override
-		public boolean isReplaceable(BlockState state, BlockItemUseContext context) {
-			return true;
 		}
 
 		@Override

@@ -22,7 +22,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.Entity;
-import net.minecraft.client.Minecraft;
 
 import java.util.Random;
 import java.util.Map;
@@ -73,9 +72,15 @@ public class StopTimerProcedure extends NatureplusModElements.ModElement {
 				&& ((!(entity instanceof MonarchButterflyEntity.CustomEntity))
 						&& ((!(entity instanceof SunflowerEntity.CustomEntity)) && ((entity.getPersistentData().getDouble("timer_insect")) > 0))))) {
 			entity.getPersistentData().putDouble("timer_insect", 0);
-			world.playSound(world.getWorld().isRemote ? Minecraft.getInstance().player : (PlayerEntity) null, new BlockPos(x, y, z),
-					(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("block.fire.extinguish")),
-					SoundCategory.NEUTRAL, (float) 1, (float) 1);
+			if (!world.getWorld().isRemote) {
+				world.playSound(null, new BlockPos((int) x, (int) y, (int) z),
+						(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("block.fire.extinguish")),
+						SoundCategory.NEUTRAL, (float) 1, (float) 1);
+			} else {
+				world.getWorld().playSound(x, y, z,
+						(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("block.fire.extinguish")),
+						SoundCategory.NEUTRAL, (float) 1, (float) 1, false);
+			}
 			if (world instanceof ServerWorld) {
 				((ServerWorld) world).spawnParticle(ParticleTypes.ANGRY_VILLAGER, (entity.getPosX()), (entity.getPosY()), (entity.getPosZ()), (int) 1,
 						0.1, 0.1, 0.1, 0.05);
@@ -106,9 +111,15 @@ public class StopTimerProcedure extends NatureplusModElements.ModElement {
 				&& ((!(entity instanceof MonarchButterflyEntity.CustomEntity))
 						&& ((!(entity instanceof SunflowerEntity.CustomEntity)) && ((entity.getPersistentData().getDouble("timer_insect")) > 0))))) {
 			entity.getPersistentData().putDouble("timer_insect", 0);
-			world.playSound(world.getWorld().isRemote ? Minecraft.getInstance().player : (PlayerEntity) null, new BlockPos(x, y, z),
-					(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("block.fire.extinguish")),
-					SoundCategory.NEUTRAL, (float) 1, (float) 1);
+			if (!world.getWorld().isRemote) {
+				world.playSound(null, new BlockPos((int) x, (int) y, (int) z),
+						(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("block.fire.extinguish")),
+						SoundCategory.NEUTRAL, (float) 1, (float) 1);
+			} else {
+				world.getWorld().playSound(x, y, z,
+						(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("block.fire.extinguish")),
+						SoundCategory.NEUTRAL, (float) 1, (float) 1, false);
+			}
 			if (world instanceof ServerWorld) {
 				((ServerWorld) world).spawnParticle(ParticleTypes.ANGRY_VILLAGER, (entity.getPosX()), (entity.getPosY()), (entity.getPosZ()), (int) 1,
 						0.1, 0.1, 0.1, 0.05);

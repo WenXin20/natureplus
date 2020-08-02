@@ -26,7 +26,6 @@ import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.Entity;
 import net.minecraft.enchantment.EnchantmentHelper;
-import net.minecraft.client.Minecraft;
 
 import java.util.Random;
 import java.util.Map;
@@ -84,9 +83,15 @@ public class SpadeRemoveSnowPeaProcedure extends NatureplusModElements.ModElemen
 				}
 				if (!entity.world.isRemote)
 					entity.remove();
-				world.playSound(world.getWorld().isRemote ? Minecraft.getInstance().player : (PlayerEntity) null, new BlockPos(x, y, z),
-						(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("natureplus:shovel")),
-						SoundCategory.NEUTRAL, (float) 1, (float) 1);
+				if (!world.getWorld().isRemote) {
+					world.playSound(null, new BlockPos((int) x, (int) y, (int) z),
+							(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("natureplus:shovel")),
+							SoundCategory.NEUTRAL, (float) 1, (float) 1);
+				} else {
+					world.getWorld().playSound(x, y, z,
+							(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("natureplus:shovel")),
+							SoundCategory.NEUTRAL, (float) 1, (float) 1, false);
+				}
 				if (world instanceof ServerWorld) {
 					((ServerWorld) world).spawnParticle(ParticleTypes.CLOUD, (x + 0.5), (y + 0.5), (z + 0.5), (int) 10, 0.05, 0.05, 0.05, 0.25);
 				}
@@ -142,9 +147,15 @@ public class SpadeRemoveSnowPeaProcedure extends NatureplusModElements.ModElemen
 				}
 				if (!entity.world.isRemote)
 					entity.remove();
-				world.playSound(world.getWorld().isRemote ? Minecraft.getInstance().player : (PlayerEntity) null, new BlockPos(x, y, z),
-						(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("natureplus:shovel")),
-						SoundCategory.NEUTRAL, (float) 1, (float) 1);
+				if (!world.getWorld().isRemote) {
+					world.playSound(null, new BlockPos((int) x, (int) y, (int) z),
+							(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("natureplus:shovel")),
+							SoundCategory.NEUTRAL, (float) 1, (float) 1);
+				} else {
+					world.getWorld().playSound(x, y, z,
+							(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("natureplus:shovel")),
+							SoundCategory.NEUTRAL, (float) 1, (float) 1, false);
+				}
 				if (world instanceof ServerWorld) {
 					((ServerWorld) world).spawnParticle(ParticleTypes.CLOUD, (x + 0.5), (y + 0.5), (z + 0.5), (int) 10, 0.05, 0.05, 0.05, 0.25);
 				}

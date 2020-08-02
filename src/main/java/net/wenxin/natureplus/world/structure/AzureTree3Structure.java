@@ -21,7 +21,6 @@ import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.dimension.DimensionType;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.IWorld;
-import net.minecraft.util.math.ChunkPos;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.Rotation;
 import net.minecraft.util.ResourceLocation;
@@ -42,8 +41,8 @@ public class AzureTree3Structure extends NatureplusModElements.ModElement {
 		Feature<NoFeatureConfig> feature = new Feature<NoFeatureConfig>(NoFeatureConfig::deserialize) {
 			@Override
 			public boolean place(IWorld world, ChunkGenerator generator, Random random, BlockPos pos, NoFeatureConfig config) {
-				int ci = (pos.getX() >> 4) * 16;
-				int ck = (pos.getZ() >> 4) * 16;
+				int ci = (pos.getX() >> 4) << 4;
+				int ck = (pos.getZ() >> 4) << 4;
 				DimensionType dimensionType = world.getDimension().getType();
 				boolean dimensionCriteria = false;
 				if (dimensionType == DimensionType.OVERWORLD)
@@ -73,9 +72,8 @@ public class AzureTree3Structure extends NatureplusModElements.ModElement {
 								.getTemplateDefaulted(new ResourceLocation("natureplus", "azure_tree3"));
 						if (template == null)
 							return false;
-						template.addBlocksToWorldChunk(world, spawnTo,
-								new PlacementSettings().setRotation(rotation).setRandom(random).setMirror(mirror)
-										.addProcessor(BlockIgnoreStructureProcessor.AIR).setChunk((ChunkPos) null).setIgnoreEntities(false));
+						template.addBlocksToWorld(world, spawnTo, new PlacementSettings().setRotation(rotation).setRandom(random).setMirror(mirror)
+								.addProcessor(BlockIgnoreStructureProcessor.AIR).setChunk(null).setIgnoreEntities(false));
 					}
 				}
 				return true;

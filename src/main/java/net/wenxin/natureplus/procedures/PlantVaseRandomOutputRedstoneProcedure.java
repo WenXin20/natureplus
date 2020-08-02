@@ -19,10 +19,8 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.item.ItemStack;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.entity.Entity;
-import net.minecraft.client.Minecraft;
 
 import java.util.Map;
 import java.util.HashMap;
@@ -58,10 +56,15 @@ public class PlantVaseRandomOutputRedstoneProcedure extends NatureplusModElement
 		if ((!(world.getWorld().isRemote))) {
 			if ((((world.getBlockState(new BlockPos((int) x, (int) y, (int) z))).getBlock() == PlantVaseBlock.block.getDefaultState().getBlock())
 					&& (world.getWorld().isBlockPowered(new BlockPos((int) x, (int) y, (int) z))))) {
-				world.playSound(world.getWorld().isRemote ? Minecraft.getInstance().player : (PlayerEntity) null,
-						new BlockPos((x + 0.5), y, (z + 0.5)),
-						(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("natureplus:vase_breaking")),
-						SoundCategory.NEUTRAL, (float) 2, (float) 1);
+				if (!world.getWorld().isRemote) {
+					world.playSound(null, new BlockPos((int) (x + 0.5), (int) y, (int) (z + 0.5)),
+							(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("natureplus:vase_breaking")),
+							SoundCategory.NEUTRAL, (float) 2, (float) 1);
+				} else {
+					world.getWorld().playSound((x + 0.5), y, (z + 0.5),
+							(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("natureplus:vase_breaking")),
+							SoundCategory.NEUTRAL, (float) 2, (float) 1, false);
+				}
 				NatureplusModVariables.i = (double) (Math.random() * 100);
 				if (((NatureplusModVariables.i) >= 60)) {
 					if (!world.getWorld().isRemote) {

@@ -22,7 +22,6 @@ import net.minecraft.entity.MobEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ILivingEntityData;
 import net.minecraft.entity.Entity;
-import net.minecraft.client.Minecraft;
 
 import java.util.Map;
 
@@ -72,9 +71,15 @@ public class SpawnBlackBalloonProcedure extends NatureplusModElements.ModElement
 			if (world instanceof ServerWorld) {
 				((ServerWorld) world).spawnParticle(ParticleTypes.POOF, (x + 0.5), (y + 0.5), (z + 0.5), (int) 10, 0.15, 2.15, 0.15, 0.15);
 			}
-			world.playSound(world.getWorld().isRemote ? Minecraft.getInstance().player : (PlayerEntity) null, new BlockPos(x, y, z),
-					(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("natureplus:balloon_inflate")),
-					SoundCategory.NEUTRAL, (float) 0.5, (float) 0.5);
+			if (!world.getWorld().isRemote) {
+				world.playSound(null, new BlockPos((int) x, (int) y, (int) z),
+						(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("natureplus:balloon_inflate")),
+						SoundCategory.NEUTRAL, (float) 0.5, (float) 0.5);
+			} else {
+				world.getWorld().playSound(x, y, z,
+						(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("natureplus:balloon_inflate")),
+						SoundCategory.NEUTRAL, (float) 0.5, (float) 0.5, false);
+			}
 			if (entity instanceof LivingEntity) {
 				((LivingEntity) entity).swing(Hand.MAIN_HAND, true);
 			}
@@ -99,9 +104,15 @@ public class SpawnBlackBalloonProcedure extends NatureplusModElements.ModElement
 			if (world instanceof ServerWorld) {
 				((ServerWorld) world).spawnParticle(ParticleTypes.POOF, (x + 0.5), (y + 0.5), (z + 0.5), (int) 10, 0.15, 2.15, 0.15, 0.15);
 			}
-			world.playSound(world.getWorld().isRemote ? Minecraft.getInstance().player : (PlayerEntity) null, new BlockPos(x, y, z),
-					(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("natureplus:balloon_inflate")),
-					SoundCategory.NEUTRAL, (float) 0.5, (float) 0.5);
+			if (!world.getWorld().isRemote) {
+				world.playSound(null, new BlockPos((int) x, (int) y, (int) z),
+						(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("natureplus:balloon_inflate")),
+						SoundCategory.NEUTRAL, (float) 0.5, (float) 0.5);
+			} else {
+				world.getWorld().playSound(x, y, z,
+						(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("natureplus:balloon_inflate")),
+						SoundCategory.NEUTRAL, (float) 0.5, (float) 0.5, false);
+			}
 			if (entity instanceof LivingEntity) {
 				((LivingEntity) entity).swing(Hand.OFF_HAND, true);
 			}

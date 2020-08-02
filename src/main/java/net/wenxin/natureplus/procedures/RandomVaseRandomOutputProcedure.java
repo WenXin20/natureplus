@@ -37,7 +37,6 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.entity.Entity;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.enchantment.EnchantmentHelper;
-import net.minecraft.client.Minecraft;
 import net.minecraft.advancements.AdvancementProgress;
 import net.minecraft.advancements.Advancement;
 
@@ -83,10 +82,15 @@ public class RandomVaseRandomOutputProcedure extends NatureplusModElements.ModEl
 					&& ((!((entity instanceof PlayerEntity) ? ((PlayerEntity) entity).abilities.isCreativeMode : false))
 							&& (!((EnchantmentHelper.getEnchantmentLevel(Enchantments.SILK_TOUCH,
 									((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY))) >= 1))))) {
-				world.playSound(world.getWorld().isRemote ? Minecraft.getInstance().player : (PlayerEntity) null,
-						new BlockPos((x + 0.5), y, (z + 0.5)),
-						(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("natureplus:vase_breaking")),
-						SoundCategory.NEUTRAL, (float) 2, (float) 1);
+				if (!world.getWorld().isRemote) {
+					world.playSound(null, new BlockPos((int) (x + 0.5), (int) y, (int) (z + 0.5)),
+							(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("natureplus:vase_breaking")),
+							SoundCategory.NEUTRAL, (float) 2, (float) 1);
+				} else {
+					world.getWorld().playSound((x + 0.5), y, (z + 0.5),
+							(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("natureplus:vase_breaking")),
+							SoundCategory.NEUTRAL, (float) 2, (float) 1, false);
+				}
 				if (entity instanceof ServerPlayerEntity) {
 					Advancement _adv = ((MinecraftServer) ((ServerPlayerEntity) entity).server).getAdvancementManager()
 							.getAdvancement(new ResourceLocation("natureplus:break_random_vase"));

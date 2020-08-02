@@ -7,7 +7,7 @@ import java.util.Map;
 @NatureplusModElements.ModElement.Tag
 public class ThornsBreakNoSupportProcedure extends NatureplusModElements.ModElement {
 	public ThornsBreakNoSupportProcedure(NatureplusModElements instance) {
-		super(instance, 593);
+		super(instance, 576);
 	}
 
 	public static void executeProcedure(Map<String, Object> dependencies) {

@@ -63,7 +63,8 @@ public class BoneMealJarItem extends NatureplusModElements.ModElement {
 		@Override
 		public void addInformation(ItemStack itemstack, World world, List<ITextComponent> list, ITooltipFlag flag) {
 			super.addInformation(itemstack, world, list, flag);
-			list.add(new StringTextComponent("\u00A77Grows giant flowers"));
+			list.add(new StringTextComponent("\u00A77Similar to Bone Meal"));
+			list.add(new StringTextComponent("\u00A77Right-click a flower to grow a giant version"));
 			list.add(new StringTextComponent("\u00A74Do not grow giant flowers near important structures (WIP)"));
 		}
 

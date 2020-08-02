@@ -30,9 +30,9 @@ import com.mojang.blaze3d.matrix.MatrixStack;
 public class KernelPultHeadHelmetItem extends NatureplusModElements.ModElement {
 	@ObjectHolder("natureplus:kernel_pult_head_helmet")
 	public static final Item helmet = null;
-	@ObjectHolder("natureplus:kernel_pult_head_body")
+	@ObjectHolder("natureplus:kernel_pult_head_chestplate")
 	public static final Item body = null;
-	@ObjectHolder("natureplus:kernel_pult_head_legs")
+	@ObjectHolder("natureplus:kernel_pult_head_leggings")
 	public static final Item legs = null;
 	@ObjectHolder("natureplus:kernel_pult_head_boots")
 	public static final Item boots = null;
@@ -65,7 +65,7 @@ public class KernelPultHeadHelmetItem extends NatureplusModElements.ModElement {
 
 			@OnlyIn(Dist.CLIENT)
 			public String getName() {
-				return "kernel_pult_head_";
+				return "kernel_pult_head";
 			}
 
 			public float getToughness() {

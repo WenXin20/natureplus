@@ -12,7 +12,6 @@ import net.minecraft.world.gen.feature.template.Template;
 import net.minecraft.world.gen.feature.template.PlacementSettings;
 import net.minecraft.world.World;
 import net.minecraft.world.IWorld;
-import net.minecraft.util.math.ChunkPos;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.Rotation;
 import net.minecraft.util.ResourceLocation;
@@ -83,8 +82,8 @@ public class GrowGiantAlliumBonemealProcedure extends NatureplusModElements.ModE
 						Template template = ((ServerWorld) world.getWorld()).getSaveHandler().getStructureTemplateManager()
 								.getTemplateDefaulted(new ResourceLocation("natureplus", "giant_allium1"));
 						if (template != null) {
-							template.addBlocksToWorldChunk(world, new BlockPos((int) (x - 3), (int) y, (int) (z - 3)), new PlacementSettings()
-									.setRotation(Rotation.NONE).setMirror(Mirror.NONE).setChunk((ChunkPos) null).setIgnoreEntities(false));
+							template.addBlocksToWorld(world, new BlockPos((int) (x - 3), (int) y, (int) (z - 3)), new PlacementSettings()
+									.setRotation(Rotation.NONE).setMirror(Mirror.NONE).setChunk(null).setIgnoreEntities(false));
 						}
 					}
 				} else {
@@ -92,8 +91,8 @@ public class GrowGiantAlliumBonemealProcedure extends NatureplusModElements.ModE
 						Template template = ((ServerWorld) world.getWorld()).getSaveHandler().getStructureTemplateManager()
 								.getTemplateDefaulted(new ResourceLocation("natureplus", "giant_allium2"));
 						if (template != null) {
-							template.addBlocksToWorldChunk(world, new BlockPos((int) (x - 3), (int) y, (int) (z - 3)), new PlacementSettings()
-									.setRotation(Rotation.NONE).setMirror(Mirror.NONE).setChunk((ChunkPos) null).setIgnoreEntities(false));
+							template.addBlocksToWorld(world, new BlockPos((int) (x - 3), (int) y, (int) (z - 3)), new PlacementSettings()
+									.setRotation(Rotation.NONE).setMirror(Mirror.NONE).setChunk(null).setIgnoreEntities(false));
 						}
 					}
 				}
@@ -134,8 +133,8 @@ public class GrowGiantAlliumBonemealProcedure extends NatureplusModElements.ModE
 						Template template = ((ServerWorld) world.getWorld()).getSaveHandler().getStructureTemplateManager()
 								.getTemplateDefaulted(new ResourceLocation("natureplus", "giant_allium1"));
 						if (template != null) {
-							template.addBlocksToWorldChunk(world, new BlockPos((int) (x - 3), (int) y, (int) (z - 3)), new PlacementSettings()
-									.setRotation(Rotation.NONE).setMirror(Mirror.NONE).setChunk((ChunkPos) null).setIgnoreEntities(false));
+							template.addBlocksToWorld(world, new BlockPos((int) (x - 3), (int) y, (int) (z - 3)), new PlacementSettings()
+									.setRotation(Rotation.NONE).setMirror(Mirror.NONE).setChunk(null).setIgnoreEntities(false));
 						}
 					}
 				} else {
@@ -143,8 +142,8 @@ public class GrowGiantAlliumBonemealProcedure extends NatureplusModElements.ModE
 						Template template = ((ServerWorld) world.getWorld()).getSaveHandler().getStructureTemplateManager()
 								.getTemplateDefaulted(new ResourceLocation("natureplus", "giant_allium2"));
 						if (template != null) {
-							template.addBlocksToWorldChunk(world, new BlockPos((int) (x - 3), (int) y, (int) (z - 3)), new PlacementSettings()
-									.setRotation(Rotation.NONE).setMirror(Mirror.NONE).setChunk((ChunkPos) null).setIgnoreEntities(false));
+							template.addBlocksToWorld(world, new BlockPos((int) (x - 3), (int) y, (int) (z - 3)), new PlacementSettings()
+									.setRotation(Rotation.NONE).setMirror(Mirror.NONE).setChunk(null).setIgnoreEntities(false));
 						}
 					}
 				}

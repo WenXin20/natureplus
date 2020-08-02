@@ -36,9 +36,9 @@ import com.mojang.blaze3d.matrix.MatrixStack;
 public class ConeHelmetItem extends NatureplusModElements.ModElement {
 	@ObjectHolder("natureplus:cone_helmet")
 	public static final Item helmet = null;
-	@ObjectHolder("natureplus:cone_body")
+	@ObjectHolder("natureplus:cone_chestplate")
 	public static final Item body = null;
-	@ObjectHolder("natureplus:cone_legs")
+	@ObjectHolder("natureplus:cone_leggings")
 	public static final Item legs = null;
 	@ObjectHolder("natureplus:cone_boots")
 	public static final Item boots = null;
@@ -71,7 +71,7 @@ public class ConeHelmetItem extends NatureplusModElements.ModElement {
 
 			@OnlyIn(Dist.CLIENT)
 			public String getName() {
-				return "cone_";
+				return "cone";
 			}
 
 			public float getToughness() {

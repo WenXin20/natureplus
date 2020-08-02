@@ -18,7 +18,6 @@ import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.entity.Entity;
-import net.minecraft.client.Minecraft;
 
 import java.util.Map;
 import java.util.Comparator;
@@ -60,11 +59,11 @@ public class SunflowerSpawnSunProcedure extends NatureplusModElements.ModElement
 			if ((((world
 					.getEntitiesWithinAABB(PlayerEntity.class,
 							new AxisAlignedBB(x - 32 / 2, y - 32 / 2, z - 32 / 2, x + 32 / 2, y + 32 / 2, z + 32 / 2), null)
-					.stream().sorted(Comparator.comparing(_ent -> _ent.getDistanceSq(x, y, z))).findFirst().orElse(null)) != null)
+					.stream().sorted(Comparator.comparing(_entcnd -> _entcnd.getDistanceSq(x, y, z))).findFirst().orElse(null)) != null)
 					|| ((world
 							.getEntitiesWithinAABB(ServerPlayerEntity.class,
 									new AxisAlignedBB(x - 32 / 2, y - 32 / 2, z - 32 / 2, x + 32 / 2, y + 32 / 2, z + 32 / 2), null)
-							.stream().sorted(Comparator.comparing(_ent -> _ent.getDistanceSq(x, y, z))).findFirst().orElse(null)) != null))) {
+							.stream().sorted(Comparator.comparing(_entcnd -> _entcnd.getDistanceSq(x, y, z))).findFirst().orElse(null)) != null))) {
 				if (!world.getWorld().isRemote) {
 					ItemEntity entityToSpawn = new ItemEntity(world.getWorld(), (entity.getPosX()), ((entity.getPosY()) + 1.2), (entity.getPosZ()),
 							new ItemStack(SunItem.block, (int) (1)));
@@ -72,10 +71,17 @@ public class SunflowerSpawnSunProcedure extends NatureplusModElements.ModElement
 					world.addEntity(entityToSpawn);
 				}
 				entity.getPersistentData().putDouble("timer_plant", 2000);
-				world.playSound(world.getWorld().isRemote ? Minecraft.getInstance().player : (PlayerEntity) null,
-						new BlockPos((entity.getPosX()), (entity.getPosY()), (entity.getPosZ())),
-						(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("natureplus:sunflower_collect")),
-						SoundCategory.NEUTRAL, (float) 1, (float) 1);
+				if (!world.getWorld().isRemote) {
+					world.playSound(null, new BlockPos((int) (entity.getPosX()), (int) (entity.getPosY()), (int) (entity.getPosZ())),
+							(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
+									.getValue(new ResourceLocation("natureplus:sunflower_collect")),
+							SoundCategory.NEUTRAL, (float) 1, (float) 1);
+				} else {
+					world.getWorld().playSound((entity.getPosX()), (entity.getPosY()), (entity.getPosZ()),
+							(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS
+									.getValue(new ResourceLocation("natureplus:sunflower_collect")),
+							SoundCategory.NEUTRAL, (float) 1, (float) 1, false);
+				}
 			}
 			if (world instanceof ServerWorld) {
 				((ServerWorld) world).spawnParticle(ParticleTypes.FLAME, x, y, z, (int) 5, 0.1, 0.1, 0.1, 0.01);

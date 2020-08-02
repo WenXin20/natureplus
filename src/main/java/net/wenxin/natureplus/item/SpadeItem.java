@@ -61,7 +61,7 @@ public class SpadeItem extends NatureplusModElements.ModElement {
 			@Override
 			public void addInformation(ItemStack itemstack, World world, List<ITextComponent> list, ITooltipFlag flag) {
 				super.addInformation(itemstack, world, list, flag);
-				list.add(new StringTextComponent("\u00A7bRemoves plants,"));
+				list.add(new StringTextComponent("\u00A7bRemoves PvZ plants,"));
 				list.add(new StringTextComponent("\u00A7bstunts insect growth"));
 			}
 

@@ -43,7 +43,7 @@ public class FreezingOverlayOverlay extends NatureplusModElements.ModElement {
 			double x = entity.getPosX();
 			double y = entity.getPosY();
 			double z = entity.getPosZ();
-			if (FreezingPotionEffectsProcedure.executeProcedure(ImmutableMap.of("entity", entity))) {
+			if (FreezingPotionEffectsProcedure.executeProcedure(ImmutableMap.of("entity", entity, "world", world))) {
 				RenderSystem.disableDepthTest();
 				RenderSystem.depthMask(false);
 				RenderSystem.blendFuncSeparate(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE_MINUS_SRC_ALPHA,
