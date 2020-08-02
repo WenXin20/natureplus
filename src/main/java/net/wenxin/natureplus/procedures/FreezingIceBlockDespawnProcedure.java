@@ -1,11 +1,22 @@
 package net.wenxin.natureplus.procedures;
 
+import net.wenxin.natureplus.NatureplusModElements;
+
+import net.minecraftforge.registries.ForgeRegistries;
+
+import net.minecraft.world.IWorld;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.SoundCategory;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.block.BlockState;
+
+import java.util.Map;
+
 @NatureplusModElements.ModElement.Tag
 public class FreezingIceBlockDespawnProcedure extends NatureplusModElements.ModElement {
-
 	public FreezingIceBlockDespawnProcedure(NatureplusModElements instance) {
 		super(instance, 789);
-
 	}
 
 	public static void executeProcedure(Map<String, Object> dependencies) {
@@ -25,12 +36,10 @@ public class FreezingIceBlockDespawnProcedure extends NatureplusModElements.ModE
 			System.err.println("Failed to load dependency world for procedure FreezingIceBlockDespawn!");
 			return;
 		}
-
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
 		IWorld world = (IWorld) dependencies.get("world");
-
 		if (((new Object() {
 			public double getValue(BlockPos pos, String tag) {
 				TileEntity tileEntity = world.getTileEntity(pos);
@@ -52,7 +61,6 @@ public class FreezingIceBlockDespawnProcedure extends NatureplusModElements.ModE
 							return -1;
 						}
 					}.getValue(new BlockPos((int) x, (int) y, (int) z), "timer_block")) - 1));
-
 				world.getWorld().notifyBlockUpdate(_bp, _bs, _bs, 3);
 			}
 			if (((new Object() {
@@ -83,7 +91,5 @@ public class FreezingIceBlockDespawnProcedure extends NatureplusModElements.ModE
 				}
 			}.getValue(new BlockPos((int) x, (int) y, (int) z), "timer_block")))));
 		}
-
 	}
-
 }

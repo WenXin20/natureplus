@@ -1,11 +1,18 @@
 package net.wenxin.natureplus.procedures;
 
+import net.wenxin.natureplus.NatureplusModElements;
+
+import net.minecraft.world.IWorld;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.block.BlockState;
+
+import java.util.Map;
+
 @NatureplusModElements.ModElement.Tag
 public class BlockTimerProcedure extends NatureplusModElements.ModElement {
-
 	public BlockTimerProcedure(NatureplusModElements instance) {
 		super(instance, 788);
-
 	}
 
 	public static void executeProcedure(Map<String, Object> dependencies) {
@@ -25,23 +32,18 @@ public class BlockTimerProcedure extends NatureplusModElements.ModElement {
 			System.err.println("Failed to load dependency world for procedure BlockTimer!");
 			return;
 		}
-
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
 		IWorld world = (IWorld) dependencies.get("world");
-
 		if (!world.getWorld().isRemote) {
 			BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);
 			TileEntity _tileEntity = world.getTileEntity(_bp);
 			BlockState _bs = world.getBlockState(_bp);
 			if (_tileEntity != null)
 				_tileEntity.getTileData().putDouble("timer_block", 15);
-
 			world.getWorld().notifyBlockUpdate(_bp, _bs, _bs, 3);
 		}
 		System.out.println("timer set to 15");
-
 	}
-
 }
