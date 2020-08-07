@@ -27,7 +27,7 @@ import java.util.HashMap;
 @NatureplusModElements.ModElement.Tag
 public class GrantCratesAdvancementProcedure extends NatureplusModElements.ModElement {
 	public GrantCratesAdvancementProcedure(NatureplusModElements instance) {
-		super(instance, 291);
+		super(instance, 296);
 		MinecraftForge.EVENT_BUS.register(this);
 	}
 

@@ -2,7 +2,7 @@
   "_fv": 10,
   "_type": "block",
   "definition": {
-    "texture": "ice",
+    "texture": "experience_ore",
     "textureTop": "",
     "textureLeft": "",
     "textureFront": "",
@@ -11,24 +11,24 @@
     "renderType": 10,
     "customModelName": "Normal",
     "rotationMode": 0,
-    "emissiveRendering": false,
+    "emissiveRendering": true,
     "itemTexture": "",
-    "hasTransparency": true,
-    "connectedSides": true,
-    "transparencyType": "TRANSLUCENT",
+    "hasTransparency": false,
+    "connectedSides": false,
+    "transparencyType": "SOLID",
     "mx": 0.0,
     "my": 0.0,
     "mz": 0.0,
     "Mx": 1.0,
     "My": 1.0,
     "Mz": 1.0,
-    "name": "Freezing Ice Block",
+    "name": "Experience Ore",
     "specialInfo": [],
-    "hardness": 1.0,
-    "resistance": 0.5,
+    "hardness": 3.0,
+    "resistance": 10.0,
     "hasGravity": false,
     "creativeTab": {
-      "value": "No creative tab entry"
+      "value": "CUSTOM:NaturePlusTab"
     },
     "destroyTool": "pickaxe",
     "customDrop": {
@@ -41,33 +41,29 @@
     "canProvidePower": false,
     "lightOpacity": 255,
     "material": {
-      "value": "GLASS"
+      "value": "ROCK"
     },
     "tickRate": 10,
     "tickRandomly": false,
     "isReplaceable": false,
-    "colorOnMap": "ICE",
+    "colorOnMap": "STONE",
     "creativePickItem": {
       "value": ""
     },
     "offsetType": "NONE",
     "aiPathNodeType": "DEFAULT",
-    "beaconColorModifier": {
-      "value": -10040065,
-      "falpha": 0.0
-    },
     "flammability": 0,
     "fireSpreadSpeed": 0,
     "isLadder": false,
-    "slipperiness": 0.98,
+    "slipperiness": 0.6,
     "reactionToPushing": "NORMAL",
-    "isNotColidable": true,
+    "isNotColidable": false,
     "soundOnStep": {
-      "value": "GLASS"
+      "value": "STONE"
     },
-    "luminance": 0.0,
+    "luminance": 0.2,
     "unbreakable": false,
-    "breakHarvestLevel": 0,
+    "breakHarvestLevel": 1,
     "spawnParticles": false,
     "particleToSpawn": {
       "value": "EXPLOSION_NORMAL"
@@ -75,7 +71,7 @@
     "particleSpawningShape": "Spread",
     "particleSpawningRadious": 0.5,
     "particleAmount": 4,
-    "hasInventory": true,
+    "hasInventory": false,
     "guiBoundTo": "<NONE>",
     "openGUIOnRightClick": false,
     "inventorySize": 9,
@@ -92,17 +88,17 @@
     "isFluidTank": false,
     "fluidCapacity": 8000,
     "fluidRestrictions": [],
-    "onBlockAdded": {
-      "name": "BlockTimer"
-    },
-    "onTickUpdate": {
-      "name": "FreezingIceBlockDespawn"
-    },
-    "spawnWorldTypes": [],
+    "spawnWorldTypes": [
+      "Surface"
+    ],
     "restrictionBiomes": [],
-    "blocksToReplace": [],
+    "blocksToReplace": [
+      {
+        "value": "Blocks.STONE"
+      }
+    ],
     "frequencyPerChunks": 10,
-    "frequencyOnChunk": 16,
+    "frequencyOnChunk": 8,
     "minGenerateHeight": 0,
     "maxGenerateHeight": 64
   }

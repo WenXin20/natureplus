@@ -49,7 +49,7 @@ public class SunflowerHeadBlock extends NatureplusModElements.ModElement impleme
 	@ObjectHolder("natureplus:sunflower_head")
 	public static final Block block = null;
 	public SunflowerHeadBlock(NatureplusModElements instance) {
-		super(instance, 172);
+		super(instance, 177);
 	}
 
 	@Override
@@ -67,7 +67,7 @@ public class SunflowerHeadBlock extends NatureplusModElements.ModElement impleme
 	public static class CustomBlock extends Block implements IWaterLoggable {
 		public static final DirectionProperty FACING = DirectionalBlock.FACING;
 		public CustomBlock() {
-			super(Block.Properties.create(Material.LEAVES).sound(SoundType.PLANT).hardnessAndResistance(2f, 1f).lightValue(0).harvestLevel(0)
+			super(Block.Properties.create(Material.LEAVES).sound(SoundType.PLANT).hardnessAndResistance(2f, 1f).lightValue(3).harvestLevel(0)
 					.harvestTool(ToolType.AXE).notSolid());
 			this.setDefaultState(this.stateContainer.getBaseState().with(FACING, Direction.NORTH).with(WATERLOGGED, false));
 			setRegistryName("sunflower_head");

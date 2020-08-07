@@ -1,0 +1,34 @@
+{
+  "_fv": 10,
+  "_type": "tag",
+  "definition": {
+    "type": "Items",
+    "items": [
+      {
+        "value": "CUSTOM:ButterflyNet"
+      },
+      {
+        "value": "CUSTOM:BeeButterflyNet"
+      },
+      {
+        "value": "CUSTOM:MonarchButterflyNet"
+      },
+      {
+        "value": "CUSTOM:StoneButterflyNet"
+      },
+      {
+        "value": "CUSTOM:IronButterflyNet"
+      },
+      {
+        "value": "CUSTOM:GoldenButterflyNet"
+      },
+      {
+        "value": "CUSTOM:DiamondButterflyNet"
+      }
+    ],
+    "blocks": [],
+    "functions": [],
+    "name": "butterfly_nets",
+    "namespace": "mod"
+  }
+}

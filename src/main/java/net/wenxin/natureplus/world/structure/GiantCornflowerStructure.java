@@ -33,7 +33,7 @@ import java.util.Random;
 @NatureplusModElements.ModElement.Tag
 public class GiantCornflowerStructure extends NatureplusModElements.ModElement {
 	public GiantCornflowerStructure(NatureplusModElements instance) {
-		super(instance, 583);
+		super(instance, 588);
 	}
 
 	@Override

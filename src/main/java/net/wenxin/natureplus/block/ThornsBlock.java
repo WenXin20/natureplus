@@ -86,7 +86,7 @@ public class ThornsBlock extends NatureplusModElements.ModElement implements IWa
 	@ObjectHolder("natureplus:thorn")
 	public static final TileEntityType<CustomTileEntity> tileEntityType = null;
 	public ThornsBlock(NatureplusModElements instance) {
-		super(instance, 102);
+		super(instance, 103);
 		FMLJavaModLoadingContext.get().getModEventBus().register(this);
 	}
 

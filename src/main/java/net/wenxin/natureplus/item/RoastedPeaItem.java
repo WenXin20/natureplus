@@ -16,7 +16,7 @@ public class RoastedPeaItem extends NatureplusModElements.ModElement {
 	@ObjectHolder("natureplus:roasted_pea")
 	public static final Item block = null;
 	public RoastedPeaItem(NatureplusModElements instance) {
-		super(instance, 191);
+		super(instance, 196);
 	}
 
 	@Override

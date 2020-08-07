@@ -53,7 +53,7 @@ public class MexicanSunflowerBlock extends NatureplusModElements.ModElement {
 	@ObjectHolder("natureplus:mexican_sunflower")
 	public static final Block block = null;
 	public MexicanSunflowerBlock(NatureplusModElements instance) {
-		super(instance, 103);
+		super(instance, 104);
 	}
 
 	@Override

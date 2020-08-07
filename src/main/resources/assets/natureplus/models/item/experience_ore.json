@@ -1,5 +1,5 @@
 {
-  "parent": "natureplus:block/freezing_ice_block",
+  "parent": "natureplus:block/experience_ore",
   "display": {
     "thirdperson": {
       "rotation": [

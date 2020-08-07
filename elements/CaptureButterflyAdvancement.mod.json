@@ -3,7 +3,7 @@
   "_type": "achievement",
   "definition": {
     "achievementName": "Butterfly Maniac",
-    "achievementDescription": "Capture a butterfly with a Butterfly Net",
+    "achievementDescription": "Capture any mob with a Butterfly Net",
     "achievementIcon": {
       "value": "CUSTOM:MonarchButterflyNet"
     },

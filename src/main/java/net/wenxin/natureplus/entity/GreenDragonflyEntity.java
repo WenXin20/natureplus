@@ -60,7 +60,7 @@ import com.google.common.collect.ImmutableMap;
 public class GreenDragonflyEntity extends NatureplusModElements.ModElement {
 	public static EntityType entity = null;
 	public GreenDragonflyEntity(NatureplusModElements instance) {
-		super(instance, 125);
+		super(instance, 130);
 		FMLJavaModLoadingContext.get().getModEventBus().register(this);
 	}
 

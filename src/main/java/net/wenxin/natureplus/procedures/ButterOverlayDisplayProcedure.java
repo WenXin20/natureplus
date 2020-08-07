@@ -7,7 +7,7 @@ import java.util.Map;
 @NatureplusModElements.ModElement.Tag
 public class ButterOverlayDisplayProcedure extends NatureplusModElements.ModElement {
 	public ButterOverlayDisplayProcedure(NatureplusModElements instance) {
-		super(instance, 658);
+		super(instance, 663);
 	}
 
 	public static void executeProcedure(Map<String, Object> dependencies) {

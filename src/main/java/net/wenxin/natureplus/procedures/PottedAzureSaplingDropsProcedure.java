@@ -14,7 +14,7 @@ import java.util.Map;
 @NatureplusModElements.ModElement.Tag
 public class PottedAzureSaplingDropsProcedure extends NatureplusModElements.ModElement {
 	public PottedAzureSaplingDropsProcedure(NatureplusModElements instance) {
-		super(instance, 253);
+		super(instance, 258);
 	}
 
 	public static void executeProcedure(Map<String, Object> dependencies) {

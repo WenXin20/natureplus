@@ -14,7 +14,7 @@ import java.util.Map;
 @NatureplusModElements.ModElement.Tag
 public class ButterflyEggNaturalSpawnProcedure extends NatureplusModElements.ModElement {
 	public ButterflyEggNaturalSpawnProcedure(NatureplusModElements instance) {
-		super(instance, 770);
+		super(instance, 771);
 	}
 
 	public static boolean executeProcedure(Map<String, Object> dependencies) {

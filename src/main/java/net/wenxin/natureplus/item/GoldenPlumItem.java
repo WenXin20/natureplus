@@ -22,7 +22,7 @@ public class GoldenPlumItem extends NatureplusModElements.ModElement {
 	@ObjectHolder("natureplus:golden_plum")
 	public static final Item block = null;
 	public GoldenPlumItem(NatureplusModElements instance) {
-		super(instance, 108);
+		super(instance, 109);
 	}
 
 	@Override

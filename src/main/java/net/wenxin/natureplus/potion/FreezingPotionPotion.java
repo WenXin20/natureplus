@@ -1,6 +1,7 @@
 
 package net.wenxin.natureplus.potion;
 
+import net.wenxin.natureplus.procedures.FreezingPotionIceBreakProcedure;
 import net.wenxin.natureplus.procedures.FreezingPotionEffectsProcedure;
 import net.wenxin.natureplus.NatureplusModElements;
 
@@ -15,6 +16,7 @@ import net.minecraft.potion.Potion;
 import net.minecraft.potion.EffectType;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effect;
+import net.minecraft.entity.ai.attributes.AbstractAttributeMap;
 import net.minecraft.entity.LivingEntity;
 
 import java.util.Map;
@@ -27,7 +29,7 @@ public class FreezingPotionPotion extends NatureplusModElements.ModElement {
 	@ObjectHolder("natureplus:freezing_potion")
 	public static final Potion potionType = null;
 	public FreezingPotionPotion(NatureplusModElements instance) {
-		super(instance, 651);
+		super(instance, 656);
 		FMLJavaModLoadingContext.get().getModEventBus().register(this);
 	}
 
@@ -96,6 +98,21 @@ public class FreezingPotionPotion extends NatureplusModElements.ModElement {
 				$_dependencies.put("entity", entity);
 				$_dependencies.put("world", world);
 				FreezingPotionEffectsProcedure.executeProcedure($_dependencies);
+			}
+		}
+
+		@Override
+		public void removeAttributesModifiersFromEntity(LivingEntity entity, AbstractAttributeMap attributeMapIn, int amplifier) {
+			super.removeAttributesModifiersFromEntity(entity, attributeMapIn, amplifier);
+			World world = entity.world;
+			double x = entity.getPosX();
+			double y = entity.getPosY();
+			double z = entity.getPosZ();
+			{
+				Map<String, Object> $_dependencies = new HashMap<>();
+				$_dependencies.put("entity", entity);
+				$_dependencies.put("world", world);
+				FreezingPotionIceBreakProcedure.executeProcedure($_dependencies);
 			}
 		}
 

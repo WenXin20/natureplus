@@ -46,7 +46,7 @@ import com.mojang.blaze3d.matrix.MatrixStack;
 public class OrangeBalloonEntity extends NatureplusModElements.ModElement {
 	public static EntityType entity = null;
 	public OrangeBalloonEntity(NatureplusModElements instance) {
-		super(instance, 147);
+		super(instance, 152);
 		FMLJavaModLoadingContext.get().getModEventBus().register(this);
 	}
 

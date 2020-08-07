@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "natureplus:butterfly_net",
+    "natureplus:captured_bee_butterfly_net",
+    "natureplus:captured_monarch_butterfly_butterfly_net",
+    "natureplus:stone_butterfly_net",
+    "natureplus:iron_butterfly_net",
+    "natureplus:golden_butterfly_net",
+    "natureplus:diamond_butterfly_net"
+  ]
+}

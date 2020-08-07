@@ -44,6 +44,5 @@ public class BlockTimerProcedure extends NatureplusModElements.ModElement {
 				_tileEntity.getTileData().putDouble("timer_block", 15);
 			world.getWorld().notifyBlockUpdate(_bp, _bs, _bs, 3);
 		}
-		System.out.println("timer set to 15");
 	}
 }

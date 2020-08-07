@@ -14,7 +14,7 @@ public class MonarchButterflyIconItem extends NatureplusModElements.ModElement {
 	@ObjectHolder("natureplus:monarch_butterfly_icon")
 	public static final Item block = null;
 	public MonarchButterflyIconItem(NatureplusModElements instance) {
-		super(instance, 684);
+		super(instance, 689);
 	}
 
 	@Override

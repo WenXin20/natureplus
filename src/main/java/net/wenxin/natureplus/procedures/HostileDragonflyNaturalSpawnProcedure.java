@@ -12,7 +12,7 @@ import java.util.Map;
 @NatureplusModElements.ModElement.Tag
 public class HostileDragonflyNaturalSpawnProcedure extends NatureplusModElements.ModElement {
 	public HostileDragonflyNaturalSpawnProcedure(NatureplusModElements instance) {
-		super(instance, 765);
+		super(instance, 770);
 	}
 
 	public static boolean executeProcedure(Map<String, Object> dependencies) {

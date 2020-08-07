@@ -76,7 +76,7 @@ public class KernelPultHeadBlock extends NatureplusModElements.ModElement implem
 	@ObjectHolder("natureplus:kernel_pult_head")
 	public static final Block block = null;
 	public KernelPultHeadBlock(NatureplusModElements instance) {
-		super(instance, 178);
+		super(instance, 183);
 	}
 
 	@Override

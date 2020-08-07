@@ -39,7 +39,7 @@ public class GlassStairsBlock extends NatureplusModElements.ModElement {
 	@ObjectHolder("natureplus:glass_stairs")
 	public static final Block block = null;
 	public GlassStairsBlock(NatureplusModElements instance) {
-		super(instance, 81);
+		super(instance, 83);
 	}
 
 	@Override

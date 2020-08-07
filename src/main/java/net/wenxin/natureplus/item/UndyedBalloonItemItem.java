@@ -25,7 +25,7 @@ public class UndyedBalloonItemItem extends NatureplusModElements.ModElement {
 	@ObjectHolder("natureplus:undyed_balloon_item")
 	public static final Item block = null;
 	public UndyedBalloonItemItem(NatureplusModElements instance) {
-		super(instance, 128);
+		super(instance, 133);
 	}
 
 	@Override

@@ -24,7 +24,7 @@ import com.google.common.collect.ImmutableMap;
 @NatureplusModElements.ModElement.Tag
 public class ButterOverlayOverlay extends NatureplusModElements.ModElement {
 	public ButterOverlayOverlay(NatureplusModElements instance) {
-		super(instance, 654);
+		super(instance, 659);
 	}
 
 	@Override
@@ -43,7 +43,7 @@ public class ButterOverlayOverlay extends NatureplusModElements.ModElement {
 			double x = entity.getPosX();
 			double y = entity.getPosY();
 			double z = entity.getPosZ();
-			if (ButterPotionEffectProcedure.executeProcedure(ImmutableMap.of("entity", entity))) {
+			if (ButterPotionEffectProcedure.executeProcedure(ImmutableMap.of("entity", entity, "world", world))) {
 				RenderSystem.disableDepthTest();
 				RenderSystem.depthMask(false);
 				RenderSystem.blendFuncSeparate(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE_MINUS_SRC_ALPHA,

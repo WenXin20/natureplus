@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "natureplus:blocks/experience_ore",
+    "up": "natureplus:blocks/experience_ore",
+    "north": "natureplus:blocks/experience_ore",
+    "east": "natureplus:blocks/experience_ore",
+    "south": "natureplus:blocks/experience_ore",
+    "west": "natureplus:blocks/experience_ore",
+    "particle": "natureplus:blocks/experience_ore"
+  }
+}

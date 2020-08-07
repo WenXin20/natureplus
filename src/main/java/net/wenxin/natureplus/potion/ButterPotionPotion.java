@@ -27,7 +27,7 @@ public class ButterPotionPotion extends NatureplusModElements.ModElement {
 	@ObjectHolder("natureplus:butter_potion")
 	public static final Potion potionType = null;
 	public ButterPotionPotion(NatureplusModElements instance) {
-		super(instance, 657);
+		super(instance, 662);
 		FMLJavaModLoadingContext.get().getModEventBus().register(this);
 	}
 
@@ -94,6 +94,7 @@ public class ButterPotionPotion extends NatureplusModElements.ModElement {
 			{
 				Map<String, Object> $_dependencies = new HashMap<>();
 				$_dependencies.put("entity", entity);
+				$_dependencies.put("world", world);
 				ButterPotionEffectProcedure.executeProcedure($_dependencies);
 			}
 		}

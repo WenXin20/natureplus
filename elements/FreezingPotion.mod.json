@@ -17,6 +17,9 @@
     "renderStatusInHUD": true,
     "onActiveTick": {
       "name": "FreezingPotionEffects"
+    },
+    "onExpired": {
+      "name": "FreezingPotionIceBreak"
     }
   }
 }

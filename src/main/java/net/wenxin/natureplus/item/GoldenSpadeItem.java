@@ -28,7 +28,7 @@ public class GoldenSpadeItem extends NatureplusModElements.ModElement {
 	@ObjectHolder("natureplus:golden_spade")
 	public static final Item block = null;
 	public GoldenSpadeItem(NatureplusModElements instance) {
-		super(instance, 188);
+		super(instance, 193);
 	}
 
 	@Override

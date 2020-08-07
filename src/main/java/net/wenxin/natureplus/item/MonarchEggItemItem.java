@@ -29,7 +29,7 @@ public class MonarchEggItemItem extends NatureplusModElements.ModElement {
 	@ObjectHolder("natureplus:monarch_egg_item")
 	public static final Item block = null;
 	public MonarchEggItemItem(NatureplusModElements instance) {
-		super(instance, 116);
+		super(instance, 117);
 	}
 
 	@Override
