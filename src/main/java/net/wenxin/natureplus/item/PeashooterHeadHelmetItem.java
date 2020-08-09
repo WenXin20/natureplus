@@ -36,7 +36,7 @@ public class PeashooterHeadHelmetItem extends NatureplusModElements.ModElement {
 	@ObjectHolder("natureplus:peashooter_head_boots")
 	public static final Item boots = null;
 	public PeashooterHeadHelmetItem(NatureplusModElements instance) {
-		super(instance, 180);
+		super(instance, 181);
 	}
 
 	@Override

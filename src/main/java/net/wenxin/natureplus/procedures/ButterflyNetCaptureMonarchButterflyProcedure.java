@@ -16,7 +16,7 @@ import java.util.HashMap;
 @NatureplusModElements.ModElement.Tag
 public class ButterflyNetCaptureMonarchButterflyProcedure extends NatureplusModElements.ModElement {
 	public ButterflyNetCaptureMonarchButterflyProcedure(NatureplusModElements instance) {
-		super(instance, 667);
+		super(instance, 668);
 		MinecraftForge.EVENT_BUS.register(this);
 	}
 

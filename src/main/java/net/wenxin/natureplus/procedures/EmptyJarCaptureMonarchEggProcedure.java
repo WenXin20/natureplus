@@ -30,7 +30,7 @@ import java.util.HashMap;
 @NatureplusModElements.ModElement.Tag
 public class EmptyJarCaptureMonarchEggProcedure extends NatureplusModElements.ModElement {
 	public EmptyJarCaptureMonarchEggProcedure(NatureplusModElements instance) {
-		super(instance, 564);
+		super(instance, 565);
 		MinecraftForge.EVENT_BUS.register(this);
 	}
 

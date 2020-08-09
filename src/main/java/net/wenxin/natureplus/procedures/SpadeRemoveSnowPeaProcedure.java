@@ -34,7 +34,7 @@ import java.util.HashMap;
 @NatureplusModElements.ModElement.Tag
 public class SpadeRemoveSnowPeaProcedure extends NatureplusModElements.ModElement {
 	public SpadeRemoveSnowPeaProcedure(NatureplusModElements instance) {
-		super(instance, 542);
+		super(instance, 543);
 		MinecraftForge.EVENT_BUS.register(this);
 	}
 

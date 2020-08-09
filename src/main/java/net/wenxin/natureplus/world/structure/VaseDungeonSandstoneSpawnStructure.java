@@ -31,7 +31,7 @@ import java.util.Random;
 @NatureplusModElements.ModElement.Tag
 public class VaseDungeonSandstoneSpawnStructure extends NatureplusModElements.ModElement {
 	public VaseDungeonSandstoneSpawnStructure(NatureplusModElements instance) {
-		super(instance, 642);
+		super(instance, 643);
 	}
 
 	@Override

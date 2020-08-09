@@ -13,7 +13,7 @@ import net.minecraft.item.ItemStack;
 @NatureplusModElements.ModElement.Tag
 public class PlantStemPlanksFuelFuel extends NatureplusModElements.ModElement {
 	public PlantStemPlanksFuelFuel(NatureplusModElements instance) {
-		super(instance, 353);
+		super(instance, 354);
 		MinecraftForge.EVENT_BUS.register(this);
 	}
 

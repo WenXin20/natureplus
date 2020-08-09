@@ -9,7 +9,7 @@ import java.util.Map;
 @NatureplusModElements.ModElement.Tag
 public class DisablePushingOfMobsProcedure extends NatureplusModElements.ModElement {
 	public DisablePushingOfMobsProcedure(NatureplusModElements instance) {
-		super(instance, 660);
+		super(instance, 661);
 	}
 
 	public static void executeProcedure(Map<String, Object> dependencies) {

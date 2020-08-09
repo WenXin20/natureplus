@@ -16,7 +16,7 @@ import java.util.Map;
 @NatureplusModElements.ModElement.Tag
 public class CrateCloseGUIProcedure extends NatureplusModElements.ModElement {
 	public CrateCloseGUIProcedure(NatureplusModElements instance) {
-		super(instance, 235);
+		super(instance, 236);
 	}
 
 	public static void executeProcedure(Map<String, Object> dependencies) {
