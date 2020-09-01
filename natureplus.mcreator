@@ -6468,6 +6468,15 @@
       "registry_name": "diamond_spade_recipe"
     },
     {
+      "name": "RandomVase",
+      "type": "block",
+      "sortid": 805,
+      "compiles": true,
+      "locked_code": true,
+      "ids": {},
+      "registry_name": "random_vase"
+    },
+    {
       "name": "PlantVase",
       "type": "block",
       "sortid": 174,
@@ -9989,7 +9998,7 @@
       "type": "block",
       "sortid": 85,
       "compiles": true,
-      "locked_code": true,
+      "locked_code": false,
       "ids": {},
       "registry_name": "experience_ore"
     },
@@ -10141,6 +10150,41 @@
       "registry_name": "experience_ore_item_tag"
     },
     {
+      "name": "ButtonCloseGUI",
+      "type": "procedure",
+      "sortid": 806,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "button_close_gui",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      }
+    },
+    {
+      "name": "NatureplusSkullTileEntity",
+      "type": "code",
+      "sortid": 803,
+      "compiles": true,
+      "locked_code": true,
+      "ids": {},
+      "registry_name": "natureplus_skull_tile_entity"
+    },
+    {
+      "name": "MallardDuck",
+      "type": "mob",
+      "sortid": 133,
+      "compiles": true,
+      "locked_code": true,
+      "ids": {},
+      "registry_name": "mallard_duck"
+    },
+    {
       "name": "DuckNaturalSpawn",
       "type": "procedure",
       "sortid": 803,
@@ -10166,32 +10210,6 @@
           {
             "name": "world",
             "type": "world"
-          }
-        ]
-      }
-    },
-    {
-      "name": "RandomVase",
-      "type": "block",
-      "sortid": 805,
-      "compiles": true,
-      "locked_code": true,
-      "ids": {},
-      "registry_name": "random_vase"
-    },
-    {
-      "name": "ButtonCloseGUI",
-      "type": "procedure",
-      "sortid": 806,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "button_close_gui",
-      "metadata": {
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
           }
         ]
       }
@@ -10398,6 +10416,27 @@
         "balloon_rub"
       ],
       "category": "master"
+    },
+    {
+      "name": "duck_hurt",
+      "files": [
+        "duck_hurt"
+      ],
+      "category": "master"
+    },
+    {
+      "name": "duck_ambient",
+      "files": [
+        "duck_ambient"
+      ],
+      "category": "master"
+    },
+    {
+      "name": "duck_death",
+      "files": [
+        "duck_death"
+      ],
+      "category": "master"
     }
   ],
   "language_map": {
@@ -10419,6 +10458,7 @@
       "block.natureplus.azure_wood": "Azure Wood",
       "block.natureplus.blue_petal_block": "Blue Petals Block",
       "item.minecraft.splash_potion.effect.butter_potion": "Splash Potion of Butter",
+      "entity.natureplus.mallard_duck": "Mallard Duck",
       "item.natureplus.magenta_petal": "Magenta Petal",
       "item.natureplus.butterfly_net": "Wooden Butterfly Net",
       "block.natureplus.azure_log": "Azure Log",
@@ -10452,6 +10492,7 @@
       "item.natureplus.sunflower_head_leggings": "Peashooter Head Leggings",
       "item.natureplus.cone_chestplate": "Cone Body",
       "item.natureplus.peashooter_head_boots": "Peashooter Head Boots",
+      "item.natureplus.mallard_duck": "Mallard Duck Spawn Egg",
       "item.natureplus.monarch_egg_jar": "Monarch Egg Jar",
       "item.natureplus.orange_balloon": "Orange Balloon Spawn Egg",
       "block.natureplus.azure_sapling": "Azure Sapling",
@@ -10754,8 +10795,8 @@
       "block.natureplus.azure_fence": "Azure Fence",
       "item.natureplus.cyan_petal": "Cyan Petal",
       "natureplus.tooltip.butterfly_net.health.key": "§6Health: %d/%d",
-      "advancements.cone_hat.title": "Cone Hat",
       "advancements.consume_golden_mexican_sunflower_seeds.title": "Yum!",
+      "advancements.cone_hat.title": "Cone Hat",
       "block.natureplus.glass_slab": "Glass Slab",
       "block.natureplus.azure_wood_wall": "Azure Wood Wall",
       "advancements.giant_white_tulip_advancement.title": "Giant White Tulips",
@@ -10827,5 +10868,5 @@
     "modElementsPackage": "net.wenxin.natureplus",
     "lockBaseModFiles": false
   },
-  "mcreatorVersion": 202000535716
+  "mcreatorVersion": 202000431617
 }

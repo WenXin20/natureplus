@@ -223,5 +223,32 @@
         "stream": false
       }
     ]
+  },
+  "duck_hurt": {
+    "category": "master",
+    "sounds": [
+      {
+        "name": "natureplus:duck_hurt",
+        "stream": false
+      }
+    ]
+  },
+  "duck_ambient": {
+    "category": "master",
+    "sounds": [
+      {
+        "name": "natureplus:duck_ambient",
+        "stream": false
+      }
+    ]
+  },
+  "duck_death": {
+    "category": "master",
+    "sounds": [
+      {
+        "name": "natureplus:duck_death",
+        "stream": false
+      }
+    ]
   }
 }

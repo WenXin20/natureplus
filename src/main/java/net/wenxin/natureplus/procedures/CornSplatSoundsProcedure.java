@@ -14,7 +14,7 @@ import java.util.Map;
 @NatureplusModElements.ModElement.Tag
 public class CornSplatSoundsProcedure extends NatureplusModElements.ModElement {
 	public CornSplatSoundsProcedure(NatureplusModElements instance) {
-		super(instance, 644);
+		super(instance, 645);
 	}
 
 	public static void executeProcedure(Map<String, Object> dependencies) {

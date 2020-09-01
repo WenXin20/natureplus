@@ -36,7 +36,7 @@ public class SnowPeaHeadHelmetItem extends NatureplusModElements.ModElement {
 	@ObjectHolder("natureplus:snow_pea_head_boots")
 	public static final Item boots = null;
 	public SnowPeaHeadHelmetItem(NatureplusModElements instance) {
-		super(instance, 182);
+		super(instance, 183);
 	}
 
 	@Override

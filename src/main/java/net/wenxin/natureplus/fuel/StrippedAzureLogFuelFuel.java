@@ -13,7 +13,7 @@ import net.minecraft.item.ItemStack;
 @NatureplusModElements.ModElement.Tag
 public class StrippedAzureLogFuelFuel extends NatureplusModElements.ModElement {
 	public StrippedAzureLogFuelFuel(NatureplusModElements instance) {
-		super(instance, 253);
+		super(instance, 254);
 		MinecraftForge.EVENT_BUS.register(this);
 	}
 

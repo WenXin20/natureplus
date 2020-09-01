@@ -38,7 +38,7 @@ import java.util.HashMap;
 @NatureplusModElements.ModElement.Tag
 public class RandomVaseRandomOutputRedstoneProcedure extends NatureplusModElements.ModElement {
 	public RandomVaseRandomOutputRedstoneProcedure(NatureplusModElements instance) {
-		super(instance, 696);
+		super(instance, 697);
 		MinecraftForge.EVENT_BUS.register(this);
 	}
 

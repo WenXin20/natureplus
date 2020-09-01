@@ -13,7 +13,7 @@ import net.minecraft.item.ItemStack;
 @NatureplusModElements.ModElement.Tag
 public class AzureTrapdoorFuelFuel extends NatureplusModElements.ModElement {
 	public AzureTrapdoorFuelFuel(NatureplusModElements instance) {
-		super(instance, 318);
+		super(instance, 319);
 		MinecraftForge.EVENT_BUS.register(this);
 	}
 

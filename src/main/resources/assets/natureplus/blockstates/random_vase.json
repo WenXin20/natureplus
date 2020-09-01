@@ -1,7 +1,6 @@
 {
-  "variants": {
-    "": {
-      "model": "natureplus:block/random_vase"
+    "variants": {
+        "texture=default": { "model": "natureplus:block/random_vase" },
+        "texture=christmas": { "model": "natureplus:block/plant_vase" }
     }
-  }
 }
