@@ -40,27 +40,33 @@ public class SpadeRemovePeashooterProcedure extends NatureplusModElements.ModEle
 
 	public static void executeProcedure(Map<String, Object> dependencies) {
 		if (dependencies.get("entity") == null) {
-			System.err.println("Failed to load dependency entity for procedure SpadeRemovePeashooter!");
+			if (!dependencies.containsKey("entity"))
+				System.err.println("Failed to load dependency entity for procedure SpadeRemovePeashooter!");
 			return;
 		}
 		if (dependencies.get("sourceentity") == null) {
-			System.err.println("Failed to load dependency sourceentity for procedure SpadeRemovePeashooter!");
+			if (!dependencies.containsKey("sourceentity"))
+				System.err.println("Failed to load dependency sourceentity for procedure SpadeRemovePeashooter!");
 			return;
 		}
 		if (dependencies.get("x") == null) {
-			System.err.println("Failed to load dependency x for procedure SpadeRemovePeashooter!");
+			if (!dependencies.containsKey("x"))
+				System.err.println("Failed to load dependency x for procedure SpadeRemovePeashooter!");
 			return;
 		}
 		if (dependencies.get("y") == null) {
-			System.err.println("Failed to load dependency y for procedure SpadeRemovePeashooter!");
+			if (!dependencies.containsKey("y"))
+				System.err.println("Failed to load dependency y for procedure SpadeRemovePeashooter!");
 			return;
 		}
 		if (dependencies.get("z") == null) {
-			System.err.println("Failed to load dependency z for procedure SpadeRemovePeashooter!");
+			if (!dependencies.containsKey("z"))
+				System.err.println("Failed to load dependency z for procedure SpadeRemovePeashooter!");
 			return;
 		}
 		if (dependencies.get("world") == null) {
-			System.err.println("Failed to load dependency world for procedure SpadeRemovePeashooter!");
+			if (!dependencies.containsKey("world"))
+				System.err.println("Failed to load dependency world for procedure SpadeRemovePeashooter!");
 			return;
 		}
 		Entity entity = (Entity) dependencies.get("entity");

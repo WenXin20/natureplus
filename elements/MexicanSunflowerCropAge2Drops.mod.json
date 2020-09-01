@@ -1,5 +1,5 @@
 {
-  "_fv": 10,
+  "_fv": 11,
   "_type": "loottable",
   "definition": {
     "type": "Block",
@@ -16,7 +16,14 @@
             "item": {
               "value": "CUSTOM:MexicanSunflowerSeeds"
             },
-            "weight": 1
+            "weight": 1,
+            "minCount": 1,
+            "maxCount": 1,
+            "minEnchantmentLevel": 0,
+            "maxEnchantmentLevel": 0,
+            "affectedByFortune": false,
+            "explosionDecay": false,
+            "silkTouchMode": 0
           }
         ]
       }

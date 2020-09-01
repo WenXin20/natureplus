@@ -41,23 +41,28 @@ public class GrowAzureTreeBonemealJarProcedure extends NatureplusModElements.Mod
 
 	public static void executeProcedure(Map<String, Object> dependencies) {
 		if (dependencies.get("entity") == null) {
-			System.err.println("Failed to load dependency entity for procedure GrowAzureTreeBonemealJar!");
+			if (!dependencies.containsKey("entity"))
+				System.err.println("Failed to load dependency entity for procedure GrowAzureTreeBonemealJar!");
 			return;
 		}
 		if (dependencies.get("x") == null) {
-			System.err.println("Failed to load dependency x for procedure GrowAzureTreeBonemealJar!");
+			if (!dependencies.containsKey("x"))
+				System.err.println("Failed to load dependency x for procedure GrowAzureTreeBonemealJar!");
 			return;
 		}
 		if (dependencies.get("y") == null) {
-			System.err.println("Failed to load dependency y for procedure GrowAzureTreeBonemealJar!");
+			if (!dependencies.containsKey("y"))
+				System.err.println("Failed to load dependency y for procedure GrowAzureTreeBonemealJar!");
 			return;
 		}
 		if (dependencies.get("z") == null) {
-			System.err.println("Failed to load dependency z for procedure GrowAzureTreeBonemealJar!");
+			if (!dependencies.containsKey("z"))
+				System.err.println("Failed to load dependency z for procedure GrowAzureTreeBonemealJar!");
 			return;
 		}
 		if (dependencies.get("world") == null) {
-			System.err.println("Failed to load dependency world for procedure GrowAzureTreeBonemealJar!");
+			if (!dependencies.containsKey("world"))
+				System.err.println("Failed to load dependency world for procedure GrowAzureTreeBonemealJar!");
 			return;
 		}
 		Entity entity = (Entity) dependencies.get("entity");

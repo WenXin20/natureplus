@@ -1,5 +1,5 @@
 {
-  "_fv": 10,
+  "_fv": 11,
   "_type": "block",
   "definition": {
     "texture": "mexican_sunflower7",
@@ -34,6 +34,7 @@
       "value": "Blocks.FLOWER_POT"
     },
     "dropAmount": 1,
+    "useLootTableForDrops": false,
     "isBeaconBase": false,
     "enchantPowerBonus": 0.0,
     "plantsGrowOn": false,

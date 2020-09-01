@@ -21,11 +21,13 @@ public class GrantKillConeheadZombieProcedure extends NatureplusModElements.ModE
 
 	public static void executeProcedure(Map<String, Object> dependencies) {
 		if (dependencies.get("entity") == null) {
-			System.err.println("Failed to load dependency entity for procedure GrantKillConeheadZombie!");
+			if (!dependencies.containsKey("entity"))
+				System.err.println("Failed to load dependency entity for procedure GrantKillConeheadZombie!");
 			return;
 		}
 		if (dependencies.get("sourceentity") == null) {
-			System.err.println("Failed to load dependency sourceentity for procedure GrantKillConeheadZombie!");
+			if (!dependencies.containsKey("sourceentity"))
+				System.err.println("Failed to load dependency sourceentity for procedure GrantKillConeheadZombie!");
 			return;
 		}
 		Entity entity = (Entity) dependencies.get("entity");

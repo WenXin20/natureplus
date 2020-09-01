@@ -23,11 +23,13 @@ public class FreezingPotionEffectsProcedure extends NatureplusModElements.ModEle
 
 	public static boolean executeProcedure(Map<String, Object> dependencies) {
 		if (dependencies.get("entity") == null) {
-			System.err.println("Failed to load dependency entity for procedure FreezingPotionEffects!");
+			if (!dependencies.containsKey("entity"))
+				System.err.println("Failed to load dependency entity for procedure FreezingPotionEffects!");
 			return false;
 		}
 		if (dependencies.get("world") == null) {
-			System.err.println("Failed to load dependency world for procedure FreezingPotionEffects!");
+			if (!dependencies.containsKey("world"))
+				System.err.println("Failed to load dependency world for procedure FreezingPotionEffects!");
 			return false;
 		}
 		Entity entity = (Entity) dependencies.get("entity");

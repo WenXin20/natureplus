@@ -4,10 +4,10 @@ package net.wenxin.natureplus.gui;
 import org.lwjgl.opengl.GL11;
 
 import net.wenxin.natureplus.procedures.CrateCloseGUIProcedure;
+import net.wenxin.natureplus.procedures.ButtonCloseGUIProcedure;
 import net.wenxin.natureplus.NatureplusModElements;
 import net.wenxin.natureplus.NatureplusMod;
 
-import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.items.SlotItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 import net.minecraftforge.items.IItemHandler;
@@ -22,10 +22,8 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.api.distmarker.Dist;
 
 import net.minecraft.world.World;
-import net.minecraft.world.IWorld;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.SoundCategory;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.network.PacketBuffer;
@@ -320,6 +318,15 @@ public class CrateGUI2Gui extends NatureplusModElements.ModElement {
 		@Override
 		public void onContainerClosed(PlayerEntity playerIn) {
 			super.onContainerClosed(playerIn);
+			{
+				Map<String, Object> $_dependencies = new HashMap<>();
+				$_dependencies.put("entity", entity);
+				$_dependencies.put("x", x);
+				$_dependencies.put("y", y);
+				$_dependencies.put("z", z);
+				$_dependencies.put("world", world);
+				CrateCloseGUIProcedure.executeProcedure($_dependencies);
+			}
 			if (!bound && (playerIn instanceof ServerPlayerEntity)) {
 				if (!playerIn.isAlive() || playerIn instanceof ServerPlayerEntity && ((ServerPlayerEntity) playerIn).hasDisconnected()) {
 					for (int j = 0; j < internal.getSlots(); ++j) {
@@ -496,7 +503,7 @@ public class CrateGUI2Gui extends NatureplusModElements.ModElement {
 				$_dependencies.put("y", y);
 				$_dependencies.put("z", z);
 				$_dependencies.put("world", world);
-				CrateCloseGUIProcedure.executeProcedure($_dependencies);
+				ButtonCloseGUIProcedure.executeProcedure($_dependencies);
 			}
 		}
 	}

@@ -23,11 +23,13 @@ public class ButterPotionEffectProcedure extends NatureplusModElements.ModElemen
 
 	public static boolean executeProcedure(Map<String, Object> dependencies) {
 		if (dependencies.get("entity") == null) {
-			System.err.println("Failed to load dependency entity for procedure ButterPotionEffect!");
+			if (!dependencies.containsKey("entity"))
+				System.err.println("Failed to load dependency entity for procedure ButterPotionEffect!");
 			return false;
 		}
 		if (dependencies.get("world") == null) {
-			System.err.println("Failed to load dependency world for procedure ButterPotionEffect!");
+			if (!dependencies.containsKey("world"))
+				System.err.println("Failed to load dependency world for procedure ButterPotionEffect!");
 			return false;
 		}
 		Entity entity = (Entity) dependencies.get("entity");

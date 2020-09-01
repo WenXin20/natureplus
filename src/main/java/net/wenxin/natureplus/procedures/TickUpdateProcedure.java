@@ -14,7 +14,8 @@ public class TickUpdateProcedure extends NatureplusModElements.ModElement {
 
 	public static void executeProcedure(Map<String, Object> dependencies) {
 		if (dependencies.get("entity") == null) {
-			System.err.println("Failed to load dependency entity for procedure TickUpdate!");
+			if (!dependencies.containsKey("entity"))
+				System.err.println("Failed to load dependency entity for procedure TickUpdate!");
 			return;
 		}
 		Entity entity = (Entity) dependencies.get("entity");

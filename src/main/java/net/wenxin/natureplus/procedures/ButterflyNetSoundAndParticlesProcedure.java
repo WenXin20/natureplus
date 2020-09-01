@@ -33,23 +33,28 @@ public class ButterflyNetSoundAndParticlesProcedure extends NatureplusModElement
 
 	public static void executeProcedure(Map<String, Object> dependencies) {
 		if (dependencies.get("entity") == null) {
-			System.err.println("Failed to load dependency entity for procedure ButterflyNetSoundAndParticles!");
+			if (!dependencies.containsKey("entity"))
+				System.err.println("Failed to load dependency entity for procedure ButterflyNetSoundAndParticles!");
 			return;
 		}
 		if (dependencies.get("x") == null) {
-			System.err.println("Failed to load dependency x for procedure ButterflyNetSoundAndParticles!");
+			if (!dependencies.containsKey("x"))
+				System.err.println("Failed to load dependency x for procedure ButterflyNetSoundAndParticles!");
 			return;
 		}
 		if (dependencies.get("y") == null) {
-			System.err.println("Failed to load dependency y for procedure ButterflyNetSoundAndParticles!");
+			if (!dependencies.containsKey("y"))
+				System.err.println("Failed to load dependency y for procedure ButterflyNetSoundAndParticles!");
 			return;
 		}
 		if (dependencies.get("z") == null) {
-			System.err.println("Failed to load dependency z for procedure ButterflyNetSoundAndParticles!");
+			if (!dependencies.containsKey("z"))
+				System.err.println("Failed to load dependency z for procedure ButterflyNetSoundAndParticles!");
 			return;
 		}
 		if (dependencies.get("world") == null) {
-			System.err.println("Failed to load dependency world for procedure ButterflyNetSoundAndParticles!");
+			if (!dependencies.containsKey("world"))
+				System.err.println("Failed to load dependency world for procedure ButterflyNetSoundAndParticles!");
 			return;
 		}
 		Entity entity = (Entity) dependencies.get("entity");

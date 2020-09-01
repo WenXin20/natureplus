@@ -71,7 +71,7 @@ public class GreenDragonflyEntity extends NatureplusModElements.ModElement {
 						.setRegistryName("green_dragonfly");
 		elements.entities.add(() -> entity);
 		elements.items.add(() -> new SpawnEggItem(entity, -16751104, -16764160, new Item.Properties().group(NaturePlusTabItemGroup.tab))
-				.setRegistryName("green_dragonfly"));
+				.setRegistryName("green_dragonfly_spawn_egg"));
 	}
 
 	@Override

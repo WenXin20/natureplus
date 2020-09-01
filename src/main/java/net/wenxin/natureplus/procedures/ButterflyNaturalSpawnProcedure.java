@@ -19,31 +19,37 @@ public class ButterflyNaturalSpawnProcedure extends NatureplusModElements.ModEle
 
 	public static boolean executeProcedure(Map<String, Object> dependencies) {
 		if (dependencies.get("x") == null) {
-			System.err.println("Failed to load dependency x for procedure ButterflyNaturalSpawn!");
+			if (!dependencies.containsKey("x"))
+				System.err.println("Failed to load dependency x for procedure ButterflyNaturalSpawn!");
 			return false;
 		}
 		if (dependencies.get("y") == null) {
-			System.err.println("Failed to load dependency y for procedure ButterflyNaturalSpawn!");
+			if (!dependencies.containsKey("y"))
+				System.err.println("Failed to load dependency y for procedure ButterflyNaturalSpawn!");
 			return false;
 		}
 		if (dependencies.get("z") == null) {
-			System.err.println("Failed to load dependency z for procedure ButterflyNaturalSpawn!");
+			if (!dependencies.containsKey("z"))
+				System.err.println("Failed to load dependency z for procedure ButterflyNaturalSpawn!");
 			return false;
 		}
 		if (dependencies.get("world") == null) {
-			System.err.println("Failed to load dependency world for procedure ButterflyNaturalSpawn!");
+			if (!dependencies.containsKey("world"))
+				System.err.println("Failed to load dependency world for procedure ButterflyNaturalSpawn!");
 			return false;
 		}
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
 		IWorld world = (IWorld) dependencies.get("world");
-		return (((BiomeDictionary.hasType(world.getBiome(new BlockPos((int) x, (int) y, (int) z)), BiomeDictionary.Type.MAGICAL)) || ((BiomeDictionary
-				.hasType(world.getBiome(new BlockPos((int) x, (int) y, (int) z)), BiomeDictionary.Type.PLAINS))
-				|| ((BiomeDictionary.hasType(world.getBiome(new BlockPos((int) x, (int) y, (int) z)), BiomeDictionary.Type.FOREST))
-						|| ((ForgeRegistries.BIOMES.getKey(world.getBiome(new BlockPos((int) x, (int) y, (int) z)))
-								.equals(new ResourceLocation("flower_forest")))
-								|| (BiomeDictionary.hasType(world.getBiome(new BlockPos((int) x, (int) y, (int) z)), BiomeDictionary.Type.JUNGLE))))))
+		return (((world.getLight(new BlockPos((int) x, (int) y, (int) z))) >= 7) && (((BiomeDictionary
+				.hasType(world.getBiome(new BlockPos((int) x, (int) y, (int) z)), BiomeDictionary.Type.MAGICAL))
+				|| ((BiomeDictionary.hasType(world.getBiome(new BlockPos((int) x, (int) y, (int) z)), BiomeDictionary.Type.PLAINS))
+						|| ((BiomeDictionary.hasType(world.getBiome(new BlockPos((int) x, (int) y, (int) z)), BiomeDictionary.Type.FOREST))
+								|| ((ForgeRegistries.BIOMES.getKey(world.getBiome(new BlockPos((int) x, (int) y, (int) z)))
+										.equals(new ResourceLocation("flower_forest")))
+										|| (BiomeDictionary.hasType(world.getBiome(new BlockPos((int) x, (int) y, (int) z)),
+												BiomeDictionary.Type.JUNGLE))))))
 				&& ((!(BiomeDictionary.hasType(world.getBiome(new BlockPos((int) x, (int) y, (int) z)), BiomeDictionary.Type.COLD)))
 						&& ((!(BiomeDictionary.hasType(world.getBiome(new BlockPos((int) x, (int) y, (int) z)), BiomeDictionary.Type.WASTELAND)))
 								&& ((!(BiomeDictionary.hasType(world.getBiome(new BlockPos((int) x, (int) y, (int) z)), BiomeDictionary.Type.SNOWY)))
@@ -52,6 +58,6 @@ public class ButterflyNaturalSpawnProcedure extends NatureplusModElements.ModEle
 												&& ((!(BiomeDictionary.hasType(world.getBiome(new BlockPos((int) x, (int) y, (int) z)),
 														BiomeDictionary.Type.END)))
 														&& (!(BiomeDictionary.hasType(world.getBiome(new BlockPos((int) x, (int) y, (int) z)),
-																BiomeDictionary.Type.VOID)))))))));
+																BiomeDictionary.Type.VOID))))))))));
 	}
 }

@@ -64,8 +64,8 @@ public class MonarchEggEntity extends NatureplusModElements.ModElement {
 				.setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(CustomEntity::new).size(0.15f, 0.2f)).build("monarch_egg")
 						.setRegistryName("monarch_egg");
 		elements.entities.add(() -> entity);
-		elements.items.add(
-				() -> new SpawnEggItem(entity, -52, -103, new Item.Properties().group(NaturePlusTabItemGroup.tab)).setRegistryName("monarch_egg"));
+		elements.items.add(() -> new SpawnEggItem(entity, -52, -103, new Item.Properties().group(NaturePlusTabItemGroup.tab))
+				.setRegistryName("monarch_egg_spawn_egg"));
 	}
 
 	@Override
@@ -124,10 +124,6 @@ public class MonarchEggEntity extends NatureplusModElements.ModElement {
 		@Override
 		public boolean canDespawn(double distanceToClosestPlayer) {
 			return false;
-		}
-
-		protected void dropSpecialItems(DamageSource source, int looting, boolean recentlyHitIn) {
-			super.dropSpecialItems(source, looting, recentlyHitIn);
 		}
 
 		@Override

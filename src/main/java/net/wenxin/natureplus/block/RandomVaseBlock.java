@@ -2,7 +2,6 @@
 package net.wenxin.natureplus.block;
 
 import net.wenxin.natureplus.procedures.RandomVaseRandomOutputRedstoneProcedure;
-import net.wenxin.natureplus.procedures.RandomVaseRandomOutputProcedure;
 import net.wenxin.natureplus.itemgroup.PlantsVsZombiesTabItemGroup;
 import net.wenxin.natureplus.VasePreciseHitbox;
 import net.wenxin.natureplus.NatureplusModElements;
@@ -16,38 +15,37 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraft.world.storage.loot.LootContext;
 import net.minecraft.world.server.ServerWorld;
 import net.minecraft.world.World;
+import net.minecraft.world.IWorld;
 import net.minecraft.world.IBlockReader;
-import net.minecraft.world.Explosion;
-import net.minecraft.util.math.shapes.VoxelShapes;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.Direction;
+import net.minecraft.tags.FluidTags;
+import net.minecraft.state.properties.BlockStateProperties;
+import net.minecraft.state.StateContainer;
+import net.minecraft.state.BooleanProperty;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Item;
+import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.item.BlockItem;
+import net.minecraft.fluid.IFluidState;
+import net.minecraft.fluid.Fluids;
 import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.block.material.PushReaction;
 import net.minecraft.block.material.MaterialColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.SoundType;
+import net.minecraft.block.IWaterLoggable;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Block;
 
 import java.util.Random;
+import java.util.Map;
 import java.util.List;
+import java.util.HashMap;
 import java.util.Collections;
-import net.minecraft.block.IWaterLoggable;
-import net.minecraft.state.properties.BlockStateProperties;
-import net.minecraft.state.BooleanProperty;
-import net.minecraft.state.StateContainer;
-import net.minecraft.item.BlockItemUseContext;
-import net.minecraft.fluid.IFluidState;
-import net.minecraft.tags.FluidTags;
-import net.minecraft.world.IWorld;
-import net.minecraft.fluid.Fluids;
-import net.minecraft.fluid.Fluid;
 
 @NatureplusModElements.ModElement.Tag
 public class RandomVaseBlock extends NatureplusModElements.ModElement implements IWaterLoggable {
@@ -55,7 +53,7 @@ public class RandomVaseBlock extends NatureplusModElements.ModElement implements
 	@ObjectHolder("natureplus:random_vase")
 	public static final Block block = null;
 	public RandomVaseBlock(NatureplusModElements instance) {
-		super(instance, 166);
+		super(instance, 805);
 	}
 
 	@Override
@@ -70,7 +68,7 @@ public class RandomVaseBlock extends NatureplusModElements.ModElement implements
 	public void clientLoad(FMLClientSetupEvent event) {
 		RenderTypeLookup.setRenderLayer(block, RenderType.getCutout());
 	}
-	public static class CustomBlock extends Block implements IWaterLoggable {
+	public static class CustomBlock extends Block {
 		public CustomBlock() {
 			super(Block.Properties.create(Material.ROCK).sound(SoundType.LANTERN).hardnessAndResistance(1.25f, 4.2f).lightValue(0).harvestLevel(1)
 					.harvestTool(ToolType.PICKAXE).notSolid().tickRandomly());
@@ -118,32 +116,14 @@ public class RandomVaseBlock extends NatureplusModElements.ModElement implements
 			return state.get(WATERLOGGED) ? Fluids.WATER.getStillFluidState(false) : super.getFluidState(state);
 		}
 
-////		@Override
-//		public boolean receiveFluid(IWorld worldIn, BlockPos pos, BlockState state, IFluidState fluidStateIn) {
-//			return state.get(WATERLOGGED) ? IWaterLoggable.super.receiveFluid(worldIn, pos, state, fluidStateIn) : false;
-//		}
-//
-////		@Override
-//		public boolean canContainFluid(IBlockReader worldIn, BlockPos pos, BlockState state, Fluid fluidIn) {
-//			return state.get(WATERLOGGED) ? IWaterLoggable.super.canContainFluid(worldIn, pos, state, fluidIn) : false;
-//		}
-
-//		private boolean blockReciveFluid(IWorld worldIn, BlockPos pos, BlockState state, IFluidState fluidStateIn) {
-//			if (!state.get(BlockStateProperties.WATERLOGGED) && fluidStateIn.getFluid() == Fluids.WATER) {
-//				if (!worldIn.isRemote()) {
-//					worldIn.setBlockState(pos, state.with(BlockStateProperties.WATERLOGGED, Boolean.TRUE), 3);
-//					worldIn.getPendingFluidTicks().scheduleTick(pos, fluidStateIn.getFluid(), fluidStateIn.getFluid().getTickRate(worldIn));
-//				}
-//	
-//				return true;
-//			} else {
-//				return false;
-//			}
-//		}
-
 		@Override
 		public MaterialColor getMaterialColor(BlockState state, IBlockReader blockAccess, BlockPos pos) {
 			return MaterialColor.BROWN;
+		}
+
+		@Override
+		public PushReaction getPushReaction(BlockState state) {
+			return PushReaction.DESTROY;
 		}
 
 		@Override
@@ -167,7 +147,7 @@ public class RandomVaseBlock extends NatureplusModElements.ModElement implements
 			int z = pos.getZ();
 			if (world.getRedstonePowerFromNeighbors(new BlockPos(x, y, z)) > 0) {
 				{
-					java.util.HashMap<String, Object> $_dependencies = new java.util.HashMap<>();
+					Map<String, Object> $_dependencies = new HashMap<>();
 					$_dependencies.put("x", x);
 					$_dependencies.put("y", y);
 					$_dependencies.put("z", z);
@@ -176,7 +156,7 @@ public class RandomVaseBlock extends NatureplusModElements.ModElement implements
 				}
 			} else {
 				{
-					java.util.HashMap<String, Object> $_dependencies = new java.util.HashMap<>();
+					Map<String, Object> $_dependencies = new HashMap<>();
 					$_dependencies.put("x", x);
 					$_dependencies.put("y", y);
 					$_dependencies.put("z", z);
@@ -185,7 +165,7 @@ public class RandomVaseBlock extends NatureplusModElements.ModElement implements
 				}
 			}
 			{
-				java.util.HashMap<String, Object> $_dependencies = new java.util.HashMap<>();
+				Map<String, Object> $_dependencies = new HashMap<>();
 				$_dependencies.put("x", x);
 				$_dependencies.put("y", y);
 				$_dependencies.put("z", z);
@@ -201,28 +181,12 @@ public class RandomVaseBlock extends NatureplusModElements.ModElement implements
 			int y = pos.getY();
 			int z = pos.getZ();
 			{
-				java.util.HashMap<String, Object> $_dependencies = new java.util.HashMap<>();
+				Map<String, Object> $_dependencies = new HashMap<>();
 				$_dependencies.put("x", x);
 				$_dependencies.put("y", y);
 				$_dependencies.put("z", z);
 				$_dependencies.put("world", world);
 				RandomVaseRandomOutputRedstoneProcedure.executeProcedure($_dependencies);
-			}
-		}
-
-		@Override
-		public void onExplosionDestroy(World world, BlockPos pos, Explosion e) {
-			super.onExplosionDestroy(world, pos, e);
-			int x = pos.getX();
-			int y = pos.getY();
-			int z = pos.getZ();
-			{
-				java.util.HashMap<String, Object> $_dependencies = new java.util.HashMap<>();
-				$_dependencies.put("x", x);
-				$_dependencies.put("y", y);
-				$_dependencies.put("z", z);
-				$_dependencies.put("world", world);
-				RandomVaseRandomOutputProcedure.executeProcedure($_dependencies);
 			}
 		}
 	}

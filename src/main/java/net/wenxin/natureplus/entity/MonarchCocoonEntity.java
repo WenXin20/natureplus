@@ -58,7 +58,7 @@ public class MonarchCocoonEntity extends NatureplusModElements.ModElement {
 						.setRegistryName("monarch_cocoon");
 		elements.entities.add(() -> entity);
 		elements.items.add(() -> new SpawnEggItem(entity, -10027162, -6684775, new Item.Properties().group(NaturePlusTabItemGroup.tab))
-				.setRegistryName("monarch_cocoon"));
+				.setRegistryName("monarch_cocoon_spawn_egg"));
 	}
 
 	@SubscribeEvent
@@ -103,10 +103,6 @@ public class MonarchCocoonEntity extends NatureplusModElements.ModElement {
 		@Override
 		public boolean canDespawn(double distanceToClosestPlayer) {
 			return false;
-		}
-
-		protected void dropSpecialItems(DamageSource source, int looting, boolean recentlyHitIn) {
-			super.dropSpecialItems(source, looting, recentlyHitIn);
 		}
 
 		@Override

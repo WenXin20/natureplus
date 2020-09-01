@@ -17,11 +17,13 @@ public class BalloonParticlesOnDeathProcedure extends NatureplusModElements.ModE
 
 	public static void executeProcedure(Map<String, Object> dependencies) {
 		if (dependencies.get("entity") == null) {
-			System.err.println("Failed to load dependency entity for procedure BalloonParticlesOnDeath!");
+			if (!dependencies.containsKey("entity"))
+				System.err.println("Failed to load dependency entity for procedure BalloonParticlesOnDeath!");
 			return;
 		}
 		if (dependencies.get("world") == null) {
-			System.err.println("Failed to load dependency world for procedure BalloonParticlesOnDeath!");
+			if (!dependencies.containsKey("world"))
+				System.err.println("Failed to load dependency world for procedure BalloonParticlesOnDeath!");
 			return;
 		}
 		Entity entity = (Entity) dependencies.get("entity");

@@ -14,7 +14,8 @@ public class IsNightInWorldProcedure extends NatureplusModElements.ModElement {
 
 	public static boolean executeProcedure(Map<String, Object> dependencies) {
 		if (dependencies.get("world") == null) {
-			System.err.println("Failed to load dependency world for procedure IsNightInWorld!");
+			if (!dependencies.containsKey("world"))
+				System.err.println("Failed to load dependency world for procedure IsNightInWorld!");
 			return false;
 		}
 		IWorld world = (IWorld) dependencies.get("world");

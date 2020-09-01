@@ -50,8 +50,9 @@ public class VerticalAzureStairsBlock extends NatureplusModElements.ModElement {
 	}
 	public static class CustomBlock extends StairsBlock {
 		public CustomBlock() {
-			super(new Block(Block.Properties.create(Material.ROCK)).getDefaultState(), Block.Properties.create(Material.WOOD).sound(SoundType.WOOD)
-					.hardnessAndResistance(2f, 15f).lightValue(0).harvestLevel(0).harvestTool(ToolType.AXE).notSolid());
+			super(new Block(Block.Properties.create(Material.ROCK).hardnessAndResistance(2f, 15f)).getDefaultState(),
+					Block.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(2f, 15f).lightValue(0).harvestLevel(0)
+							.harvestTool(ToolType.AXE).notSolid());
 			setRegistryName("vertical_azure_stairs");
 		}
 

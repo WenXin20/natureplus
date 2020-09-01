@@ -33,23 +33,28 @@ public class SpawnLightGrayBalloonProcedure extends NatureplusModElements.ModEle
 
 	public static void executeProcedure(Map<String, Object> dependencies) {
 		if (dependencies.get("entity") == null) {
-			System.err.println("Failed to load dependency entity for procedure SpawnLightGrayBalloon!");
+			if (!dependencies.containsKey("entity"))
+				System.err.println("Failed to load dependency entity for procedure SpawnLightGrayBalloon!");
 			return;
 		}
 		if (dependencies.get("x") == null) {
-			System.err.println("Failed to load dependency x for procedure SpawnLightGrayBalloon!");
+			if (!dependencies.containsKey("x"))
+				System.err.println("Failed to load dependency x for procedure SpawnLightGrayBalloon!");
 			return;
 		}
 		if (dependencies.get("y") == null) {
-			System.err.println("Failed to load dependency y for procedure SpawnLightGrayBalloon!");
+			if (!dependencies.containsKey("y"))
+				System.err.println("Failed to load dependency y for procedure SpawnLightGrayBalloon!");
 			return;
 		}
 		if (dependencies.get("z") == null) {
-			System.err.println("Failed to load dependency z for procedure SpawnLightGrayBalloon!");
+			if (!dependencies.containsKey("z"))
+				System.err.println("Failed to load dependency z for procedure SpawnLightGrayBalloon!");
 			return;
 		}
 		if (dependencies.get("world") == null) {
-			System.err.println("Failed to load dependency world for procedure SpawnLightGrayBalloon!");
+			if (!dependencies.containsKey("world"))
+				System.err.println("Failed to load dependency world for procedure SpawnLightGrayBalloon!");
 			return;
 		}
 		Entity entity = (Entity) dependencies.get("entity");

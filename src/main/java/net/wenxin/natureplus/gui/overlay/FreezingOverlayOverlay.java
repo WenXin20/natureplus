@@ -51,8 +51,8 @@ public class FreezingOverlayOverlay extends NatureplusModElements.ModElement {
 				RenderSystem.color4f(1.0F, 1.0F, 1.0F, 1.0F);
 				RenderSystem.disableAlphaTest();
 				Minecraft.getInstance().getTextureManager().bindTexture(new ResourceLocation("natureplus:textures/freezing_overlay.png"));
-				Minecraft.getInstance().ingameGUI.blit(0, 0, 0, 0, 1920, 1080, event.getWindow().getScaledWidth(),
-						event.getWindow().getScaledHeight());
+				Minecraft.getInstance().ingameGUI.blit(0, 0, 0, 0, event.getWindow().getScaledWidth(), event.getWindow().getScaledHeight(),
+						event.getWindow().getScaledWidth(), event.getWindow().getScaledHeight());
 				RenderSystem.depthMask(true);
 				RenderSystem.enableDepthTest();
 				RenderSystem.enableAlphaTest();
