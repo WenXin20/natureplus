@@ -5,6 +5,7 @@ import net.wenxin.natureplus.procedures.SpadeRemovePeashooterProcedure;
 import net.wenxin.natureplus.procedures.PeashooterNaturalSpawnProcedure;
 import net.wenxin.natureplus.procedures.DisablePushingOfMobsProcedure;
 import net.wenxin.natureplus.itemgroup.PlantsVsZombiesTabItemGroup;
+import net.wenxin.natureplus.item.SpikeItem;
 import net.wenxin.natureplus.item.PeaItem;
 import net.wenxin.natureplus.item.FrozenPeaItem;
 import net.wenxin.natureplus.item.CornItem;
@@ -194,6 +195,8 @@ public class PeashooterEntity extends NatureplusModElements.ModElement {
 			if (source.getImmediateSource() instanceof FrozenPeaItem.ArrowCustomEntity)
 				return false;
 			if (source.getImmediateSource() instanceof CornItem.ArrowCustomEntity)
+				return false;
+			if (source.getImmediateSource() instanceof SpikeItem.ArrowCustomEntity)
 				return false;
 			{
 				java.util.HashMap<String, Object> $_dependencies = new java.util.HashMap<>();

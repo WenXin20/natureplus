@@ -6,6 +6,7 @@ import net.wenxin.natureplus.procedures.SunflowerNaturalSpawnProcedure;
 import net.wenxin.natureplus.procedures.SpadeRemoveSunflowerProcedure;
 import net.wenxin.natureplus.procedures.EntityTimerSunflowerProcedure;
 import net.wenxin.natureplus.itemgroup.PlantsVsZombiesTabItemGroup;
+import net.wenxin.natureplus.item.SpikeItem;
 import net.wenxin.natureplus.item.PeaItem;
 import net.wenxin.natureplus.item.FrozenPeaItem;
 import net.wenxin.natureplus.item.CornItem;
@@ -191,6 +192,8 @@ public class SunflowerEntity extends NatureplusModElements.ModElement {
 			if (source.getImmediateSource() instanceof FrozenPeaItem.ArrowCustomEntity)
 				return false;
 			if (source.getImmediateSource() instanceof CornItem.ArrowCustomEntity)
+				return false;
+			if (source.getImmediateSource() instanceof SpikeItem.ArrowCustomEntity)
 				return false;
 			{
 				java.util.HashMap<String, Object> $_dependencies = new java.util.HashMap<>();

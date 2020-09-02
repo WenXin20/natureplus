@@ -2,9 +2,13 @@
 package net.wenxin.natureplus.entity;
 
 import net.wenxin.natureplus.procedures.SpadeRemoveCactusProcedure;
+import net.wenxin.natureplus.procedures.DisablePushingOfMobsProcedure;
 import net.wenxin.natureplus.procedures.CactusNaturalSpawnProcedure;
 import net.wenxin.natureplus.itemgroup.PlantsVsZombiesTabItemGroup;
 import net.wenxin.natureplus.item.SpikeItem;
+import net.wenxin.natureplus.item.PeaItem;
+import net.wenxin.natureplus.item.FrozenPeaItem;
+import net.wenxin.natureplus.item.CornItem;
 import net.wenxin.natureplus.NatureplusModElements;
 
 import net.minecraftforge.registries.ForgeRegistries;
@@ -28,14 +32,17 @@ import net.minecraft.network.IPacket;
 import net.minecraft.item.SpawnEggItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Item;
-import net.minecraft.entity.monster.MonsterEntity;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.monster.IMob;
+import net.minecraft.entity.monster.CreeperEntity;
 import net.minecraft.entity.ai.goal.SwimGoal;
 import net.minecraft.entity.ai.goal.RangedAttackGoal;
 import net.minecraft.entity.ai.goal.NearestAttackableTargetGoal;
-import net.minecraft.entity.ai.goal.MeleeAttackGoal;
 import net.minecraft.entity.ai.goal.LookRandomlyGoal;
+import net.minecraft.entity.ai.goal.LookAtGoal;
 import net.minecraft.entity.ai.goal.HurtByTargetGoal;
 import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.MobEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.IRangedAttackMob;
 import net.minecraft.entity.EntityType;
@@ -120,12 +127,14 @@ public class CactusEntity extends NatureplusModElements.ModElement {
 		@Override
 		protected void registerGoals() {
 			super.registerGoals();
-			this.goalSelector.addGoal(1, new MeleeAttackGoal(this, 0.8, false));
-			this.targetSelector.addGoal(2, new NearestAttackableTargetGoal(this, MonsterEntity.class, false, false));
-			this.targetSelector.addGoal(3, new HurtByTargetGoal(this).setCallsForHelp(this.getClass()));
+			this.targetSelector.addGoal(1, new NearestAttackableTargetGoal(this, MobEntity.class, 10, true, true, (entity) -> {
+				return entity instanceof IMob && !(entity instanceof CreeperEntity);
+			}));
+			this.targetSelector.addGoal(2, new HurtByTargetGoal(this).setCallsForHelp(this.getClass()));
+			this.goalSelector.addGoal(3, new LookAtGoal(this, PlayerEntity.class, (float) 6));
+			this.goalSelector.addGoal(3, new LookRandomlyGoal(this));
 			this.goalSelector.addGoal(4, new SwimGoal(this));
-			this.goalSelector.addGoal(5, new LookRandomlyGoal(this));
-			this.goalSelector.addGoal(1, new RangedAttackGoal(this, 1.25, 20, 10) {
+			this.goalSelector.addGoal(1, new RangedAttackGoal(this, 1.25, 40, 20) {
 				@Override
 				public boolean shouldContinueExecuting() {
 					return this.shouldExecute();
@@ -159,12 +168,25 @@ public class CactusEntity extends NatureplusModElements.ModElement {
 		}
 
 		@Override
+		protected float getSoundVolume() {
+			return 1.0F;
+		}
+
+		@Override
 		public boolean attackEntityFrom(DamageSource source, float amount) {
 			double x = this.getPosX();
 			double y = this.getPosY();
 			double z = this.getPosZ();
 			Entity entity = this;
 			Entity sourceentity = source.getTrueSource();
+			if (source.getImmediateSource() instanceof PeaItem.ArrowCustomEntity)
+				return false;
+			if (source.getImmediateSource() instanceof FrozenPeaItem.ArrowCustomEntity)
+				return false;
+			if (source.getImmediateSource() instanceof CornItem.ArrowCustomEntity)
+				return false;
+			if (source.getImmediateSource() instanceof SpikeItem.ArrowCustomEntity)
+				return false;
 			{
 				Map<String, Object> $_dependencies = new HashMap<>();
 				$_dependencies.put("entity", entity);
@@ -178,6 +200,24 @@ public class CactusEntity extends NatureplusModElements.ModElement {
 			if (source == DamageSource.CACTUS)
 				return false;
 			return super.attackEntityFrom(source, amount);
+		}
+
+		@Override
+		public void baseTick() {
+			super.baseTick();
+			double x = this.getPosX();
+			double y = this.getPosY();
+			double z = this.getPosZ();
+			Entity entity = this;
+			{
+				Map<String, Object> $_dependencies = new HashMap<>();
+				$_dependencies.put("entity", entity);
+				$_dependencies.put("x", x);
+				$_dependencies.put("y", y);
+				$_dependencies.put("z", z);
+				$_dependencies.put("world", world);
+				DisablePushingOfMobsProcedure.executeProcedure($_dependencies);
+			}
 		}
 
 		@Override

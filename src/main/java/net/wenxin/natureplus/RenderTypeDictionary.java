@@ -25,7 +25,6 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderState;
-import net.minecraft.client.renderer.RenderState.TextureState;
 
 @OnlyIn(Dist.CLIENT)
 public class RenderTypeDictionary extends RenderState {
@@ -44,7 +43,7 @@ public class RenderTypeDictionary extends RenderState {
 		RenderState.TextureState textureState = new RenderState.TextureState(resourceLocation, false, false);
 		return RenderType.makeType("translucent", DefaultVertexFormats.ENTITY, 7, 256, false, true,
 				RenderType.State.getBuilder().texture(textureState).transparency(TRANSLUCENT_TRANSPARENCY).diffuseLighting(DIFFUSE_LIGHTING_ENABLED)
-						.alpha(DEFAULT_ALPHA).cull(CULL_ENABLED).lightmap(LIGHTMAP_ENABLED).shadeModel(SHADE_ENABLED).overlay(OVERLAY_ENABLED).build(false));
+						.alpha(DEFAULT_ALPHA).cull(CULL_DISABLED).lightmap(LIGHTMAP_ENABLED).shadeModel(SHADE_DISABLED).overlay(OVERLAY_ENABLED)
+						.writeMask(COLOR_WRITE).build(false));
 	}
-
 }
