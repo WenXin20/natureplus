@@ -1,0 +1,13 @@
+{
+  "group": "natureplus",
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "natureplus:green_petal"
+    }
+  ],
+  "result": {
+    "item": "minecraft:green_dye",
+    "count": 1
+  }
+}

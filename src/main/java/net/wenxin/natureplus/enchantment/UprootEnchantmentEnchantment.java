@@ -14,7 +14,7 @@ public class UprootEnchantmentEnchantment extends NatureplusModElements.ModEleme
 	@ObjectHolder("natureplus:uproot_enchantment")
 	public static final Enchantment enchantment = null;
 	public UprootEnchantmentEnchantment(NatureplusModElements instance) {
-		super(instance, 668);
+		super(instance, 664);
 	}
 
 	@Override
@@ -33,7 +33,7 @@ public class UprootEnchantmentEnchantment extends NatureplusModElements.ModEleme
 
 		@Override
 		public int getMaxLevel() {
-			return 3;
+			return 1;
 		}
 
 		@Override

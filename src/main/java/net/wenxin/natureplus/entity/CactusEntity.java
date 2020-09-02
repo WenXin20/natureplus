@@ -2,7 +2,6 @@
 package net.wenxin.natureplus.entity;
 
 import net.wenxin.natureplus.procedures.SpadeRemoveCactusProcedure;
-import net.wenxin.natureplus.procedures.DisablePushingOfMobsProcedure;
 import net.wenxin.natureplus.procedures.CactusNaturalSpawnProcedure;
 import net.wenxin.natureplus.itemgroup.PlantsVsZombiesTabItemGroup;
 import net.wenxin.natureplus.item.SpikeItem;
@@ -127,13 +126,13 @@ public class CactusEntity extends NatureplusModElements.ModElement {
 		@Override
 		protected void registerGoals() {
 			super.registerGoals();
-			this.targetSelector.addGoal(1, new NearestAttackableTargetGoal(this, MobEntity.class, 10, true, true, (entity) -> {
+			this.targetSelector.addGoal(2, new NearestAttackableTargetGoal(this, MobEntity.class, 10, true, true, (entity) -> {
 				return entity instanceof IMob && !(entity instanceof CreeperEntity);
 			}));
-			this.targetSelector.addGoal(2, new HurtByTargetGoal(this).setCallsForHelp(this.getClass()));
-			this.goalSelector.addGoal(3, new LookAtGoal(this, PlayerEntity.class, (float) 6));
-			this.goalSelector.addGoal(3, new LookRandomlyGoal(this));
-			this.goalSelector.addGoal(4, new SwimGoal(this));
+			this.targetSelector.addGoal(3, new HurtByTargetGoal(this).setCallsForHelp(this.getClass()));
+			this.goalSelector.addGoal(4, new LookAtGoal(this, PlayerEntity.class, (float) 6));
+			this.goalSelector.addGoal(5, new LookRandomlyGoal(this));
+			this.goalSelector.addGoal(6, new SwimGoal(this));
 			this.goalSelector.addGoal(1, new RangedAttackGoal(this, 1.25, 40, 20) {
 				@Override
 				public boolean shouldContinueExecuting() {
@@ -168,11 +167,6 @@ public class CactusEntity extends NatureplusModElements.ModElement {
 		}
 
 		@Override
-		protected float getSoundVolume() {
-			return 1.0F;
-		}
-
-		@Override
 		public boolean attackEntityFrom(DamageSource source, float amount) {
 			double x = this.getPosX();
 			double y = this.getPosY();
@@ -203,24 +197,6 @@ public class CactusEntity extends NatureplusModElements.ModElement {
 		}
 
 		@Override
-		public void baseTick() {
-			super.baseTick();
-			double x = this.getPosX();
-			double y = this.getPosY();
-			double z = this.getPosZ();
-			Entity entity = this;
-			{
-				Map<String, Object> $_dependencies = new HashMap<>();
-				$_dependencies.put("entity", entity);
-				$_dependencies.put("x", x);
-				$_dependencies.put("y", y);
-				$_dependencies.put("z", z);
-				$_dependencies.put("world", world);
-				DisablePushingOfMobsProcedure.executeProcedure($_dependencies);
-			}
-		}
-
-		@Override
 		protected void registerAttributes() {
 			super.registerAttributes();
 			if (this.getAttribute(SharedMonsterAttributes.MOVEMENT_SPEED) != null)
@@ -232,6 +208,7 @@ public class CactusEntity extends NatureplusModElements.ModElement {
 			if (this.getAttribute(SharedMonsterAttributes.ATTACK_DAMAGE) == null)
 				this.getAttributes().registerAttribute(SharedMonsterAttributes.ATTACK_DAMAGE);
 			this.getAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(3);
+			this.getAttribute(SharedMonsterAttributes.KNOCKBACK_RESISTANCE).setBaseValue(1.0D);
 		}
 
 		public void attackEntityWithRangedAttack(LivingEntity target, float flval) {
