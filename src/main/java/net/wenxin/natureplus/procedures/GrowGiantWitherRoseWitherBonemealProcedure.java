@@ -35,7 +35,7 @@ import java.util.HashMap;
 @NatureplusModElements.ModElement.Tag
 public class GrowGiantWitherRoseWitherBonemealProcedure extends NatureplusModElements.ModElement {
 	public GrowGiantWitherRoseWitherBonemealProcedure(NatureplusModElements instance) {
-		super(instance, 607);
+		super(instance, 605);
 		MinecraftForge.EVENT_BUS.register(this);
 	}
 
@@ -86,7 +86,7 @@ public class GrowGiantWitherRoseWitherBonemealProcedure extends NatureplusModEle
 					Template template = ((ServerWorld) world.getWorld()).getSaveHandler().getStructureTemplateManager()
 							.getTemplateDefaulted(new ResourceLocation("natureplus", "giant_wither_rose1"));
 					if (template != null) {
-						template.addBlocksToWorld(world, new BlockPos((int) (x - 3), (int) y, (int) (z - 3)),
+						template.addBlocksToWorld(world, new BlockPos((int) (x - 2), (int) y, (int) (z - 2)),
 								new PlacementSettings().setRotation(Rotation.NONE).setMirror(Mirror.NONE).setChunk(null).setIgnoreEntities(false));
 					}
 				}
@@ -126,7 +126,7 @@ public class GrowGiantWitherRoseWitherBonemealProcedure extends NatureplusModEle
 					Template template = ((ServerWorld) world.getWorld()).getSaveHandler().getStructureTemplateManager()
 							.getTemplateDefaulted(new ResourceLocation("natureplus", "giant_wither_rose1"));
 					if (template != null) {
-						template.addBlocksToWorld(world, new BlockPos((int) (x - 3), (int) y, (int) (z - 3)),
+						template.addBlocksToWorld(world, new BlockPos((int) (x - 2), (int) y, (int) (z - 2)),
 								new PlacementSettings().setRotation(Rotation.NONE).setMirror(Mirror.NONE).setChunk(null).setIgnoreEntities(false));
 					}
 				}
