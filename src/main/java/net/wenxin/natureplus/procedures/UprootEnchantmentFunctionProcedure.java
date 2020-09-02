@@ -27,7 +27,7 @@ import java.util.HashMap;
 @NatureplusModElements.ModElement.Tag
 public class UprootEnchantmentFunctionProcedure extends NatureplusModElements.ModElement {
 	public UprootEnchantmentFunctionProcedure(NatureplusModElements instance) {
-		super(instance, 688);
+		super(instance, 691);
 		MinecraftForge.EVENT_BUS.register(this);
 	}
 

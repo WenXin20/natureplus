@@ -9,7 +9,6 @@ import net.wenxin.natureplus.itemgroup.PlantsVsZombiesTabItemGroup;
 import net.wenxin.natureplus.item.PeaItem;
 import net.wenxin.natureplus.item.FrozenPeaItem;
 import net.wenxin.natureplus.item.CornItem;
-import net.wenxin.natureplus.block.SunflowerHeadBlock;
 import net.wenxin.natureplus.RenderTypeDictionary;
 import net.wenxin.natureplus.NatureplusModElements;
 
@@ -33,11 +32,9 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.DamageSource;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.item.SpawnEggItem;
-import net.minecraft.item.ItemStack;
 import net.minecraft.item.Item;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.monster.MonsterEntity;
-import net.minecraft.entity.monster.CreeperEntity;
 import net.minecraft.entity.ai.goal.SwimGoal;
 import net.minecraft.entity.ai.goal.LookRandomlyGoal;
 import net.minecraft.entity.ai.goal.LookAtGoal;
@@ -143,25 +140,25 @@ public class SunflowerEntity extends NatureplusModElements.ModElement {
 			return false;
 		}
 
-		protected void dropSpecialItems(DamageSource source, int looting, boolean recentlyHitIn) {
-			super.dropSpecialItems(source, looting, recentlyHitIn);
-			Entity entity = source.getTrueSource();
-			if (entity instanceof CreeperEntity) {
-				CreeperEntity creeperentity = (CreeperEntity) entity;
-				if (creeperentity.ableToCauseSkullDrop()) {
-					creeperentity.incrementDroppedSkulls();
-					ItemStack itemstack = this.getSkullDrop();
-					if (!itemstack.isEmpty()) {
-						this.entityDropItem(itemstack);
-					}
-				}
-			}
-		}
-
-		protected ItemStack getSkullDrop() {
-			return new ItemStack(SunflowerHeadBlock.block);
-		}
-
+		// protected void dropSpecialItems(DamageSource source, int looting, boolean
+		// recentlyHitIn) {
+		// super.dropSpecialItems(source, looting, recentlyHitIn);
+		// Entity entity = source.getTrueSource();
+		// if (entity instanceof CreeperEntity) {
+		// CreeperEntity creeperentity = (CreeperEntity) entity;
+		// if (creeperentity.ableToCauseSkullDrop()) {
+		// creeperentity.incrementDroppedSkulls();
+		// ItemStack itemstack = this.getSkullDrop();
+		// if (!itemstack.isEmpty()) {
+		// this.entityDropItem(itemstack);
+		// }
+		// }
+		// }
+		// }
+		//
+		// protected ItemStack getSkullDrop() {
+		// return new ItemStack(SunflowerHeadBlock.block);
+		// }
 		@Override
 		public net.minecraft.util.SoundEvent getAmbientSound() {
 			return (net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(""));

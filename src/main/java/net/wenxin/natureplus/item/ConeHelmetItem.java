@@ -43,7 +43,7 @@ public class ConeHelmetItem extends NatureplusModElements.ModElement {
 	@ObjectHolder("natureplus:cone_boots")
 	public static final Item boots = null;
 	public ConeHelmetItem(NatureplusModElements instance) {
-		super(instance, 177);
+		super(instance, 178);
 	}
 
 	@Override

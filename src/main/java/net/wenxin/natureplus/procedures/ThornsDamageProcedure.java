@@ -11,7 +11,7 @@ import java.util.Map;
 @NatureplusModElements.ModElement.Tag
 public class ThornsDamageProcedure extends NatureplusModElements.ModElement {
 	public ThornsDamageProcedure(NatureplusModElements instance) {
-		super(instance, 332);
+		super(instance, 335);
 	}
 
 	public static void executeProcedure(Map<String, Object> dependencies) {

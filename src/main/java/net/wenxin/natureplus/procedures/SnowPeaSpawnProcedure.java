@@ -31,7 +31,7 @@ import java.util.Iterator;
 @NatureplusModElements.ModElement.Tag
 public class SnowPeaSpawnProcedure extends NatureplusModElements.ModElement {
 	public SnowPeaSpawnProcedure(NatureplusModElements instance) {
-		super(instance, 541);
+		super(instance, 544);
 	}
 
 	public static void executeProcedure(Map<String, Object> dependencies) {
@@ -76,6 +76,15 @@ public class SnowPeaSpawnProcedure extends NatureplusModElements.ModElement {
 							SpawnReason.MOB_SUMMONED, (ILivingEntityData) null, (CompoundNBT) null);
 				world.addEntity(entityToSpawn);
 			}
+			if (!world.getWorld().isRemote) {
+				world.playSound(null, new BlockPos((int) x, (int) y, (int) z),
+						(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("natureplus:planting")),
+						SoundCategory.NEUTRAL, (float) 1, (float) 1);
+			} else {
+				world.getWorld().playSound(x, y, z,
+						(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("natureplus:planting")),
+						SoundCategory.NEUTRAL, (float) 1, (float) 1, false);
+			}
 			if (entity instanceof ServerPlayerEntity) {
 				Advancement _adv = ((MinecraftServer) ((ServerPlayerEntity) entity).server).getAdvancementManager()
 						.getAdvancement(new ResourceLocation("natureplus:spawn_snow_pea_seed_packet"));
@@ -98,39 +107,6 @@ public class SnowPeaSpawnProcedure extends NatureplusModElements.ModElement {
 									.getItem(),
 							(int) 1);
 			}
-			if ((!(world.getWorld().isRemote))) {
-				if ((Math.random() > 0.5)) {
-					if (!world.getWorld().isRemote) {
-						world.playSound(null, new BlockPos((int) x, (int) y, (int) z),
-								(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("natureplus:plant")),
-								SoundCategory.NEUTRAL, (float) 1, (float) 1);
-					} else {
-						world.getWorld().playSound(x, y, z,
-								(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("natureplus:plant")),
-								SoundCategory.NEUTRAL, (float) 1, (float) 1, false);
-					}
-				} else if (((Math.random() > 0) && (!(Math.random() > 0.5)))) {
-					if (!world.getWorld().isRemote) {
-						world.playSound(null, new BlockPos((int) x, (int) y, (int) z),
-								(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("natureplus:plant2")),
-								SoundCategory.NEUTRAL, (float) 1, (float) 1);
-					} else {
-						world.getWorld().playSound(x, y, z,
-								(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("natureplus:plant2")),
-								SoundCategory.NEUTRAL, (float) 1, (float) 1, false);
-					}
-				} else {
-					if (!world.getWorld().isRemote) {
-						world.playSound(null, new BlockPos((int) x, (int) y, (int) z),
-								(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("natureplus:plant2")),
-								SoundCategory.NEUTRAL, (float) 1, (float) 1);
-					} else {
-						world.getWorld().playSound(x, y, z,
-								(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("natureplus:plant2")),
-								SoundCategory.NEUTRAL, (float) 1, (float) 1, false);
-					}
-				}
-			}
 		} else if (((((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemOffhand() : ItemStack.EMPTY)
 				.getItem() == new ItemStack(SnowPeaSeedPacketItem.block, (int) (1)).getItem())
 				&& (!(world.getBlockState(new BlockPos((int) x, (int) (y + 1), (int) z)).isSolid())))) {
@@ -141,6 +117,15 @@ public class SnowPeaSpawnProcedure extends NatureplusModElements.ModElement {
 					((MobEntity) entityToSpawn).onInitialSpawn(world, world.getDifficultyForLocation(new BlockPos(entityToSpawn)),
 							SpawnReason.MOB_SUMMONED, (ILivingEntityData) null, (CompoundNBT) null);
 				world.addEntity(entityToSpawn);
+			}
+			if (!world.getWorld().isRemote) {
+				world.playSound(null, new BlockPos((int) x, (int) y, (int) z),
+						(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("natureplus:planting")),
+						SoundCategory.NEUTRAL, (float) 1, (float) 1);
+			} else {
+				world.getWorld().playSound(x, y, z,
+						(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("natureplus:planting")),
+						SoundCategory.NEUTRAL, (float) 1, (float) 1, false);
 			}
 			if (entity instanceof ServerPlayerEntity) {
 				Advancement _adv = ((MinecraftServer) ((ServerPlayerEntity) entity).server).getAdvancementManager()
@@ -163,39 +148,6 @@ public class SnowPeaSpawnProcedure extends NatureplusModElements.ModElement {
 							p -> ((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemOffhand() : ItemStack.EMPTY).getItem() == p
 									.getItem(),
 							(int) 1);
-			}
-			if ((!(world.getWorld().isRemote))) {
-				if ((Math.random() > 0.5)) {
-					if (!world.getWorld().isRemote) {
-						world.playSound(null, new BlockPos((int) x, (int) y, (int) z),
-								(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("natureplus:plant")),
-								SoundCategory.NEUTRAL, (float) 1, (float) 1);
-					} else {
-						world.getWorld().playSound(x, y, z,
-								(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("natureplus:plant")),
-								SoundCategory.NEUTRAL, (float) 1, (float) 1, false);
-					}
-				} else if (((Math.random() > 0) && (!(Math.random() > 0.5)))) {
-					if (!world.getWorld().isRemote) {
-						world.playSound(null, new BlockPos((int) x, (int) y, (int) z),
-								(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("natureplus:plant2")),
-								SoundCategory.NEUTRAL, (float) 1, (float) 1);
-					} else {
-						world.getWorld().playSound(x, y, z,
-								(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("natureplus:plant2")),
-								SoundCategory.NEUTRAL, (float) 1, (float) 1, false);
-					}
-				} else {
-					if (!world.getWorld().isRemote) {
-						world.playSound(null, new BlockPos((int) x, (int) y, (int) z),
-								(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("natureplus:plant2")),
-								SoundCategory.NEUTRAL, (float) 1, (float) 1);
-					} else {
-						world.getWorld().playSound(x, y, z,
-								(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("natureplus:plant2")),
-								SoundCategory.NEUTRAL, (float) 1, (float) 1, false);
-					}
-				}
 			}
 		}
 	}

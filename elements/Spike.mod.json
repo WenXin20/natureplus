@@ -1,0 +1,47 @@
+{
+  "_fv": 11,
+  "_type": "gun",
+  "definition": {
+    "renderType": 0,
+    "texture": "spike",
+    "customModelName": "Normal",
+    "name": "Spike",
+    "specialInfo": [
+      "§bRight-click to throw"
+    ],
+    "creativeTab": {
+      "value": "CUSTOM:PlantsVsZombiesTab"
+    },
+    "stackSize": 64,
+    "ammoItem": {
+      "value": "CUSTOM:Spike"
+    },
+    "shootConstantly": true,
+    "usageCount": 0,
+    "actionSound": {
+      "value": "CUSTOM:cactus_shoot"
+    },
+    "hasGlow": false,
+    "enableMeleeDamage": false,
+    "damageVsEntity": 0.0,
+    "bulletPower": 0.8,
+    "bulletDamage": 2.0,
+    "bulletKnockback": 0,
+    "bulletParticles": false,
+    "bulletIgnitesFire": false,
+    "bulletItemTexture": {
+      "value": "CUSTOM:Spike"
+    },
+    "bulletModel": "Default",
+    "customBulletModelTexture": "spike.png",
+    "onBulletHitsBlock": {
+      "name": "SpikeHitSounds"
+    },
+    "onBulletHitsPlayer": {
+      "name": "SpikeHitSounds"
+    },
+    "onBulletHitsEntity": {
+      "name": "SpikeHitSounds"
+    }
+  }
+}

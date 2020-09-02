@@ -24,7 +24,7 @@ import java.util.HashMap;
 @NatureplusModElements.ModElement.Tag
 public class ExperienceOreDropExperienceProcedure extends NatureplusModElements.ModElement {
 	public ExperienceOreDropExperienceProcedure(NatureplusModElements instance) {
-		super(instance, 790);
+		super(instance, 793);
 		MinecraftForge.EVENT_BUS.register(this);
 	}
 

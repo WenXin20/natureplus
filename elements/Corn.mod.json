@@ -19,7 +19,7 @@
     "shootConstantly": true,
     "usageCount": 0,
     "actionSound": {
-      "value": "CUSTOM:throw2"
+      "value": "CUSTOM:throw"
     },
     "hasGlow": false,
     "enableMeleeDamage": false,

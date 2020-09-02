@@ -18,7 +18,7 @@ import java.util.Map;
 @NatureplusModElements.ModElement.Tag
 public class CornEffectsProcedure extends NatureplusModElements.ModElement {
 	public CornEffectsProcedure(NatureplusModElements instance) {
-		super(instance, 646);
+		super(instance, 649);
 	}
 
 	public static void executeProcedure(Map<String, Object> dependencies) {
@@ -53,26 +53,14 @@ public class CornEffectsProcedure extends NatureplusModElements.ModElement {
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
 		IWorld world = (IWorld) dependencies.get("world");
 		if ((!(world.getWorld().isRemote))) {
-			if ((Math.random() > 0.5)) {
-				if (!world.getWorld().isRemote) {
-					world.playSound(null, new BlockPos((int) x, (int) y, (int) z),
-							(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("natureplus:kernel_pult")),
-							SoundCategory.NEUTRAL, (float) 1, (float) 1);
-				} else {
-					world.getWorld().playSound(x, y, z,
-							(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("natureplus:kernel_pult")),
-							SoundCategory.NEUTRAL, (float) 1, (float) 1, false);
-				}
+			if (!world.getWorld().isRemote) {
+				world.playSound(null, new BlockPos((int) x, (int) y, (int) z),
+						(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("natureplus:kernel_pult")),
+						SoundCategory.NEUTRAL, (float) 1, (float) 1);
 			} else {
-				if (!world.getWorld().isRemote) {
-					world.playSound(null, new BlockPos((int) x, (int) y, (int) z),
-							(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("natureplus:kernel_pult2")),
-							SoundCategory.NEUTRAL, (float) 1, (float) 1);
-				} else {
-					world.getWorld().playSound(x, y, z,
-							(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("natureplus:kernel_pult2")),
-							SoundCategory.NEUTRAL, (float) 1, (float) 1, false);
-				}
+				world.getWorld().playSound(x, y, z,
+						(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("natureplus:kernel_pult")),
+						SoundCategory.NEUTRAL, (float) 1, (float) 1, false);
 			}
 			if ((Math.random() < 0.15)) {
 				if (entity instanceof LivingEntity)

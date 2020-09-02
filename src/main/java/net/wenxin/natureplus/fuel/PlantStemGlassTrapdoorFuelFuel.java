@@ -13,7 +13,7 @@ import net.minecraft.item.ItemStack;
 @NatureplusModElements.ModElement.Tag
 public class PlantStemGlassTrapdoorFuelFuel extends NatureplusModElements.ModElement {
 	public PlantStemGlassTrapdoorFuelFuel(NatureplusModElements instance) {
-		super(instance, 385);
+		super(instance, 388);
 		MinecraftForge.EVENT_BUS.register(this);
 	}
 

@@ -13,7 +13,7 @@ import net.minecraft.item.ItemStack;
 @NatureplusModElements.ModElement.Tag
 public class AzureFenceGateFuelFuel extends NatureplusModElements.ModElement {
 	public AzureFenceGateFuelFuel(NatureplusModElements instance) {
-		super(instance, 781);
+		super(instance, 784);
 		MinecraftForge.EVENT_BUS.register(this);
 	}
 

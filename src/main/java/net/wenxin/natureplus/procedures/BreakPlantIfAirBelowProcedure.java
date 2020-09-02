@@ -7,7 +7,7 @@ import java.util.Map;
 @NatureplusModElements.ModElement.Tag
 public class BreakPlantIfAirBelowProcedure extends NatureplusModElements.ModElement {
 	public BreakPlantIfAirBelowProcedure(NatureplusModElements instance) {
-		super(instance, 205);
+		super(instance, 208);
 	}
 
 	public static void executeProcedure(Map<String, Object> dependencies) {
