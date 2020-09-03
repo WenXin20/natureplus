@@ -43,6 +43,6 @@ public class RenderTypeDictionary extends RenderState {
 		RenderState.TextureState textureState = new RenderState.TextureState(resourceLocation, false, false);
 		return RenderType.makeType("translucent", DefaultVertexFormats.ENTITY, 7, 256, false, true,
 				RenderType.State.getBuilder().texture(textureState).transparency(TRANSLUCENT_TRANSPARENCY).diffuseLighting(DIFFUSE_LIGHTING_ENABLED)
-						.alpha(HALF_ALPHA).cull(CULL_DISABLED).lightmap(LIGHTMAP_ENABLED).shadeModel(SHADE_DISABLED).overlay(OVERLAY_ENABLED).build(false));
+						.alpha(DEFAULT_ALPHA).cull(CULL_DISABLED).lightmap(LIGHTMAP_ENABLED).shadeModel(SHADE_DISABLED).overlay(OVERLAY_ENABLED).build(false));
 	}
 }

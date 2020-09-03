@@ -21,8 +21,6 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraft.world.gen.Heightmap;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.World;
-import net.minecraft.world.IWorld;
-import net.minecraft.world.DifficultyInstance;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.BlockPos;
@@ -30,7 +28,6 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.DamageSource;
 import net.minecraft.pathfinding.PathNodeType;
 import net.minecraft.network.IPacket;
-import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.item.SpawnEggItem;
 import net.minecraft.item.Items;
@@ -47,11 +44,8 @@ import net.minecraft.entity.ai.goal.LookAtGoal;
 import net.minecraft.entity.ai.goal.HurtByTargetGoal;
 import net.minecraft.entity.ai.goal.FollowParentGoal;
 import net.minecraft.entity.ai.goal.BreedGoal;
-import net.minecraft.entity.SpawnReason;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.Pose;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.ILivingEntityData;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EntitySpawnPlacementRegistry;
 import net.minecraft.entity.EntitySize;
@@ -63,8 +57,6 @@ import net.minecraft.client.renderer.model.ModelRenderer;
 import net.minecraft.client.renderer.entity.model.AgeableModel;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.block.BlockState;
-
-import javax.annotation.Nullable;
 
 import com.mojang.blaze3d.vertex.IVertexBuilder;
 import com.mojang.blaze3d.matrix.MatrixStack;
@@ -268,34 +260,33 @@ public class MallardDuckEntity extends NatureplusModElements.ModElement {
 		private final ModelRenderer left_leg;
 		private final ModelRenderer right_leg;
 		public ModelDuck() {
+            int i = 16;
 			textureWidth = 64;
 			textureHeight = 64;
 			head = new ModelRenderer(this);
-			head.setRotationPoint(0.0F, 15.0F, -4.0F);
-			setRotationAngle(head, 0.0F, 0.0F, 0.0F);
-			head.setTextureOffset(22, 15).addBox(-2.0F, -6.0F, -2.0F, 4.0F, 8.0F, 3.0F, 0.0F, false);
+			head.setRotationPoint(0.0F, 16.0F, -3.0F);
+			head.setTextureOffset(1, 1).addBox(-2.0F, -9.0F, -3.0F, 4.0F, 10.0F, 3.0F, 0.0F, false);
 			beak = new ModelRenderer(this);
-			beak.setRotationPoint(0.0F, 0.0F, 0.0F);
+			beak.setRotationPoint(0.0F, -6.0F, -3.0F);
 			head.addChild(beak);
-			beak.setTextureOffset(31, 31).addBox(-2.0F, -4.0F, -4.0F, 4.0F, 2.0F, 2.0F, 0.0F, false);
+			beak.setTextureOffset(16, 1).addBox(-2.0F, -1.0F, -2.0F, 4.0F, 2.0F, 2.0F, 0.0F, false);
 			body = new ModelRenderer(this);
-			body.setRotationPoint(0.0F, 16.0F, 0.0F);
-			setRotationAngle(body, 0.0F, 0.0F, 0.0F);
-			body.setTextureOffset(0, 0).addBox(-3.0F, -2.0F, -3.0F, 6.0F, 6.0F, 9.0F, 0.0F, false);
+			body.setRotationPoint(0.0F, 16.0F, 2.0F);
+			body.setTextureOffset(1, 29).addBox(-3.0F, -2.0F, -5.0F, 6.0F, 6.0F, 9.0F, 0.0F, false);
 			left_wing = new ModelRenderer(this);
 			left_wing.setRotationPoint(3.0F, -2.0F, 0.0F);
 			body.addChild(left_wing);
-			left_wing.setTextureOffset(11, 20).addBox(0.0F, 0.0F, -3.0F, 1.0F, 5.0F, 9.0F, 0.0F, false);
+			left_wing.setTextureOffset(20, 15).addBox(0.0F, 0.0F, -4.0F, 1.0F, 5.0F, 8.0F, 0.0F, false);
 			right_wing = new ModelRenderer(this);
 			right_wing.setRotationPoint(-3.0F, -2.0F, 0.0F);
 			body.addChild(right_wing);
-			right_wing.setTextureOffset(0, 15).addBox(-1.0F, 0.0F, -3.0F, 1.0F, 5.0F, 9.0F, 0.0F, false);
+			right_wing.setTextureOffset(1, 15).addBox(-1.0F, 0.0F, -4.0F, 1.0F, 5.0F, 8.0F, 0.0F, false);
 			left_leg = new ModelRenderer(this);
-			left_leg.setRotationPoint(2.0F, 19.0F, 3.0F);
-			left_leg.setTextureOffset(30, 5).addBox(-2.0F, 0.0F, -3.0F, 3.0F, 5.0F, 3.0F, 0.0F, false);
+			left_leg.setRotationPoint(1.5F, 19.0F, 3.0F);
+			left_leg.setTextureOffset(18, 45).addBox(-1.5F, 0.0F, -3.0F, 3.0F, 5.0F, 3.0F, 0.0F, false);
 			right_leg = new ModelRenderer(this);
-			right_leg.setRotationPoint(-1.0F, 19.0F, 3.0F);
-			right_leg.setTextureOffset(21, 0).addBox(-2.0F, 0.0F, -3.0F, 3.0F, 5.0F, 3.0F, 0.0F, false);
+			right_leg.setRotationPoint(-1.5F, 19.0F, 3.0F);
+			right_leg.setTextureOffset(1, 45).addBox(-1.5F, 0.0F, -3.0F, 3.0F, 5.0F, 3.0F, 0.0F, false);
 		}
 
 		protected Iterable<ModelRenderer> getHeadParts() {
@@ -326,26 +317,14 @@ public class MallardDuckEntity extends NatureplusModElements.ModElement {
 			this.head.rotateAngleX = headPitch / (180F / (float) Math.PI);
 			this.right_leg.rotateAngleX = MathHelper.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount;
 			this.left_leg.rotateAngleX = MathHelper.cos(limbSwing * 0.6662F + (float) Math.PI) * 1.4F * limbSwingAmount;
-//			 this.right_wing.rotateAngleZ = 0.1F + -(MathHelper.cos(f2 * 2.0F) * (float) Math.PI * 0.18F);
-//			 this.left_wing.rotateAngleZ = -0.1F + (MathHelper.cos(f2 * 0.8F) * (float) Math.PI * 0.14F);
-
-			boolean flag = entityIn.getMotion().lengthSquared() < 0.5E-7D; // e.onGround &&
+			boolean flag = entityIn.onGround;
 			if (!flag) {
-				this.right_wing.rotateAngleZ = -4.0F + (MathHelper.cos(ageInTicks * 1.0F) * (float) Math.PI * 0.2F);
-				this.left_wing.rotateAngleZ = 4.0F + -(MathHelper.cos(ageInTicks * 1.0F) * (float) Math.PI * 0.2F);
+				this.right_wing.rotateAngleZ = -5.0F + (MathHelper.cos(ageInTicks * 2.0F) * (float) Math.PI * 0.3F);
+				this.left_wing.rotateAngleZ = 5.0F + -(MathHelper.cos(ageInTicks * 2.0F) * (float) Math.PI * 0.3F);
 			} else {
 				this.right_wing.rotateAngleZ = 0.0F;
 				this.left_wing.rotateAngleZ = 0.0F;
 			}
-
-		}
-
-		public void setLivingAnimations(LivingEntity entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTickTime) {
-			CustomEntity livingBase = (CustomEntity) entitylivingbaseIn;
-			float f = livingBase.oFlap + (livingBase.wingRotation - livingBase.oFlap) * partialTickTime;
-			float f1 = livingBase.oFlapSpeed + (livingBase.destPos - livingBase.oFlapSpeed) * partialTickTime;
-			right_wing.rotateAngleZ = (MathHelper.sin(f) + 1.0F) * f1;
-			left_wing.rotateAngleZ = -((MathHelper.sin(f) + 1.0F) * f1);
 		}
 	}
 }

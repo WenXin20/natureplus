@@ -1,9 +1,8 @@
-
-// Made with Blockbench 3.5.4
+// Made with Blockbench 3.6.5
 // Exported for Minecraft version 1.15
 // Paste this class into your mod and generate all required imports
 
-public static class ModelDuck extends AgeableModel<Entity> {
+public static class ModelDuck extends EntityModel<Entity> {
 	private final ModelRenderer head;
 	private final ModelRenderer beak;
 	private final ModelRenderer body;
@@ -11,36 +10,43 @@ public static class ModelDuck extends AgeableModel<Entity> {
 	private final ModelRenderer right_wing;
 	private final ModelRenderer left_leg;
 	private final ModelRenderer right_leg;
+
 	public ModelDuck() {
 		textureWidth = 64;
 		textureHeight = 64;
+
 		head = new ModelRenderer(this);
-		head.setRotationPoint(0.0F, 15.0F, -4.0F);
-		setRotationAngle(head, 0.0F, 0.0F, 0.0F);
-		head.setTextureOffset(22, 15).addBox(-2.0F, -6.0F, -2.0F, 4.0F, 8.0F, 3.0F, 0.0F, false);
+		head.setRotationPoint(0.0F, 16.0F, -3.0F);
+		head.setTextureOffset(1, 1).addBox(-2.0F, -9.0F, -3.0F, 4.0F, 10.0F, 3.0F, 0.0F, false);
+
 		beak = new ModelRenderer(this);
-		beak.setRotationPoint(0.0F, 0.0F, 0.0F);
+		beak.setRotationPoint(0.0F, -6.0F, -3.0F);
 		head.addChild(beak);
-		beak.setTextureOffset(31, 31).addBox(-2.0F, -4.0F, -4.0F, 4.0F, 2.0F, 2.0F, 0.0F, false);
+		beak.setTextureOffset(16, 1).addBox(-2.0F, -1.0F, -2.0F, 4.0F, 2.0F, 2.0F, 0.0F, false);
+
 		body = new ModelRenderer(this);
-		body.setRotationPoint(0.0F, 16.0F, 0.0F);
-		setRotationAngle(body, 0.0F, 0.0F, 0.0F);
-		body.setTextureOffset(0, 0).addBox(-3.0F, -2.0F, -3.0F, 6.0F, 6.0F, 9.0F, 0.0F, false);
+		body.setRotationPoint(0.0F, 16.0F, 2.0F);
+		body.setTextureOffset(1, 29).addBox(-3.0F, -2.0F, -5.0F, 6.0F, 6.0F, 9.0F, 0.0F, false);
+
 		left_wing = new ModelRenderer(this);
 		left_wing.setRotationPoint(3.0F, -2.0F, 0.0F);
 		body.addChild(left_wing);
-		left_wing.setTextureOffset(11, 20).addBox(0.0F, 0.0F, -3.0F, 1.0F, 5.0F, 9.0F, 0.0F, false);
+		left_wing.setTextureOffset(20, 15).addBox(0.0F, 0.0F, -4.0F, 1.0F, 5.0F, 8.0F, 0.0F, false);
+
 		right_wing = new ModelRenderer(this);
 		right_wing.setRotationPoint(-3.0F, -2.0F, 0.0F);
 		body.addChild(right_wing);
-		right_wing.setTextureOffset(0, 15).addBox(-1.0F, 0.0F, -3.0F, 1.0F, 5.0F, 9.0F, 0.0F, false);
+		right_wing.setTextureOffset(1, 15).addBox(-1.0F, 0.0F, -4.0F, 1.0F, 5.0F, 8.0F, 0.0F, false);
+
 		left_leg = new ModelRenderer(this);
-		left_leg.setRotationPoint(2.0F, 19.0F, 3.0F);
-		left_leg.setTextureOffset(30, 5).addBox(-2.0F, 0.0F, -3.0F, 3.0F, 5.0F, 3.0F, 0.0F, false);
+		left_leg.setRotationPoint(1.5F, 19.0F, 3.0F);
+		left_leg.setTextureOffset(18, 45).addBox(-1.5F, 0.0F, -3.0F, 3.0F, 5.0F, 3.0F, 0.0F, false);
+
 		right_leg = new ModelRenderer(this);
-		right_leg.setRotationPoint(-1.0F, 19.0F, 3.0F);
-		right_leg.setTextureOffset(21, 0).addBox(-2.0F, 0.0F, -3.0F, 3.0F, 5.0F, 3.0F, 0.0F, false);
+		right_leg.setRotationPoint(-1.5F, 19.0F, 3.0F);
+		right_leg.setTextureOffset(1, 45).addBox(-1.5F, 0.0F, -3.0F, 3.0F, 5.0F, 3.0F, 0.0F, false);
 	}
+
 
 	protected Iterable<ModelRenderer> getHeadParts() {
 		return ImmutableList.of(this.head, this.beak);
@@ -51,8 +57,8 @@ public static class ModelDuck extends AgeableModel<Entity> {
 	}
 
 	@Override
-	public void render(MatrixStack matrixStack, IVertexBuilder buffer, int packedLight, int packedOverlay, float red, float green, float blue,
-			float alpha) {
+	public void render(MatrixStack matrixStack, IVertexBuilder buffer, int packedLight, int packedOverlay, float red,
+			float green, float blue, float alpha) {
 		head.render(matrixStack, buffer, packedLight, packedOverlay);
 		body.render(matrixStack, buffer, packedLight, packedOverlay);
 		left_leg.render(matrixStack, buffer, packedLight, packedOverlay);
@@ -65,13 +71,19 @@ public static class ModelDuck extends AgeableModel<Entity> {
 		modelRenderer.rotateAngleZ = z;
 	}
 
-	public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5, Entity e) {
-		super.setRotationAngles(f, f1, f2, f3, f4, f5, e);
-		this.head.rotateAngleY = f3 / (180F / (float) Math.PI);
-		this.head.rotateAngleX = f4 / (180F / (float) Math.PI);
-		this.right_leg.rotateAngleX = MathHelper.cos(f * 0.6662F) * 1.4F * f1;
-		this.left_leg.rotateAngleX = MathHelper.cos(f * 0.6662F + (float) Math.PI) * 1.4F * f1;
-		this.right_wing.rotateAngleZ = f2;
-		this.left_wing.rotateAngleZ = -f2;
+	public void setRotationAngles(Entity entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+		this.head.rotateAngleY = netHeadYaw / (180F / (float) Math.PI);
+		this.head.rotateAngleX = headPitch / (180F / (float) Math.PI);
+		this.right_leg.rotateAngleX = MathHelper.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount;
+		this.left_leg.rotateAngleX = MathHelper.cos(limbSwing * 0.6662F + (float) Math.PI) * 1.4F * limbSwingAmount;
+
+		boolean flag = entityIn.onGround;
+		if (!flag) {
+			this.right_wing.rotateAngleZ = -5.0F + (MathHelper.cos(ageInTicks * 1.5F) * (float) Math.PI * 0.3F);
+			this.left_wing.rotateAngleZ = 5.0F + -(MathHelper.cos(ageInTicks * 1.5F) * (float) Math.PI * 0.3F);
+		} else {
+			this.right_wing.rotateAngleZ = 0.0F;
+			this.left_wing.rotateAngleZ = 0.0F;
+		}
 	}
 }
