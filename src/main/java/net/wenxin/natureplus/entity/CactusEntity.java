@@ -1,4 +1,3 @@
-
 package net.wenxin.natureplus.entity;
 
 import net.wenxin.natureplus.procedures.SpadeRemoveCactusProcedure;
@@ -133,7 +132,7 @@ public class CactusEntity extends NatureplusModElements.ModElement {
 		protected void registerGoals() {
 			super.registerGoals();
 			this.goalSelector.addGoal(1, new BreedGoal(this, 0.8));
-			this.goalSelector.addGoal(2, new TemptGoal(this, 0, Ingredient.fromItems(Items.CACTUS), false));
+			this.goalSelector.addGoal(2, new TemptGoal(this, 0, Ingredient.fromItems(Items.BONE_MEAL), false));
 			this.targetSelector.addGoal(2, new NearestAttackableTargetGoal(this, MobEntity.class, 10, true, true, (entity) -> {
 				return entity instanceof IMob && !(entity instanceof CreeperEntity);
 			}));
@@ -153,7 +152,7 @@ public class CactusEntity extends NatureplusModElements.ModElement {
 		public boolean isBreedingItem(ItemStack stack) {
 			if (stack == null)
 				return false;
-			if (new ItemStack(Items.CACTUS, (int) (1)).getItem() == stack.getItem())
+			if (new ItemStack(Items.BONE_MEAL, (int) (1)).getItem() == stack.getItem())
 				return true;
 			return false;
 		}

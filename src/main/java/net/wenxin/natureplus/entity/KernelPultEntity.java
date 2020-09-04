@@ -68,7 +68,7 @@ import com.google.common.collect.ImmutableList;
 public class KernelPultEntity extends NatureplusModElements.ModElement {
 	public static EntityType entity = null;
 	public KernelPultEntity(NatureplusModElements instance) {
-		super(instance, 163);
+		super(instance, 171);
 		FMLJavaModLoadingContext.get().getModEventBus().register(this);
 	}
 
@@ -124,7 +124,7 @@ public class KernelPultEntity extends NatureplusModElements.ModElement {
 		protected void registerGoals() {
 			super.registerGoals();
 			this.goalSelector.addGoal(1, new BreedGoal(this, 0.8));
-			this.goalSelector.addGoal(2, new TemptGoal(this, 0, Ingredient.fromItems(CornItem.block), false));
+			this.goalSelector.addGoal(2, new TemptGoal(this, 0, Ingredient.fromItems(Items.BONE_MEAL), false));
 			this.targetSelector.addGoal(2, new NearestAttackableTargetGoal(this, MobEntity.class, 10, true, true, (entity) -> {
 				return entity instanceof IMob && !(entity instanceof CreeperEntity);
 			}));
@@ -144,7 +144,7 @@ public class KernelPultEntity extends NatureplusModElements.ModElement {
 		public boolean isBreedingItem(ItemStack stack) {
 			if (stack == null)
 				return false;
-			if (new ItemStack(CornItem.block, (int) (1)).getItem() == stack.getItem())
+			if (new ItemStack(Items.BONE_MEAL, (int) (1)).getItem() == stack.getItem())
 				return true;
 			return false;
 		}
@@ -268,16 +268,13 @@ public class KernelPultEntity extends NatureplusModElements.ModElement {
 		public ModelKernelPult() {
 			textureWidth = 64;
 			textureHeight = 64;
-	
 			main = new ModelRenderer(this);
 			main.setRotationPoint(0.0F, 24.0F, 0.0F);
 			main.setTextureOffset(0, 0).addBox(-4.0F, -4.0F, -4.0F, 8.0F, 4.0F, 8.0F, 0.0F, false);
-	
 			main_layer = new ModelRenderer(this);
 			main_layer.setRotationPoint(0.0F, 0.0F, 0.0F);
 			main.addChild(main_layer);
 			main_layer.setTextureOffset(0, 41).addBox(-4.0F, -4.0F, -4.0F, 8.0F, 4.0F, 8.0F, 0.25F, false);
-	
 			leaves = new ModelRenderer(this);
 			leaves.setRotationPoint(0.0F, 0.0F, 0.0F);
 			main.addChild(leaves);
@@ -293,39 +290,32 @@ public class KernelPultEntity extends NatureplusModElements.ModElement {
 			leaves.setTextureOffset(28, 5).addBox(-9.0F, -0.5F, 0.0F, 5.0F, 0.0F, 4.0F, 0.0F, false);
 			leaves.setTextureOffset(0, 28).addBox(-9.0F, -0.5F, -4.0F, 5.0F, 0.0F, 4.0F, 0.0F, false);
 			leaves.setTextureOffset(13, 13).addBox(-9.0F, -0.5F, -9.0F, 5.0F, 0.0F, 5.0F, 0.0F, false);
-	
 			head = new ModelRenderer(this);
 			head.setRotationPoint(0.0F, 21.0F, 0.0F);
 			head.setTextureOffset(0, 12).addBox(-3.0F, -4.0F, -3.0F, 6.0F, 5.0F, 6.0F, 0.0F, false);
 			head.setTextureOffset(20, 31).addBox(-2.0F, -6.0F, -2.0F, 4.0F, 2.0F, 4.0F, 0.0F, false);
-	
 			head_layer = new ModelRenderer(this);
 			head_layer.setRotationPoint(0.0F, 3.0F, 0.0F);
 			head.addChild(head_layer);
 			head_layer.setTextureOffset(0, 53).addBox(-3.0F, -7.0F, -3.0F, 6.0F, 5.0F, 6.0F, 0.25F, false);
 			head_layer.setTextureOffset(25, 58).addBox(-2.0F, -9.0F, -2.0F, 4.0F, 2.0F, 4.0F, 0.25F, false);
-	
 			catapult = new ModelRenderer(this);
 			catapult.setRotationPoint(0.0F, -5.0F, -0.5F);
 			head.addChild(catapult);
 			setRotationAngle(catapult, -0.6109F, 0.0F, 0.0F);
-	
 			catapult_arm1 = new ModelRenderer(this);
 			catapult_arm1.setRotationPoint(0.0F, 0.0F, 0.0F);
 			catapult.addChild(catapult_arm1);
 			catapult_arm1.setTextureOffset(0, 12).addBox(-0.5F, -5.0F, -0.5F, 1.0F, 5.0F, 1.0F, 0.0F, false);
-	
 			catapult_arm2 = new ModelRenderer(this);
 			catapult_arm2.setRotationPoint(0.0F, -4.5F, 0.0F);
 			catapult.addChild(catapult_arm2);
 			catapult_arm2.setTextureOffset(36, 9).addBox(-0.5F, -0.5F, 0.5F, 1.0F, 1.0F, 4.0F, 0.0F, false);
-	
 			catapult_arm3 = new ModelRenderer(this);
 			catapult_arm3.setRotationPoint(0.0F, -4.5F, 4.5F);
 			catapult.addChild(catapult_arm3);
 			setRotationAngle(catapult_arm3, 0.6109F, 0.0F, 0.0F);
 			catapult_arm3.setTextureOffset(0, 36).addBox(-0.5F, -0.6F, -0.25F, 1.0F, 1.0F, 4.0F, 0.0F, false);
-	
 			catapult_base = new ModelRenderer(this);
 			catapult_base.setRotationPoint(0.0F, -6.75F, 7.5F);
 			catapult.addChild(catapult_base);
@@ -335,7 +325,6 @@ public class KernelPultEntity extends NatureplusModElements.ModElement {
 			catapult_base.setTextureOffset(32, 35).addBox(2.0F, -1.5F, 0.75F, 1.0F, 3.0F, 4.0F, 0.0F, false);
 			catapult_base.setTextureOffset(10, 33).addBox(-3.0F, -1.5F, 0.75F, 1.0F, 3.0F, 4.0F, 0.0F, false);
 			catapult_base.setTextureOffset(31, 20).addBox(-2.0F, 0.5F, 0.75F, 4.0F, 1.0F, 4.0F, 0.0F, false);
-	
 			corn_kernel = new ModelRenderer(this);
 			corn_kernel.setRotationPoint(0.0F, 0.5F, 2.25F);
 			catapult_base.addChild(corn_kernel);

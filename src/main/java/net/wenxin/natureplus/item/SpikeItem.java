@@ -52,7 +52,7 @@ public class SpikeItem extends NatureplusModElements.ModElement {
 	@ObjectHolder("natureplus:entitybulletspike")
 	public static final EntityType arrow = null;
 	public SpikeItem(NatureplusModElements instance) {
-		super(instance, 204);
+		super(instance, 206);
 	}
 
 	@Override

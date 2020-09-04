@@ -60,7 +60,7 @@ import com.google.common.collect.ImmutableMap;
 public class PVZZombieEntity extends NatureplusModElements.ModElement {
 	public static EntityType entity = null;
 	public PVZZombieEntity(NatureplusModElements instance) {
-		super(instance, 164);
+		super(instance, 173);
 		FMLJavaModLoadingContext.get().getModEventBus().register(this);
 	}
 

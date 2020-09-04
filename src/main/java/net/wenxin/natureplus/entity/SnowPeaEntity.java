@@ -30,6 +30,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.DamageSource;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.item.SpawnEggItem;
+import net.minecraft.item.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Item;
 import net.minecraft.entity.player.PlayerEntity;
@@ -76,7 +77,7 @@ import com.google.common.collect.ImmutableList;
 public class SnowPeaEntity extends NatureplusModElements.ModElement {
 	public static EntityType entity = null;
 	public SnowPeaEntity(NatureplusModElements instance) {
-		super(instance, 162);
+		super(instance, 170);
 		FMLJavaModLoadingContext.get().getModEventBus().register(this);
 	}
 
@@ -139,7 +140,7 @@ public class SnowPeaEntity extends NatureplusModElements.ModElement {
 		protected void registerGoals() {
 			super.registerGoals();
 			this.goalSelector.addGoal(1, new BreedGoal(this, 0.8));
-			this.goalSelector.addGoal(2, new TemptGoal(this, 0, Ingredient.fromItems(FrozenPeaItem.block), false));
+			this.goalSelector.addGoal(2, new TemptGoal(this, 0, Ingredient.fromItems(Items.BONE_MEAL), false));
 			this.targetSelector.addGoal(2, new NearestAttackableTargetGoal(this, MobEntity.class, 10, true, true, (entity) -> {
 				return entity instanceof IMob && !(entity instanceof CreeperEntity);
 			}));
@@ -159,7 +160,7 @@ public class SnowPeaEntity extends NatureplusModElements.ModElement {
 		public boolean isBreedingItem(ItemStack stack) {
 			if (stack == null)
 				return false;
-			if (new ItemStack(FrozenPeaItem.block, (int) (1)).getItem() == stack.getItem())
+			if (new ItemStack(Items.BONE_MEAL, (int) (1)).getItem() == stack.getItem())
 				return true;
 			return false;
 		}
