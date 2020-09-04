@@ -2,7 +2,7 @@
 // Exported for Minecraft version 1.15
 // Paste this class into your mod and generate all required imports
 
-public static class ModelCactus extends EntityModel<Entity> {
+public static class ModelCactus<T extends Entity> extends AgeableModel<T> {
 	private final ModelRenderer main;
 	private final ModelRenderer main_layer;
 	private final ModelRenderer head;
@@ -65,17 +65,13 @@ public static class ModelCactus extends EntityModel<Entity> {
 		right_arm_layer.setTextureOffset(13, 50).addBox(-5.0F, -5.5F, -1.5F, 3.0F, 4.0F, 3.0F, 0.25F, false);
 	}
 
-	@Override
-	public void render(MatrixStack matrixStack, IVertexBuilder buffer, int packedLight, int packedOverlay, float red,
-			float green, float blue, float alpha) {
-		main.render(matrixStack, buffer, packedLight, packedOverlay);
-		main_layer.render(matrixStack, buffer, packedLight, packedOverlay);
-		head.render(matrixStack, buffer, packedLight, packedOverlay);
-		head_layer.render(matrixStack, buffer, packedLight, packedOverlay);
-		left_arm.render(matrixStack, buffer, packedLight, packedOverlay);
-		left_arm_layer.render(matrixStack, buffer, packedLight, packedOverlay);
-		right_arm.render(matrixStack, buffer, packedLight, packedOverlay);
-		right_arm_layer.render(matrixStack, buffer, packedLight, packedOverlay);
+	protected Iterable<ModelRenderer> getHeadParts() {
+		return ImmutableList.of();
+	}
+
+	protected Iterable<ModelRenderer> getBodyParts() {
+		return ImmutableList.of(this.head, this.head_layer, this.main, this.main_layer, this.left_arm,
+				this.left_arm_layer, this.right_arm, this.right_arm_layer);
 	}
 
 	public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {

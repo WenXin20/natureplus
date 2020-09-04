@@ -1,0 +1,22 @@
+{
+  "_fv": 11,
+  "_type": "food",
+  "definition": {
+    "renderType": 0,
+    "texture": "raw_dragonfly",
+    "customModelName": "Normal",
+    "name": "Raw Dragonfly",
+    "specialInfo": [],
+    "creativeTab": {
+      "value": "CUSTOM:NaturePlusTab"
+    },
+    "stackSize": 64,
+    "nutritionalValue": 2,
+    "saturation": 0.1,
+    "eatingSpeed": 16,
+    "forDogs": true,
+    "isAlwaysEdible": false,
+    "animation": "eat",
+    "hasGlow": false
+  }
+}

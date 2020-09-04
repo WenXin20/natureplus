@@ -6,6 +6,7 @@ import net.wenxin.natureplus.procedures.SunflowerNaturalSpawnProcedure;
 import net.wenxin.natureplus.procedures.SpadeRemoveSunflowerProcedure;
 import net.wenxin.natureplus.procedures.EntityTimerSunflowerProcedure;
 import net.wenxin.natureplus.itemgroup.PlantsVsZombiesTabItemGroup;
+import net.wenxin.natureplus.item.SunItem;
 import net.wenxin.natureplus.item.SpikeItem;
 import net.wenxin.natureplus.item.PeaItem;
 import net.wenxin.natureplus.item.FrozenPeaItem;
@@ -32,13 +33,18 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.DamageSource;
 import net.minecraft.nbt.CompoundNBT;
+import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.item.SpawnEggItem;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.Item;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.monster.MonsterEntity;
+import net.minecraft.entity.ai.goal.TemptGoal;
 import net.minecraft.entity.ai.goal.SwimGoal;
 import net.minecraft.entity.ai.goal.LookRandomlyGoal;
 import net.minecraft.entity.ai.goal.LookAtGoal;
+import net.minecraft.entity.ai.goal.BreedGoal;
 import net.minecraft.entity.SpawnReason;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.MobEntity;
@@ -47,11 +53,12 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EntitySpawnPlacementRegistry;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.CreatureEntity;
 import net.minecraft.entity.CreatureAttribute;
+import net.minecraft.entity.AgeableEntity;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.client.renderer.model.ModelRenderer;
 import net.minecraft.client.renderer.entity.model.EntityModel;
+import net.minecraft.client.renderer.entity.model.AgeableModel;
 import net.minecraft.client.renderer.entity.layers.LayerRenderer;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.client.renderer.entity.IEntityRenderer;
@@ -61,6 +68,7 @@ import com.mojang.blaze3d.vertex.IVertexBuilder;
 import com.mojang.blaze3d.matrix.MatrixStack;
 
 import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.ImmutableList;
 
 @NatureplusModElements.ModElement.Tag
 public class SunflowerEntity extends NatureplusModElements.ModElement {
@@ -109,7 +117,7 @@ public class SunflowerEntity extends NatureplusModElements.ModElement {
 			};
 		});
 	}
-	public static class CustomEntity extends CreatureEntity {
+	public static class CustomEntity extends AnimalEntity {
 		public CustomEntity(FMLPlayMessages.SpawnEntity packet, World world) {
 			this(entity, world);
 		}
@@ -124,11 +132,27 @@ public class SunflowerEntity extends NatureplusModElements.ModElement {
 		@Override
 		protected void registerGoals() {
 			super.registerGoals();
+			this.goalSelector.addGoal(1, new BreedGoal(this, 0.8));
+			this.goalSelector.addGoal(2, new TemptGoal(this, 0, Ingredient.fromItems(SunItem.block), false));
 			this.goalSelector.addGoal(1, new LookAtGoal(this, PlayerEntity.class, (float) 6));
 			this.goalSelector.addGoal(2, new LookAtGoal(this, MonsterEntity.class, (float) 6));
 			this.goalSelector.addGoal(3, new LookAtGoal(this, MobEntity.class, (float) 6));
 			this.goalSelector.addGoal(4, new SwimGoal(this));
 			this.goalSelector.addGoal(5, new LookRandomlyGoal(this));
+		}
+
+		@Override
+		public boolean isBreedingItem(ItemStack stack) {
+			if (stack == null)
+				return false;
+			if (new ItemStack(SunItem.block, (int) (1)).getItem() == stack.getItem())
+				return true;
+			return false;
+		}
+
+		@Override
+		public AgeableEntity createChild(AgeableEntity ageable) {
+			return (CustomEntity) entity.create(this.world);
 		}
 
 		@Override
@@ -141,25 +165,6 @@ public class SunflowerEntity extends NatureplusModElements.ModElement {
 			return false;
 		}
 
-		// protected void dropSpecialItems(DamageSource source, int looting, boolean
-		// recentlyHitIn) {
-		// super.dropSpecialItems(source, looting, recentlyHitIn);
-		// Entity entity = source.getTrueSource();
-		// if (entity instanceof CreeperEntity) {
-		// CreeperEntity creeperentity = (CreeperEntity) entity;
-		// if (creeperentity.ableToCauseSkullDrop()) {
-		// creeperentity.incrementDroppedSkulls();
-		// ItemStack itemstack = this.getSkullDrop();
-		// if (!itemstack.isEmpty()) {
-		// this.entityDropItem(itemstack);
-		// }
-		// }
-		// }
-		// }
-		//
-		// protected ItemStack getSkullDrop() {
-		// return new ItemStack(SunflowerHeadBlock.block);
-		// }
 		@Override
 		public net.minecraft.util.SoundEvent getAmbientSound() {
 			return (net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(""));
@@ -247,7 +252,7 @@ public class SunflowerEntity extends NatureplusModElements.ModElement {
 		protected void registerAttributes() {
 			super.registerAttributes();
 			if (this.getAttribute(SharedMonsterAttributes.MOVEMENT_SPEED) != null)
-				this.getAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0);
+				this.getAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.1);
 			if (this.getAttribute(SharedMonsterAttributes.MAX_HEALTH) != null)
 				this.getAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(15);
 			if (this.getAttribute(SharedMonsterAttributes.ARMOR) != null)
@@ -278,7 +283,7 @@ public class SunflowerEntity extends NatureplusModElements.ModElement {
 	// Made with Blockbench 3.5.4
 	// Exported for Minecraft version 1.15
 	// Paste this class into your mod and generate all required imports
-	public static class ModelSunflower extends EntityModel<Entity> {
+	public static class ModelSunflower<T extends Entity> extends AgeableModel<T> {
 		private final ModelRenderer main;
 		private final ModelRenderer head;
 		public ModelSunflower() {
@@ -307,11 +312,12 @@ public class SunflowerEntity extends NatureplusModElements.ModElement {
 			head.setTextureOffset(20, 15).addBox(-1.0F, -2.0F, -1.0F, 2.0F, 3.0F, 2.0F, 0.0F, false);
 		}
 
-		@Override
-		public void render(MatrixStack matrixStack, IVertexBuilder buffer, int packedLight, int packedOverlay, float red, float green, float blue,
-				float alpha) {
-			main.render(matrixStack, buffer, packedLight, packedOverlay);
-			head.render(matrixStack, buffer, packedLight, packedOverlay);
+		protected Iterable<ModelRenderer> getHeadParts() {
+			return ImmutableList.of();
+		}
+
+		protected Iterable<ModelRenderer> getBodyParts() {
+			return ImmutableList.of(this.head, this.main);
 		}
 
 		public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {

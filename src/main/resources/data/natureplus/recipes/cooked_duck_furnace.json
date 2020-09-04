@@ -1,0 +1,12 @@
+{
+  "group": "natureplus",
+  "type": "minecraft:smelting",
+  "experience": 0.35,
+  "cookingtime": 200,
+  "ingredient": {
+    "item": "natureplus:raw_duck"
+  },
+  "result": {
+    "item": "natureplus:cooked_duck"
+  }
+}

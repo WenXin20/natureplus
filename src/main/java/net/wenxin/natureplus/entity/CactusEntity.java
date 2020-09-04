@@ -2,6 +2,7 @@
 package net.wenxin.natureplus.entity;
 
 import net.wenxin.natureplus.procedures.SpadeRemoveCactusProcedure;
+import net.wenxin.natureplus.procedures.DisablePushingOfMobsProcedure;
 import net.wenxin.natureplus.procedures.CactusNaturalSpawnProcedure;
 import net.wenxin.natureplus.itemgroup.PlantsVsZombiesTabItemGroup;
 import net.wenxin.natureplus.item.SpikeItem;
@@ -28,39 +29,44 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.DamageSource;
 import net.minecraft.network.IPacket;
+import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.item.SpawnEggItem;
+import net.minecraft.item.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Item;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.monster.CreeperEntity;
+import net.minecraft.entity.ai.goal.TemptGoal;
 import net.minecraft.entity.ai.goal.SwimGoal;
 import net.minecraft.entity.ai.goal.RangedAttackGoal;
 import net.minecraft.entity.ai.goal.NearestAttackableTargetGoal;
 import net.minecraft.entity.ai.goal.LookRandomlyGoal;
 import net.minecraft.entity.ai.goal.LookAtGoal;
 import net.minecraft.entity.ai.goal.HurtByTargetGoal;
+import net.minecraft.entity.ai.goal.BreedGoal;
 import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.Pose;
 import net.minecraft.entity.MobEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.IRangedAttackMob;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EntitySpawnPlacementRegistry;
+import net.minecraft.entity.EntitySize;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.CreatureEntity;
 import net.minecraft.entity.CreatureAttribute;
+import net.minecraft.entity.AgeableEntity;
 import net.minecraft.client.renderer.model.ModelRenderer;
-import net.minecraft.client.renderer.entity.model.EntityModel;
+import net.minecraft.client.renderer.entity.model.AgeableModel;
 import net.minecraft.client.renderer.entity.MobRenderer;
 
 import java.util.Map;
 import java.util.HashMap;
 
-import com.mojang.blaze3d.vertex.IVertexBuilder;
-import com.mojang.blaze3d.matrix.MatrixStack;
-
 import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.ImmutableList;
 
 @NatureplusModElements.ModElement.Tag
 public class CactusEntity extends NatureplusModElements.ModElement {
@@ -106,7 +112,7 @@ public class CactusEntity extends NatureplusModElements.ModElement {
 			};
 		});
 	}
-	public static class CustomEntity extends CreatureEntity implements IRangedAttackMob {
+	public static class CustomEntity extends AnimalEntity implements IRangedAttackMob {
 		public CustomEntity(FMLPlayMessages.SpawnEntity packet, World world) {
 			this(entity, world);
 		}
@@ -126,6 +132,8 @@ public class CactusEntity extends NatureplusModElements.ModElement {
 		@Override
 		protected void registerGoals() {
 			super.registerGoals();
+			this.goalSelector.addGoal(1, new BreedGoal(this, 0.8));
+			this.goalSelector.addGoal(2, new TemptGoal(this, 0, Ingredient.fromItems(Items.CACTUS), false));
 			this.targetSelector.addGoal(2, new NearestAttackableTargetGoal(this, MobEntity.class, 10, true, true, (entity) -> {
 				return entity instanceof IMob && !(entity instanceof CreeperEntity);
 			}));
@@ -139,6 +147,24 @@ public class CactusEntity extends NatureplusModElements.ModElement {
 					return this.shouldExecute();
 				}
 			});
+		}
+
+		@Override
+		public boolean isBreedingItem(ItemStack stack) {
+			if (stack == null)
+				return false;
+			if (new ItemStack(Items.CACTUS, (int) (1)).getItem() == stack.getItem())
+				return true;
+			return false;
+		}
+
+		@Override
+		public AgeableEntity createChild(AgeableEntity ageable) {
+			return (CustomEntity) entity.create(this.world);
+		}
+
+		public float getStandingEyeHeight(Pose poseIn, EntitySize sizeIn) {
+			return sizeIn.height * 0.8F;
 		}
 
 		@Override
@@ -197,10 +223,28 @@ public class CactusEntity extends NatureplusModElements.ModElement {
 		}
 
 		@Override
+		public void baseTick() {
+			super.baseTick();
+			double x = this.getPosX();
+			double y = this.getPosY();
+			double z = this.getPosZ();
+			Entity entity = this;
+			{
+				Map<String, Object> $_dependencies = new HashMap<>();
+				$_dependencies.put("entity", entity);
+				$_dependencies.put("x", x);
+				$_dependencies.put("y", y);
+				$_dependencies.put("z", z);
+				$_dependencies.put("world", world);
+				DisablePushingOfMobsProcedure.executeProcedure($_dependencies);
+			}
+		}
+
+		@Override
 		protected void registerAttributes() {
 			super.registerAttributes();
 			if (this.getAttribute(SharedMonsterAttributes.MOVEMENT_SPEED) != null)
-				this.getAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0);
+				this.getAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.1);
 			if (this.getAttribute(SharedMonsterAttributes.MAX_HEALTH) != null)
 				this.getAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(20);
 			if (this.getAttribute(SharedMonsterAttributes.ARMOR) != null)
@@ -213,13 +257,14 @@ public class CactusEntity extends NatureplusModElements.ModElement {
 
 		public void attackEntityWithRangedAttack(LivingEntity target, float flval) {
 			SpikeItem.shoot(this, target);
+			PeaItem.shoot(this, target);
 		}
 	}
 
 	// Made with Blockbench 3.6.5
 	// Exported for Minecraft version 1.15
 	// Paste this class into your mod and generate all required imports
-	public static class ModelCactus extends EntityModel<Entity> {
+	public static class ModelCactus<T extends Entity> extends AgeableModel<T> {
 		private final ModelRenderer main;
 		private final ModelRenderer main_layer;
 		private final ModelRenderer head;
@@ -271,17 +316,13 @@ public class CactusEntity extends NatureplusModElements.ModElement {
 			right_arm_layer.setTextureOffset(13, 50).addBox(-5.0F, -5.5F, -1.5F, 3.0F, 4.0F, 3.0F, 0.25F, false);
 		}
 
-		@Override
-		public void render(MatrixStack matrixStack, IVertexBuilder buffer, int packedLight, int packedOverlay, float red, float green, float blue,
-				float alpha) {
-			main.render(matrixStack, buffer, packedLight, packedOverlay);
-			main_layer.render(matrixStack, buffer, packedLight, packedOverlay);
-			head.render(matrixStack, buffer, packedLight, packedOverlay);
-			head_layer.render(matrixStack, buffer, packedLight, packedOverlay);
-			left_arm.render(matrixStack, buffer, packedLight, packedOverlay);
-			left_arm_layer.render(matrixStack, buffer, packedLight, packedOverlay);
-			right_arm.render(matrixStack, buffer, packedLight, packedOverlay);
-			right_arm_layer.render(matrixStack, buffer, packedLight, packedOverlay);
+		protected Iterable<ModelRenderer> getHeadParts() {
+			return ImmutableList.of();
+		}
+
+		protected Iterable<ModelRenderer> getBodyParts() {
+			return ImmutableList.of(this.head, this.head_layer, this.main, this.main_layer, this.left_arm, this.left_arm_layer, this.right_arm,
+					this.right_arm_layer);
 		}
 
 		public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {

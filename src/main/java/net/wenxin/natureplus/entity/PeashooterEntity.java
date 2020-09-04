@@ -27,17 +27,22 @@ import net.minecraft.world.World;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.DamageSource;
+import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.item.SpawnEggItem;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.Item;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.monster.CreeperEntity;
+import net.minecraft.entity.ai.goal.TemptGoal;
 import net.minecraft.entity.ai.goal.SwimGoal;
 import net.minecraft.entity.ai.goal.RangedAttackGoal;
 import net.minecraft.entity.ai.goal.NearestAttackableTargetGoal;
 import net.minecraft.entity.ai.goal.LookRandomlyGoal;
 import net.minecraft.entity.ai.goal.LookAtGoal;
 import net.minecraft.entity.ai.goal.HurtByTargetGoal;
+import net.minecraft.entity.ai.goal.BreedGoal;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.MobEntity;
 import net.minecraft.entity.LivingEntity;
@@ -46,19 +51,17 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EntitySpawnPlacementRegistry;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.CreatureEntity;
 import net.minecraft.entity.CreatureAttribute;
+import net.minecraft.entity.AgeableEntity;
 import net.minecraft.client.renderer.model.ModelRenderer;
-import net.minecraft.client.renderer.entity.model.EntityModel;
+import net.minecraft.client.renderer.entity.model.AgeableModel;
 import net.minecraft.client.renderer.entity.MobRenderer;
 
 import java.util.Map;
 import java.util.HashMap;
 
-import com.mojang.blaze3d.vertex.IVertexBuilder;
-import com.mojang.blaze3d.matrix.MatrixStack;
-
 import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.ImmutableList;
 
 @NatureplusModElements.ModElement.Tag
 public class PeashooterEntity extends NatureplusModElements.ModElement {
@@ -104,7 +107,7 @@ public class PeashooterEntity extends NatureplusModElements.ModElement {
 			};
 		});
 	}
-	public static class CustomEntity extends CreatureEntity implements IRangedAttackMob {
+	public static class CustomEntity extends AnimalEntity implements IRangedAttackMob {
 		public CustomEntity(FMLPlayMessages.SpawnEntity packet, World world) {
 			this(entity, world);
 		}
@@ -119,6 +122,8 @@ public class PeashooterEntity extends NatureplusModElements.ModElement {
 		@Override
 		protected void registerGoals() {
 			super.registerGoals();
+			this.goalSelector.addGoal(1, new BreedGoal(this, 0.8));
+			this.goalSelector.addGoal(2, new TemptGoal(this, 0, Ingredient.fromItems(PeaItem.block), false));
 			this.targetSelector.addGoal(2, new NearestAttackableTargetGoal(this, MobEntity.class, 10, true, true, (entity) -> {
 				return entity instanceof IMob && !(entity instanceof CreeperEntity);
 			}));
@@ -135,6 +140,20 @@ public class PeashooterEntity extends NatureplusModElements.ModElement {
 		}
 
 		@Override
+		public boolean isBreedingItem(ItemStack stack) {
+			if (stack == null)
+				return false;
+			if (new ItemStack(PeaItem.block, (int) (1)).getItem() == stack.getItem())
+				return true;
+			return false;
+		}
+
+		@Override
+		public AgeableEntity createChild(AgeableEntity ageable) {
+			return (CustomEntity) entity.create(this.world);
+		}
+
+		@Override
 		public CreatureAttribute getCreatureAttribute() {
 			return CreatureAttribute.UNDEFINED;
 		}
@@ -144,25 +163,6 @@ public class PeashooterEntity extends NatureplusModElements.ModElement {
 			return false;
 		}
 
-		// protected void dropSpecialItems(DamageSource source, int looting, boolean
-		// recentlyHitIn) {
-		// super.dropSpecialItems(source, looting, recentlyHitIn);
-		// Entity entity = source.getTrueSource();
-		// if (entity instanceof CreeperEntity) {
-		// CreeperEntity creeperentity = (CreeperEntity) entity;
-		// if (creeperentity.ableToCauseSkullDrop()) {
-		// creeperentity.incrementDroppedSkulls();
-		// ItemStack itemstack = this.getSkullDrop();
-		// if (!itemstack.isEmpty()) {
-		// this.entityDropItem(itemstack);
-		// }
-		// }
-		// }
-		// }
-		//
-		// protected ItemStack getSkullDrop() {
-		// return new ItemStack(PeashooterHeadBlock.block);
-		// }
 		@Override
 		public net.minecraft.util.SoundEvent getAmbientSound() {
 			return (net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(""));
@@ -233,7 +233,7 @@ public class PeashooterEntity extends NatureplusModElements.ModElement {
 		protected void registerAttributes() {
 			super.registerAttributes();
 			if (this.getAttribute(SharedMonsterAttributes.MOVEMENT_SPEED) != null)
-				this.getAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0);
+				this.getAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.1);
 			if (this.getAttribute(SharedMonsterAttributes.MAX_HEALTH) != null)
 				this.getAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(20);
 			if (this.getAttribute(SharedMonsterAttributes.ARMOR) != null)
@@ -252,7 +252,7 @@ public class PeashooterEntity extends NatureplusModElements.ModElement {
 	// Made with Blockbench
 	// Paste this code into your mod.
 	// Make sure to generate all required imports
-	public static class ModelPeashooter extends EntityModel<Entity> {
+	public static class ModelPeashooter<T extends Entity> extends AgeableModel<T> {
 		private final ModelRenderer main;
 		private final ModelRenderer disk;
 		private final ModelRenderer head;
@@ -277,10 +277,12 @@ public class PeashooterEntity extends NatureplusModElements.ModElement {
 			head.setTextureOffset(15, 20).addBox(-2.0F, -4.0F, -9.0F, 4.0F, 4.0F, 4.0F, 0.0F, false);
 		}
 
-		@Override
-		public void render(MatrixStack ms, IVertexBuilder vb, int i1, int i2, float f1, float f2, float f3, float f4) {
-			main.render(ms, vb, i1, i2, f1, f2, f3, f4);
-			head.render(ms, vb, i1, i2, f1, f2, f3, f4);
+		protected Iterable<ModelRenderer> getHeadParts() {
+			return ImmutableList.of();
+		}
+
+		protected Iterable<ModelRenderer> getBodyParts() {
+			return ImmutableList.of(this.head, this.main);
 		}
 
 		public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {

@@ -25,7 +25,7 @@ import java.util.Comparator;
 @NatureplusModElements.ModElement.Tag
 public class SunflowerSpawnSunProcedure extends NatureplusModElements.ModElement {
 	public SunflowerSpawnSunProcedure(NatureplusModElements instance) {
-		super(instance, 628);
+		super(instance, 625);
 	}
 
 	public static void executeProcedure(Map<String, Object> dependencies) {
@@ -89,7 +89,8 @@ public class SunflowerSpawnSunProcedure extends NatureplusModElements.ModElement
 				}
 			}
 			if (world instanceof ServerWorld) {
-				((ServerWorld) world).spawnParticle(ParticleTypes.FLAME, x, y, z, (int) 5, 0.1, 0.1, 0.1, 0.01);
+				((ServerWorld) world).spawnParticle(ParticleTypes.FLAME, (entity.getPosX()), (entity.getPosY()), (entity.getPosZ()), (int) 5, 0.1,
+						0.1, 0.1, 0.01);
 			}
 		} else if (((entity.getPersistentData().getDouble("timer_plant")) > 1)) {
 			entity.getPersistentData().putDouble("timer_plant", ((entity.getPersistentData().getDouble("timer_plant")) - 1));

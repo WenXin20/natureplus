@@ -1,0 +1,20 @@
+{
+  "_fv": 11,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Campfire cooking",
+    "xpReward": 1.0,
+    "cookingTime": 100,
+    "recipeRetstackSize": 1,
+    "group": "",
+    "recipeShapeless": false,
+    "campfireCookingInputStack": {
+      "value": "CUSTOM:RawDragonfly"
+    },
+    "campfireCookingReturnStack": {
+      "value": "CUSTOM:RoastedDragonfly"
+    },
+    "name": "roasted_dragonfly_campfire",
+    "namespace": "mod"
+  }
+}

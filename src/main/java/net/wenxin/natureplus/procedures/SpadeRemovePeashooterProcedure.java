@@ -1,7 +1,5 @@
 package net.wenxin.natureplus.procedures;
 
-import net.wenxin.natureplus.item.PeaItem;
-import net.wenxin.natureplus.item.GreenPetalItem;
 import net.wenxin.natureplus.entity.PeashooterEntity;
 import net.wenxin.natureplus.enchantment.UprootEnchantmentEnchantment;
 import net.wenxin.natureplus.NatureplusModElements;
@@ -22,7 +20,6 @@ import net.minecraft.tags.ItemTags;
 import net.minecraft.particles.ParticleTypes;
 import net.minecraft.item.ItemStack;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.Entity;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -99,7 +96,8 @@ public class SpadeRemovePeashooterProcedure extends NatureplusModElements.ModEle
 							SoundCategory.NEUTRAL, (float) 1, (float) 1, false);
 				}
 				if (world instanceof ServerWorld) {
-					((ServerWorld) world).spawnParticle(ParticleTypes.CLOUD, (x + 0.5), (y + 0.5), (z + 0.5), (int) 10, 0.1, 0.1, 0.1, 0.1);
+					((ServerWorld) world).spawnParticle(ParticleTypes.CLOUD, (entity.getPosX()), (entity.getPosY()), (entity.getPosZ()), (int) 10,
+							0.1, 0.1, 0.1, 0.1);
 				}
 				if ((!((sourceentity instanceof PlayerEntity) ? ((PlayerEntity) sourceentity).abilities.isCreativeMode : false))) {
 					{
@@ -110,34 +108,6 @@ public class SpadeRemovePeashooterProcedure extends NatureplusModElements.ModEle
 							_ist.shrink(1);
 							_ist.setDamage(0);
 						}
-					}
-				}
-				if ((Math.random() < 0.25)) {
-					if (!world.getWorld().isRemote) {
-						ItemEntity entityToSpawn = new ItemEntity(world.getWorld(), x, y, z, new ItemStack(PeaItem.block, (int) (1)));
-						entityToSpawn.setPickupDelay(10);
-						world.addEntity(entityToSpawn);
-					}
-				}
-				if ((Math.random() < 0.1)) {
-					if (!world.getWorld().isRemote) {
-						ItemEntity entityToSpawn = new ItemEntity(world.getWorld(), x, y, z, new ItemStack(PeaItem.block, (int) (1)));
-						entityToSpawn.setPickupDelay(10);
-						world.addEntity(entityToSpawn);
-					}
-				}
-				if ((Math.random() < 0.25)) {
-					if (!world.getWorld().isRemote) {
-						ItemEntity entityToSpawn = new ItemEntity(world.getWorld(), x, y, z, new ItemStack(GreenPetalItem.block, (int) (1)));
-						entityToSpawn.setPickupDelay(10);
-						world.addEntity(entityToSpawn);
-					}
-				}
-				if ((Math.random() < 0.1)) {
-					if (!world.getWorld().isRemote) {
-						ItemEntity entityToSpawn = new ItemEntity(world.getWorld(), x, y, z, new ItemStack(GreenPetalItem.block, (int) (1)));
-						entityToSpawn.setPickupDelay(10);
-						world.addEntity(entityToSpawn);
 					}
 				}
 			} else if (((entity instanceof PeashooterEntity.CustomEntity)
@@ -163,7 +133,8 @@ public class SpadeRemovePeashooterProcedure extends NatureplusModElements.ModEle
 							SoundCategory.NEUTRAL, (float) 1, (float) 1, false);
 				}
 				if (world instanceof ServerWorld) {
-					((ServerWorld) world).spawnParticle(ParticleTypes.CLOUD, (x + 0.5), (y + 0.5), (z + 0.5), (int) 10, 0.1, 0.1, 0.1, 0.1);
+					((ServerWorld) world).spawnParticle(ParticleTypes.CLOUD, (entity.getPosX()), (entity.getPosY()), (entity.getPosZ()), (int) 10,
+							0.1, 0.1, 0.1, 0.1);
 				}
 				if ((!((sourceentity instanceof PlayerEntity) ? ((PlayerEntity) sourceentity).abilities.isCreativeMode : false))) {
 					{
@@ -174,34 +145,6 @@ public class SpadeRemovePeashooterProcedure extends NatureplusModElements.ModEle
 							_ist.shrink(1);
 							_ist.setDamage(0);
 						}
-					}
-				}
-				if ((Math.random() < 0.25)) {
-					if (!world.getWorld().isRemote) {
-						ItemEntity entityToSpawn = new ItemEntity(world.getWorld(), x, y, z, new ItemStack(PeaItem.block, (int) (1)));
-						entityToSpawn.setPickupDelay(10);
-						world.addEntity(entityToSpawn);
-					}
-				}
-				if ((Math.random() < 0.1)) {
-					if (!world.getWorld().isRemote) {
-						ItemEntity entityToSpawn = new ItemEntity(world.getWorld(), x, y, z, new ItemStack(PeaItem.block, (int) (1)));
-						entityToSpawn.setPickupDelay(10);
-						world.addEntity(entityToSpawn);
-					}
-				}
-				if ((Math.random() < 0.25)) {
-					if (!world.getWorld().isRemote) {
-						ItemEntity entityToSpawn = new ItemEntity(world.getWorld(), x, y, z, new ItemStack(GreenPetalItem.block, (int) (1)));
-						entityToSpawn.setPickupDelay(10);
-						world.addEntity(entityToSpawn);
-					}
-				}
-				if ((Math.random() < 0.1)) {
-					if (!world.getWorld().isRemote) {
-						ItemEntity entityToSpawn = new ItemEntity(world.getWorld(), x, y, z, new ItemStack(GreenPetalItem.block, (int) (1)));
-						entityToSpawn.setPickupDelay(10);
-						world.addEntity(entityToSpawn);
 					}
 				}
 			}

@@ -26,35 +26,38 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.DamageSource;
 import net.minecraft.pathfinding.FlyingPathNavigator;
 import net.minecraft.network.IPacket;
+import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.item.SpawnEggItem;
 import net.minecraft.item.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Item;
+import net.minecraft.entity.passive.AnimalEntity;
+import net.minecraft.entity.ai.goal.TemptGoal;
 import net.minecraft.entity.ai.goal.SwimGoal;
 import net.minecraft.entity.ai.goal.RandomWalkingGoal;
 import net.minecraft.entity.ai.goal.NearestAttackableTargetGoal;
 import net.minecraft.entity.ai.goal.MeleeAttackGoal;
 import net.minecraft.entity.ai.goal.LookRandomlyGoal;
 import net.minecraft.entity.ai.goal.HurtByTargetGoal;
+import net.minecraft.entity.ai.goal.FollowParentGoal;
+import net.minecraft.entity.ai.goal.BreedGoal;
 import net.minecraft.entity.ai.controller.FlyingMovementController;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EntitySpawnPlacementRegistry;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.CreatureEntity;
 import net.minecraft.entity.CreatureAttribute;
+import net.minecraft.entity.AgeableEntity;
 import net.minecraft.client.renderer.model.ModelRenderer;
-import net.minecraft.client.renderer.entity.model.EntityModel;
+import net.minecraft.client.renderer.entity.model.AgeableModel;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.block.BlockState;
 
 import java.util.Random;
 
-import com.mojang.blaze3d.vertex.IVertexBuilder;
-import com.mojang.blaze3d.matrix.MatrixStack;
-
 import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.ImmutableList;
 
 @NatureplusModElements.ModElement.Tag
 public class GreenDragonflyEntity extends NatureplusModElements.ModElement {
@@ -67,7 +70,7 @@ public class GreenDragonflyEntity extends NatureplusModElements.ModElement {
 	@Override
 	public void initElements() {
 		entity = (EntityType.Builder.<CustomEntity>create(CustomEntity::new, EntityClassification.CREATURE).setShouldReceiveVelocityUpdates(true)
-				.setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(CustomEntity::new).size(1f, 0.4f)).build("green_dragonfly")
+				.setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(CustomEntity::new).size(0.97f, 0.4f)).build("green_dragonfly")
 						.setRegistryName("green_dragonfly");
 		elements.entities.add(() -> entity);
 		elements.items.add(() -> new SpawnEggItem(entity, -16751104, -16764160, new Item.Properties().group(NaturePlusTabItemGroup.tab))
@@ -100,7 +103,7 @@ public class GreenDragonflyEntity extends NatureplusModElements.ModElement {
 			};
 		});
 	}
-	public static class CustomEntity extends CreatureEntity {
+	public static class CustomEntity extends AnimalEntity {
 		public CustomEntity(FMLPlayMessages.SpawnEntity packet, World world) {
 			this(entity, world);
 		}
@@ -122,11 +125,14 @@ public class GreenDragonflyEntity extends NatureplusModElements.ModElement {
 		@Override
 		protected void registerGoals() {
 			super.registerGoals();
-			this.targetSelector.addGoal(1, new HurtByTargetGoal(this).setCallsForHelp(this.getClass()));
-			this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 1.8, false));
-			this.targetSelector.addGoal(3, new NearestAttackableTargetGoal(this, MonarchButterflyEntity.CustomEntity.class, true, false));
-			this.targetSelector.addGoal(4, new NearestAttackableTargetGoal(this, MonarchCaterpillarEntity.CustomEntity.class, true, false));
-			this.goalSelector.addGoal(5, new RandomWalkingGoal(this, 1.5, 20) {
+			this.goalSelector.addGoal(1, new BreedGoal(this, 0.7));
+			this.goalSelector.addGoal(2, new TemptGoal(this, 0.7, Ingredient.fromItems(new ItemStack(Items.SPIDER_EYE, (int) (1)).getItem()), false));
+			this.goalSelector.addGoal(3, new FollowParentGoal(this, 0.7));
+			this.targetSelector.addGoal(4, new HurtByTargetGoal(this).setCallsForHelp(this.getClass()));
+			this.goalSelector.addGoal(5, new MeleeAttackGoal(this, 0.7, false));
+			this.targetSelector.addGoal(6, new NearestAttackableTargetGoal(this, MonarchButterflyEntity.CustomEntity.class, true, false));
+			this.targetSelector.addGoal(7, new NearestAttackableTargetGoal(this, MonarchCaterpillarEntity.CustomEntity.class, true, false));
+			this.goalSelector.addGoal(8, new RandomWalkingGoal(this, 0.6, 20) {
 				@Override
 				protected Vec3d getPosition() {
 					Random random = CustomEntity.this.getRNG();
@@ -136,8 +142,8 @@ public class GreenDragonflyEntity extends NatureplusModElements.ModElement {
 					return new Vec3d(dir_x, dir_y, dir_z);
 				}
 			});
-			this.goalSelector.addGoal(6, new LookRandomlyGoal(this));
-			this.goalSelector.addGoal(7, new SwimGoal(this));
+			this.goalSelector.addGoal(9, new LookRandomlyGoal(this));
+			this.goalSelector.addGoal(10, new SwimGoal(this));
 		}
 
 		@Override
@@ -148,11 +154,6 @@ public class GreenDragonflyEntity extends NatureplusModElements.ModElement {
 		@Override
 		public boolean canDespawn(double distanceToClosestPlayer) {
 			return false;
-		}
-
-		protected void dropSpecialItems(DamageSource source, int looting, boolean recentlyHitIn) {
-			super.dropSpecialItems(source, looting, recentlyHitIn);
-			this.entityDropItem(new ItemStack(Items.STRING, (int) (1)));
 		}
 
 		@Override
@@ -176,7 +177,7 @@ public class GreenDragonflyEntity extends NatureplusModElements.ModElement {
 			if (this.getAttribute(SharedMonsterAttributes.MOVEMENT_SPEED) != null)
 				this.getAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(1.5);
 			if (this.getAttribute(SharedMonsterAttributes.MAX_HEALTH) != null)
-				this.getAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(10);
+				this.getAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(15);
 			if (this.getAttribute(SharedMonsterAttributes.ARMOR) != null)
 				this.getAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(0);
 			if (this.getAttribute(SharedMonsterAttributes.ATTACK_DAMAGE) == null)
@@ -185,6 +186,20 @@ public class GreenDragonflyEntity extends NatureplusModElements.ModElement {
 			if (this.getAttribute(SharedMonsterAttributes.FLYING_SPEED) == null)
 				this.getAttributes().registerAttribute(SharedMonsterAttributes.FLYING_SPEED);
 			this.getAttribute(SharedMonsterAttributes.FLYING_SPEED).setBaseValue(1.5);
+		}
+
+		@Override
+		public AgeableEntity createChild(AgeableEntity ageable) {
+			return (CustomEntity) entity.create(this.world);
+		}
+
+		@Override
+		public boolean isBreedingItem(ItemStack stack) {
+			if (stack == null)
+				return false;
+			if (new ItemStack(Items.SPIDER_EYE, (int) (1)).getItem() == stack.getItem())
+				return true;
+			return false;
 		}
 
 		@Override
@@ -205,7 +220,7 @@ public class GreenDragonflyEntity extends NatureplusModElements.ModElement {
 	// Made with Blockbench 3.5.4
 	// Exported for Minecraft version 1.15
 	// Paste this class into your mod and generate all required imports
-	public static class ModelDragonfly extends EntityModel<Entity> {
+	public static class ModelDragonfly<T extends Entity> extends AgeableModel<T> {
 		private final ModelRenderer main;
 		private final ModelRenderer torso;
 		private final ModelRenderer wing_front_left;
@@ -260,16 +275,17 @@ public class GreenDragonflyEntity extends NatureplusModElements.ModElement {
 			main.addChild(back_legs);
 			back_legs.setTextureOffset(0, 2).addBox(-1.5F, -0.5F, 0.0F, 1.0F, 2.0F, 0.0F, 0.0F, false);
 			back_legs.setTextureOffset(0, 0).addBox(0.5F, -0.5F, 0.0F, 1.0F, 2.0F, 0.0F, 0.0F, false);
-			head = new ModelRenderer(this);
+			head = new ModelRenderer(this, 5, 25);
 			head.setRotationPoint(0.0F, 21.0F, -5.0F);
 			head.setTextureOffset(0, 24).addBox(-1.5F, -2.0F, -3.0F, 3.0F, 3.0F, 3.0F, 0.0F, false);
 		}
 
-		@Override
-		public void render(MatrixStack matrixStack, IVertexBuilder buffer, int packedLight, int packedOverlay, float red, float green, float blue,
-				float alpha) {
-			main.render(matrixStack, buffer, packedLight, packedOverlay);
-			head.render(matrixStack, buffer, packedLight, packedOverlay);
+		protected Iterable<ModelRenderer> getHeadParts() {
+			return ImmutableList.of();
+		}
+
+		protected Iterable<ModelRenderer> getBodyParts() {
+			return ImmutableList.of(this.head, this.main);
 		}
 
 		public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
@@ -281,7 +297,7 @@ public class GreenDragonflyEntity extends NatureplusModElements.ModElement {
 		public void setRotationAngles(Entity e, float f, float f1, float f2, float f3, float f4) {
 			this.head.rotateAngleY = f3 / (180F / (float) Math.PI);
 			this.head.rotateAngleX = f4 / (180F / (float) Math.PI);
-			boolean flag = e.getMotion().lengthSquared() < 2.0E-7D; // e.onGround &&
+			boolean flag = e.onGround;
 			boolean flag2 = e.onGround && e.getMotion().lengthSquared() < 2.0E-7D;
 			if (flag) {
 				this.wing_front_right.rotateAngleZ = 0.1F + -(MathHelper.cos(f2 * 0.8F) * (float) Math.PI * 0.14F);

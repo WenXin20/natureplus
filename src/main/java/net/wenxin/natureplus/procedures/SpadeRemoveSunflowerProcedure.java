@@ -1,6 +1,5 @@
 package net.wenxin.natureplus.procedures;
 
-import net.wenxin.natureplus.item.YellowPetalItem;
 import net.wenxin.natureplus.item.SmallSunItem;
 import net.wenxin.natureplus.entity.SunflowerEntity;
 import net.wenxin.natureplus.enchantment.UprootEnchantmentEnchantment;
@@ -34,7 +33,7 @@ import java.util.HashMap;
 @NatureplusModElements.ModElement.Tag
 public class SpadeRemoveSunflowerProcedure extends NatureplusModElements.ModElement {
 	public SpadeRemoveSunflowerProcedure(NatureplusModElements instance) {
-		super(instance, 624);
+		super(instance, 622);
 		MinecraftForge.EVENT_BUS.register(this);
 	}
 
@@ -99,7 +98,8 @@ public class SpadeRemoveSunflowerProcedure extends NatureplusModElements.ModElem
 							SoundCategory.NEUTRAL, (float) 1, (float) 1, false);
 				}
 				if (world instanceof ServerWorld) {
-					((ServerWorld) world).spawnParticle(ParticleTypes.CLOUD, (x + 0.5), (y + 0.5), (z + 0.5), (int) 10, 0.05, 0.05, 0.05, 0.25);
+					((ServerWorld) world).spawnParticle(ParticleTypes.CLOUD, (entity.getPosX()), (entity.getPosY()), (entity.getPosZ()), (int) 10,
+							0.1, 0.1, 0.1, 0.1);
 				}
 				if ((!((sourceentity instanceof PlayerEntity) ? ((PlayerEntity) sourceentity).abilities.isCreativeMode : false))) {
 					{
@@ -119,20 +119,6 @@ public class SpadeRemoveSunflowerProcedure extends NatureplusModElements.ModElem
 						world.addEntity(entityToSpawn);
 					}
 				}
-				if ((Math.random() < 0.5)) {
-					if (!world.getWorld().isRemote) {
-						ItemEntity entityToSpawn = new ItemEntity(world.getWorld(), x, y, z, new ItemStack(SmallSunItem.block, (int) (1)));
-						entityToSpawn.setPickupDelay(10);
-						world.addEntity(entityToSpawn);
-					}
-				}
-				if ((Math.random() < 0.5)) {
-					if (!world.getWorld().isRemote) {
-						ItemEntity entityToSpawn = new ItemEntity(world.getWorld(), x, y, z, new ItemStack(SmallSunItem.block, (int) (1)));
-						entityToSpawn.setPickupDelay(10);
-						world.addEntity(entityToSpawn);
-					}
-				}
 				if ((Math.random() < 0.25)) {
 					if (!world.getWorld().isRemote) {
 						ItemEntity entityToSpawn = new ItemEntity(world.getWorld(), x, y, z, new ItemStack(SmallSunItem.block, (int) (1)));
@@ -140,16 +126,9 @@ public class SpadeRemoveSunflowerProcedure extends NatureplusModElements.ModElem
 						world.addEntity(entityToSpawn);
 					}
 				}
-				if ((Math.random() < 0.5)) {
+				if ((Math.random() < 0.05)) {
 					if (!world.getWorld().isRemote) {
-						ItemEntity entityToSpawn = new ItemEntity(world.getWorld(), x, y, z, new ItemStack(YellowPetalItem.block, (int) (1)));
-						entityToSpawn.setPickupDelay(10);
-						world.addEntity(entityToSpawn);
-					}
-				}
-				if ((Math.random() < 0.25)) {
-					if (!world.getWorld().isRemote) {
-						ItemEntity entityToSpawn = new ItemEntity(world.getWorld(), x, y, z, new ItemStack(YellowPetalItem.block, (int) (1)));
+						ItemEntity entityToSpawn = new ItemEntity(world.getWorld(), x, y, z, new ItemStack(SmallSunItem.block, (int) (1)));
 						entityToSpawn.setPickupDelay(10);
 						world.addEntity(entityToSpawn);
 					}
@@ -177,7 +156,8 @@ public class SpadeRemoveSunflowerProcedure extends NatureplusModElements.ModElem
 							SoundCategory.NEUTRAL, (float) 1, (float) 1, false);
 				}
 				if (world instanceof ServerWorld) {
-					((ServerWorld) world).spawnParticle(ParticleTypes.CLOUD, (x + 0.5), (y + 0.5), (z + 0.5), (int) 10, 0.05, 0.05, 0.05, 0.25);
+					((ServerWorld) world).spawnParticle(ParticleTypes.CLOUD, (entity.getPosX()), (entity.getPosY()), (entity.getPosZ()), (int) 10,
+							0.1, 0.1, 0.1, 0.1);
 				}
 				if ((!((sourceentity instanceof PlayerEntity) ? ((PlayerEntity) sourceentity).abilities.isCreativeMode : false))) {
 					{
@@ -197,20 +177,6 @@ public class SpadeRemoveSunflowerProcedure extends NatureplusModElements.ModElem
 						world.addEntity(entityToSpawn);
 					}
 				}
-				if ((Math.random() < 0.5)) {
-					if (!world.getWorld().isRemote) {
-						ItemEntity entityToSpawn = new ItemEntity(world.getWorld(), x, y, z, new ItemStack(SmallSunItem.block, (int) (1)));
-						entityToSpawn.setPickupDelay(10);
-						world.addEntity(entityToSpawn);
-					}
-				}
-				if ((Math.random() < 0.5)) {
-					if (!world.getWorld().isRemote) {
-						ItemEntity entityToSpawn = new ItemEntity(world.getWorld(), x, y, z, new ItemStack(SmallSunItem.block, (int) (1)));
-						entityToSpawn.setPickupDelay(10);
-						world.addEntity(entityToSpawn);
-					}
-				}
 				if ((Math.random() < 0.25)) {
 					if (!world.getWorld().isRemote) {
 						ItemEntity entityToSpawn = new ItemEntity(world.getWorld(), x, y, z, new ItemStack(SmallSunItem.block, (int) (1)));
@@ -218,16 +184,9 @@ public class SpadeRemoveSunflowerProcedure extends NatureplusModElements.ModElem
 						world.addEntity(entityToSpawn);
 					}
 				}
-				if ((Math.random() < 0.5)) {
+				if ((Math.random() < 0.05)) {
 					if (!world.getWorld().isRemote) {
-						ItemEntity entityToSpawn = new ItemEntity(world.getWorld(), x, y, z, new ItemStack(YellowPetalItem.block, (int) (1)));
-						entityToSpawn.setPickupDelay(10);
-						world.addEntity(entityToSpawn);
-					}
-				}
-				if ((Math.random() < 0.25)) {
-					if (!world.getWorld().isRemote) {
-						ItemEntity entityToSpawn = new ItemEntity(world.getWorld(), x, y, z, new ItemStack(YellowPetalItem.block, (int) (1)));
+						ItemEntity entityToSpawn = new ItemEntity(world.getWorld(), x, y, z, new ItemStack(SmallSunItem.block, (int) (1)));
 						entityToSpawn.setPickupDelay(10);
 						world.addEntity(entityToSpawn);
 					}

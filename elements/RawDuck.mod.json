@@ -1,0 +1,22 @@
+{
+  "_fv": 11,
+  "_type": "food",
+  "definition": {
+    "renderType": 0,
+    "texture": "raw_duck",
+    "customModelName": "Normal",
+    "name": "Raw Duck",
+    "specialInfo": [],
+    "creativeTab": {
+      "value": "CUSTOM:NaturePlusTab"
+    },
+    "stackSize": 64,
+    "nutritionalValue": 4,
+    "saturation": 0.3,
+    "eatingSpeed": 32,
+    "forDogs": true,
+    "isAlwaysEdible": false,
+    "animation": "eat",
+    "hasGlow": false
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "_fv": 11,
+  "_type": "food",
+  "definition": {
+    "renderType": 0,
+    "texture": "roasted_dragonfly",
+    "customModelName": "Normal",
+    "name": "Roasted Dragonfly",
+    "specialInfo": [],
+    "creativeTab": {
+      "value": "CUSTOM:NaturePlusTab"
+    },
+    "stackSize": 64,
+    "nutritionalValue": 5,
+    "saturation": 0.8,
+    "eatingSpeed": 16,
+    "forDogs": true,
+    "isAlwaysEdible": false,
+    "animation": "eat",
+    "hasGlow": false
+  }
+}

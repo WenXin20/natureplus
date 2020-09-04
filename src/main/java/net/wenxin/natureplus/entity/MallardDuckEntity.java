@@ -14,6 +14,7 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.common.Tags.Items;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.api.distmarker.Dist;
@@ -30,7 +31,6 @@ import net.minecraft.pathfinding.PathNodeType;
 import net.minecraft.network.IPacket;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.item.SpawnEggItem;
-import net.minecraft.item.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Item;
 import net.minecraft.entity.player.PlayerEntity;
@@ -39,8 +39,10 @@ import net.minecraft.entity.ai.goal.TemptGoal;
 import net.minecraft.entity.ai.goal.SwimGoal;
 import net.minecraft.entity.ai.goal.RandomWalkingGoal;
 import net.minecraft.entity.ai.goal.RandomSwimmingGoal;
+import net.minecraft.entity.ai.goal.MeleeAttackGoal;
 import net.minecraft.entity.ai.goal.LookRandomlyGoal;
 import net.minecraft.entity.ai.goal.LookAtGoal;
+import net.minecraft.entity.ai.goal.LeapAtTargetGoal;
 import net.minecraft.entity.ai.goal.HurtByTargetGoal;
 import net.minecraft.entity.ai.goal.FollowParentGoal;
 import net.minecraft.entity.ai.goal.BreedGoal;
@@ -57,9 +59,6 @@ import net.minecraft.client.renderer.model.ModelRenderer;
 import net.minecraft.client.renderer.entity.model.AgeableModel;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.block.BlockState;
-
-import com.mojang.blaze3d.vertex.IVertexBuilder;
-import com.mojang.blaze3d.matrix.MatrixStack;
 
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableList;
@@ -144,10 +143,12 @@ public class MallardDuckEntity extends NatureplusModElements.ModElement {
 		protected void registerGoals() {
 			super.registerGoals();
 			this.goalSelector.addGoal(1, new SwimGoal(this));
-			this.goalSelector.addGoal(2, new BreedGoal(this, 1));
-			this.goalSelector.addGoal(3, new TemptGoal(this, 1, Ingredient.fromItems(new ItemStack(Items.WHEAT_SEEDS, (int) (1)).getItem()), false));
+			this.goalSelector.addGoal(1, new BreedGoal(this, 1));
+			this.goalSelector.addGoal(2, new TemptGoal(this, 1, Ingredient.fromTag(Items.SEEDS), false));
+			this.targetSelector.addGoal(3, new HurtByTargetGoal(this).setCallsForHelp());
+			this.goalSelector.addGoal(3, new MeleeAttackGoal(this, 1.2, false));
+			this.goalSelector.addGoal(4, new LeapAtTargetGoal(this, 0.4F));
 			this.goalSelector.addGoal(4, new FollowParentGoal(this, 1.1D));
-			this.targetSelector.addGoal(5, new HurtByTargetGoal(this).setCallsForHelp(this.getClass()));
 			this.goalSelector.addGoal(6, new RandomSwimmingGoal(this, 1, 40));
 			this.goalSelector.addGoal(7, new RandomWalkingGoal(this, 0.8));
 			this.goalSelector.addGoal(8, new LookRandomlyGoal(this));
@@ -195,7 +196,7 @@ public class MallardDuckEntity extends NatureplusModElements.ModElement {
 			if (this.getAttribute(SharedMonsterAttributes.MOVEMENT_SPEED) != null)
 				this.getAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.3);
 			if (this.getAttribute(SharedMonsterAttributes.MAX_HEALTH) != null)
-				this.getAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(10);
+				this.getAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(15);
 			if (this.getAttribute(SharedMonsterAttributes.ARMOR) != null)
 				this.getAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(0);
 			if (this.getAttribute(SharedMonsterAttributes.ATTACK_DAMAGE) == null)
@@ -210,11 +211,7 @@ public class MallardDuckEntity extends NatureplusModElements.ModElement {
 
 		@Override
 		public boolean isBreedingItem(ItemStack stack) {
-			if (stack == null)
-				return false;
-			if (new ItemStack(Items.WHEAT_SEEDS, (int) (1)).getItem() == stack.getItem())
-				return true;
-			return false;
+			return stack.getItem().isIn(Items.SEEDS);
 		}
 
 		public float getStandingEyeHeight(Pose poseIn, EntitySize sizeIn) {
@@ -260,7 +257,7 @@ public class MallardDuckEntity extends NatureplusModElements.ModElement {
 		private final ModelRenderer leftLeg;
 		private final ModelRenderer rightLeg;
 		public ModelDuck() {
-            int i = 16;
+			int i = 16;
 			textureWidth = 64;
 			textureHeight = 64;
 			head = new ModelRenderer(this);
@@ -308,8 +305,8 @@ public class MallardDuckEntity extends NatureplusModElements.ModElement {
 			this.head.rotateAngleX = headPitch / (180F / (float) Math.PI);
 			this.rightLeg.rotateAngleX = MathHelper.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount;
 			this.leftLeg.rotateAngleX = MathHelper.cos(limbSwing * 0.6662F + (float) Math.PI) * 1.4F * limbSwingAmount;
-			boolean flag = entityIn.onGround;
-			if (!flag) {
+			boolean flag = !entityIn.onGround;
+			if (flag) {
 				this.rightWing.rotateAngleZ = -5.0F + (MathHelper.cos(ageInTicks * 2.0F) * (float) Math.PI * 0.3F);
 				this.leftWing.rotateAngleZ = 5.0F + -(MathHelper.cos(ageInTicks * 2.0F) * (float) Math.PI * 0.3F);
 			} else {

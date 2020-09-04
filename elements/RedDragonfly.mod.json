@@ -7,7 +7,7 @@
     "mobModelName": "ModelDragonfly",
     "mobModelTexture": "red_dragonfly.png",
     "mobModelGlowTexture": "",
-    "modelWidth": 1.0,
+    "modelWidth": 0.97,
     "modelHeight": 0.4,
     "modelShadowSize": 0.4,
     "mountedYOffset": 0.0,
@@ -50,7 +50,7 @@
     "movementSpeed": 1.5,
     "armorBaseValue": 0.0,
     "trackingRange": 64,
-    "health": 10,
+    "health": 20,
     "xpAmount": 0,
     "waterMob": false,
     "flyingMob": true,
@@ -70,7 +70,7 @@
     "immuneToPotions": false,
     "immuneToPlayer": false,
     "mobDrop": {
-      "value": "Items.STRING"
+      "value": ""
     },
     "livingSound": {
       "value": ""
@@ -93,10 +93,14 @@
     "particleAmount": 4,
     "hasAI": true,
     "aiBase": "(none)",
-    "aixml": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><block type=\"aitasks_container\" deletable=\"false\" x=\"40\" y=\"40\"><next><block type=\"attack_action\"><field name=\"callhelp\">TRUE</field><field name=\"condition\">null,null</field><next><block type=\"attack_on_collide\"><field name=\"speed\">1.8</field><field name=\"longmemory\">FALSE</field><field name=\"condition\">null,null</field><next><block type=\"attack_entity\"><field name=\"insight\">TRUE</field><field name=\"nearby\">FALSE</field><field name=\"entity\">CUSTOM:MonarchButterfly</field><field name=\"condition\">null,null</field><next><block type=\"attack_entity\"><field name=\"insight\">TRUE</field><field name=\"nearby\">FALSE</field><field name=\"entity\">CUSTOM:MonarchCaterpillar</field><field name=\"condition\">null,null</field><next><block type=\"attack_entity\"><field name=\"insight\">TRUE</field><field name=\"nearby\">FALSE</field><field name=\"entity\">EntityPlayer</field><field name=\"condition\">null,null</field><next><block type=\"fly\"><field name=\"speed\">1.5</field><field name=\"condition\">null,null</field><next><block type=\"look_around\"><field name=\"condition\">null,null</field><next><block type=\"swim_in_water\"><field name=\"condition\">null,null</field></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></xml>",
-    "breedable": false,
+    "aixml": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><block type=\"aitasks_container\" deletable=\"false\" x=\"40\" y=\"40\"><next><block type=\"breed\"><field name=\"speed\">0.7</field><field name=\"condition\">null,null</field><next><block type=\"follow_item_in_hands\"><field name=\"speed\">0.7</field><field name=\"scared\">FALSE</field><field name=\"condition\">null,null</field><value name=\"item\"><block type=\"mcitem_all\"><field name=\"value\">Items.SPIDER_EYE</field></block></value><next><block type=\"follow_parent\"><field name=\"speed\">0.7</field><field name=\"condition\">null,null</field><next><block type=\"attack_action\"><field name=\"callhelp\">TRUE</field><field name=\"condition\">null,null</field><next><block type=\"attack_on_collide\"><field name=\"speed\">0.7</field><field name=\"longmemory\">FALSE</field><field name=\"condition\">null,null</field><next><block type=\"attack_entity\"><field name=\"insight\">TRUE</field><field name=\"nearby\">FALSE</field><field name=\"entity\">EntityPlayer</field><field name=\"condition\">null,null</field><next><block type=\"attack_entity\"><field name=\"insight\">TRUE</field><field name=\"nearby\">FALSE</field><field name=\"entity\">CUSTOM:MonarchButterfly</field><field name=\"condition\">null,null</field><next><block type=\"attack_entity\"><field name=\"insight\">TRUE</field><field name=\"nearby\">FALSE</field><field name=\"entity\">CUSTOM:MonarchCaterpillar</field><field name=\"condition\">null,null</field><next><block type=\"fly\"><field name=\"speed\">0.6</field><field name=\"condition\">null,null</field><next><block type=\"look_around\"><field name=\"condition\">null,null</field><next><block type=\"swim_in_water\"><field name=\"condition\">null,null</field></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></xml>",
+    "breedable": true,
     "tameable": false,
-    "breedTriggerItems": [],
+    "breedTriggerItems": [
+      {
+        "value": "Items.SPIDER_EYE"
+      }
+    ],
     "ranged": false,
     "rangedAttackItem": {
       "value": ""

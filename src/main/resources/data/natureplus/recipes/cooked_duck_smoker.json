@@ -1,0 +1,12 @@
+{
+  "group": "natureplus",
+  "type": "minecraft:smoking",
+  "experience": 0.35,
+  "cookingtime": 100,
+  "ingredient": {
+    "item": "natureplus:raw_duck"
+  },
+  "result": {
+    "item": "natureplus:cooked_duck"
+  }
+}

@@ -27,17 +27,23 @@ import net.minecraft.world.World;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.DamageSource;
+import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.item.SpawnEggItem;
+import net.minecraft.item.Items;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.Item;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.monster.CreeperEntity;
+import net.minecraft.entity.ai.goal.TemptGoal;
 import net.minecraft.entity.ai.goal.SwimGoal;
 import net.minecraft.entity.ai.goal.RangedAttackGoal;
 import net.minecraft.entity.ai.goal.NearestAttackableTargetGoal;
 import net.minecraft.entity.ai.goal.LookRandomlyGoal;
 import net.minecraft.entity.ai.goal.LookAtGoal;
 import net.minecraft.entity.ai.goal.HurtByTargetGoal;
+import net.minecraft.entity.ai.goal.BreedGoal;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.MobEntity;
 import net.minecraft.entity.LivingEntity;
@@ -46,19 +52,17 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EntitySpawnPlacementRegistry;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.CreatureEntity;
 import net.minecraft.entity.CreatureAttribute;
+import net.minecraft.entity.AgeableEntity;
 import net.minecraft.client.renderer.model.ModelRenderer;
-import net.minecraft.client.renderer.entity.model.EntityModel;
+import net.minecraft.client.renderer.entity.model.AgeableModel;
 import net.minecraft.client.renderer.entity.MobRenderer;
 
 import java.util.Map;
 import java.util.HashMap;
 
-import com.mojang.blaze3d.vertex.IVertexBuilder;
-import com.mojang.blaze3d.matrix.MatrixStack;
-
 import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.ImmutableList;
 
 @NatureplusModElements.ModElement.Tag
 public class KernelPultEntity extends NatureplusModElements.ModElement {
@@ -104,7 +108,7 @@ public class KernelPultEntity extends NatureplusModElements.ModElement {
 			};
 		});
 	}
-	public static class CustomEntity extends CreatureEntity implements IRangedAttackMob {
+	public static class CustomEntity extends AnimalEntity implements IRangedAttackMob {
 		public CustomEntity(FMLPlayMessages.SpawnEntity packet, World world) {
 			this(entity, world);
 		}
@@ -119,6 +123,8 @@ public class KernelPultEntity extends NatureplusModElements.ModElement {
 		@Override
 		protected void registerGoals() {
 			super.registerGoals();
+			this.goalSelector.addGoal(1, new BreedGoal(this, 0.8));
+			this.goalSelector.addGoal(2, new TemptGoal(this, 0, Ingredient.fromItems(CornItem.block), false));
 			this.targetSelector.addGoal(2, new NearestAttackableTargetGoal(this, MobEntity.class, 10, true, true, (entity) -> {
 				return entity instanceof IMob && !(entity instanceof CreeperEntity);
 			}));
@@ -135,6 +141,20 @@ public class KernelPultEntity extends NatureplusModElements.ModElement {
 		}
 
 		@Override
+		public boolean isBreedingItem(ItemStack stack) {
+			if (stack == null)
+				return false;
+			if (new ItemStack(CornItem.block, (int) (1)).getItem() == stack.getItem())
+				return true;
+			return false;
+		}
+
+		@Override
+		public AgeableEntity createChild(AgeableEntity ageable) {
+			return (CustomEntity) entity.create(this.world);
+		}
+
+		@Override
 		public CreatureAttribute getCreatureAttribute() {
 			return CreatureAttribute.UNDEFINED;
 		}
@@ -144,25 +164,6 @@ public class KernelPultEntity extends NatureplusModElements.ModElement {
 			return false;
 		}
 
-		// protected void dropSpecialItems(DamageSource source, int looting, boolean
-		// recentlyHitIn) {
-		// super.dropSpecialItems(source, looting, recentlyHitIn);
-		// Entity entity = source.getTrueSource();
-		// if (entity instanceof CreeperEntity) {
-		// CreeperEntity creeperentity = (CreeperEntity) entity;
-		// if (creeperentity.ableToCauseSkullDrop()) {
-		// creeperentity.incrementDroppedSkulls();
-		// ItemStack itemstack = this.getSkullDrop();
-		// if (!itemstack.isEmpty()) {
-		// this.entityDropItem(itemstack);
-		// }
-		// }
-		// }
-		// }
-		//
-		// protected ItemStack getSkullDrop() {
-		// return new ItemStack(KernelPultHeadBlock.block);
-		// }
 		@Override
 		public net.minecraft.util.SoundEvent getAmbientSound() {
 			return (net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(""));
@@ -233,7 +234,7 @@ public class KernelPultEntity extends NatureplusModElements.ModElement {
 		protected void registerAttributes() {
 			super.registerAttributes();
 			if (this.getAttribute(SharedMonsterAttributes.MOVEMENT_SPEED) != null)
-				this.getAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0);
+				this.getAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.1);
 			if (this.getAttribute(SharedMonsterAttributes.MAX_HEALTH) != null)
 				this.getAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(20);
 			if (this.getAttribute(SharedMonsterAttributes.ARMOR) != null)
@@ -247,30 +248,17 @@ public class KernelPultEntity extends NatureplusModElements.ModElement {
 		public void attackEntityWithRangedAttack(LivingEntity target, float flval) {
 			CornItem.shoot(this, target);
 		}
-		// @OnlyIn(Dist.CLIENT)
-		// public CustomEntity.CatapultPose getCatapultPose(){
-		// return CatapultPose.NORMAL;
-		// }
-		//
-		// @OnlyIn(Dist.CLIENT)
-		// public static enum CatapultPose{
-		// NORMAL,
-		// ATTACKING;
-		// }
-		//
-		// @Override
-		// public boolean isAggressive() {
-		// return true;
-		// }
 	}
 
 	// Made with Blockbench 3.5.4
 	// Exported for Minecraft version 1.15
 	// Paste this class into your mod and generate all required imports
-	public static class ModelKernelPult extends EntityModel<Entity> {
+	public static class ModelKernelPult<T extends Entity> extends AgeableModel<T> {
 		private final ModelRenderer main;
+		private final ModelRenderer main_layer;
 		private final ModelRenderer leaves;
 		private final ModelRenderer head;
+		private final ModelRenderer head_layer;
 		private final ModelRenderer catapult;
 		private final ModelRenderer catapult_arm1;
 		private final ModelRenderer catapult_arm2;
@@ -280,9 +268,16 @@ public class KernelPultEntity extends NatureplusModElements.ModElement {
 		public ModelKernelPult() {
 			textureWidth = 64;
 			textureHeight = 64;
+	
 			main = new ModelRenderer(this);
 			main.setRotationPoint(0.0F, 24.0F, 0.0F);
 			main.setTextureOffset(0, 0).addBox(-4.0F, -4.0F, -4.0F, 8.0F, 4.0F, 8.0F, 0.0F, false);
+	
+			main_layer = new ModelRenderer(this);
+			main_layer.setRotationPoint(0.0F, 0.0F, 0.0F);
+			main.addChild(main_layer);
+			main_layer.setTextureOffset(0, 41).addBox(-4.0F, -4.0F, -4.0F, 8.0F, 4.0F, 8.0F, 0.25F, false);
+	
 			leaves = new ModelRenderer(this);
 			leaves.setRotationPoint(0.0F, 0.0F, 0.0F);
 			main.addChild(leaves);
@@ -298,27 +293,39 @@ public class KernelPultEntity extends NatureplusModElements.ModElement {
 			leaves.setTextureOffset(28, 5).addBox(-9.0F, -0.5F, 0.0F, 5.0F, 0.0F, 4.0F, 0.0F, false);
 			leaves.setTextureOffset(0, 28).addBox(-9.0F, -0.5F, -4.0F, 5.0F, 0.0F, 4.0F, 0.0F, false);
 			leaves.setTextureOffset(13, 13).addBox(-9.0F, -0.5F, -9.0F, 5.0F, 0.0F, 5.0F, 0.0F, false);
+	
 			head = new ModelRenderer(this);
 			head.setRotationPoint(0.0F, 21.0F, 0.0F);
 			head.setTextureOffset(0, 12).addBox(-3.0F, -4.0F, -3.0F, 6.0F, 5.0F, 6.0F, 0.0F, false);
 			head.setTextureOffset(20, 31).addBox(-2.0F, -6.0F, -2.0F, 4.0F, 2.0F, 4.0F, 0.0F, false);
+	
+			head_layer = new ModelRenderer(this);
+			head_layer.setRotationPoint(0.0F, 3.0F, 0.0F);
+			head.addChild(head_layer);
+			head_layer.setTextureOffset(0, 53).addBox(-3.0F, -7.0F, -3.0F, 6.0F, 5.0F, 6.0F, 0.25F, false);
+			head_layer.setTextureOffset(25, 58).addBox(-2.0F, -9.0F, -2.0F, 4.0F, 2.0F, 4.0F, 0.25F, false);
+	
 			catapult = new ModelRenderer(this);
 			catapult.setRotationPoint(0.0F, -5.0F, -0.5F);
 			head.addChild(catapult);
 			setRotationAngle(catapult, -0.6109F, 0.0F, 0.0F);
+	
 			catapult_arm1 = new ModelRenderer(this);
 			catapult_arm1.setRotationPoint(0.0F, 0.0F, 0.0F);
 			catapult.addChild(catapult_arm1);
 			catapult_arm1.setTextureOffset(0, 12).addBox(-0.5F, -5.0F, -0.5F, 1.0F, 5.0F, 1.0F, 0.0F, false);
+	
 			catapult_arm2 = new ModelRenderer(this);
 			catapult_arm2.setRotationPoint(0.0F, -4.5F, 0.0F);
 			catapult.addChild(catapult_arm2);
 			catapult_arm2.setTextureOffset(36, 9).addBox(-0.5F, -0.5F, 0.5F, 1.0F, 1.0F, 4.0F, 0.0F, false);
+	
 			catapult_arm3 = new ModelRenderer(this);
 			catapult_arm3.setRotationPoint(0.0F, -4.5F, 4.5F);
 			catapult.addChild(catapult_arm3);
 			setRotationAngle(catapult_arm3, 0.6109F, 0.0F, 0.0F);
 			catapult_arm3.setTextureOffset(0, 36).addBox(-0.5F, -0.6F, -0.25F, 1.0F, 1.0F, 4.0F, 0.0F, false);
+	
 			catapult_base = new ModelRenderer(this);
 			catapult_base.setRotationPoint(0.0F, -6.75F, 7.5F);
 			catapult.addChild(catapult_base);
@@ -328,6 +335,7 @@ public class KernelPultEntity extends NatureplusModElements.ModElement {
 			catapult_base.setTextureOffset(32, 35).addBox(2.0F, -1.5F, 0.75F, 1.0F, 3.0F, 4.0F, 0.0F, false);
 			catapult_base.setTextureOffset(10, 33).addBox(-3.0F, -1.5F, 0.75F, 1.0F, 3.0F, 4.0F, 0.0F, false);
 			catapult_base.setTextureOffset(31, 20).addBox(-2.0F, 0.5F, 0.75F, 4.0F, 1.0F, 4.0F, 0.0F, false);
+	
 			corn_kernel = new ModelRenderer(this);
 			corn_kernel.setRotationPoint(0.0F, 0.5F, 2.25F);
 			catapult_base.addChild(corn_kernel);
@@ -336,11 +344,12 @@ public class KernelPultEntity extends NatureplusModElements.ModElement {
 			corn_kernel.setTextureOffset(0, 0).addBox(-1.0F, -3.0F, -1.0F, 2.0F, 1.0F, 2.0F, 0.0F, false);
 		}
 
-		@Override
-		public void render(MatrixStack matrixStack, IVertexBuilder buffer, int packedLight, int packedOverlay, float red, float green, float blue,
-				float alpha) {
-			main.render(matrixStack, buffer, packedLight, packedOverlay);
-			head.render(matrixStack, buffer, packedLight, packedOverlay);
+		protected Iterable<ModelRenderer> getHeadParts() {
+			return ImmutableList.of();
+		}
+
+		protected Iterable<ModelRenderer> getBodyParts() {
+			return ImmutableList.of(this.head, this.main);
 		}
 
 		public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {

@@ -2,7 +2,7 @@
 // Exported for Minecraft version 1.15
 // Paste this class into your mod and generate all required imports
 
-public static class ModelDragonfly extends EntityModel<Entity> {
+public static class ModelDragonfly<T extends Entity> extends AgeableModel<T> {
 	private final ModelRenderer main;
 	private final ModelRenderer torso;
 	private final ModelRenderer wing_front_left;
@@ -68,16 +68,17 @@ public static class ModelDragonfly extends EntityModel<Entity> {
 		back_legs.setTextureOffset(0, 2).addBox(-1.5F, -0.5F, 0.0F, 1.0F, 2.0F, 0.0F, 0.0F, false);
 		back_legs.setTextureOffset(0, 0).addBox(0.5F, -0.5F, 0.0F, 1.0F, 2.0F, 0.0F, 0.0F, false);
 
-		head = new ModelRenderer(this);
+		head = new ModelRenderer(this, 5, 25);
 		head.setRotationPoint(0.0F, 21.0F, -5.0F);
 		head.setTextureOffset(0, 24).addBox(-1.5F, -2.0F, -3.0F, 3.0F, 3.0F, 3.0F, 0.0F, false);
 	}
 
-	@Override
-	public void render(MatrixStack matrixStack, IVertexBuilder buffer, int packedLight, int packedOverlay, float red,
-			float green, float blue, float alpha) {
-		main.render(matrixStack, buffer, packedLight, packedOverlay);
-		head.render(matrixStack, buffer, packedLight, packedOverlay);
+	protected Iterable<ModelRenderer> getHeadParts() {
+		return ImmutableList.of();
+	}
+
+	protected Iterable<ModelRenderer> getBodyParts() {
+		return ImmutableList.of(this.head, this.main);
 	}
 
 	public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
@@ -91,7 +92,7 @@ public static class ModelDragonfly extends EntityModel<Entity> {
 		this.head.rotateAngleY = f3 / (180F / (float) Math.PI);
 		this.head.rotateAngleX = f4 / (180F / (float) Math.PI);
 	
-		boolean flag = e.getMotion().lengthSquared() < 2.0E-7D; //e.onGround &&
+		boolean flag = e.onGround; 
 		boolean flag2 = e.onGround && e.getMotion().lengthSquared() < 2.0E-7D;
 		if (flag) {
 			this.wing_front_right.rotateAngleZ = 0.1F + -(MathHelper.cos(f2 * 0.8F) * (float)Math.PI * 0.14F);
