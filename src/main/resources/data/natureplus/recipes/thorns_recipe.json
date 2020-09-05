@@ -1,0 +1,26 @@
+{
+  "group": "natureplus",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " 1 ",
+    "345"
+  ],
+  "key": {
+    "1": {
+      "item": "natureplus:spike"
+    },
+    "3": {
+      "item": "natureplus:spike"
+    },
+    "4": {
+      "item": "natureplus:spike"
+    },
+    "5": {
+      "item": "natureplus:spike"
+    }
+  },
+  "result": {
+    "item": "natureplus:thorn",
+    "count": 1
+  }
+}
