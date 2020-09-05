@@ -89,7 +89,7 @@ public class FrozenPeaItem extends NatureplusModElements.ModElement {
 		@Override
 		public void addInformation(ItemStack itemstack, World world, List<ITextComponent> list, ITooltipFlag flag) {
 			super.addInformation(itemstack, world, list, flag);
-			list.add(new StringTextComponent("\u00A7bRight-click to throw"));
+			list.add(new StringTextComponent("\u00A7b\u00A7oRight-click to throw"));
 		}
 
 		@Override

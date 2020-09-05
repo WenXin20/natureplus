@@ -7,8 +7,8 @@
     "customModelName": "Normal",
     "name": "Stone Spade",
     "specialInfo": [
-      "§bRemoves PvZ plants,",
-      "§bstunts insect growth"
+      "§b§oRemoves PvZ plants,",
+      "§b§ostunts insect growth"
     ],
     "creativeTab": {
       "value": "CUSTOM:PlantsVsZombiesTab"

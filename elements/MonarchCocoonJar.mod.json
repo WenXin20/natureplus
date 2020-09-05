@@ -20,7 +20,7 @@
     "enableMeleeDamage": false,
     "damageVsEntity": 0.0,
     "specialInfo": [
-      "§bSpawns a Monarch Butterfly"
+      "§b§oSpawns a Monarch Butterfly"
     ],
     "hasGlow": false,
     "guiBoundTo": "<NONE>",

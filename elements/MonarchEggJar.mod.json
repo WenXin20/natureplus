@@ -20,7 +20,7 @@
     "enableMeleeDamage": false,
     "damageVsEntity": 0.0,
     "specialInfo": [
-      "§bSpawns a Monarch Caterpillar"
+      "§b§oSpawns a Monarch Caterpillar"
     ],
     "hasGlow": false,
     "guiBoundTo": "<NONE>",

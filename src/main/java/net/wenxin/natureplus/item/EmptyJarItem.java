@@ -52,7 +52,7 @@ public class EmptyJarItem extends NatureplusModElements.ModElement {
 		@Override
 		public void addInformation(ItemStack itemstack, World world, List<ITextComponent> list, ITooltipFlag flag) {
 			super.addInformation(itemstack, world, list, flag);
-			list.add(new StringTextComponent("\u00A7bUsed to carry Butterfly Eggs & Cocoons"));
+			list.add(new StringTextComponent("\u00A7b\u00A7oUsed to carry Butterfly Eggs & Cocoons"));
 		}
 	}
 }

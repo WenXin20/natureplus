@@ -20,7 +20,7 @@
     "enableMeleeDamage": false,
     "damageVsEntity": 0.0,
     "specialInfo": [
-      "§bUsed to carry Butterfly Eggs & Cocoons"
+      "§b§oUsed to carry Butterfly Eggs & Cocoons"
     ],
     "hasGlow": false,
     "guiBoundTo": "<NONE>",

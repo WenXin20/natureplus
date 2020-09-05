@@ -20,7 +20,7 @@
     "enableMeleeDamage": false,
     "damageVsEntity": 0.0,
     "specialInfo": [
-      "§bRight-click a Wither Rose to grow a giant version",
+      "§b§oRight-click a Wither Rose to grow a giant version",
       "§4Do not grow near important structures (WIP)"
     ],
     "hasGlow": false,
