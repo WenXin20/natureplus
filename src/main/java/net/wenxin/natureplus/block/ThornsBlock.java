@@ -149,6 +149,12 @@ public class ThornsBlock extends NatureplusModElements.ModElement implements IWa
 		}
 
 		@Override
+		public void addInformation(ItemStack itemstack, World world, List<ITextComponent> list, ITooltipFlag flag) {
+			super.addInformation(itemstack, world, list, flag);
+			list.add(new StringTextComponent("\u00A74\u00A7oOuch!"));
+		}
+
+		@Override
 		public BlockState rotate(BlockState state, Rotation rot) {
 			return state.with(FACING, rot.rotate(state.get(FACING)));
 		}

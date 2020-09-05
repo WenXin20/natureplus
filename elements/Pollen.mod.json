@@ -7,7 +7,7 @@
     "customModelName": "Normal",
     "name": "Pollen",
     "specialInfo": [
-      "§bClears all potion effects"
+      "§b§oClears all potion effects"
     ],
     "creativeTab": {
       "value": "CUSTOM:NaturePlusTab"
