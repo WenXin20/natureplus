@@ -2,7 +2,6 @@
 package net.wenxin.natureplus.block;
 
 import net.wenxin.natureplus.procedures.ThornsFlowerPotRightClickProcedure;
-import net.wenxin.natureplus.procedures.ThornsDamageProcedure;
 import net.wenxin.natureplus.NatureplusModElements;
 
 import net.minecraftforge.registries.ObjectHolder;
@@ -22,11 +21,13 @@ import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.Hand;
 import net.minecraft.util.Direction;
+import net.minecraft.util.DamageSource;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Item;
 import net.minecraft.item.BlockItem;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.Entity;
 import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraft.client.renderer.RenderType;
@@ -93,16 +94,9 @@ public class ThornsFlowerPotBlock extends NatureplusModElements.ModElement {
 			return Collections.singletonList(new ItemStack(Blocks.FLOWER_POT, (int) (1)));
 		}
 
-		@Override
-		public void onEntityWalk(World world, BlockPos pos, Entity entity) {
-			super.onEntityWalk(world, pos, entity);
-			int x = pos.getX();
-			int y = pos.getY();
-			int z = pos.getZ();
-			{
-				java.util.HashMap<String, Object> $_dependencies = new java.util.HashMap<>();
-				$_dependencies.put("entity", entity);
-				ThornsDamageProcedure.executeProcedure($_dependencies);
+		public void onEntityWalk(World worldIn, BlockPos pos, Entity entityIn) {
+			if (entityIn instanceof LivingEntity) {
+				entityIn.attackEntityFrom(DamageSource.CACTUS, 1.0F);
 			}
 		}
 

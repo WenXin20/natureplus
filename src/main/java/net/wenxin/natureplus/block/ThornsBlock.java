@@ -1,7 +1,6 @@
 
 package net.wenxin.natureplus.block;
 
-import net.wenxin.natureplus.procedures.ThornsBreakNoSupportProcedure;
 import net.wenxin.natureplus.itemgroup.NaturePlusTabItemGroup;
 import net.wenxin.natureplus.NatureplusModElements;
 
@@ -20,9 +19,9 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.api.distmarker.Dist;
 
 import net.minecraft.world.storage.loot.LootContext;
-import net.minecraft.world.server.ServerWorld;
 import net.minecraft.world.World;
 import net.minecraft.world.IWorldReader;
+import net.minecraft.world.IWorld;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.util.text.ITextComponent;
@@ -33,6 +32,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.Rotation;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.Direction;
+import net.minecraft.util.DamageSource;
 import net.minecraft.tileentity.TileEntityType;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.LockableLootTileEntity;
@@ -61,6 +61,9 @@ import net.minecraft.fluid.IFluidState;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.entity.MobEntity;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.Entity;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.block.material.MaterialColor;
@@ -74,7 +77,6 @@ import net.minecraft.block.Block;
 import javax.annotation.Nullable;
 
 import java.util.stream.IntStream;
-import java.util.Random;
 import java.util.List;
 import java.util.Collections;
 
@@ -118,6 +120,13 @@ public class ThornsBlock extends NatureplusModElements.ModElement implements IWa
 		}
 
 		@Override
+		@OnlyIn(Dist.CLIENT)
+		public void addInformation(ItemStack itemstack, IBlockReader world, List<ITextComponent> list, ITooltipFlag flag) {
+			super.addInformation(itemstack, world, list, flag);
+			list.add(new StringTextComponent("\u00A74\u00A7oOuch!"));
+		}
+
+		@Override
 		public boolean isNormalCube(BlockState state, IBlockReader worldIn, BlockPos pos) {
 			return false;
 		}
@@ -149,12 +158,6 @@ public class ThornsBlock extends NatureplusModElements.ModElement implements IWa
 		}
 
 		@Override
-		public void addInformation(ItemStack itemstack, World world, List<ITextComponent> list, ITooltipFlag flag) {
-			super.addInformation(itemstack, world, list, flag);
-			list.add(new StringTextComponent("\u00A74\u00A7oOuch!"));
-		}
-
-		@Override
 		public BlockState rotate(BlockState state, Rotation rot) {
 			return state.with(FACING, rot.rotate(state.get(FACING)));
 		}
@@ -168,6 +171,13 @@ public class ThornsBlock extends NatureplusModElements.ModElement implements IWa
 					? this.getDefaultState().with(FACING, direction.getOpposite())
 					: this.getDefaultState().with(FACING, direction).with(WATERLOGGED,
 							ifluidstate.isTagged(FluidTags.WATER) && ifluidstate.getLevel() == 8);
+		}
+
+		public BlockState updatePostPlacement(BlockState stateIn, Direction facing, BlockState facingState, IWorld worldIn, BlockPos currentPos,
+				BlockPos facingPos) {
+			return !stateIn.isValidPosition(worldIn, currentPos)
+					? Blocks.AIR.getDefaultState()
+					: super.updatePostPlacement(stateIn, facing, facingState, worldIn, currentPos, facingPos);
 		}
 
 		@SuppressWarnings("deprecation")
@@ -225,29 +235,18 @@ public class ThornsBlock extends NatureplusModElements.ModElement implements IWa
 			return Collections.singletonList(new ItemStack(Blocks.AIR, (int) (1)));
 		}
 
+		public void onEntityCollision(BlockState state, World worldIn, BlockPos pos, Entity entityIn) {
+			if (entityIn instanceof LivingEntity) {
+				entityIn.attackEntityFrom(DamageSource.CACTUS, 1.0F);
+			}
+		}
+
 		@Override
 		public void onBlockAdded(BlockState state, World world, BlockPos pos, BlockState oldState, boolean moving) {
 			super.onBlockAdded(state, world, pos, oldState, moving);
 			int x = pos.getX();
 			int y = pos.getY();
 			int z = pos.getZ();
-			world.getPendingBlockTicks().scheduleTick(new BlockPos(x, y, z), this, this.tickRate(world));
-		}
-
-		@Override
-		public void tick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
-			super.tick(state, world, pos, random);
-			int x = pos.getX();
-			int y = pos.getY();
-			int z = pos.getZ();
-			{
-				java.util.HashMap<String, Object> $_dependencies = new java.util.HashMap<>();
-				$_dependencies.put("x", x);
-				$_dependencies.put("y", y);
-				$_dependencies.put("z", z);
-				$_dependencies.put("world", world);
-				ThornsBreakNoSupportProcedure.executeProcedure($_dependencies);
-			}
 			world.getPendingBlockTicks().scheduleTick(new BlockPos(x, y, z), this, this.tickRate(world));
 		}
 
