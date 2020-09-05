@@ -68,7 +68,7 @@ import com.google.common.collect.ImmutableList;
 public class PeashooterEntity extends NatureplusModElements.ModElement {
 	public static EntityType entity = null;
 	public PeashooterEntity(NatureplusModElements instance) {
-		super(instance, 169);
+		super(instance, 174);
 		FMLJavaModLoadingContext.get().getModEventBus().register(this);
 	}
 

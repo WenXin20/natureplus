@@ -16,7 +16,7 @@ public class CookedDuckItem extends NatureplusModElements.ModElement {
 	@ObjectHolder("natureplus:cooked_duck")
 	public static final Item block = null;
 	public CookedDuckItem(NatureplusModElements instance) {
-		super(instance, 828);
+		super(instance, 114);
 	}
 
 	@Override

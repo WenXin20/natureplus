@@ -35,7 +35,7 @@ import java.util.HashMap;
 @NatureplusModElements.ModElement.Tag
 public class GrowGiantOxeyeDaisyProcedure extends NatureplusModElements.ModElement {
 	public GrowGiantOxeyeDaisyProcedure(NatureplusModElements instance) {
-		super(instance, 587);
+		super(instance, 590);
 		MinecraftForge.EVENT_BUS.register(this);
 	}
 

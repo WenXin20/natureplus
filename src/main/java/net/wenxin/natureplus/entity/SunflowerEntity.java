@@ -74,7 +74,7 @@ import com.google.common.collect.ImmutableList;
 public class SunflowerEntity extends NatureplusModElements.ModElement {
 	public static EntityType entity = null;
 	public SunflowerEntity(NatureplusModElements instance) {
-		super(instance, 168);
+		super(instance, 173);
 		FMLJavaModLoadingContext.get().getModEventBus().register(this);
 	}
 

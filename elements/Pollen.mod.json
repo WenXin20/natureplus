@@ -15,7 +15,7 @@
     "stackSize": 64,
     "nutritionalValue": 1,
     "saturation": 0.19999999999999998,
-    "eatingSpeed": 32,
+    "eatingSpeed": 16,
     "forDogs": false,
     "isAlwaysEdible": true,
     "animation": "eat",

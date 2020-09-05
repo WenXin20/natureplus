@@ -5,6 +5,7 @@ import net.wenxin.natureplus.item.SnowPeaSeedPacketItem;
 import net.wenxin.natureplus.item.PeashooterSeedPacketItem;
 import net.wenxin.natureplus.item.MonarchEggJarItem;
 import net.wenxin.natureplus.item.KernelPultSeedPacketItem;
+import net.wenxin.natureplus.item.CactusSeedPacketItem;
 import net.wenxin.natureplus.block.PlantVaseBlock;
 import net.wenxin.natureplus.NatureplusModVariables;
 import net.wenxin.natureplus.NatureplusModElements;
@@ -28,7 +29,7 @@ import java.util.HashMap;
 @NatureplusModElements.ModElement.Tag
 public class PlantVaseRandomOutputRedstoneProcedure extends NatureplusModElements.ModElement {
 	public PlantVaseRandomOutputRedstoneProcedure(NatureplusModElements instance) {
-		super(instance, 699);
+		super(instance, 700);
 		MinecraftForge.EVENT_BUS.register(this);
 	}
 
@@ -77,21 +78,28 @@ public class PlantVaseRandomOutputRedstoneProcedure extends NatureplusModElement
 						entityToSpawn.setPickupDelay(10);
 						world.addEntity(entityToSpawn);
 					}
-				} else if ((((NatureplusModVariables.i) >= 40) && (!((NatureplusModVariables.i) >= 60)))) {
+				} else if ((((NatureplusModVariables.i) >= 30) && (!((NatureplusModVariables.i) >= 60)))) {
 					if (!world.getWorld().isRemote) {
 						ItemEntity entityToSpawn = new ItemEntity(world.getWorld(), (x + 0.5), y, (z + 0.5),
 								new ItemStack(SunflowerSeedPacketItem.block, (int) (1)));
 						entityToSpawn.setPickupDelay(10);
 						world.addEntity(entityToSpawn);
 					}
-				} else if ((((NatureplusModVariables.i) >= 20) && (!((NatureplusModVariables.i) >= 40)))) {
+				} else if ((((NatureplusModVariables.i) >= 20) && (!((NatureplusModVariables.i) >= 30)))) {
+					if (!world.getWorld().isRemote) {
+						ItemEntity entityToSpawn = new ItemEntity(world.getWorld(), (x + 0.5), y, (z + 0.5),
+								new ItemStack(CactusSeedPacketItem.block, (int) (1)));
+						entityToSpawn.setPickupDelay(10);
+						world.addEntity(entityToSpawn);
+					}
+				} else if ((((NatureplusModVariables.i) >= 10) && (!((NatureplusModVariables.i) >= 20)))) {
 					if (!world.getWorld().isRemote) {
 						ItemEntity entityToSpawn = new ItemEntity(world.getWorld(), (x + 0.5), y, (z + 0.5),
 								new ItemStack(KernelPultSeedPacketItem.block, (int) (1)));
 						entityToSpawn.setPickupDelay(10);
 						world.addEntity(entityToSpawn);
 					}
-				} else if ((((NatureplusModVariables.i) >= 10) && (!((NatureplusModVariables.i) >= 20)))) {
+				} else if ((((NatureplusModVariables.i) >= 5) && (!((NatureplusModVariables.i) >= 10)))) {
 					if (!world.getWorld().isRemote) {
 						ItemEntity entityToSpawn = new ItemEntity(world.getWorld(), (x + 0.5), y, (z + 0.5),
 								new ItemStack(SnowPeaSeedPacketItem.block, (int) (1)));

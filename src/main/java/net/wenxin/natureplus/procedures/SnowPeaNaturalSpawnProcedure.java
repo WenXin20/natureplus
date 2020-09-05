@@ -12,7 +12,7 @@ import java.util.Map;
 @NatureplusModElements.ModElement.Tag
 public class SnowPeaNaturalSpawnProcedure extends NatureplusModElements.ModElement {
 	public SnowPeaNaturalSpawnProcedure(NatureplusModElements instance) {
-		super(instance, 765);
+		super(instance, 766);
 	}
 
 	public static boolean executeProcedure(Map<String, Object> dependencies) {

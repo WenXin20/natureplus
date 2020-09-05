@@ -14,32 +14,10 @@
       "Surface"
     ],
     "restrictionBlocks": [],
-    "restrictionBiomes": [
-      {
-        "value": "savanna_rock"
-      },
-      {
-        "value": "badlands"
-      },
-      {
-        "value": "wooded_badlands_plateau"
-      },
-      {
-        "value": "badlands_plateau"
-      },
-      {
-        "value": "mutated_savanna_rock"
-      },
-      {
-        "value": "mutated_mesa"
-      },
-      {
-        "value": "mutated_mesa_rock"
-      },
-      {
-        "value": "mutated_mesa_clear_rock"
-      }
-    ],
-    "ignoreBlocks": "STRUCTURE_BLOCK"
+    "restrictionBiomes": [],
+    "ignoreBlocks": "STRUCTURE_BLOCK",
+    "generateCondition": {
+      "name": "DungeonSpawnMesa"
+    }
   }
 }

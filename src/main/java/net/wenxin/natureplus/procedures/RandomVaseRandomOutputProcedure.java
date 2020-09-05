@@ -5,6 +5,7 @@ import net.wenxin.natureplus.item.SnowPeaSeedPacketItem;
 import net.wenxin.natureplus.item.PeashooterSeedPacketItem;
 import net.wenxin.natureplus.item.MonarchEggJarItem;
 import net.wenxin.natureplus.item.KernelPultSeedPacketItem;
+import net.wenxin.natureplus.item.CactusSeedPacketItem;
 import net.wenxin.natureplus.entity.PVZZombieEntity;
 import net.wenxin.natureplus.entity.MonarchCaterpillarEntity;
 import net.wenxin.natureplus.entity.ConeheadZombieEntity;
@@ -47,7 +48,7 @@ import java.util.HashMap;
 @NatureplusModElements.ModElement.Tag
 public class RandomVaseRandomOutputProcedure extends NatureplusModElements.ModElement {
 	public RandomVaseRandomOutputProcedure(NatureplusModElements instance) {
-		super(instance, 633);
+		super(instance, 635);
 		MinecraftForge.EVENT_BUS.register(this);
 	}
 
@@ -109,8 +110,8 @@ public class RandomVaseRandomOutputProcedure extends NatureplusModElements.ModEl
 					}
 				}
 				NatureplusModVariables.i = (double) (Math.random() * 100);
-				if (((NatureplusModVariables.i) >= 40)) {
-					if (((NatureplusModVariables.i) >= 60)) {
+				if (((NatureplusModVariables.i) >= 30)) {
+					if (((NatureplusModVariables.i) >= 50)) {
 						if (world instanceof World && !world.getWorld().isRemote) {
 							Entity entityToSpawn = new PVZZombieEntity.CustomEntity(PVZZombieEntity.entity, world.getWorld());
 							entityToSpawn.setLocationAndAngles((x + 0.5), y, (z + 0.5), world.getRandom().nextFloat() * 360F, 0);
@@ -119,7 +120,7 @@ public class RandomVaseRandomOutputProcedure extends NatureplusModElements.ModEl
 										SpawnReason.MOB_SUMMONED, (ILivingEntityData) null, (CompoundNBT) null);
 							world.addEntity(entityToSpawn);
 						}
-					} else if ((((NatureplusModVariables.i) >= 50) && (!((NatureplusModVariables.i) >= 60)))) {
+					} else if ((((NatureplusModVariables.i) >= 30) && (!((NatureplusModVariables.i) >= 50)))) {
 						if (world instanceof World && !world.getWorld().isRemote) {
 							Entity entityToSpawn = new ConeheadZombieEntity.CustomEntity(ConeheadZombieEntity.entity, world.getWorld());
 							entityToSpawn.setLocationAndAngles((x + 0.5), y, (z + 0.5), world.getRandom().nextFloat() * 360F, 0);
@@ -128,7 +129,7 @@ public class RandomVaseRandomOutputProcedure extends NatureplusModElements.ModEl
 										SpawnReason.MOB_SUMMONED, (ILivingEntityData) null, (CompoundNBT) null);
 							world.addEntity(entityToSpawn);
 						}
-					} else if ((((NatureplusModVariables.i) >= 20) && (!((NatureplusModVariables.i) >= 50)))) {
+					} else if ((((NatureplusModVariables.i) >= 10) && (!((NatureplusModVariables.i) >= 30)))) {
 						if (world instanceof World && !world.getWorld().isRemote) {
 							Entity entityToSpawn = new ZombieEntity(EntityType.ZOMBIE, world.getWorld());
 							entityToSpawn.setLocationAndAngles((x + 0.5), y, (z + 0.5), world.getRandom().nextFloat() * 360F, 0);
@@ -155,21 +156,28 @@ public class RandomVaseRandomOutputProcedure extends NatureplusModElements.ModEl
 							entityToSpawn.setPickupDelay(10);
 							world.addEntity(entityToSpawn);
 						}
-					} else if ((((NatureplusModVariables.i) >= 40) && (!((NatureplusModVariables.i) >= 60)))) {
+					} else if ((((NatureplusModVariables.i) >= 30) && (!((NatureplusModVariables.i) >= 60)))) {
 						if (!world.getWorld().isRemote) {
 							ItemEntity entityToSpawn = new ItemEntity(world.getWorld(), (x + 0.5), y, (z + 0.5),
 									new ItemStack(SunflowerSeedPacketItem.block, (int) (1)));
 							entityToSpawn.setPickupDelay(10);
 							world.addEntity(entityToSpawn);
 						}
-					} else if ((((NatureplusModVariables.i) >= 20) && (!((NatureplusModVariables.i) >= 40)))) {
+					} else if ((((NatureplusModVariables.i) >= 20) && (!((NatureplusModVariables.i) >= 30)))) {
+						if (!world.getWorld().isRemote) {
+							ItemEntity entityToSpawn = new ItemEntity(world.getWorld(), (x + 0.5), y, (z + 0.5),
+									new ItemStack(CactusSeedPacketItem.block, (int) (1)));
+							entityToSpawn.setPickupDelay(10);
+							world.addEntity(entityToSpawn);
+						}
+					} else if ((((NatureplusModVariables.i) >= 10) && (!((NatureplusModVariables.i) >= 20)))) {
 						if (!world.getWorld().isRemote) {
 							ItemEntity entityToSpawn = new ItemEntity(world.getWorld(), (x + 0.5), y, (z + 0.5),
 									new ItemStack(KernelPultSeedPacketItem.block, (int) (1)));
 							entityToSpawn.setPickupDelay(10);
 							world.addEntity(entityToSpawn);
 						}
-					} else if ((((NatureplusModVariables.i) >= 10) && (!((NatureplusModVariables.i) >= 20)))) {
+					} else if ((((NatureplusModVariables.i) >= 5) && (!((NatureplusModVariables.i) >= 10)))) {
 						if (!world.getWorld().isRemote) {
 							ItemEntity entityToSpawn = new ItemEntity(world.getWorld(), (x + 0.5), y, (z + 0.5),
 									new ItemStack(SnowPeaSeedPacketItem.block, (int) (1)));

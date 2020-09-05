@@ -41,6 +41,11 @@ public class PollenItem extends NatureplusModElements.ModElement {
 		}
 
 		@Override
+		public int getUseDuration(ItemStack stack) {
+			return 16;
+		}
+
+		@Override
 		public UseAction getUseAction(ItemStack par1ItemStack) {
 			return UseAction.EAT;
 		}

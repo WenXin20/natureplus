@@ -12,7 +12,7 @@ import java.util.Map;
 @NatureplusModElements.ModElement.Tag
 public class GoldenMexicanSunflowerSeedsEffectsProcedure extends NatureplusModElements.ModElement {
 	public GoldenMexicanSunflowerSeedsEffectsProcedure(NatureplusModElements instance) {
-		super(instance, 306);
+		super(instance, 311);
 	}
 
 	public static void executeProcedure(Map<String, Object> dependencies) {

@@ -63,7 +63,7 @@ import com.google.common.collect.ImmutableList;
 public class BlueDragonflyEntity extends NatureplusModElements.ModElement {
 	public static EntityType entity = null;
 	public BlueDragonflyEntity(NatureplusModElements instance) {
-		super(instance, 131);
+		super(instance, 137);
 		FMLJavaModLoadingContext.get().getModEventBus().register(this);
 	}
 

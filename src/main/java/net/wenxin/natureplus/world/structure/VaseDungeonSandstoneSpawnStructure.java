@@ -1,6 +1,7 @@
 
 package net.wenxin.natureplus.world.structure;
 
+import net.wenxin.natureplus.procedures.DungeonSpawnDesertProcedure;
 import net.wenxin.natureplus.NatureplusModElements;
 
 import net.minecraftforge.registries.ForgeRegistries;
@@ -28,10 +29,12 @@ import net.minecraft.util.Mirror;
 
 import java.util.Random;
 
+import com.google.common.collect.ImmutableMap;
+
 @NatureplusModElements.ModElement.Tag
 public class VaseDungeonSandstoneSpawnStructure extends NatureplusModElements.ModElement {
 	public VaseDungeonSandstoneSpawnStructure(NatureplusModElements instance) {
-		super(instance, 646);
+		super(instance, 648);
 	}
 
 	@Override
@@ -60,6 +63,8 @@ public class VaseDungeonSandstoneSpawnStructure extends NatureplusModElements.Mo
 						int x = spawnTo.getX();
 						int y = spawnTo.getY();
 						int z = spawnTo.getZ();
+						if (!DungeonSpawnDesertProcedure.executeProcedure(ImmutableMap.of("x", x, "y", y, "z", z, "world", world)))
+							continue;
 						Template template = ((ServerWorld) world.getWorld()).getSaveHandler().getStructureTemplateManager()
 								.getTemplateDefaulted(new ResourceLocation("natureplus", "vase_dungeon_sandstone1"));
 						if (template == null)
@@ -72,15 +77,6 @@ public class VaseDungeonSandstoneSpawnStructure extends NatureplusModElements.Mo
 			}
 		};
 		for (Biome biome : ForgeRegistries.BIOMES.getValues()) {
-			boolean biomeCriteria = false;
-			if (ForgeRegistries.BIOMES.getKey(biome).equals(new ResourceLocation("desert")))
-				biomeCriteria = true;
-			if (ForgeRegistries.BIOMES.getKey(biome).equals(new ResourceLocation("desert_hills")))
-				biomeCriteria = true;
-			if (ForgeRegistries.BIOMES.getKey(biome).equals(new ResourceLocation("desert_lakes")))
-				biomeCriteria = true;
-			if (!biomeCriteria)
-				continue;
 			biome.addFeature(GenerationStage.Decoration.UNDERGROUND_STRUCTURES, feature.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
 					.withPlacement(Placement.NOPE.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)));
 		}

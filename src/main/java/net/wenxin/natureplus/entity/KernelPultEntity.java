@@ -68,7 +68,7 @@ import com.google.common.collect.ImmutableList;
 public class KernelPultEntity extends NatureplusModElements.ModElement {
 	public static EntityType entity = null;
 	public KernelPultEntity(NatureplusModElements instance) {
-		super(instance, 171);
+		super(instance, 176);
 		FMLJavaModLoadingContext.get().getModEventBus().register(this);
 	}
 

@@ -1,6 +1,7 @@
 
 package net.wenxin.natureplus.world.structure;
 
+import net.wenxin.natureplus.procedures.DungeonSpawnMesaProcedure;
 import net.wenxin.natureplus.NatureplusModElements;
 
 import net.minecraftforge.registries.ForgeRegistries;
@@ -28,10 +29,12 @@ import net.minecraft.util.Mirror;
 
 import java.util.Random;
 
+import com.google.common.collect.ImmutableMap;
+
 @NatureplusModElements.ModElement.Tag
 public class VaseDungeonMesaSpawnStructure extends NatureplusModElements.ModElement {
 	public VaseDungeonMesaSpawnStructure(NatureplusModElements instance) {
-		super(instance, 647);
+		super(instance, 649);
 	}
 
 	@Override
@@ -60,6 +63,8 @@ public class VaseDungeonMesaSpawnStructure extends NatureplusModElements.ModElem
 						int x = spawnTo.getX();
 						int y = spawnTo.getY();
 						int z = spawnTo.getZ();
+						if (!DungeonSpawnMesaProcedure.executeProcedure(ImmutableMap.of("x", x, "y", y, "z", z, "world", world)))
+							continue;
 						Template template = ((ServerWorld) world.getWorld()).getSaveHandler().getStructureTemplateManager()
 								.getTemplateDefaulted(new ResourceLocation("natureplus", "vase_dungeon_mesa1"));
 						if (template == null)
@@ -72,25 +77,6 @@ public class VaseDungeonMesaSpawnStructure extends NatureplusModElements.ModElem
 			}
 		};
 		for (Biome biome : ForgeRegistries.BIOMES.getValues()) {
-			boolean biomeCriteria = false;
-			if (ForgeRegistries.BIOMES.getKey(biome).equals(new ResourceLocation("savanna_plateau")))
-				biomeCriteria = true;
-			if (ForgeRegistries.BIOMES.getKey(biome).equals(new ResourceLocation("badlands")))
-				biomeCriteria = true;
-			if (ForgeRegistries.BIOMES.getKey(biome).equals(new ResourceLocation("wooded_badlands_plateau")))
-				biomeCriteria = true;
-			if (ForgeRegistries.BIOMES.getKey(biome).equals(new ResourceLocation("badlands_plateau")))
-				biomeCriteria = true;
-			if (ForgeRegistries.BIOMES.getKey(biome).equals(new ResourceLocation("shattered_savanna_plateau")))
-				biomeCriteria = true;
-			if (ForgeRegistries.BIOMES.getKey(biome).equals(new ResourceLocation("eroded_badlands")))
-				biomeCriteria = true;
-			if (ForgeRegistries.BIOMES.getKey(biome).equals(new ResourceLocation("modified_wooded_badlands_plateau")))
-				biomeCriteria = true;
-			if (ForgeRegistries.BIOMES.getKey(biome).equals(new ResourceLocation("modified_badlands_plateau")))
-				biomeCriteria = true;
-			if (!biomeCriteria)
-				continue;
 			biome.addFeature(GenerationStage.Decoration.UNDERGROUND_STRUCTURES, feature.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG)
 					.withPlacement(Placement.NOPE.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)));
 		}

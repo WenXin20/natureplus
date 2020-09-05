@@ -1,0 +1,22 @@
+{
+  "group": "natureplus",
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "natureplus:empty_seed_packet"
+    },
+    {
+      "item": "natureplus:spike"
+    },
+    {
+      "item": "natureplus:sun"
+    },
+    {
+      "item": "natureplus:spike"
+    }
+  ],
+  "result": {
+    "item": "natureplus:cactus_seed_packet",
+    "count": 1
+  }
+}

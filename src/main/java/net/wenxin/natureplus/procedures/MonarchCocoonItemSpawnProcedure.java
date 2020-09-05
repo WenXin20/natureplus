@@ -34,7 +34,7 @@ import java.util.Iterator;
 @NatureplusModElements.ModElement.Tag
 public class MonarchCocoonItemSpawnProcedure extends NatureplusModElements.ModElement {
 	public MonarchCocoonItemSpawnProcedure(NatureplusModElements instance) {
-		super(instance, 570);
+		super(instance, 573);
 	}
 
 	public static void executeProcedure(Map<String, Object> dependencies) {

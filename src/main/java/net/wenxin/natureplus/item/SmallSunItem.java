@@ -15,7 +15,7 @@ public class SmallSunItem extends NatureplusModElements.ModElement {
 	@ObjectHolder("natureplus:small_sun")
 	public static final Item block = null;
 	public SmallSunItem(NatureplusModElements instance) {
-		super(instance, 203);
+		super(instance, 209);
 	}
 
 	@Override

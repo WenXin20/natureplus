@@ -1,6 +1,7 @@
 
 package net.wenxin.natureplus.world.structure;
 
+import net.wenxin.natureplus.procedures.DungeonSpawnNormalProcedure;
 import net.wenxin.natureplus.NatureplusModElements;
 
 import net.minecraftforge.registries.ForgeRegistries;
@@ -28,10 +29,12 @@ import net.minecraft.util.Mirror;
 
 import java.util.Random;
 
+import com.google.common.collect.ImmutableMap;
+
 @NatureplusModElements.ModElement.Tag
 public class VaseDungeonSpawnStructure extends NatureplusModElements.ModElement {
 	public VaseDungeonSpawnStructure(NatureplusModElements instance) {
-		super(instance, 645);
+		super(instance, 647);
 	}
 
 	@Override
@@ -60,6 +63,8 @@ public class VaseDungeonSpawnStructure extends NatureplusModElements.ModElement 
 						int x = spawnTo.getX();
 						int y = spawnTo.getY();
 						int z = spawnTo.getZ();
+						if (!DungeonSpawnNormalProcedure.executeProcedure(ImmutableMap.of("x", x, "y", y, "z", z, "world", world)))
+							continue;
 						Template template = ((ServerWorld) world.getWorld()).getSaveHandler().getStructureTemplateManager()
 								.getTemplateDefaulted(new ResourceLocation("natureplus", "vase_dungeon1"));
 						if (template == null)

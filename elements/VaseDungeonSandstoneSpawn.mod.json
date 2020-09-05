@@ -14,17 +14,10 @@
       "Surface"
     ],
     "restrictionBlocks": [],
-    "restrictionBiomes": [
-      {
-        "value": "desert"
-      },
-      {
-        "value": "desert_hills"
-      },
-      {
-        "value": "mutated_desert"
-      }
-    ],
-    "ignoreBlocks": "STRUCTURE_BLOCK"
+    "restrictionBiomes": [],
+    "ignoreBlocks": "STRUCTURE_BLOCK",
+    "generateCondition": {
+      "name": "DungeonSpawnDesert"
+    }
   }
 }

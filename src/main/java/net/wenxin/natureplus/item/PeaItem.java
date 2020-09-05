@@ -51,7 +51,7 @@ public class PeaItem extends NatureplusModElements.ModElement {
 	@ObjectHolder("natureplus:entitybulletpea")
 	public static final EntityType arrow = null;
 	public PeaItem(NatureplusModElements instance) {
-		super(instance, 198);
+		super(instance, 203);
 	}
 
 	@Override

@@ -53,7 +53,7 @@ public class PlantVaseBlock extends NatureplusModElements.ModElement implements 
 	@ObjectHolder("natureplus:plant_vase")
 	public static final Block block = null;
 	public PlantVaseBlock(NatureplusModElements instance) {
-		super(instance, 176);
+		super(instance, 181);
 	}
 
 	@Override

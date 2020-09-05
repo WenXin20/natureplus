@@ -67,7 +67,7 @@ import com.google.common.collect.ImmutableList;
 public class MallardDuckEntity extends NatureplusModElements.ModElement {
 	public static EntityType entity = null;
 	public MallardDuckEntity(NatureplusModElements instance) {
-		super(instance, 133);
+		super(instance, 135);
 		FMLJavaModLoadingContext.get().getModEventBus().register(this);
 	}
 

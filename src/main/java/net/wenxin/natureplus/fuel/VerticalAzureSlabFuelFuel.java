@@ -13,7 +13,7 @@ import net.minecraft.item.ItemStack;
 @NatureplusModElements.ModElement.Tag
 public class VerticalAzureSlabFuelFuel extends NatureplusModElements.ModElement {
 	public VerticalAzureSlabFuelFuel(NatureplusModElements instance) {
-		super(instance, 371);
+		super(instance, 376);
 		MinecraftForge.EVENT_BUS.register(this);
 	}
 

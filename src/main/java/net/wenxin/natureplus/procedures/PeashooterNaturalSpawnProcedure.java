@@ -12,7 +12,7 @@ import java.util.Map;
 @NatureplusModElements.ModElement.Tag
 public class PeashooterNaturalSpawnProcedure extends NatureplusModElements.ModElement {
 	public PeashooterNaturalSpawnProcedure(NatureplusModElements instance) {
-		super(instance, 768);
+		super(instance, 769);
 	}
 
 	public static boolean executeProcedure(Map<String, Object> dependencies) {

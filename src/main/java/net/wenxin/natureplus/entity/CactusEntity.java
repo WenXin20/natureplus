@@ -71,7 +71,7 @@ import com.google.common.collect.ImmutableList;
 public class CactusEntity extends NatureplusModElements.ModElement {
 	public static EntityType entity = null;
 	public CactusEntity(NatureplusModElements instance) {
-		super(instance, 174);
+		super(instance, 177);
 		FMLJavaModLoadingContext.get().getModEventBus().register(this);
 	}
 
@@ -256,7 +256,6 @@ public class CactusEntity extends NatureplusModElements.ModElement {
 
 		public void attackEntityWithRangedAttack(LivingEntity target, float flval) {
 			SpikeItem.shoot(this, target);
-			PeaItem.shoot(this, target);
 		}
 	}
 

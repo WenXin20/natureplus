@@ -12,7 +12,7 @@ import java.util.Map;
 @NatureplusModElements.ModElement.Tag
 public class GoldenPlumEffectsProcedure extends NatureplusModElements.ModElement {
 	public GoldenPlumEffectsProcedure(NatureplusModElements instance) {
-		super(instance, 311);
+		super(instance, 316);
 	}
 
 	public static void executeProcedure(Map<String, Object> dependencies) {
