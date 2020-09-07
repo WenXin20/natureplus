@@ -141,20 +141,6 @@
       }
     ]
   },
-  "kernel_pult": {
-    "category": "neutral",
-    "subtitle": "Kernel-pult shooting",
-    "sounds": [
-      {
-        "name": "natureplus:kernelpult",
-        "stream": false
-      },
-      {
-        "name": "natureplus:kernelpult2",
-        "stream": false
-      }
-    ]
-  },
   "shovel": {
     "category": "block",
     "subtitle": "Shoveling",
@@ -195,24 +181,6 @@
     "sounds": [
       {
         "name": "natureplus:squitch",
-        "stream": false
-      }
-    ]
-  },
-  "spike_hit": {
-    "category": "ambient",
-    "subtitle": "Spike shooting",
-    "sounds": [
-      {
-        "name": "natureplus:spike_hit",
-        "stream": false
-      },
-      {
-        "name": "natureplus:spike_hit2",
-        "stream": false
-      },
-      {
-        "name": "natureplus:spike_hit3",
         "stream": false
       }
     ]
@@ -323,6 +291,38 @@
       },
       {
         "name": "natureplus:peashooter_shoot2",
+        "stream": false
+      }
+    ]
+  },
+  "kernel_pult": {
+    "category": "neutral",
+    "subtitle": "Plop",
+    "sounds": [
+      {
+        "name": "natureplus:kernelpult",
+        "stream": false
+      },
+      {
+        "name": "natureplus:kernelpult2",
+        "stream": false
+      }
+    ]
+  },
+  "spike_hit": {
+    "category": "ambient",
+    "subtitle": "Thud",
+    "sounds": [
+      {
+        "name": "natureplus:spike_hit",
+        "stream": false
+      },
+      {
+        "name": "natureplus:spike_hit2",
+        "stream": false
+      },
+      {
+        "name": "natureplus:spike_hit3",
         "stream": false
       }
     ]

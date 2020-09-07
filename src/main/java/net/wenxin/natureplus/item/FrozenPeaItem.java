@@ -217,14 +217,6 @@ public class FrozenPeaItem extends NatureplusModElements.ModElement {
 			World world = this.world;
 			Entity entity = this.getShooter();
 			if (this.inGround) {
-				{
-					java.util.HashMap<String, Object> $_dependencies = new java.util.HashMap<>();
-					$_dependencies.put("x", x);
-					$_dependencies.put("y", y);
-					$_dependencies.put("z", z);
-					$_dependencies.put("world", world);
-					PeaSplatSoundsProcedure.executeProcedure($_dependencies);
-				}
 				this.remove();
 			}
 		}

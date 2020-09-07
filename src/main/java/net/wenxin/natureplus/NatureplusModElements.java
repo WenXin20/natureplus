@@ -70,15 +70,11 @@ public class NatureplusModElements {
 				new net.minecraft.util.SoundEvent(new ResourceLocation("natureplus", "duck_death")));
 		sounds.put(new ResourceLocation("natureplus", "duck_hurt"),
 				new net.minecraft.util.SoundEvent(new ResourceLocation("natureplus", "duck_hurt")));
-		sounds.put(new ResourceLocation("natureplus", "kernel_pult"),
-				new net.minecraft.util.SoundEvent(new ResourceLocation("natureplus", "kernel_pult")));
 		sounds.put(new ResourceLocation("natureplus", "shovel"), new net.minecraft.util.SoundEvent(new ResourceLocation("natureplus", "shovel")));
 		sounds.put(new ResourceLocation("natureplus", "planting"), new net.minecraft.util.SoundEvent(new ResourceLocation("natureplus", "planting")));
 		sounds.put(new ResourceLocation("natureplus", "planting_water"),
 				new net.minecraft.util.SoundEvent(new ResourceLocation("natureplus", "planting_water")));
 		sounds.put(new ResourceLocation("natureplus", "squitch"), new net.minecraft.util.SoundEvent(new ResourceLocation("natureplus", "squitch")));
-		sounds.put(new ResourceLocation("natureplus", "spike_hit"),
-				new net.minecraft.util.SoundEvent(new ResourceLocation("natureplus", "spike_hit")));
 		sounds.put(new ResourceLocation("natureplus", "snow_pea_shoot"),
 				new net.minecraft.util.SoundEvent(new ResourceLocation("natureplus", "snow_pea_shoot")));
 		sounds.put(new ResourceLocation("natureplus", "sunflower_collect"),
@@ -94,6 +90,10 @@ public class NatureplusModElements {
 		sounds.put(new ResourceLocation("natureplus", "splat"), new net.minecraft.util.SoundEvent(new ResourceLocation("natureplus", "splat")));
 		sounds.put(new ResourceLocation("natureplus", "peashooter_shoot"),
 				new net.minecraft.util.SoundEvent(new ResourceLocation("natureplus", "peashooter_shoot")));
+		sounds.put(new ResourceLocation("natureplus", "kernel_pult"),
+				new net.minecraft.util.SoundEvent(new ResourceLocation("natureplus", "kernel_pult")));
+		sounds.put(new ResourceLocation("natureplus", "spike_hit"),
+				new net.minecraft.util.SoundEvent(new ResourceLocation("natureplus", "spike_hit")));
 		try {
 			ModFileScanData modFileInfo = ModList.get().getModFileById("natureplus").getFile().getScanResult();
 			Set<ModFileScanData.AnnotationData> annotations = modFileInfo.getAnnotations();
