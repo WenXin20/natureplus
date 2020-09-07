@@ -56,7 +56,7 @@ public class ShearCactusSpikesProcedure extends NatureplusModElements.ModElement
 					event.getItemStack().attemptDamageItem(1, event.getWorld().getRandom(),
 						event.getPlayer() instanceof ServerPlayerEntity ? (ServerPlayerEntity) event.getPlayer() : null);
 				}
-				event.getWorld().playSound(event.getPlayer(), event.getPos(), SoundEvents.ENTITY_SHEEP_SHEAR, SoundCategory.NEUTRAL, 1.0F, 1.0F);
+				event.getWorld().playSound(event.getPlayer(), event.getPos(), SoundEvents.ENTITY_SHEEP_SHEAR, SoundCategory.BLOCKS, 1.0F, 1.0F);
 				if (entity instanceof LivingEntity) {
 					((LivingEntity) entity).swing(Hand.MAIN_HAND, true);
 				}

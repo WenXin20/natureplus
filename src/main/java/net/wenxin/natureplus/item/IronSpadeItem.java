@@ -28,7 +28,7 @@ public class IronSpadeItem extends NatureplusModElements.ModElement {
 	@ObjectHolder("natureplus:iron_spade")
 	public static final Item block = null;
 	public IronSpadeItem(NatureplusModElements instance) {
-		super(instance, 200);
+		super(instance, 203);
 	}
 
 	@Override

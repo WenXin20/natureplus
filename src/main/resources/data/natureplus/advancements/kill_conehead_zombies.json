@@ -1,7 +1,7 @@
 {
   "display": {
     "icon": {
-      "item": "minecraft:diamond_sword"
+      "item": "minecraft:golden_sword"
     },
     "title": {
       "translate": "advancements.kill_conehead_zombies.title"
@@ -9,7 +9,7 @@
     "description": {
       "translate": "advancements.kill_conehead_zombies.descr"
     },
-    "frame": "task",
+    "frame": "goal",
     "show_toast": true,
     "announce_to_chat": true,
     "hidden": false
@@ -22,5 +22,5 @@
   "rewards": {
     "experience": 1
   },
-  "parent": "natureplus:kill_pvz_zombie"
+  "parent": "natureplus:kill_flag_zombie"
 }

@@ -35,7 +35,7 @@ import java.util.HashMap;
 @NatureplusModElements.ModElement.Tag
 public class GrowGiantMexicanSunflowerBonemealProcedure extends NatureplusModElements.ModElement {
 	public GrowGiantMexicanSunflowerBonemealProcedure(NatureplusModElements instance) {
-		super(instance, 617);
+		super(instance, 621);
 		MinecraftForge.EVENT_BUS.register(this);
 	}
 

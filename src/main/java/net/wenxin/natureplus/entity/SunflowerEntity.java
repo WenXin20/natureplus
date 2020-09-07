@@ -85,7 +85,7 @@ public class SunflowerEntity extends NatureplusModElements.ModElement {
 						.setRegistryName("sunflower");
 		elements.entities.add(() -> entity);
 		elements.items.add(() -> new SpawnEggItem(entity, -13312, -3381760, new Item.Properties().group(PlantsVsZombiesTabItemGroup.tab))
-				.setRegistryName("sunflower"));
+				.setRegistryName("sunflower_spawn_egg"));
 	}
 
 	@Override

@@ -81,7 +81,7 @@ public class MonarchCaterpillarEntity extends NatureplusModElements.ModElement {
 						.setRegistryName("monarch_caterpillar");
 		elements.entities.add(() -> entity);
 		elements.items.add(() -> new SpawnEggItem(entity, -205, -16777216, new Item.Properties().group(NaturePlusTabItemGroup.tab))
-				.setRegistryName("monarch_caterpillar"));
+				.setRegistryName("monarch_caterpillar_spawn_egg"));
 	}
 
 	@Override

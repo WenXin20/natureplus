@@ -14,7 +14,7 @@ import java.util.Map;
 @NatureplusModElements.ModElement.Tag
 public class DuckNaturalSpawnProcedure extends NatureplusModElements.ModElement {
 	public DuckNaturalSpawnProcedure(NatureplusModElements instance) {
-		super(instance, 807);
+		super(instance, 811);
 	}
 
 	public static boolean executeProcedure(Map<String, Object> dependencies) {

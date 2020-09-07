@@ -88,7 +88,7 @@ public class SnowPeaEntity extends NatureplusModElements.ModElement {
 						.setRegistryName("snow_pea");
 		elements.entities.add(() -> entity);
 		elements.items.add(() -> new SpawnEggItem(entity, -16724788, -16751002, new Item.Properties().group(PlantsVsZombiesTabItemGroup.tab))
-				.setRegistryName("snow_pea"));
+				.setRegistryName("snow_pea_spawn_egg"));
 	}
 
 	@Override
@@ -148,7 +148,7 @@ public class SnowPeaEntity extends NatureplusModElements.ModElement {
 			this.goalSelector.addGoal(3, new LookAtGoal(this, PlayerEntity.class, (float) 6));
 			this.goalSelector.addGoal(4, new LookRandomlyGoal(this));
 			this.goalSelector.addGoal(5, new SwimGoal(this));
-			this.goalSelector.addGoal(1, new RangedAttackGoal(this, 1.25, 40, 20) {
+			this.goalSelector.addGoal(1, new RangedAttackGoal(this, 0, 40, 20) {
 				@Override
 				public boolean shouldContinueExecuting() {
 					return this.shouldExecute();

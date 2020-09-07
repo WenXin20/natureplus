@@ -62,7 +62,7 @@ public class CornItem extends NatureplusModElements.ModElement {
 	@ObjectHolder("natureplus:entitybulletcorn")
 	public static final EntityType arrow = null;
 	public CornItem(NatureplusModElements instance) {
-		super(instance, 207);
+		super(instance, 210);
 	}
 
 	@Override
@@ -232,14 +232,6 @@ public class CornItem extends NatureplusModElements.ModElement {
 			World world = this.world;
 			Entity entity = this.getShooter();
 			if (this.inGround) {
-				{
-					Map<String, Object> $_dependencies = new HashMap<>();
-					$_dependencies.put("x", x);
-					$_dependencies.put("y", y);
-					$_dependencies.put("z", z);
-					$_dependencies.put("world", world);
-					CornSplatSoundsProcedure.executeProcedure($_dependencies);
-				}
 				this.remove();
 			}
 		}

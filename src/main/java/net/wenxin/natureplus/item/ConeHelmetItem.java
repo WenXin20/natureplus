@@ -43,7 +43,7 @@ public class ConeHelmetItem extends NatureplusModElements.ModElement {
 	@ObjectHolder("natureplus:cone_boots")
 	public static final Item boots = null;
 	public ConeHelmetItem(NatureplusModElements instance) {
-		super(instance, 183);
+		super(instance, 185);
 	}
 
 	@Override
@@ -75,7 +75,7 @@ public class ConeHelmetItem extends NatureplusModElements.ModElement {
 			}
 
 			public float getToughness() {
-				return 0.2f;
+				return 1f;
 			}
 		};
 		elements.items.add(() -> new ArmorItem(armormaterial, EquipmentSlotType.HEAD, new Item.Properties().group(PlantsVsZombiesTabItemGroup.tab)) {

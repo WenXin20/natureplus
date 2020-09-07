@@ -2,10 +2,10 @@
   "_fv": 11,
   "_type": "achievement",
   "definition": {
-    "achievementName": "Zombie Hunter",
-    "achievementDescription": "Kill a Zombie from Plants Vs. Zombies",
+    "achievementName": "Fancy Suit",
+    "achievementDescription": "Kill a Zombie with a suit & tie",
     "achievementIcon": {
-      "value": "Items.GOLDEN_SWORD"
+      "value": "Items.STONE_SWORD"
     },
     "background": "Default",
     "disableDisplay": false,

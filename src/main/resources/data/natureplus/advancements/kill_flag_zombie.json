@@ -1,0 +1,26 @@
+{
+  "display": {
+    "icon": {
+      "item": "minecraft:iron_sword"
+    },
+    "title": {
+      "translate": "advancements.kill_flag_zombie.title"
+    },
+    "description": {
+      "translate": "advancements.kill_flag_zombie.descr"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "kill_flag_zombie": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "rewards": {
+    "experience": 1
+  },
+  "parent": "natureplus:kill_pvz_zombie"
+}

@@ -1,7 +1,7 @@
 {
   "display": {
     "icon": {
-      "item": "minecraft:golden_sword"
+      "item": "minecraft:stone_sword"
     },
     "title": {
       "translate": "advancements.kill_pvz_zombie.title"

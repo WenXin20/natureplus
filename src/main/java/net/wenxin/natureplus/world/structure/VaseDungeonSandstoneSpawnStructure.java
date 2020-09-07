@@ -34,7 +34,7 @@ import com.google.common.collect.ImmutableMap;
 @NatureplusModElements.ModElement.Tag
 public class VaseDungeonSandstoneSpawnStructure extends NatureplusModElements.ModElement {
 	public VaseDungeonSandstoneSpawnStructure(NatureplusModElements instance) {
-		super(instance, 648);
+		super(instance, 652);
 	}
 
 	@Override

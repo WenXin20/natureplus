@@ -34,9 +34,6 @@
     },
     "bulletModel": "ModelCorn",
     "customBulletModelTexture": "corn.png",
-    "onBulletHitsBlock": {
-      "name": "CornSplatSounds"
-    },
     "onBulletHitsPlayer": {
       "name": "CornSplatSounds"
     },

@@ -24,7 +24,7 @@ import com.google.common.collect.ImmutableMap;
 @NatureplusModElements.ModElement.Tag
 public class ButterOverlayOverlay extends NatureplusModElements.ModElement {
 	public ButterOverlayOverlay(NatureplusModElements instance) {
-		super(instance, 664);
+		super(instance, 668);
 	}
 
 	@Override

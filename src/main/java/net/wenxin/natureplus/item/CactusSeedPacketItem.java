@@ -25,7 +25,7 @@ public class CactusSeedPacketItem extends NatureplusModElements.ModElement {
 	@ObjectHolder("natureplus:cactus_seed_packet")
 	public static final Item block = null;
 	public CactusSeedPacketItem(NatureplusModElements instance) {
-		super(instance, 197);
+		super(instance, 200);
 	}
 
 	@Override

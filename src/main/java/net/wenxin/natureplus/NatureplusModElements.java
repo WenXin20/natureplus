@@ -48,19 +48,6 @@ public class NatureplusModElements {
 	public final List<Supplier<Enchantment>> enchantments = new ArrayList<>();
 	public static Map<ResourceLocation, net.minecraft.util.SoundEvent> sounds = new HashMap<>();
 	public NatureplusModElements() {
-		sounds.put(new ResourceLocation("natureplus", "kernel_pult"),
-				new net.minecraft.util.SoundEvent(new ResourceLocation("natureplus", "kernel_pult")));
-		sounds.put(new ResourceLocation("natureplus", "cactus_shoot"),
-				new net.minecraft.util.SoundEvent(new ResourceLocation("natureplus", "cactus_shoot")));
-		sounds.put(new ResourceLocation("natureplus", "splat"), new net.minecraft.util.SoundEvent(new ResourceLocation("natureplus", "splat")));
-		sounds.put(new ResourceLocation("natureplus", "peashooter_shoot"),
-				new net.minecraft.util.SoundEvent(new ResourceLocation("natureplus", "peashooter_shoot")));
-		sounds.put(new ResourceLocation("natureplus", "planting"), new net.minecraft.util.SoundEvent(new ResourceLocation("natureplus", "planting")));
-		sounds.put(new ResourceLocation("natureplus", "planting_water"),
-				new net.minecraft.util.SoundEvent(new ResourceLocation("natureplus", "planting_water")));
-		sounds.put(new ResourceLocation("natureplus", "shovel"), new net.minecraft.util.SoundEvent(new ResourceLocation("natureplus", "shovel")));
-		sounds.put(new ResourceLocation("natureplus", "snow_pea_shoot"),
-				new net.minecraft.util.SoundEvent(new ResourceLocation("natureplus", "snow_pea_shoot")));
 		sounds.put(new ResourceLocation("natureplus", "balloon_inflate"),
 				new net.minecraft.util.SoundEvent(new ResourceLocation("natureplus", "balloon_inflate")));
 		sounds.put(new ResourceLocation("natureplus", "balloon_pop"),
@@ -71,29 +58,42 @@ public class NatureplusModElements {
 				new net.minecraft.util.SoundEvent(new ResourceLocation("natureplus", "bug_squish")));
 		sounds.put(new ResourceLocation("natureplus", "butterfly_flying"),
 				new net.minecraft.util.SoundEvent(new ResourceLocation("natureplus", "butterfly_flying")));
-		sounds.put(new ResourceLocation("natureplus", "duck_ambient"),
-				new net.minecraft.util.SoundEvent(new ResourceLocation("natureplus", "duck_ambient")));
-		sounds.put(new ResourceLocation("natureplus", "squitch"), new net.minecraft.util.SoundEvent(new ResourceLocation("natureplus", "squitch")));
-		sounds.put(new ResourceLocation("natureplus", "swoosh"), new net.minecraft.util.SoundEvent(new ResourceLocation("natureplus", "swoosh")));
-		sounds.put(new ResourceLocation("natureplus", "vase_breaking"),
-				new net.minecraft.util.SoundEvent(new ResourceLocation("natureplus", "vase_breaking")));
-		sounds.put(new ResourceLocation("natureplus", "zombie_gulp"),
-				new net.minecraft.util.SoundEvent(new ResourceLocation("natureplus", "zombie_gulp")));
 		sounds.put(new ResourceLocation("natureplus", "cactus_death"),
 				new net.minecraft.util.SoundEvent(new ResourceLocation("natureplus", "cactus_death")));
 		sounds.put(new ResourceLocation("natureplus", "cactus_hurt"),
 				new net.minecraft.util.SoundEvent(new ResourceLocation("natureplus", "cactus_hurt")));
+		sounds.put(new ResourceLocation("natureplus", "cactus_shoot"),
+				new net.minecraft.util.SoundEvent(new ResourceLocation("natureplus", "cactus_shoot")));
+		sounds.put(new ResourceLocation("natureplus", "duck_ambient"),
+				new net.minecraft.util.SoundEvent(new ResourceLocation("natureplus", "duck_ambient")));
 		sounds.put(new ResourceLocation("natureplus", "duck_death"),
 				new net.minecraft.util.SoundEvent(new ResourceLocation("natureplus", "duck_death")));
 		sounds.put(new ResourceLocation("natureplus", "duck_hurt"),
 				new net.minecraft.util.SoundEvent(new ResourceLocation("natureplus", "duck_hurt")));
-		sounds.put(new ResourceLocation("natureplus", "sunflower_collect"),
-				new net.minecraft.util.SoundEvent(new ResourceLocation("natureplus", "sunflower_collect")));
-		sounds.put(new ResourceLocation("natureplus", "throw"), new net.minecraft.util.SoundEvent(new ResourceLocation("natureplus", "throw")));
-		sounds.put(new ResourceLocation("natureplus", "zombie_bite"),
-				new net.minecraft.util.SoundEvent(new ResourceLocation("natureplus", "zombie_bite")));
+		sounds.put(new ResourceLocation("natureplus", "kernel_pult"),
+				new net.minecraft.util.SoundEvent(new ResourceLocation("natureplus", "kernel_pult")));
+		sounds.put(new ResourceLocation("natureplus", "shovel"), new net.minecraft.util.SoundEvent(new ResourceLocation("natureplus", "shovel")));
+		sounds.put(new ResourceLocation("natureplus", "planting"), new net.minecraft.util.SoundEvent(new ResourceLocation("natureplus", "planting")));
+		sounds.put(new ResourceLocation("natureplus", "planting_water"),
+				new net.minecraft.util.SoundEvent(new ResourceLocation("natureplus", "planting_water")));
+		sounds.put(new ResourceLocation("natureplus", "squitch"), new net.minecraft.util.SoundEvent(new ResourceLocation("natureplus", "squitch")));
 		sounds.put(new ResourceLocation("natureplus", "spike_hit"),
 				new net.minecraft.util.SoundEvent(new ResourceLocation("natureplus", "spike_hit")));
+		sounds.put(new ResourceLocation("natureplus", "snow_pea_shoot"),
+				new net.minecraft.util.SoundEvent(new ResourceLocation("natureplus", "snow_pea_shoot")));
+		sounds.put(new ResourceLocation("natureplus", "sunflower_collect"),
+				new net.minecraft.util.SoundEvent(new ResourceLocation("natureplus", "sunflower_collect")));
+		sounds.put(new ResourceLocation("natureplus", "swoosh"), new net.minecraft.util.SoundEvent(new ResourceLocation("natureplus", "swoosh")));
+		sounds.put(new ResourceLocation("natureplus", "throw"), new net.minecraft.util.SoundEvent(new ResourceLocation("natureplus", "throw")));
+		sounds.put(new ResourceLocation("natureplus", "vase_breaking"),
+				new net.minecraft.util.SoundEvent(new ResourceLocation("natureplus", "vase_breaking")));
+		sounds.put(new ResourceLocation("natureplus", "zombie_bite"),
+				new net.minecraft.util.SoundEvent(new ResourceLocation("natureplus", "zombie_bite")));
+		sounds.put(new ResourceLocation("natureplus", "zombie_gulp"),
+				new net.minecraft.util.SoundEvent(new ResourceLocation("natureplus", "zombie_gulp")));
+		sounds.put(new ResourceLocation("natureplus", "splat"), new net.minecraft.util.SoundEvent(new ResourceLocation("natureplus", "splat")));
+		sounds.put(new ResourceLocation("natureplus", "peashooter_shoot"),
+				new net.minecraft.util.SoundEvent(new ResourceLocation("natureplus", "peashooter_shoot")));
 		try {
 			ModFileScanData modFileInfo = ModList.get().getModFileById("natureplus").getFile().getScanResult();
 			Set<ModFileScanData.AnnotationData> annotations = modFileInfo.getAnnotations();

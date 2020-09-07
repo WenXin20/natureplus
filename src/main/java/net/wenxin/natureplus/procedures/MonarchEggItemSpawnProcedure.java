@@ -29,7 +29,7 @@ import java.util.Map;
 @NatureplusModElements.ModElement.Tag
 public class MonarchEggItemSpawnProcedure extends NatureplusModElements.ModElement {
 	public MonarchEggItemSpawnProcedure(NatureplusModElements instance) {
-		super(instance, 568);
+		super(instance, 572);
 	}
 
 	public static void executeProcedure(Map<String, Object> dependencies) {

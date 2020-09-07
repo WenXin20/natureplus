@@ -24,6 +24,7 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.World;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.Difficulty;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.DamageSource;
 import net.minecraft.item.SpawnEggItem;
@@ -51,6 +52,7 @@ import net.minecraft.entity.CreatureAttribute;
 import net.minecraft.client.renderer.entity.model.BipedModel;
 import net.minecraft.client.renderer.entity.layers.BipedArmorLayer;
 import net.minecraft.client.renderer.entity.BipedRenderer;
+import net.minecraft.block.BlockState;
 
 import java.util.Map;
 import java.util.HashMap;
@@ -72,13 +74,13 @@ public class ConeheadZombieEntity extends NatureplusModElements.ModElement {
 						.setRegistryName("conehead_zombie");
 		elements.entities.add(() -> entity);
 		elements.items.add(() -> new SpawnEggItem(entity, -16737895, -3381760, new Item.Properties().group(PlantsVsZombiesTabItemGroup.tab))
-				.setRegistryName("conehead_zombie"));
+				.setRegistryName("conehead_zombie_spawn_egg"));
 	}
 
 	@Override
 	public void init(FMLCommonSetupEvent event) {
 		for (Biome biome : ForgeRegistries.BIOMES.getValues()) {
-			biome.getSpawns(EntityClassification.MONSTER).add(new Biome.SpawnListEntry(entity, 8, 1, 3));
+			biome.getSpawns(EntityClassification.MONSTER).add(new Biome.SpawnListEntry(entity, 30, 1, 3));
 		}
 		EntitySpawnPlacementRegistry.register(entity, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES,
 				(entityType, world, reason, pos, random) -> {
@@ -183,8 +185,9 @@ public class ConeheadZombieEntity extends NatureplusModElements.ModElement {
 		}
 
 		@Override
-		public net.minecraft.util.SoundEvent getStepSound() {
-			return (net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.zombie.step"));
+		public void playStepSound(BlockPos pos, BlockState blockIn) {
+			this.playSound((net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.zombie.step")), 0.15f,
+					1);
 		}
 
 		@Override

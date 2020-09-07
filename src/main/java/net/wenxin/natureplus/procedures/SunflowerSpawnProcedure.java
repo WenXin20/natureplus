@@ -31,7 +31,7 @@ import java.util.Iterator;
 @NatureplusModElements.ModElement.Tag
 public class SunflowerSpawnProcedure extends NatureplusModElements.ModElement {
 	public SunflowerSpawnProcedure(NatureplusModElements instance) {
-		super(instance, 628);
+		super(instance, 632);
 	}
 
 	public static void executeProcedure(Map<String, Object> dependencies) {

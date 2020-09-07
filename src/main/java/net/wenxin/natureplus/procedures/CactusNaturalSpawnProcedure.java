@@ -12,7 +12,7 @@ import java.util.Map;
 @NatureplusModElements.ModElement.Tag
 public class CactusNaturalSpawnProcedure extends NatureplusModElements.ModElement {
 	public CactusNaturalSpawnProcedure(NatureplusModElements instance) {
-		super(instance, 808);
+		super(instance, 812);
 	}
 
 	public static boolean executeProcedure(Map<String, Object> dependencies) {

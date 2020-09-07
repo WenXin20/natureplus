@@ -78,7 +78,7 @@ public class MallardDuckEntity extends NatureplusModElements.ModElement {
 						.setRegistryName("mallard_duck");
 		elements.entities.add(() -> entity);
 		elements.items.add(() -> new SpawnEggItem(entity, -6710887, -16751053, new Item.Properties().group(NaturePlusTabItemGroup.tab))
-				.setRegistryName("mallard_duck"));
+				.setRegistryName("mallard_duck_spawn_egg"));
 	}
 
 	@Override

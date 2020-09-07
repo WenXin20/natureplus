@@ -23,6 +23,7 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.World;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.Difficulty;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.DamageSource;
 import net.minecraft.item.SpawnEggItem;
@@ -50,6 +51,7 @@ import net.minecraft.entity.CreatureAttribute;
 import net.minecraft.client.renderer.entity.model.BipedModel;
 import net.minecraft.client.renderer.entity.layers.BipedArmorLayer;
 import net.minecraft.client.renderer.entity.BipedRenderer;
+import net.minecraft.block.BlockState;
 
 import java.util.Map;
 import java.util.HashMap;
@@ -71,7 +73,7 @@ public class PVZZombieEntity extends NatureplusModElements.ModElement {
 						.setRegistryName("pvz_zombie");
 		elements.entities.add(() -> entity);
 		elements.items.add(() -> new SpawnEggItem(entity, -16737895, -16764109, new Item.Properties().group(PlantsVsZombiesTabItemGroup.tab))
-				.setRegistryName("pvz_zombie"));
+				.setRegistryName("pvz_zombie_spawn_egg"));
 	}
 
 	@Override
@@ -181,8 +183,9 @@ public class PVZZombieEntity extends NatureplusModElements.ModElement {
 		}
 
 		@Override
-		public net.minecraft.util.SoundEvent getStepSound() {
-			return (net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.zombie.step"));
+		public void playStepSound(BlockPos pos, BlockState blockIn) {
+			this.playSound((net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.zombie.step")), 0.15f,
+					1);
 		}
 
 		@Override

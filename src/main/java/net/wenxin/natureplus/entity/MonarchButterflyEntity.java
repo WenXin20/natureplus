@@ -85,7 +85,7 @@ public class MonarchButterflyEntity extends NatureplusModElements.ModElement {
 						.setRegistryName("monarch_butterfly");
 		elements.entities.add(() -> entity);
 		elements.items.add(() -> new SpawnEggItem(entity, -39424, -16777216, new Item.Properties().group(NaturePlusTabItemGroup.tab))
-				.setRegistryName("monarch_butterfly"));
+				.setRegistryName("monarch_butterfly_spawn_egg"));
 	}
 
 	@Override

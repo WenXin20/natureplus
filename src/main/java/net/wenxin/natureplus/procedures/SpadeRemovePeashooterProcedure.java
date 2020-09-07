@@ -31,7 +31,7 @@ import java.util.HashMap;
 @NatureplusModElements.ModElement.Tag
 public class SpadeRemovePeashooterProcedure extends NatureplusModElements.ModElement {
 	public SpadeRemovePeashooterProcedure(NatureplusModElements instance) {
-		super(instance, 533);
+		super(instance, 537);
 		MinecraftForge.EVENT_BUS.register(this);
 	}
 

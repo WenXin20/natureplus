@@ -15,7 +15,7 @@ import java.util.HashMap;
 @NatureplusModElements.ModElement.Tag
 public class RightClickReplantProcedure extends NatureplusModElements.ModElement {
 	public RightClickReplantProcedure(NatureplusModElements instance) {
-		super(instance, 212);
+		super(instance, 216);
 		MinecraftForge.EVENT_BUS.register(this);
 	}
 

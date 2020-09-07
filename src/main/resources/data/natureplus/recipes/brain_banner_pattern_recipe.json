@@ -1,0 +1,16 @@
+{
+  "group": "natureplus",
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:paper"
+    },
+    {
+      "item": "natureplus:rotten_brain"
+    }
+  ],
+  "result": {
+    "item": "natureplus:brain_banner_pattern",
+    "count": 1
+  }
+}

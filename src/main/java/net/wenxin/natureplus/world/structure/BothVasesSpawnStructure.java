@@ -31,7 +31,7 @@ import java.util.Random;
 @NatureplusModElements.ModElement.Tag
 public class BothVasesSpawnStructure extends NatureplusModElements.ModElement {
 	public BothVasesSpawnStructure(NatureplusModElements instance) {
-		super(instance, 646);
+		super(instance, 650);
 	}
 
 	@Override

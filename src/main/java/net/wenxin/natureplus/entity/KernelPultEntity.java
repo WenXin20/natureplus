@@ -79,7 +79,7 @@ public class KernelPultEntity extends NatureplusModElements.ModElement {
 						.setRegistryName("kernel_pult");
 		elements.entities.add(() -> entity);
 		elements.items.add(() -> new SpawnEggItem(entity, -13312, -3368704, new Item.Properties().group(PlantsVsZombiesTabItemGroup.tab))
-				.setRegistryName("kernel_pult"));
+				.setRegistryName("kernel_pult_spawn_egg"));
 	}
 
 	@Override
@@ -132,7 +132,7 @@ public class KernelPultEntity extends NatureplusModElements.ModElement {
 			this.goalSelector.addGoal(3, new LookAtGoal(this, PlayerEntity.class, (float) 6));
 			this.goalSelector.addGoal(4, new LookRandomlyGoal(this));
 			this.goalSelector.addGoal(5, new SwimGoal(this));
-			this.goalSelector.addGoal(1, new RangedAttackGoal(this, 1.25, 20, 10) {
+			this.goalSelector.addGoal(1, new RangedAttackGoal(this, 0, 20, 10) {
 				@Override
 				public boolean shouldContinueExecuting() {
 					return this.shouldExecute();
