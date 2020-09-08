@@ -218,6 +218,12 @@ public class CactusEntity extends NatureplusModElements.ModElement {
 			}
 			if (source == DamageSource.CACTUS)
 				return false;
+			if (!source.isMagicDamage() && !source.isFireDamage() && !source.isProjectile() && source.getImmediateSource() instanceof LivingEntity) {
+				LivingEntity livingentity = (LivingEntity) source.getImmediateSource();
+				if (!source.isExplosion()) {
+					livingentity.attackEntityFrom(DamageSource.causeThornsDamage(this), 2.0F);
+				}
+			}
 			return super.attackEntityFrom(source, amount);
 		}
 

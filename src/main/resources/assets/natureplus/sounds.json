@@ -111,36 +111,6 @@
       }
     ]
   },
-  "duck_ambient": {
-    "category": "neutral",
-    "subtitle": "Duck quacking",
-    "sounds": [
-      {
-        "name": "natureplus:duck_ambient",
-        "stream": false
-      }
-    ]
-  },
-  "duck_death": {
-    "category": "neutral",
-    "subtitle": "Duck dies",
-    "sounds": [
-      {
-        "name": "natureplus:duck_death",
-        "stream": false
-      }
-    ]
-  },
-  "duck_hurt": {
-    "category": "neutral",
-    "subtitle": "Duck hurts",
-    "sounds": [
-      {
-        "name": "natureplus:duck_hurt",
-        "stream": false
-      }
-    ]
-  },
   "shovel": {
     "category": "block",
     "subtitle": "Shoveling",
@@ -323,6 +293,48 @@
       },
       {
         "name": "natureplus:spike_hit3",
+        "stream": false
+      }
+    ]
+  },
+  "duck_death": {
+    "category": "neutral",
+    "subtitle": "Duck dies",
+    "sounds": [
+      {
+        "name": "natureplus:duck_death",
+        "stream": false
+      }
+    ]
+  },
+  "duck_hurt": {
+    "category": "neutral",
+    "subtitle": "Duck hurts",
+    "sounds": [
+      {
+        "name": "natureplus:duck_hurt",
+        "stream": false
+      }
+    ]
+  },
+  "duck_ambient": {
+    "category": "neutral",
+    "subtitle": "Duck quacks",
+    "sounds": [
+      {
+        "name": "natureplus:duck_ambient",
+        "stream": false
+      },
+      {
+        "name": "natureplus:duck_ambient2",
+        "stream": false
+      },
+      {
+        "name": "natureplus:duck_ambient3",
+        "stream": false
+      },
+      {
+        "name": "natureplus:duck_ambient4",
         "stream": false
       }
     ]

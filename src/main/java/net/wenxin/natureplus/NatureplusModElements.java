@@ -64,12 +64,6 @@ public class NatureplusModElements {
 				new net.minecraft.util.SoundEvent(new ResourceLocation("natureplus", "cactus_hurt")));
 		sounds.put(new ResourceLocation("natureplus", "cactus_shoot"),
 				new net.minecraft.util.SoundEvent(new ResourceLocation("natureplus", "cactus_shoot")));
-		sounds.put(new ResourceLocation("natureplus", "duck_ambient"),
-				new net.minecraft.util.SoundEvent(new ResourceLocation("natureplus", "duck_ambient")));
-		sounds.put(new ResourceLocation("natureplus", "duck_death"),
-				new net.minecraft.util.SoundEvent(new ResourceLocation("natureplus", "duck_death")));
-		sounds.put(new ResourceLocation("natureplus", "duck_hurt"),
-				new net.minecraft.util.SoundEvent(new ResourceLocation("natureplus", "duck_hurt")));
 		sounds.put(new ResourceLocation("natureplus", "shovel"), new net.minecraft.util.SoundEvent(new ResourceLocation("natureplus", "shovel")));
 		sounds.put(new ResourceLocation("natureplus", "planting"), new net.minecraft.util.SoundEvent(new ResourceLocation("natureplus", "planting")));
 		sounds.put(new ResourceLocation("natureplus", "planting_water"),
@@ -94,6 +88,12 @@ public class NatureplusModElements {
 				new net.minecraft.util.SoundEvent(new ResourceLocation("natureplus", "kernel_pult")));
 		sounds.put(new ResourceLocation("natureplus", "spike_hit"),
 				new net.minecraft.util.SoundEvent(new ResourceLocation("natureplus", "spike_hit")));
+		sounds.put(new ResourceLocation("natureplus", "duck_death"),
+				new net.minecraft.util.SoundEvent(new ResourceLocation("natureplus", "duck_death")));
+		sounds.put(new ResourceLocation("natureplus", "duck_hurt"),
+				new net.minecraft.util.SoundEvent(new ResourceLocation("natureplus", "duck_hurt")));
+		sounds.put(new ResourceLocation("natureplus", "duck_ambient"),
+				new net.minecraft.util.SoundEvent(new ResourceLocation("natureplus", "duck_ambient")));
 		try {
 			ModFileScanData modFileInfo = ModList.get().getModFileById("natureplus").getFile().getScanResult();
 			Set<ModFileScanData.AnnotationData> annotations = modFileInfo.getAnnotations();
