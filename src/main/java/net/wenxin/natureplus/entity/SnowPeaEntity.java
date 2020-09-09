@@ -201,6 +201,13 @@ public class SnowPeaEntity extends NatureplusModElements.ModElement {
 		}
 
 		@Override
+		public boolean hitByEntity(Entity entity) {
+			if (entity instanceof FrozenPeaItem.ArrowCustomEntity || entity instanceof CornItem.ArrowCustomEntity )
+				return true;
+			return false;
+		}
+
+		@Override
 		public boolean attackEntityFrom(DamageSource source, float amount) {
 			double x = this.getPosX();
 			double y = this.getPosY();
@@ -208,13 +215,13 @@ public class SnowPeaEntity extends NatureplusModElements.ModElement {
 			Entity entity = this;
 			Entity sourceentity = source.getTrueSource();
 			if (source.getImmediateSource() instanceof PeaItem.ArrowCustomEntity)
-				return false;
-			if (source.getImmediateSource() instanceof FrozenPeaItem.ArrowCustomEntity)
-				return false;
-			if (source.getImmediateSource() instanceof CornItem.ArrowCustomEntity)
-				return false;
+				return sourceentity.canBeCollidedWith();
 			if (source.getImmediateSource() instanceof SpikeItem.ArrowCustomEntity)
-				return false;
+				return sourceentity.canBeCollidedWith();
+			if (source.getImmediateSource() instanceof FrozenPeaItem.ArrowCustomEntity)
+				return hitByEntity(sourceentity);
+			if (source.getImmediateSource() instanceof CornItem.ArrowCustomEntity)
+				return hitByEntity(sourceentity);
 			{
 				java.util.HashMap<String, Object> $_dependencies = new java.util.HashMap<>();
 				$_dependencies.put("entity", entity);
