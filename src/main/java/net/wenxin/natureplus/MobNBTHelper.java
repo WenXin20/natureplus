@@ -21,8 +21,6 @@ package net.wenxin.natureplus;
 import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 
-import net.minecraft.nbt.ListNBT;
-import net.minecraft.nbt.INBT;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.item.ItemStack;
 
@@ -46,7 +44,6 @@ public class MobNBTHelper extends NatureplusModElements.ModElement {
 	@Override
 	public void serverLoad(FMLServerStartingEvent event) {
 	}
-	
 	// Butterfly Net
 	public static final String MOB = "capturedMob";
 	public static final String MOB_NAME = "mobName";
