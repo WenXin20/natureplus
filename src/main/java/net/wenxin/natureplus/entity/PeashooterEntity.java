@@ -125,6 +125,7 @@ public class PeashooterEntity extends NatureplusModElements.ModElement {
 			super.registerGoals();
 			this.goalSelector.addGoal(1, new BreedGoal(this, 0.8));
 			this.goalSelector.addGoal(2, new TemptGoal(this, 0, Ingredient.fromItems(Items.BONE_MEAL), false));
+			this.targetSelector.addGoal(2, new NearestAttackableTargetGoal(this, RedDragonflyEntity.CustomEntity.class, true, true));
 			this.targetSelector.addGoal(2, new NearestAttackableTargetGoal(this, MobEntity.class, 10, true, true, (entity) -> {
 				return entity instanceof IMob && !(entity instanceof CreeperEntity);
 			}));
@@ -186,7 +187,7 @@ public class PeashooterEntity extends NatureplusModElements.ModElement {
 
 		@Override
 		public boolean hitByEntity(Entity entity) {
-			if (entity instanceof FrozenPeaItem.ArrowCustomEntity || entity instanceof CornItem.ArrowCustomEntity )
+			if (entity instanceof FrozenPeaItem.ArrowCustomEntity || entity instanceof CornItem.ArrowCustomEntity)
 				return true;
 			return false;
 		}

@@ -156,6 +156,20 @@ public class MallardDuckEntity extends NatureplusModElements.ModElement {
 		}
 
 		@Override
+		public boolean isBreedingItem(ItemStack stack) {
+			return stack.getItem().isIn(Items.SEEDS);
+		}
+
+		@Override
+		public AgeableEntity createChild(AgeableEntity ageable) {
+			return (CustomEntity) entity.create(this.world);
+		}
+
+		public float getStandingEyeHeight(Pose poseIn, EntitySize sizeIn) {
+			return this.isChild() ? sizeIn.height * 0.85F : sizeIn.height * 0.92F;
+		}
+
+		@Override
 		public CreatureAttribute getCreatureAttribute() {
 			return CreatureAttribute.UNDEFINED;
 		}
@@ -202,20 +216,6 @@ public class MallardDuckEntity extends NatureplusModElements.ModElement {
 			if (this.getAttribute(SharedMonsterAttributes.ATTACK_DAMAGE) == null)
 				this.getAttributes().registerAttribute(SharedMonsterAttributes.ATTACK_DAMAGE);
 			this.getAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(3);
-		}
-
-		@Override
-		public AgeableEntity createChild(AgeableEntity ageable) {
-			return (CustomEntity) entity.create(this.world);
-		}
-
-		@Override
-		public boolean isBreedingItem(ItemStack stack) {
-			return stack.getItem().isIn(Items.SEEDS);
-		}
-
-		public float getStandingEyeHeight(Pose poseIn, EntitySize sizeIn) {
-			return this.isChild() ? sizeIn.height * 0.85F : sizeIn.height * 0.92F;
 		}
 
 		/**

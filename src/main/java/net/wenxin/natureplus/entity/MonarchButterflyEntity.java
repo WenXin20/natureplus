@@ -34,8 +34,10 @@ import net.minecraft.pathfinding.FlyingPathNavigator;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.item.SpawnEggItem;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.Item;
 import net.minecraft.entity.passive.ParrotEntity;
+import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.ai.goal.WaterAvoidingRandomWalkingGoal;
 import net.minecraft.entity.ai.goal.TemptGoal;
 import net.minecraft.entity.ai.goal.SwimGoal;
@@ -43,6 +45,7 @@ import net.minecraft.entity.ai.goal.RandomWalkingGoal;
 import net.minecraft.entity.ai.goal.PanicGoal;
 import net.minecraft.entity.ai.goal.LookRandomlyGoal;
 import net.minecraft.entity.ai.goal.FollowMobGoal;
+import net.minecraft.entity.ai.goal.BreedGoal;
 import net.minecraft.entity.ai.goal.AvoidEntityGoal;
 import net.minecraft.entity.ai.controller.FlyingMovementController;
 import net.minecraft.entity.SpawnReason;
@@ -54,8 +57,8 @@ import net.minecraft.entity.EntitySpawnPlacementRegistry;
 import net.minecraft.entity.EntitySize;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.CreatureEntity;
 import net.minecraft.entity.CreatureAttribute;
+import net.minecraft.entity.AgeableEntity;
 import net.minecraft.client.renderer.model.ModelRenderer;
 import net.minecraft.client.renderer.entity.model.EntityModel;
 import net.minecraft.client.renderer.entity.MobRenderer;
@@ -114,7 +117,7 @@ public class MonarchButterflyEntity extends NatureplusModElements.ModElement {
 			};
 		});
 	}
-	public static class CustomEntity extends CreatureEntity {
+	public static class CustomEntity extends AnimalEntity {
 		public CustomEntity(FMLPlayMessages.SpawnEntity packet, World world) {
 			this(entity, world);
 		}
@@ -130,9 +133,9 @@ public class MonarchButterflyEntity extends NatureplusModElements.ModElement {
 		@Override
 		protected void registerGoals() {
 			super.registerGoals();
-			// this.sitGoal = new SitGoal(this);
-			this.goalSelector.addGoal(1, new TemptGoal(this, 1.8, Ingredient.fromTag(ItemTags.FLOWERS), false));
-			this.goalSelector.addGoal(2, new RandomWalkingGoal(this, 1.5, 20) {
+			this.goalSelector.addGoal(1, new BreedGoal(this, 1.8));
+			this.goalSelector.addGoal(2, new TemptGoal(this, 1.8, Ingredient.fromTag(ItemTags.FLOWERS), false));
+			this.goalSelector.addGoal(3, new RandomWalkingGoal(this, 1.5, 20) {
 				@Override
 				protected Vec3d getPosition() {
 					Random random = CustomEntity.this.getRNG();
@@ -142,21 +145,17 @@ public class MonarchButterflyEntity extends NatureplusModElements.ModElement {
 					return new Vec3d(dir_x, dir_y, dir_z);
 				}
 			});
-			this.goalSelector.addGoal(2, new FollowMobGoal(this, (float) 1, 10, 5));
-			// this.goalSelector.addGoal(3, sitGoal);
-			this.goalSelector.addGoal(3, new AvoidEntityGoal(this, ParrotEntity.class, (float) 6, 1, 2.5));
-			this.goalSelector.addGoal(11, new AvoidEntityGoal(this, BlueDragonflyEntity.CustomEntity.class, (float) 6, 1, 2.5));
-			this.goalSelector.addGoal(11, new AvoidEntityGoal(this, GreenDragonflyEntity.CustomEntity.class, (float) 6, 1, 2.5));
-			this.goalSelector.addGoal(11, new AvoidEntityGoal(this, RedDragonflyEntity.CustomEntity.class, (float) 6, 1, 2.5));
-			this.goalSelector.addGoal(3, new PanicGoal(this, 2.0));
-			this.goalSelector.addGoal(4, new LookRandomlyGoal(this));
-			this.goalSelector.addGoal(5, new WaterAvoidingRandomWalkingGoal(this, 1.5));
-			this.goalSelector.addGoal(5, new SwimGoal(this));
+			this.goalSelector.addGoal(3, new FollowMobGoal(this, (float) 1, 10, 5));
+			this.goalSelector.addGoal(4, new AvoidEntityGoal(this, ParrotEntity.class, (float) 6, 1, 2.5));
+			this.goalSelector.addGoal(4, new AvoidEntityGoal(this, BlueDragonflyEntity.CustomEntity.class, (float) 6, 1, 2.5));
+			this.goalSelector.addGoal(4, new AvoidEntityGoal(this, GreenDragonflyEntity.CustomEntity.class, (float) 6, 1, 2.5));
+			this.goalSelector.addGoal(4, new AvoidEntityGoal(this, RedDragonflyEntity.CustomEntity.class, (float) 6, 1, 2.5));
+			this.goalSelector.addGoal(5, new PanicGoal(this, 2.0));
+			this.goalSelector.addGoal(5, new LookRandomlyGoal(this));
+			this.goalSelector.addGoal(6, new WaterAvoidingRandomWalkingGoal(this, 1.5));
+			this.goalSelector.addGoal(6, new SwimGoal(this));
 		}
 
-		// protected PathNavigator createNavigator(World world) {
-		// return new ClimberPathNavigator(this, this.world);
-		// }
 		protected PathNavigator createNavigator(World worldIn) {
 			FlyingPathNavigator flyingpathnavigator = new FlyingPathNavigator(this, worldIn) {
 				public boolean canEntityStandOnPos(BlockPos pos) {
@@ -167,6 +166,16 @@ public class MonarchButterflyEntity extends NatureplusModElements.ModElement {
 			flyingpathnavigator.setCanSwim(false);
 			flyingpathnavigator.setCanEnterDoors(true);
 			return flyingpathnavigator;
+		}
+
+		@Override
+		public boolean isBreedingItem(ItemStack stack) {
+			return stack.getItem().isIn(ItemTags.FLOWERS);
+		}
+
+		@Override
+		public AgeableEntity createChild(AgeableEntity ageable) {
+			return (MonarchEggEntity.CustomEntity) MonarchEggEntity.entity.create(this.world);
 		}
 
 		@Override
