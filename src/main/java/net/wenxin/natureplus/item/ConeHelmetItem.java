@@ -54,7 +54,7 @@ public class ConeHelmetItem extends NatureplusModElements.ModElement {
 			}
 
 			public int getDamageReductionAmount(EquipmentSlotType slot) {
-				return new int[]{2, 5, 6, 3}[slot.getIndex()];
+				return new int[]{2, 5, 6, 1}[slot.getIndex()];
 			}
 
 			public int getEnchantability() {
