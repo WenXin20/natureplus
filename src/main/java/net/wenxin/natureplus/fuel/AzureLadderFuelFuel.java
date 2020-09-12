@@ -13,7 +13,7 @@ import net.minecraft.item.ItemStack;
 @NatureplusModElements.ModElement.Tag
 public class AzureLadderFuelFuel extends NatureplusModElements.ModElement {
 	public AzureLadderFuelFuel(NatureplusModElements instance) {
-		super(instance, 765);
+		super(instance, 770);
 		MinecraftForge.EVENT_BUS.register(this);
 	}
 

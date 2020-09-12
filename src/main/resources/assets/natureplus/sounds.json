@@ -338,5 +338,45 @@
         "stream": false
       }
     ]
+  },
+  "grave_rumble": {
+    "category": "block",
+    "subtitle": "Grave rumbles",
+    "sounds": [
+      {
+        "name": "natureplus:gravestone_rumble",
+        "stream": false
+      }
+    ]
+  },
+  "zombie_groan": {
+    "category": "hostile",
+    "subtitle": "Zombie groans",
+    "sounds": [
+      {
+        "name": "natureplus:groan",
+        "stream": false
+      },
+      {
+        "name": "natureplus:groan2",
+        "stream": false
+      },
+      {
+        "name": "natureplus:groan3",
+        "stream": false
+      },
+      {
+        "name": "natureplus:groan4",
+        "stream": false
+      },
+      {
+        "name": "natureplus:groan5",
+        "stream": false
+      },
+      {
+        "name": "natureplus:groan6",
+        "stream": false
+      }
+    ]
   }
 }

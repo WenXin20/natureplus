@@ -28,7 +28,7 @@ public class DiamondSpadeItem extends NatureplusModElements.ModElement {
 	@ObjectHolder("natureplus:diamond_spade")
 	public static final Item block = null;
 	public DiamondSpadeItem(NatureplusModElements instance) {
-		super(instance, 205);
+		super(instance, 210);
 	}
 
 	@Override

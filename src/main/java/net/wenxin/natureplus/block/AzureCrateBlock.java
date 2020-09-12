@@ -24,6 +24,7 @@ import net.minecraftforge.api.distmarker.Dist;
 
 import net.minecraft.world.storage.loot.LootContext;
 import net.minecraft.world.World;
+import net.minecraft.world.IWorld;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.util.text.ITextComponent;
@@ -162,6 +163,21 @@ public class AzureCrateBlock extends NatureplusModElements.ModElement implements
 				facing = Direction.SOUTH;
 			return this.getDefaultState().with(FACING, facing).with(WATERLOGGED,
 					ifluidstate.isTagged(FluidTags.WATER) && ifluidstate.getLevel() == 8);
+		}
+
+		/**
+		 * Update the provided state given the provided neighbor facing and neighbor
+		 * state, returning a new state. For example, fences make their connections to
+		 * the passed in state if possible, and wet concrete powder immediately returns
+		 * its solidified counterpart. Note that this method should ideally consider
+		 * only the specific face passed in.
+		 */
+		public BlockState updatePostPlacement(BlockState stateIn, Direction facing, BlockState facingState, IWorld worldIn, BlockPos currentPos,
+				BlockPos facingPos) {
+			if (stateIn.get(WATERLOGGED)) {
+				worldIn.getPendingFluidTicks().scheduleTick(currentPos, Fluids.WATER, Fluids.WATER.getTickRate(worldIn));
+			}
+			return super.updatePostPlacement(stateIn, facing, facingState, worldIn, currentPos, facingPos);
 		}
 
 		@SuppressWarnings("deprecation")

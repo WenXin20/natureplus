@@ -65,7 +65,7 @@ public class AzureSaplingBlock extends NatureplusModElements.ModElement {
 	}
 	public static class BlockCustomFlower extends SugarCaneBlock {
 		public BlockCustomFlower() {
-			super(Block.Properties.create(Material.PLANTS, MaterialColor.LIGHT_BLUE).tickRandomly().doesNotBlockMovement().sound(SoundType.PLANT)
+			super(Block.Properties.create(Material.PLANTS, MaterialColor.BLUE).tickRandomly().doesNotBlockMovement().sound(SoundType.PLANT)
 					.hardnessAndResistance(0f, 0f).lightValue(0));
 			setRegistryName("azure_sapling");
 		}

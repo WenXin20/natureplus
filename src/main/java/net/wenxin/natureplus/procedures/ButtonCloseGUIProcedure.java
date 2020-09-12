@@ -10,7 +10,7 @@ import java.util.Map;
 @NatureplusModElements.ModElement.Tag
 public class ButtonCloseGUIProcedure extends NatureplusModElements.ModElement {
 	public ButtonCloseGUIProcedure(NatureplusModElements instance) {
-		super(instance, 810);
+		super(instance, 815);
 	}
 
 	public static void executeProcedure(Map<String, Object> dependencies) {

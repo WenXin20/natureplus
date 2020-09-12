@@ -9,7 +9,7 @@ import java.util.Map;
 @NatureplusModElements.ModElement.Tag
 public class IsNightInWorldProcedure extends NatureplusModElements.ModElement {
 	public IsNightInWorldProcedure(NatureplusModElements instance) {
-		super(instance, 762);
+		super(instance, 767);
 	}
 
 	public static boolean executeProcedure(Map<String, Object> dependencies) {

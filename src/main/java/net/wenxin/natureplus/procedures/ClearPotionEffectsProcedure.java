@@ -10,7 +10,7 @@ import java.util.Map;
 @NatureplusModElements.ModElement.Tag
 public class ClearPotionEffectsProcedure extends NatureplusModElements.ModElement {
 	public ClearPotionEffectsProcedure(NatureplusModElements instance) {
-		super(instance, 476);
+		super(instance, 481);
 	}
 
 	public static void executeProcedure(Map<String, Object> dependencies) {

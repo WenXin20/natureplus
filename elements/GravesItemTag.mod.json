@@ -1,0 +1,28 @@
+{
+  "_fv": 11,
+  "_type": "tag",
+  "definition": {
+    "type": "Items",
+    "items": [
+      {
+        "value": "CUSTOM:Grave"
+      },
+      {
+        "value": "CUSTOM:CrossGrave"
+      },
+      {
+        "value": "CUSTOM:BatGrave"
+      },
+      {
+        "value": "CUSTOM:SkullGrave"
+      },
+      {
+        "value": "CUSTOM:SmallCrossGrave"
+      }
+    ],
+    "blocks": [],
+    "functions": [],
+    "name": "graves",
+    "namespace": "mod"
+  }
+}

@@ -16,7 +16,7 @@ import java.util.HashMap;
 @NatureplusModElements.ModElement.Tag
 public class EntityTimerButterflyEggProcedure extends NatureplusModElements.ModElement {
 	public EntityTimerButterflyEggProcedure(NatureplusModElements instance) {
-		super(instance, 867);
+		super(instance, 872);
 		MinecraftForge.EVENT_BUS.register(this);
 	}
 

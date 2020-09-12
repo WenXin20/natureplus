@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "natureplus:grave",
+    "natureplus:cross_grave",
+    "natureplus:bat_grave",
+    "natureplus:skull_grave",
+    "natureplus:small_cross_grave"
+  ]
+}

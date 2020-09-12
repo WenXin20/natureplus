@@ -18,7 +18,7 @@ import java.util.Map;
 @NatureplusModElements.ModElement.Tag
 public class FrozenPeaEffectsProcedure extends NatureplusModElements.ModElement {
 	public FrozenPeaEffectsProcedure(NatureplusModElements instance) {
-		super(instance, 556);
+		super(instance, 561);
 	}
 
 	public static void executeProcedure(Map<String, Object> dependencies) {

@@ -33,7 +33,7 @@ import java.util.Random;
 @NatureplusModElements.ModElement.Tag
 public class GiantDandelionStructure extends NatureplusModElements.ModElement {
 	public GiantDandelionStructure(NatureplusModElements instance) {
-		super(instance, 473);
+		super(instance, 478);
 	}
 
 	@Override

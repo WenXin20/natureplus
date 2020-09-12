@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "natureplus:block/bat_grave"
+    },
+    "facing=east": {
+      "model": "natureplus:block/bat_grave",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "natureplus:block/bat_grave",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "natureplus:block/bat_grave",
+      "y": 270
+    }
+  }
+}

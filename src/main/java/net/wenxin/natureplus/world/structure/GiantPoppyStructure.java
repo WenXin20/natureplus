@@ -33,7 +33,7 @@ import java.util.Random;
 @NatureplusModElements.ModElement.Tag
 public class GiantPoppyStructure extends NatureplusModElements.ModElement {
 	public GiantPoppyStructure(NatureplusModElements instance) {
-		super(instance, 468);
+		super(instance, 473);
 	}
 
 	@Override

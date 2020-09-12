@@ -15,7 +15,7 @@ import java.util.Map;
 @NatureplusModElements.ModElement.Tag
 public class FreezingPotionIceBreakProcedure extends NatureplusModElements.ModElement {
 	public FreezingPotionIceBreakProcedure(NatureplusModElements instance) {
-		super(instance, 805);
+		super(instance, 810);
 	}
 
 	public static void executeProcedure(Map<String, Object> dependencies) {

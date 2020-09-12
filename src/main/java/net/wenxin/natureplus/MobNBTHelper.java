@@ -53,7 +53,6 @@ public class MobNBTHelper extends NatureplusModElements.ModElement {
 	public static final String MOB_HOSTILE = "mobHostile";
 	public static final String MOB_MOD = "mobMod";
 	public static final String MOD_ID = "modId";
-
 	public static CompoundNBT getBaseTag(ItemStack stack) {
 		return stack.getOrCreateChildTag(MOB);
 	}

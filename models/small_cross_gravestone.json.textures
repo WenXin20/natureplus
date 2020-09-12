@@ -1,0 +1,12 @@
+{
+  "mappings": {
+    "default": {
+      "map": {
+        "side": "small_cross_gravestone_side",
+        "top": "small_cross_gravestone_top",
+        "front": "small_cross_gravestone_front"
+      },
+      "name": "default"
+    }
+  }
+}

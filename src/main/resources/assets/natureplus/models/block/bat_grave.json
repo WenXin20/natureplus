@@ -1,0 +1,10 @@
+{
+  "parent": "natureplus:custom/bat_gravestone",
+  "textures": {
+    "all": "natureplus:blocks/bat_gravestone_front",
+    "particle": "natureplus:blocks/bat_gravestone_front",
+    "side": "natureplus:blocks/bat_gravestone_side",
+    "top": "natureplus:blocks/bat_gravestone_top",
+    "front": "natureplus:blocks/bat_gravestone_front"
+  }
+}

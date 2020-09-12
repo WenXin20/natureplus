@@ -25,7 +25,7 @@ public class PeashooterSeedPacketItem extends NatureplusModElements.ModElement {
 	@ObjectHolder("natureplus:peashooter_seed_packet")
 	public static final Item block = null;
 	public PeashooterSeedPacketItem(NatureplusModElements instance) {
-		super(instance, 197);
+		super(instance, 202);
 	}
 
 	@Override

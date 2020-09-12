@@ -24,7 +24,7 @@ import java.util.HashMap;
 @NatureplusModElements.ModElement.Tag
 public class AzureSaplingFlowerPotRecipeProcedure extends NatureplusModElements.ModElement {
 	public AzureSaplingFlowerPotRecipeProcedure(NatureplusModElements instance) {
-		super(instance, 273);
+		super(instance, 278);
 		MinecraftForge.EVENT_BUS.register(this);
 	}
 

@@ -1,0 +1,10 @@
+{
+  "parent": "natureplus:custom/cross_gravestone",
+  "textures": {
+    "all": "natureplus:blocks/cross_gravestone_front",
+    "particle": "natureplus:blocks/cross_gravestone_front",
+    "side": "natureplus:blocks/cross_gravestone_side",
+    "top": "natureplus:blocks/cross_gravestone_top",
+    "front": "natureplus:blocks/cross_gravestone_front"
+  }
+}

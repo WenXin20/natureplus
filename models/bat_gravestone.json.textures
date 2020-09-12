@@ -1,0 +1,12 @@
+{
+  "mappings": {
+    "default": {
+      "map": {
+        "side": "bat_gravestone_side",
+        "top": "bat_gravestone_top",
+        "front": "bat_gravestone_front"
+      },
+      "name": "default"
+    }
+  }
+}

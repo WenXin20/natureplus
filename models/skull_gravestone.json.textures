@@ -1,0 +1,12 @@
+{
+  "mappings": {
+    "default": {
+      "map": {
+        "side": "skull_gravestone_side",
+        "top": "skull_gravestone_top",
+        "front": "skull_gravestone_front"
+      },
+      "name": "default"
+    }
+  }
+}

@@ -62,7 +62,7 @@ public class CornItem extends NatureplusModElements.ModElement {
 	@ObjectHolder("natureplus:entitybulletcorn")
 	public static final EntityType arrow = null;
 	public CornItem(NatureplusModElements instance) {
-		super(instance, 210);
+		super(instance, 215);
 	}
 
 	@Override

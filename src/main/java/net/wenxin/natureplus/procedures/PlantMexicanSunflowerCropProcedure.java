@@ -7,7 +7,7 @@ import java.util.Map;
 @NatureplusModElements.ModElement.Tag
 public class PlantMexicanSunflowerCropProcedure extends NatureplusModElements.ModElement {
 	public PlantMexicanSunflowerCropProcedure(NatureplusModElements instance) {
-		super(instance, 215);
+		super(instance, 220);
 	}
 
 	public static void executeProcedure(Map<String, Object> dependencies) {

@@ -9,6 +9,7 @@ import net.wenxin.natureplus.item.CactusSeedPacketItem;
 import net.wenxin.natureplus.entity.PVZZombieEntity;
 import net.wenxin.natureplus.entity.MonarchCaterpillarEntity;
 import net.wenxin.natureplus.entity.ConeheadZombieEntity;
+import net.wenxin.natureplus.entity.BucketheadZombieEntity;
 import net.wenxin.natureplus.block.RandomVaseBlock;
 import net.wenxin.natureplus.NatureplusModVariables;
 import net.wenxin.natureplus.NatureplusModElements;
@@ -48,7 +49,7 @@ import java.util.HashMap;
 @NatureplusModElements.ModElement.Tag
 public class RandomVaseRandomOutputProcedure extends NatureplusModElements.ModElement {
 	public RandomVaseRandomOutputProcedure(NatureplusModElements instance) {
-		super(instance, 639);
+		super(instance, 644);
 		MinecraftForge.EVENT_BUS.register(this);
 	}
 
@@ -111,7 +112,7 @@ public class RandomVaseRandomOutputProcedure extends NatureplusModElements.ModEl
 				}
 				NatureplusModVariables.i = (double) (Math.random() * 100);
 				if (((NatureplusModVariables.i) >= 30)) {
-					if (((NatureplusModVariables.i) >= 50)) {
+					if (((NatureplusModVariables.i) >= 60)) {
 						if (world instanceof World && !world.getWorld().isRemote) {
 							Entity entityToSpawn = new PVZZombieEntity.CustomEntity(PVZZombieEntity.entity, world.getWorld());
 							entityToSpawn.setLocationAndAngles((x + 0.5), y, (z + 0.5), world.getRandom().nextFloat() * 360F, 0);
@@ -120,7 +121,16 @@ public class RandomVaseRandomOutputProcedure extends NatureplusModElements.ModEl
 										SpawnReason.MOB_SUMMONED, (ILivingEntityData) null, (CompoundNBT) null);
 							world.addEntity(entityToSpawn);
 						}
-					} else if ((((NatureplusModVariables.i) >= 30) && (!((NatureplusModVariables.i) >= 50)))) {
+					} else if ((((NatureplusModVariables.i) >= 30) && (!((NatureplusModVariables.i) >= 60)))) {
+						if (world instanceof World && !world.getWorld().isRemote) {
+							Entity entityToSpawn = new ZombieEntity(EntityType.ZOMBIE, world.getWorld());
+							entityToSpawn.setLocationAndAngles((x + 0.5), y, (z + 0.5), world.getRandom().nextFloat() * 360F, 0);
+							if (entityToSpawn instanceof MobEntity)
+								((MobEntity) entityToSpawn).onInitialSpawn(world, world.getDifficultyForLocation(new BlockPos(entityToSpawn)),
+										SpawnReason.MOB_SUMMONED, (ILivingEntityData) null, (CompoundNBT) null);
+							world.addEntity(entityToSpawn);
+						}
+					} else if ((((NatureplusModVariables.i) >= 20) && (!((NatureplusModVariables.i) >= 30)))) {
 						if (world instanceof World && !world.getWorld().isRemote) {
 							Entity entityToSpawn = new ConeheadZombieEntity.CustomEntity(ConeheadZombieEntity.entity, world.getWorld());
 							entityToSpawn.setLocationAndAngles((x + 0.5), y, (z + 0.5), world.getRandom().nextFloat() * 360F, 0);
@@ -129,9 +139,9 @@ public class RandomVaseRandomOutputProcedure extends NatureplusModElements.ModEl
 										SpawnReason.MOB_SUMMONED, (ILivingEntityData) null, (CompoundNBT) null);
 							world.addEntity(entityToSpawn);
 						}
-					} else if ((((NatureplusModVariables.i) >= 10) && (!((NatureplusModVariables.i) >= 30)))) {
+					} else if ((((NatureplusModVariables.i) >= 10) && (!((NatureplusModVariables.i) >= 20)))) {
 						if (world instanceof World && !world.getWorld().isRemote) {
-							Entity entityToSpawn = new ZombieEntity(EntityType.ZOMBIE, world.getWorld());
+							Entity entityToSpawn = new BucketheadZombieEntity.CustomEntity(BucketheadZombieEntity.entity, world.getWorld());
 							entityToSpawn.setLocationAndAngles((x + 0.5), y, (z + 0.5), world.getRandom().nextFloat() * 360F, 0);
 							if (entityToSpawn instanceof MobEntity)
 								((MobEntity) entityToSpawn).onInitialSpawn(world, world.getDifficultyForLocation(new BlockPos(entityToSpawn)),
