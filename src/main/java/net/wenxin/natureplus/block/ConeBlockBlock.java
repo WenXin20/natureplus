@@ -49,7 +49,7 @@ public class ConeBlockBlock extends NatureplusModElements.ModElement implements 
 	@ObjectHolder("natureplus:cone_block")
 	public static final Block block = null;
 	public ConeBlockBlock(NatureplusModElements instance) {
-		super(instance, 184);
+		super(instance, 189);
 	}
 
 	@Override
