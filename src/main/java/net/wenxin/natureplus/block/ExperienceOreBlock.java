@@ -22,6 +22,7 @@ import net.minecraft.world.dimension.DimensionType;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.IBlockReader;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Item;
@@ -75,6 +76,21 @@ public class ExperienceOreBlock extends NatureplusModElements.ModElement {
 			if (!dropsOriginal.isEmpty())
 				return dropsOriginal;
 			return Collections.singletonList(new ItemStack(this, 0));
+		}
+
+		protected int getExperience(Random rand) {
+			return this == ExperienceOreBlock.block ? MathHelper.nextInt(rand, 1, 8) : 0;
+		}
+
+		@Override
+		public int getExpDrop(BlockState state, net.minecraft.world.IWorldReader reader, BlockPos pos, int fortune, int silktouch) {
+			// return silktouch == 0 ? this.getExperience(RANDOM) : 0;
+			if (fortune != 0) {
+				return Math.multiplyExact(fortune, this.getExperience(RANDOM));
+			} else if (silktouch == 0) {
+				return this.getExperience(RANDOM);
+			}
+			return 0;
 		}
 	}
 	@Override
