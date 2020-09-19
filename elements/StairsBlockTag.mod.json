@@ -16,6 +16,9 @@
       },
       {
         "value": "CUSTOM:VerticalPlantStemStairs"
+      },
+      {
+        "value": "CUSTOM:GlassStairs"
       }
     ],
     "functions": [],

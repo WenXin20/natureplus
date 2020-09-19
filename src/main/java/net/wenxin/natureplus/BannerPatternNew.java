@@ -18,11 +18,12 @@
 */
 package net.wenxin.natureplus;
 
+import net.wenxin.natureplus.item.RottenBrainItem;
+
 import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 
 import net.minecraft.tileentity.BannerPattern;
-import net.minecraft.item.Items;
 import net.minecraft.item.ItemStack;
 
 import java.util.List;
@@ -48,8 +49,7 @@ public class BannerPatternNew extends NatureplusModElements.ModElement {
 	@Override
 	public void serverLoad(FMLServerStartingEvent event) {
 	}
-	public static final BannerPattern BRAIN = addBanner("brain", new ItemStack(Items.PINK_DYE));
-	public static List<ItemStack> BANNER_ITEMS = new ArrayList<>();
+	public static final BannerPattern BRAIN = addBanner("brain", new ItemStack(RottenBrainItem.block));
 	public static BannerPattern addBanner(String name, ItemStack item) {
 		return BannerPattern.create(name.toUpperCase(), name, "natureplus." + name, item);
 	}
