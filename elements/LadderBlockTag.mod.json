@@ -1,0 +1,19 @@
+{
+  "_fv": 11,
+  "_type": "tag",
+  "definition": {
+    "type": "Blocks",
+    "items": [],
+    "blocks": [
+      {
+        "value": "CUSTOM:AzureLadder"
+      },
+      {
+        "value": "CUSTOM:PlantStemLadder"
+      }
+    ],
+    "functions": [],
+    "name": "ladder",
+    "namespace": "forge"
+  }
+}
