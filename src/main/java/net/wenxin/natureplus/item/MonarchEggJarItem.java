@@ -1,7 +1,7 @@
 
 package net.wenxin.natureplus.item;
 
-import net.wenxin.natureplus.procedures.MonarchEggItemSpawnProcedure;
+import net.wenxin.natureplus.procedures.MonarchEggJarSpawnProcedure;
 import net.wenxin.natureplus.itemgroup.NaturePlusTabItemGroup;
 import net.wenxin.natureplus.NatureplusModElements;
 
@@ -82,7 +82,7 @@ public class MonarchEggJarItem extends NatureplusModElements.ModElement {
 				$_dependencies.put("y", y);
 				$_dependencies.put("z", z);
 				$_dependencies.put("world", world);
-				MonarchEggItemSpawnProcedure.executeProcedure($_dependencies);
+				MonarchEggJarSpawnProcedure.executeProcedure($_dependencies);
 			}
 			return retval;
 		}

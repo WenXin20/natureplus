@@ -1,6 +1,5 @@
 package net.wenxin.natureplus.procedures;
 
-import net.wenxin.natureplus.item.MonarchCocoonJarItem;
 import net.wenxin.natureplus.item.MonarchCocoonItemItem;
 import net.wenxin.natureplus.entity.MonarchCocoonEntity;
 import net.wenxin.natureplus.NatureplusModElements;
@@ -69,10 +68,8 @@ public class MonarchCocoonItemSpawnProcedure extends NatureplusModElements.ModEl
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
 		IWorld world = (IWorld) dependencies.get("world");
 		if (((!(world.getBlockState(new BlockPos((int) x, (int) (y + 1), (int) z)).isSolid()))
-				&& ((((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY)
-						.getItem() == new ItemStack(MonarchCocoonJarItem.block, (int) (1)).getItem())
-						|| (((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY)
-								.getItem() == new ItemStack(MonarchCocoonItemItem.block, (int) (1)).getItem())))) {
+				&& (((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY)
+						.getItem() == new ItemStack(MonarchCocoonItemItem.block, (int) (1)).getItem()))) {
 			if (world instanceof World && !world.getWorld().isRemote) {
 				Entity entityToSpawn = new MonarchCocoonEntity.CustomEntity(MonarchCocoonEntity.entity, world.getWorld());
 				entityToSpawn.setLocationAndAngles((x + 0.5), (y + 1), (z + 0.5), world.getRandom().nextFloat() * 360F, 0);
@@ -83,15 +80,6 @@ public class MonarchCocoonItemSpawnProcedure extends NatureplusModElements.ModEl
 			}
 			if (world instanceof ServerWorld) {
 				((ServerWorld) world).spawnParticle(ParticleTypes.HAPPY_VILLAGER, (x + 0.5), (y + 1.25), (z + 0.5), (int) 10, 0.25, 0.25, 0.25, 1);
-			}
-			if (!world.getWorld().isRemote) {
-				world.playSound(null, new BlockPos((int) x, (int) y, (int) z),
-						(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.turtle.lay_egg")),
-						SoundCategory.NEUTRAL, (float) 1, (float) 1);
-			} else {
-				world.getWorld().playSound(x, y, z,
-						(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.turtle.lay_egg")),
-						SoundCategory.NEUTRAL, (float) 1, (float) 1, false);
 			}
 			if (!world.getWorld().isRemote) {
 				world.playSound(null, new BlockPos((int) x, (int) y, (int) z),
@@ -125,10 +113,8 @@ public class MonarchCocoonItemSpawnProcedure extends NatureplusModElements.ModEl
 				}
 			}
 		} else if (((!(world.getBlockState(new BlockPos((int) x, (int) (y + 1), (int) z)).isSolid()))
-				&& ((((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemOffhand() : ItemStack.EMPTY)
-						.getItem() == new ItemStack(MonarchCocoonJarItem.block, (int) (1)).getItem())
-						|| (((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemOffhand() : ItemStack.EMPTY)
-								.getItem() == new ItemStack(MonarchCocoonItemItem.block, (int) (1)).getItem())))) {
+				&& (((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemOffhand() : ItemStack.EMPTY)
+						.getItem() == new ItemStack(MonarchCocoonItemItem.block, (int) (1)).getItem()))) {
 			if (world instanceof World && !world.getWorld().isRemote) {
 				Entity entityToSpawn = new MonarchCocoonEntity.CustomEntity(MonarchCocoonEntity.entity, world.getWorld());
 				entityToSpawn.setLocationAndAngles((x + 0.5), (y + 1), (z + 0.5), world.getRandom().nextFloat() * 360F, 0);
@@ -139,15 +125,6 @@ public class MonarchCocoonItemSpawnProcedure extends NatureplusModElements.ModEl
 			}
 			if (world instanceof ServerWorld) {
 				((ServerWorld) world).spawnParticle(ParticleTypes.HAPPY_VILLAGER, (x + 0.5), (y + 1), (z + 0.5), (int) 10, 0.25, 0.25, 0.25, 1);
-			}
-			if (!world.getWorld().isRemote) {
-				world.playSound(null, new BlockPos((int) x, (int) y, (int) z),
-						(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.turtle.lay_egg")),
-						SoundCategory.NEUTRAL, (float) 1, (float) 1);
-			} else {
-				world.getWorld().playSound(x, y, z,
-						(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.turtle.lay_egg")),
-						SoundCategory.NEUTRAL, (float) 1, (float) 1, false);
 			}
 			if (!world.getWorld().isRemote) {
 				world.playSound(null, new BlockPos((int) x, (int) y, (int) z),

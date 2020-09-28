@@ -96,7 +96,7 @@ public class EmptyJarBlock extends NatureplusModElements.ModElement {
 		@Override
 		public BlockState getStateForPlacement(BlockItemUseContext context) {
 			boolean flag = context.getWorld().getFluidState(context.getPos()).getFluid() == Fluids.WATER;
-			if (context.getPlayer().isSneaking()) {
+			if (!context.getPlayer().isSneaking()) {
 				return this.getDefaultState().with(WATERLOGGED, flag);
 			}
 			return null;

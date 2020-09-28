@@ -15,6 +15,9 @@
     "useDuration": 0,
     "toolType": 1.0,
     "damageCount": 0,
+    "recipeRemainder": {
+      "value": ""
+    },
     "destroyAnyBlock": false,
     "stayInGridWhenCrafting": false,
     "damageOnCrafting": false,
@@ -28,7 +31,7 @@
     "inventorySize": 9,
     "inventoryStackSize": 64,
     "onRightClickedOnBlock": {
-      "name": "MonarchEggItemSpawn"
+      "name": "MonarchEggJarSpawn"
     }
   }
 }

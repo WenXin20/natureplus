@@ -71,8 +71,10 @@ public class EmptyJarCaptureMonarchEggProcedure extends NatureplusModElements.Mo
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
 		IWorld world = (IWorld) dependencies.get("world");
-		if (((((sourceentity instanceof LivingEntity) ? ((LivingEntity) sourceentity).getHeldItemMainhand() : ItemStack.EMPTY)
-				.getItem() == new ItemStack(EmptyJarBlock.block, (int) (1)).getItem()) && (entity instanceof MonarchEggEntity.CustomEntity))) {
+		if (((sourceentity.isSneaking())
+				&& ((((sourceentity instanceof LivingEntity) ? ((LivingEntity) sourceentity).getHeldItemMainhand() : ItemStack.EMPTY)
+						.getItem() == new ItemStack(EmptyJarBlock.block, (int) (1)).getItem())
+						&& (entity instanceof MonarchEggEntity.CustomEntity)))) {
 			if (!world.getWorld().isRemote) {
 				world.playSound(null, new BlockPos((int) x, (int) y, (int) z),
 						(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("item.bottle.fill")),
@@ -100,11 +102,13 @@ public class EmptyJarCaptureMonarchEggProcedure extends NatureplusModElements.Mo
 									.getItem() == p.getItem(),
 							(int) 1);
 			}
-			if (entity instanceof LivingEntity) {
-				((LivingEntity) entity).swing(Hand.MAIN_HAND, true);
+			if (sourceentity instanceof LivingEntity) {
+				((LivingEntity) sourceentity).swing(Hand.MAIN_HAND, true);
 			}
-		} else if (((((sourceentity instanceof LivingEntity) ? ((LivingEntity) sourceentity).getHeldItemOffhand() : ItemStack.EMPTY)
-				.getItem() == new ItemStack(EmptyJarBlock.block, (int) (1)).getItem()) && (entity instanceof MonarchEggEntity.CustomEntity))) {
+		} else if (((sourceentity.isSneaking())
+				&& ((((sourceentity instanceof LivingEntity) ? ((LivingEntity) sourceentity).getHeldItemOffhand() : ItemStack.EMPTY)
+						.getItem() == new ItemStack(EmptyJarBlock.block, (int) (1)).getItem())
+						&& (entity instanceof MonarchEggEntity.CustomEntity)))) {
 			if (!world.getWorld().isRemote) {
 				world.playSound(null, new BlockPos((int) x, (int) y, (int) z),
 						(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("item.bottle.fill")),
@@ -132,8 +136,8 @@ public class EmptyJarCaptureMonarchEggProcedure extends NatureplusModElements.Mo
 									.getItem() == p.getItem(),
 							(int) 1);
 			}
-			if (entity instanceof LivingEntity) {
-				((LivingEntity) entity).swing(Hand.OFF_HAND, true);
+			if (sourceentity instanceof LivingEntity) {
+				((LivingEntity) sourceentity).swing(Hand.OFF_HAND, true);
 			}
 		}
 	}

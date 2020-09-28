@@ -1,7 +1,7 @@
 
 package net.wenxin.natureplus.item;
 
-import net.wenxin.natureplus.procedures.MonarchCocoonItemSpawnProcedure;
+import net.wenxin.natureplus.procedures.MonarchCocoonJarSpawnProcedure;
 import net.wenxin.natureplus.itemgroup.NaturePlusTabItemGroup;
 import net.wenxin.natureplus.NatureplusModElements;
 
@@ -82,7 +82,7 @@ public class MonarchCocoonJarItem extends NatureplusModElements.ModElement {
 				$_dependencies.put("y", y);
 				$_dependencies.put("z", z);
 				$_dependencies.put("world", world);
-				MonarchCocoonItemSpawnProcedure.executeProcedure($_dependencies);
+				MonarchCocoonJarSpawnProcedure.executeProcedure($_dependencies);
 			}
 			return retval;
 		}

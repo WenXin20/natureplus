@@ -1,10 +1,12 @@
 package net.wenxin.natureplus.procedures;
 
-import net.wenxin.natureplus.item.MonarchEggItemItem;
+import net.wenxin.natureplus.item.MonarchEggJarItem;
 import net.wenxin.natureplus.entity.MonarchEggEntity;
+import net.wenxin.natureplus.block.EmptyJarBlock;
 import net.wenxin.natureplus.NatureplusModElements;
 
 import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.items.ItemHandlerHelper;
 
 import net.minecraft.world.server.ServerWorld;
 import net.minecraft.world.World;
@@ -26,35 +28,35 @@ import net.minecraft.entity.Entity;
 import java.util.Map;
 
 @NatureplusModElements.ModElement.Tag
-public class MonarchEggItemSpawnProcedure extends NatureplusModElements.ModElement {
-	public MonarchEggItemSpawnProcedure(NatureplusModElements instance) {
-		super(instance, 576);
+public class MonarchEggJarSpawnProcedure extends NatureplusModElements.ModElement {
+	public MonarchEggJarSpawnProcedure(NatureplusModElements instance) {
+		super(instance, 915);
 	}
 
 	public static void executeProcedure(Map<String, Object> dependencies) {
 		if (dependencies.get("entity") == null) {
 			if (!dependencies.containsKey("entity"))
-				System.err.println("Failed to load dependency entity for procedure MonarchEggItemSpawn!");
+				System.err.println("Failed to load dependency entity for procedure MonarchEggJarSpawn!");
 			return;
 		}
 		if (dependencies.get("x") == null) {
 			if (!dependencies.containsKey("x"))
-				System.err.println("Failed to load dependency x for procedure MonarchEggItemSpawn!");
+				System.err.println("Failed to load dependency x for procedure MonarchEggJarSpawn!");
 			return;
 		}
 		if (dependencies.get("y") == null) {
 			if (!dependencies.containsKey("y"))
-				System.err.println("Failed to load dependency y for procedure MonarchEggItemSpawn!");
+				System.err.println("Failed to load dependency y for procedure MonarchEggJarSpawn!");
 			return;
 		}
 		if (dependencies.get("z") == null) {
 			if (!dependencies.containsKey("z"))
-				System.err.println("Failed to load dependency z for procedure MonarchEggItemSpawn!");
+				System.err.println("Failed to load dependency z for procedure MonarchEggJarSpawn!");
 			return;
 		}
 		if (dependencies.get("world") == null) {
 			if (!dependencies.containsKey("world"))
-				System.err.println("Failed to load dependency world for procedure MonarchEggItemSpawn!");
+				System.err.println("Failed to load dependency world for procedure MonarchEggJarSpawn!");
 			return;
 		}
 		Entity entity = (Entity) dependencies.get("entity");
@@ -64,7 +66,7 @@ public class MonarchEggItemSpawnProcedure extends NatureplusModElements.ModEleme
 		IWorld world = (IWorld) dependencies.get("world");
 		if (((!(world.getBlockState(new BlockPos((int) x, (int) (y + 1), (int) z)).isSolid()))
 				&& (((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY)
-						.getItem() == new ItemStack(MonarchEggItemItem.block, (int) (1)).getItem()))) {
+						.getItem() == new ItemStack(MonarchEggJarItem.block, (int) (1)).getItem()))) {
 			if (world instanceof World && !world.getWorld().isRemote) {
 				Entity entityToSpawn = new MonarchEggEntity.CustomEntity(MonarchEggEntity.entity, world.getWorld());
 				entityToSpawn.setLocationAndAngles((x + 0.5), (y + 1), (z + 0.5), world.getRandom().nextFloat() * 360F, 0);
@@ -94,10 +96,15 @@ public class MonarchEggItemSpawnProcedure extends NatureplusModElements.ModEleme
 							p -> ((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY).getItem() == p
 									.getItem(),
 							(int) 1);
+				if (entity instanceof PlayerEntity) {
+					ItemStack _setstack = new ItemStack(EmptyJarBlock.block, (int) (1));
+					_setstack.setCount((int) 1);
+					ItemHandlerHelper.giveItemToPlayer(((PlayerEntity) entity), _setstack);
+				}
 			}
 		} else if (((!(world.getBlockState(new BlockPos((int) x, (int) (y + 1), (int) z)).isSolid()))
 				&& (((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemOffhand() : ItemStack.EMPTY)
-						.getItem() == new ItemStack(MonarchEggItemItem.block, (int) (1)).getItem()))) {
+						.getItem() == new ItemStack(MonarchEggJarItem.block, (int) (1)).getItem()))) {
 			if (world instanceof World && !world.getWorld().isRemote) {
 				Entity entityToSpawn = new MonarchEggEntity.CustomEntity(MonarchEggEntity.entity, world.getWorld());
 				entityToSpawn.setLocationAndAngles((x + 0.5), (y + 1), (z + 0.5), world.getRandom().nextFloat() * 360F, 0);
@@ -127,6 +134,11 @@ public class MonarchEggItemSpawnProcedure extends NatureplusModElements.ModEleme
 							p -> ((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemOffhand() : ItemStack.EMPTY).getItem() == p
 									.getItem(),
 							(int) 1);
+				if (entity instanceof PlayerEntity) {
+					ItemStack _setstack = new ItemStack(EmptyJarBlock.block, (int) (1));
+					_setstack.setCount((int) 1);
+					ItemHandlerHelper.giveItemToPlayer(((PlayerEntity) entity), _setstack);
+				}
 			}
 		}
 	}
