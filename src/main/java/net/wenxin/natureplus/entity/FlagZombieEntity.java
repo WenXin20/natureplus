@@ -75,7 +75,7 @@ import com.google.common.collect.ImmutableMap;
 public class FlagZombieEntity extends NatureplusModElements.ModElement {
 	public static EntityType entity = null;
 	public FlagZombieEntity(NatureplusModElements instance) {
-		super(instance, 181);
+		super(instance, 182);
 		FMLJavaModLoadingContext.get().getModEventBus().register(this);
 	}
 

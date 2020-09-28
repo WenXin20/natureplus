@@ -87,7 +87,7 @@ public class SkullGraveBlock extends NatureplusModElements.ModElement implements
 	@ObjectHolder("natureplus:skull_grave")
 	public static final TileEntityType<CustomTileEntity> tileEntityType = null;
 	public SkullGraveBlock(NatureplusModElements instance) {
-		super(instance, 186);
+		super(instance, 187);
 		FMLJavaModLoadingContext.get().getModEventBus().register(this);
 	}
 

@@ -75,7 +75,7 @@ import com.google.common.collect.ImmutableList;
 public class CactusEntity extends NatureplusModElements.ModElement {
 	public static EntityType entity = null;
 	public CactusEntity(NatureplusModElements instance) {
-		super(instance, 177);
+		super(instance, 178);
 		FMLJavaModLoadingContext.get().getModEventBus().register(this);
 	}
 

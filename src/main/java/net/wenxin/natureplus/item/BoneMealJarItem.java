@@ -32,7 +32,7 @@ public class BoneMealJarItem extends NatureplusModElements.ModElement {
 	@ObjectHolder("natureplus:bone_meal_jar")
 	public static final Item block = null;
 	public BoneMealJarItem(NatureplusModElements instance) {
-		super(instance, 118);
+		super(instance, 119);
 	}
 
 	@Override

@@ -63,7 +63,7 @@ import com.google.common.collect.ImmutableMap;
 public class ConeheadZombieEntity extends NatureplusModElements.ModElement {
 	public static EntityType entity = null;
 	public ConeheadZombieEntity(NatureplusModElements instance) {
-		super(instance, 179);
+		super(instance, 180);
 		FMLJavaModLoadingContext.get().getModEventBus().register(this);
 	}
 

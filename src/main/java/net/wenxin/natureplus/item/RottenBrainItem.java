@@ -18,7 +18,7 @@ public class RottenBrainItem extends NatureplusModElements.ModElement {
 	@ObjectHolder("natureplus:rotten_brain")
 	public static final Item block = null;
 	public RottenBrainItem(NatureplusModElements instance) {
-		super(instance, 218);
+		super(instance, 219);
 	}
 
 	@Override
