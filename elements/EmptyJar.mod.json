@@ -12,7 +12,7 @@
     "customModelName": "empty_jar:default",
     "rotationMode": 0,
     "emissiveRendering": false,
-    "itemTexture": "empty_jar",
+    "itemTexture": "",
     "hasTransparency": true,
     "connectedSides": false,
     "transparencyType": "CUTOUT",

@@ -11,6 +11,7 @@ import net.minecraftforge.common.ToolType;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.api.distmarker.Dist;
 
+import net.minecraft.world.IWorld;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.util.text.ITextComponent;
@@ -18,6 +19,7 @@ import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.Direction;
 import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.state.StateContainer;
 import net.minecraft.state.BooleanProperty;
@@ -98,6 +100,15 @@ public class EmptyJarBlock extends NatureplusModElements.ModElement {
 				return this.getDefaultState().with(WATERLOGGED, flag);
 			}
 			return null;
+		}
+
+		@Override
+		public BlockState updatePostPlacement(BlockState stateIn, Direction facing, BlockState facingState, IWorld worldIn, BlockPos currentPos,
+				BlockPos facingPos) {
+			if (stateIn.get(WATERLOGGED)) {
+				worldIn.getPendingFluidTicks().scheduleTick(currentPos, Fluids.WATER, Fluids.WATER.getTickRate(worldIn));
+			}
+			return super.updatePostPlacement(stateIn, facing, facingState, worldIn, currentPos, facingPos);
 		}
 
 		@Override
