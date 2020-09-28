@@ -23,6 +23,14 @@
         "dirt": "dirt"
       },
       "name": "potted_thorns"
+    },
+    "potted_bluebonnet": {
+      "map": {
+        "flowerpot": "flower_pot",
+        "plant": "bluebonnet",
+        "dirt": "dirt"
+      },
+      "name": "potted_bluebonnet"
     }
   }
 }

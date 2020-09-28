@@ -30,7 +30,7 @@ public class MonarchCocoonItemItem extends NatureplusModElements.ModElement {
 	@ObjectHolder("natureplus:monarch_cocoon_item")
 	public static final Item block = null;
 	public MonarchCocoonItemItem(NatureplusModElements instance) {
-		super(instance, 123);
+		super(instance, 124);
 	}
 
 	@Override

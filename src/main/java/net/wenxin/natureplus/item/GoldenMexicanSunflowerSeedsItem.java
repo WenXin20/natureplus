@@ -23,7 +23,7 @@ public class GoldenMexicanSunflowerSeedsItem extends NatureplusModElements.ModEl
 	@ObjectHolder("natureplus:golden_mexican_sunflower_seeds")
 	public static final Item block = null;
 	public GoldenMexicanSunflowerSeedsItem(NatureplusModElements instance) {
-		super(instance, 107);
+		super(instance, 108);
 	}
 
 	@Override

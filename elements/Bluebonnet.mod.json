@@ -1,0 +1,52 @@
+{
+  "_fv": 12,
+  "_type": "plant",
+  "definition": {
+    "renderType": 12,
+    "texture": "bluebonnet",
+    "textureBottom": "",
+    "customModelName": "Cross model",
+    "plantType": "normal",
+    "staticPlantGenerationType": "Flower",
+    "growapableSpawnType": "Plains",
+    "growapableMaxHeight": 1,
+    "doublePlantGenerationType": "Flower",
+    "name": "Bluebonnet",
+    "specialInfo": [],
+    "creativeTab": {
+      "value": "CUSTOM:NaturePlusTab"
+    },
+    "hardness": 0.0,
+    "resistance": 1.0,
+    "luminance": 0.0,
+    "unbreakable": false,
+    "soundOnStep": {
+      "value": "PLANT"
+    },
+    "useLootTableForDrops": true,
+    "customDrop": {
+      "value": ""
+    },
+    "dropAmount": 1,
+    "forceTicking": false,
+    "emissiveRendering": false,
+    "hasTileEntity": false,
+    "isReplaceable": false,
+    "colorOnMap": "LIGHT_BLUE",
+    "creativePickItem": {
+      "value": ""
+    },
+    "offsetType": "XZ",
+    "aiPathNodeType": "DEFAULT",
+    "flammability": 30,
+    "fireSpreadSpeed": 0,
+    "frequencyOnChunks": 3,
+    "spawnWorldTypes": [
+      "Surface"
+    ],
+    "restrictionBiomes": [],
+    "generateCondition": {
+      "name": "BluebonnetNaturalSpawn"
+    }
+  }
+}

@@ -22,7 +22,7 @@ public class WitherBoneMealJarItem extends NatureplusModElements.ModElement {
 	@ObjectHolder("natureplus:wither_bone_meal_jar")
 	public static final Item block = null;
 	public WitherBoneMealJarItem(NatureplusModElements instance) {
-		super(instance, 119);
+		super(instance, 120);
 	}
 
 	@Override

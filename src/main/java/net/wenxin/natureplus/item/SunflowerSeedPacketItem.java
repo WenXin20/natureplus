@@ -26,7 +26,7 @@ public class SunflowerSeedPacketItem extends NatureplusModElements.ModElement {
 	@ObjectHolder("natureplus:sunflower_seed_packet")
 	public static final Item block = null;
 	public SunflowerSeedPacketItem(NatureplusModElements instance) {
-		super(instance, 201);
+		super(instance, 202);
 	}
 
 	@Override

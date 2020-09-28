@@ -33,7 +33,7 @@ import java.util.Map;
 @NatureplusModElements.ModElement.Tag
 public class BreakGraveSpawnZombiesProcedure extends NatureplusModElements.ModElement {
 	public BreakGraveSpawnZombiesProcedure(NatureplusModElements instance) {
-		super(instance, 875);
+		super(instance, 876);
 	}
 
 	public static void executeProcedure(Map<String, Object> dependencies) {

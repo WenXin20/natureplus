@@ -4,6 +4,7 @@
   "definition": {
     "renderType": 12,
     "texture": "mexican_sunflower7",
+    "textureBottom": "",
     "customModelName": "Cross model",
     "plantType": "normal",
     "staticPlantGenerationType": "Flower",
@@ -22,7 +23,7 @@
     "soundOnStep": {
       "value": "PLANT"
     },
-    "useLootTableForDrops": false,
+    "useLootTableForDrops": true,
     "customDrop": {
       "value": ""
     },

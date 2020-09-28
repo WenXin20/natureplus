@@ -16,7 +16,7 @@ public class DuckFeatherItem extends NatureplusModElements.ModElement {
 	@ObjectHolder("natureplus:duck_feather")
 	public static final Item block = null;
 	public DuckFeatherItem(NatureplusModElements instance) {
-		super(instance, 112);
+		super(instance, 113);
 	}
 
 	@Override

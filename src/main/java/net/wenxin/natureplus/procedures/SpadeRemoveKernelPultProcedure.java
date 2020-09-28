@@ -31,7 +31,7 @@ import java.util.HashMap;
 @NatureplusModElements.ModElement.Tag
 public class SpadeRemoveKernelPultProcedure extends NatureplusModElements.ModElement {
 	public SpadeRemoveKernelPultProcedure(NatureplusModElements instance) {
-		super(instance, 660);
+		super(instance, 661);
 		MinecraftForge.EVENT_BUS.register(this);
 	}
 

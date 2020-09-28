@@ -12,7 +12,7 @@ import java.util.Map;
 @NatureplusModElements.ModElement.Tag
 public class BlockTimerProcedure extends NatureplusModElements.ModElement {
 	public BlockTimerProcedure(NatureplusModElements instance) {
-		super(instance, 800);
+		super(instance, 801);
 	}
 
 	public static void executeProcedure(Map<String, Object> dependencies) {

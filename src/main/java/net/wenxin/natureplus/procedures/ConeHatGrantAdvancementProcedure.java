@@ -18,7 +18,7 @@ import java.util.Iterator;
 @NatureplusModElements.ModElement.Tag
 public class ConeHatGrantAdvancementProcedure extends NatureplusModElements.ModElement {
 	public ConeHatGrantAdvancementProcedure(NatureplusModElements instance) {
-		super(instance, 690);
+		super(instance, 691);
 	}
 
 	public static void executeProcedure(Map<String, Object> dependencies) {

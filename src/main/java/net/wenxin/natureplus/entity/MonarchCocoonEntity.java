@@ -47,7 +47,7 @@ import com.mojang.blaze3d.matrix.MatrixStack;
 public class MonarchCocoonEntity extends NatureplusModElements.ModElement {
 	public static EntityType entity = null;
 	public MonarchCocoonEntity(NatureplusModElements instance) {
-		super(instance, 132);
+		super(instance, 133);
 		FMLJavaModLoadingContext.get().getModEventBus().register(this);
 	}
 

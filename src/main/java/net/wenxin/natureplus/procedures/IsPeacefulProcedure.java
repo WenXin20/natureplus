@@ -12,7 +12,7 @@ import java.util.Map;
 @NatureplusModElements.ModElement.Tag
 public class IsPeacefulProcedure extends NatureplusModElements.ModElement {
 	public IsPeacefulProcedure(NatureplusModElements instance) {
-		super(instance, 838);
+		super(instance, 839);
 	}
 
 	public static boolean executeProcedure(Map<String, Object> dependencies) {

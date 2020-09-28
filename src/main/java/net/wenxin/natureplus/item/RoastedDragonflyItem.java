@@ -17,7 +17,7 @@ public class RoastedDragonflyItem extends NatureplusModElements.ModElement {
 	@ObjectHolder("natureplus:roasted_dragonfly")
 	public static final Item block = null;
 	public RoastedDragonflyItem(NatureplusModElements instance) {
-		super(instance, 116);
+		super(instance, 117);
 	}
 
 	@Override

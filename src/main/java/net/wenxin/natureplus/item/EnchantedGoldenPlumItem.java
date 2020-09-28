@@ -25,7 +25,7 @@ public class EnchantedGoldenPlumItem extends NatureplusModElements.ModElement {
 	@ObjectHolder("natureplus:enchanted_golden_plum")
 	public static final Item block = null;
 	public EnchantedGoldenPlumItem(NatureplusModElements instance) {
-		super(instance, 110);
+		super(instance, 111);
 	}
 
 	@Override

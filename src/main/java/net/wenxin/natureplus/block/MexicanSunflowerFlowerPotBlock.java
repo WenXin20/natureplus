@@ -58,7 +58,7 @@ public class MexicanSunflowerFlowerPotBlock extends NatureplusModElements.ModEle
 	}
 	public static class CustomBlock extends Block {
 		public CustomBlock() {
-			super(Block.Properties.create(Material.GLASS).sound(SoundType.STONE).hardnessAndResistance(0f, 0f).lightValue(0).harvestLevel(0)
+			super(Block.Properties.create(Material.MISCELLANEOUS).sound(SoundType.STONE).hardnessAndResistance(0f, 0f).lightValue(0).harvestLevel(0)
 					.harvestTool(ToolType.PICKAXE).notSolid());
 			setRegistryName("potted_mexican_sunflower");
 		}

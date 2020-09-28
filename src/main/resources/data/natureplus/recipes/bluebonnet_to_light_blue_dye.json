@@ -1,0 +1,13 @@
+{
+  "group": "natureplus",
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "natureplus:bluebonnet"
+    }
+  ],
+  "result": {
+    "item": "minecraft:light_blue_dye",
+    "count": 1
+  }
+}

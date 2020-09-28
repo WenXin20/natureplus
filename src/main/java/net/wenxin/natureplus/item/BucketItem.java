@@ -37,7 +37,7 @@ public class BucketItem extends NatureplusModElements.ModElement {
 	@ObjectHolder("natureplus:bucket_boots")
 	public static final Item boots = null;
 	public BucketItem(NatureplusModElements instance) {
-		super(instance, 191);
+		super(instance, 192);
 	}
 
 	@Override

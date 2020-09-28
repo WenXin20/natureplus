@@ -17,7 +17,7 @@ public class PlumItem extends NatureplusModElements.ModElement {
 	@ObjectHolder("natureplus:plum")
 	public static final Item block = null;
 	public PlumItem(NatureplusModElements instance) {
-		super(instance, 108);
+		super(instance, 109);
 	}
 
 	@Override

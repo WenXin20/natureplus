@@ -12,7 +12,7 @@ import java.util.Map;
 @NatureplusModElements.ModElement.Tag
 public class DungeonSpawnNormalProcedure extends NatureplusModElements.ModElement {
 	public DungeonSpawnNormalProcedure(NatureplusModElements instance) {
-		super(instance, 856);
+		super(instance, 857);
 	}
 
 	public static boolean executeProcedure(Map<String, Object> dependencies) {

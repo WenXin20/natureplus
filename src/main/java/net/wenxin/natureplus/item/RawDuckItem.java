@@ -17,7 +17,7 @@ public class RawDuckItem extends NatureplusModElements.ModElement {
 	@ObjectHolder("natureplus:raw_duck")
 	public static final Item block = null;
 	public RawDuckItem(NatureplusModElements instance) {
-		super(instance, 113);
+		super(instance, 114);
 	}
 
 	@Override

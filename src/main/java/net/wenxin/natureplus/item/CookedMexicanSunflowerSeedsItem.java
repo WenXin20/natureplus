@@ -17,7 +17,7 @@ public class CookedMexicanSunflowerSeedsItem extends NatureplusModElements.ModEl
 	@ObjectHolder("natureplus:cooked_mexican_sunflower_seeds")
 	public static final Item block = null;
 	public CookedMexicanSunflowerSeedsItem(NatureplusModElements instance) {
-		super(instance, 106);
+		super(instance, 107);
 	}
 
 	@Override

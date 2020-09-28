@@ -26,7 +26,7 @@ public class LightBlueBalloonItemItem extends NatureplusModElements.ModElement {
 	@ObjectHolder("natureplus:light_blue_balloon_item")
 	public static final Item block = null;
 	public LightBlueBalloonItemItem(NatureplusModElements instance) {
-		super(instance, 143);
+		super(instance, 144);
 	}
 
 	@Override

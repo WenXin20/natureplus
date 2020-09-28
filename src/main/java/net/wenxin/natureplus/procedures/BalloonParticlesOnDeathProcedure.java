@@ -12,7 +12,7 @@ import java.util.Map;
 @NatureplusModElements.ModElement.Tag
 public class BalloonParticlesOnDeathProcedure extends NatureplusModElements.ModElement {
 	public BalloonParticlesOnDeathProcedure(NatureplusModElements instance) {
-		super(instance, 722);
+		super(instance, 723);
 	}
 
 	public static void executeProcedure(Map<String, Object> dependencies) {

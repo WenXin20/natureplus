@@ -24,7 +24,7 @@ import java.util.HashMap;
 @NatureplusModElements.ModElement.Tag
 public class MexicanSunflowerPotRecipeProcedure extends NatureplusModElements.ModElement {
 	public MexicanSunflowerPotRecipeProcedure(NatureplusModElements instance) {
-		super(instance, 255);
+		super(instance, 256);
 		MinecraftForge.EVENT_BUS.register(this);
 	}
 

@@ -32,7 +32,7 @@ import java.util.HashMap;
 @NatureplusModElements.ModElement.Tag
 public class StripAzureLogProcedure extends NatureplusModElements.ModElement {
 	public StripAzureLogProcedure(NatureplusModElements instance) {
-		super(instance, 899);
+		super(instance, 900);
 		MinecraftForge.EVENT_BUS.register(this);
 	}
 

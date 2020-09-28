@@ -28,7 +28,7 @@ public class WoodenSpadeItem extends NatureplusModElements.ModElement {
 	@ObjectHolder("natureplus:wooden_spade")
 	public static final Item block = null;
 	public WoodenSpadeItem(NatureplusModElements instance) {
-		super(instance, 206);
+		super(instance, 207);
 	}
 
 	@Override

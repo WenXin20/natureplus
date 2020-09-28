@@ -14,7 +14,7 @@ import java.util.Map;
 @NatureplusModElements.ModElement.Tag
 public class MexicanSunflowerNaturalSpawnProcedure extends NatureplusModElements.ModElement {
 	public MexicanSunflowerNaturalSpawnProcedure(NatureplusModElements instance) {
-		super(instance, 778);
+		super(instance, 779);
 	}
 
 	public static boolean executeProcedure(Map<String, Object> dependencies) {
@@ -46,7 +46,9 @@ public class MexicanSunflowerNaturalSpawnProcedure extends NatureplusModElements
 				.equals(new ResourceLocation("flower_forest")))
 				|| ((BiomeDictionary.hasType(world.getBiome(new BlockPos((int) x, (int) y, (int) z)), BiomeDictionary.Type.SAVANNA))
 						|| ((BiomeDictionary.hasType(world.getBiome(new BlockPos((int) x, (int) y, (int) z)), BiomeDictionary.Type.MESA))
-								|| (BiomeDictionary.hasType(world.getBiome(new BlockPos((int) x, (int) y, (int) z)), BiomeDictionary.Type.PLAINS)))))
+								|| ((BiomeDictionary.hasType(world.getBiome(new BlockPos((int) x, (int) y, (int) z)), BiomeDictionary.Type.PLAINS))
+										|| (ForgeRegistries.BIOMES.getKey(world.getBiome(new BlockPos((int) x, (int) y, (int) z)))
+												.equals(new ResourceLocation("natureplus:giant_flora")))))))
 				&& ((!(BiomeDictionary.hasType(world.getBiome(new BlockPos((int) x, (int) y, (int) z)), BiomeDictionary.Type.COLD)))
 						&& ((!(BiomeDictionary.hasType(world.getBiome(new BlockPos((int) x, (int) y, (int) z)), BiomeDictionary.Type.WASTELAND)))
 								&& ((!(BiomeDictionary.hasType(world.getBiome(new BlockPos((int) x, (int) y, (int) z)), BiomeDictionary.Type.SNOWY)))

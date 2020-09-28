@@ -57,7 +57,7 @@ import com.google.common.collect.ImmutableMap;
 public class MonarchEggEntity extends NatureplusModElements.ModElement {
 	public static EntityType entity = null;
 	public MonarchEggEntity(NatureplusModElements instance) {
-		super(instance, 134);
+		super(instance, 135);
 		FMLJavaModLoadingContext.get().getModEventBus().register(this);
 	}
 

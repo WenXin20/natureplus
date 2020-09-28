@@ -26,7 +26,7 @@ public class SnowPeaSeedPacketItem extends NatureplusModElements.ModElement {
 	@ObjectHolder("natureplus:snow_pea_seed_packet")
 	public static final Item block = null;
 	public SnowPeaSeedPacketItem(NatureplusModElements instance) {
-		super(instance, 203);
+		super(instance, 204);
 	}
 
 	@Override
