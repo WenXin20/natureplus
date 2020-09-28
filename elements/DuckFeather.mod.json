@@ -1,11 +1,12 @@
 {
-  "_fv": 11,
+  "_fv": 12,
   "_type": "item",
   "definition": {
     "renderType": 0,
     "texture": "duck_feather",
     "customModelName": "Normal",
     "name": "Duck Feather",
+    "rarity": "COMMON",
     "creativeTab": {
       "value": "CUSTOM:NaturePlusTab"
     },

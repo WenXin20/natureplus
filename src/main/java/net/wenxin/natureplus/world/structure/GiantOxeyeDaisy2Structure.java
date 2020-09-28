@@ -33,7 +33,7 @@ import java.util.Random;
 @NatureplusModElements.ModElement.Tag
 public class GiantOxeyeDaisy2Structure extends NatureplusModElements.ModElement {
 	public GiantOxeyeDaisy2Structure(NatureplusModElements instance) {
-		super(instance, 603);
+		super(instance, 602);
 	}
 
 	@Override

@@ -1,6 +1,5 @@
 package net.wenxin.natureplus.procedures;
 
-import net.wenxin.natureplus.entity.MonarchEggEntity;
 import net.wenxin.natureplus.NatureplusModElements;
 
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -16,20 +15,11 @@ import java.util.HashMap;
 @NatureplusModElements.ModElement.Tag
 public class EntityTimerButterflyEggProcedure extends NatureplusModElements.ModElement {
 	public EntityTimerButterflyEggProcedure(NatureplusModElements instance) {
-		super(instance, 872);
+		super(instance, 870);
 		MinecraftForge.EVENT_BUS.register(this);
 	}
 
 	public static void executeProcedure(Map<String, Object> dependencies) {
-		if (dependencies.get("entity") == null) {
-			if (!dependencies.containsKey("entity"))
-				System.err.println("Failed to load dependency entity for procedure EntityTimerButterflyEgg!");
-			return;
-		}
-		Entity entity = (Entity) dependencies.get("entity");
-		if ((entity instanceof MonarchEggEntity.CustomEntity)) {
-			entity.getPersistentData().putDouble("timer_insect", 8000);
-		}
 	}
 
 	@SubscribeEvent

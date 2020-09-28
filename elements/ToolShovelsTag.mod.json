@@ -1,0 +1,43 @@
+{
+  "_fv": 12,
+  "_type": "tag",
+  "definition": {
+    "type": "Items",
+    "items": [
+      {
+        "value": "CUSTOM:Spade"
+      },
+      {
+        "value": "CUSTOM:WoodenSpade"
+      },
+      {
+        "value": "CUSTOM:IronSpade"
+      },
+      {
+        "value": "CUSTOM:GoldenSpade"
+      },
+      {
+        "value": "CUSTOM:DiamondSpade"
+      },
+      {
+        "value": "Items.WOODEN_SHOVEL"
+      },
+      {
+        "value": "Items.STONE_SHOVEL"
+      },
+      {
+        "value": "Items.IRON_SHOVEL"
+      },
+      {
+        "value": "Items.GOLDEN_SHOVEL"
+      },
+      {
+        "value": "Items.DIAMOND_SHOVEL"
+      }
+    ],
+    "blocks": [],
+    "functions": [],
+    "name": "tools/shovels",
+    "namespace": "forge"
+  }
+}

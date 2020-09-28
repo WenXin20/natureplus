@@ -107,7 +107,7 @@ public class BoneMealJarItem extends NatureplusModElements.ModElement {
 	      BlockState blockstate = worldIn.getBlockState(pos);
 	      int hook = net.minecraftforge.event.ForgeEventFactory.onApplyBonemeal(player, worldIn, pos, blockstate, stack);
 	      if (hook != 0) return hook > 0;
-	      if (blockstate.getBlock() instanceof IGrowable) {
+	      if (blockstate.getBlock() instanceof IGrowable && !(player.isSneaking())) {
 	         IGrowable igrowable = (IGrowable)blockstate.getBlock();
 	         if (igrowable.canGrow(worldIn, pos, blockstate, worldIn.isRemote)) {
 	            if (worldIn instanceof ServerWorld) {

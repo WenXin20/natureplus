@@ -1,7 +1,7 @@
 {
-  "_fv": 11,
+  "_fv": 12,
   "_type": "procedure",
   "definition": {
-    "procedurexml": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><block type=\"event_trigger\" deletable=\"false\" x=\"257\" y=\"72\"><field name=\"trigger\">entity_spawns</field><next><block type=\"controls_if\"><value name=\"IF0\"><block type=\"logic_entity_compare\"><field name=\"entity\">CUSTOM:MonarchEgg</field><value name=\"compareTo\"><block type=\"entity_from_deps\"/></value></block></value><statement name=\"DO0\"><block type=\"entity_nbt_num_set\"><value name=\"entity\"><block type=\"entity_from_deps\"/></value><value name=\"tagName\"><block type=\"text\"><field name=\"TEXT\">timer_insect</field></block></value><value name=\"tagValue\"><block type=\"math_number\"><field name=\"NUM\">8000</field></block></value></block></statement></block></next></block></xml>"
+    "procedurexml": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><block type=\"event_trigger\" deletable=\"false\" x=\"257\" y=\"72\"><field name=\"trigger\">entity_spawns</field></block><block type=\"controls_if\" x=\"251\" y=\"179\"><value name=\"IF0\"><block type=\"logic_entity_compare\"><field name=\"entity\">CUSTOM:MonarchEgg</field><value name=\"compareTo\"><block type=\"entity_from_deps\"></block></value></block></value><statement name=\"DO0\"><block type=\"entity_nbt_num_set\"><value name=\"entity\"><block type=\"entity_from_deps\"></block></value><value name=\"tagName\"><block type=\"text\"><field name=\"TEXT\">timer_insect</field></block></value><value name=\"tagValue\"><block type=\"math_number\"><field name=\"NUM\">8000</field></block></value></block></statement></block></xml>"
   }
 }

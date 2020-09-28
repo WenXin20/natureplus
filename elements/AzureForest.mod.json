@@ -1,14 +1,14 @@
 {
-  "_fv": 11,
+  "_fv": 12,
   "_type": "biome",
   "definition": {
+    "name": "Azure Forest",
     "groundBlock": {
       "value": "Blocks.GRASS"
     },
     "undergroundBlock": {
       "value": "Blocks.DIRT#0"
     },
-    "generateLakes": true,
     "treeType": 0,
     "vanillaTreeType": "Default",
     "minHeight": 6,
@@ -33,13 +33,22 @@
       "value": -16767181,
       "falpha": 0.0
     },
+    "foliageColor": {
+      "value": -15724465,
+      "falpha": 0.0
+    },
     "waterColor": {
       "value": -16777114,
       "falpha": 0.0
     },
-    "treesPerChunk": 2,
+    "waterFogColor": {
+      "value": -16777114,
+      "falpha": 0.0
+    },
+    "treesPerChunk": 0,
     "grassPerChunk": 4,
-    "flowersPerChunk": 4,
+    "seagrassPerChunk": 0,
+    "flowersPerChunk": 0,
     "mushroomsPerChunk": 0,
     "bigMushroomsChunk": 0,
     "sandPathcesPerChunk": 3,
@@ -52,14 +61,36 @@
     "heightVariation": 0.2,
     "spawnBiome": true,
     "biomeWeight": 10,
-    "biomeType": "WARM",
+    "biomeType": "COOL",
     "biomeCategory": "FOREST",
     "parent": {
       "value": "No parent"
     },
+    "spawnStronghold": true,
+    "spawnMineshaft": true,
+    "spawnPillagerOutpost": true,
+    "villageType": "taiga",
+    "spawnWoodlandMansion": false,
+    "spawnJungleTemple": false,
+    "spawnDesertPyramid": false,
+    "spawnIgloo": false,
+    "spawnOceanMonument": false,
+    "spawnShipwreck": false,
+    "oceanRuinType": "NONE",
     "biomeDictionaryTypes": [
       "FOREST",
       "MAGICAL"
+    ],
+    "defaultFeatures": [
+      "Caves",
+      "MonsterRooms",
+      "Structures",
+      "Ores",
+      "Lakes",
+      "Fossils",
+      "PlainsTallGrass",
+      "TaigaLargeFerns",
+      "ScatteredOakTrees"
     ],
     "spawnEntries": [
       {
@@ -109,66 +140,12 @@
       },
       {
         "entity": {
-          "value": "CUSTOM:MonarchCaterpillar"
-        },
-        "minGroup": 1,
-        "maxGroup": 4,
-        "weight": 8,
-        "spawnType": "creature"
-      },
-      {
-        "entity": {
-          "value": "CUSTOM:MonarchButterfly"
-        },
-        "minGroup": 1,
-        "maxGroup": 3,
-        "weight": 8,
-        "spawnType": "creature"
-      },
-      {
-        "entity": {
-          "value": "CUSTOM:MonarchEgg"
-        },
-        "minGroup": 1,
-        "maxGroup": 3,
-        "weight": 8,
-        "spawnType": "creature"
-      },
-      {
-        "entity": {
-          "value": "EntityBee"
-        },
-        "minGroup": 1,
-        "maxGroup": 4,
-        "weight": 5,
-        "spawnType": "creature"
-      },
-      {
-        "entity": {
-          "value": "EntityChicken"
-        },
-        "minGroup": 1,
-        "maxGroup": 4,
-        "weight": 8,
-        "spawnType": "creature"
-      },
-      {
-        "entity": {
           "value": "EntityCod"
         },
         "minGroup": 1,
         "maxGroup": 4,
         "weight": 5,
         "spawnType": "waterCreature"
-      },
-      {
-        "entity": {
-          "value": "EntityCow"
-        },
-        "minGroup": 1,
-        "maxGroup": 4,
-        "weight": 8,
-        "spawnType": "creature"
       },
       {
         "entity": {
@@ -208,15 +185,6 @@
       },
       {
         "entity": {
-          "value": "EntityPig"
-        },
-        "minGroup": 1,
-        "maxGroup": 4,
-        "weight": 8,
-        "spawnType": "creature"
-      },
-      {
-        "entity": {
           "value": "EntityPufferfish"
         },
         "minGroup": 1,
@@ -232,15 +200,6 @@
         "maxGroup": 4,
         "weight": 5,
         "spawnType": "waterCreature"
-      },
-      {
-        "entity": {
-          "value": "EntitySheep"
-        },
-        "minGroup": 1,
-        "maxGroup": 4,
-        "weight": 8,
-        "spawnType": "creature"
       },
       {
         "entity": {

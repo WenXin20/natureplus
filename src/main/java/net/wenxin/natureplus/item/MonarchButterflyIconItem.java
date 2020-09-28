@@ -5,6 +5,7 @@ import net.wenxin.natureplus.NatureplusModElements;
 
 import net.minecraftforge.registries.ObjectHolder;
 
+import net.minecraft.item.Rarity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Item;
 import net.minecraft.block.BlockState;
@@ -14,7 +15,7 @@ public class MonarchButterflyIconItem extends NatureplusModElements.ModElement {
 	@ObjectHolder("natureplus:monarch_butterfly_icon")
 	public static final Item block = null;
 	public MonarchButterflyIconItem(NatureplusModElements instance) {
-		super(instance, 703);
+		super(instance, 702);
 	}
 
 	@Override
@@ -23,7 +24,7 @@ public class MonarchButterflyIconItem extends NatureplusModElements.ModElement {
 	}
 	public static class ItemCustom extends Item {
 		public ItemCustom() {
-			super(new Item.Properties().group(null).maxStackSize(64));
+			super(new Item.Properties().group(null).maxStackSize(64).rarity(Rarity.COMMON));
 			setRegistryName("monarch_butterfly_icon");
 		}
 

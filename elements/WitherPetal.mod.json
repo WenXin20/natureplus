@@ -1,11 +1,12 @@
 {
-  "_fv": 11,
+  "_fv": 12,
   "_type": "item",
   "definition": {
     "renderType": 0,
     "texture": "wither_petal",
     "customModelName": "Normal",
     "name": "Wither Petal",
+    "rarity": "COMMON",
     "creativeTab": {
       "value": "CUSTOM:NaturePlusTab"
     },

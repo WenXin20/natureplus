@@ -34,7 +34,7 @@ import java.util.Comparator;
 @NatureplusModElements.ModElement.Tag
 public class GraveSpawnZombiesProcedure extends NatureplusModElements.ModElement {
 	public GraveSpawnZombiesProcedure(NatureplusModElements instance) {
-		super(instance, 875);
+		super(instance, 873);
 	}
 
 	public static void executeProcedure(Map<String, Object> dependencies) {
@@ -74,11 +74,11 @@ public class GraveSpawnZombiesProcedure extends NatureplusModElements.ModElement
 						&& ((!(world.getWorld().isDaytime())) || ((world.getLight(new BlockPos((int) x, (int) y, (int) z))) <= 7))))) {
 			if ((((world
 					.getEntitiesWithinAABB(PlayerEntity.class,
-							new AxisAlignedBB(x - 32 / 2, y - 32 / 2, z - 32 / 2, x + 32 / 2, y + 32 / 2, z + 32 / 2), null)
+							new AxisAlignedBB(x - (32 / 2d), y - (32 / 2d), z - (32 / 2d), x + (32 / 2d), y + (32 / 2d), z + (32 / 2d)), null)
 					.stream().sorted(Comparator.comparing(_entcnd -> _entcnd.getDistanceSq(x, y, z))).findFirst().orElse(null)) != null)
 					|| ((world
 							.getEntitiesWithinAABB(ServerPlayerEntity.class,
-									new AxisAlignedBB(x - 32 / 2, y - 32 / 2, z - 32 / 2, x + 32 / 2, y + 32 / 2, z + 32 / 2), null)
+									new AxisAlignedBB(x - (32 / 2d), y - (32 / 2d), z - (32 / 2d), x + (32 / 2d), y + (32 / 2d), z + (32 / 2d)), null)
 							.stream().sorted(Comparator.comparing(_entcnd -> _entcnd.getDistanceSq(x, y, z))).findFirst().orElse(null)) != null))) {
 				if (!world.getWorld().isRemote) {
 					BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);

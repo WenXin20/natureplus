@@ -1,0 +1,12 @@
+{
+  "group": "natureplus",
+  "type": "minecraft:smoking",
+  "experience": 1,
+  "cookingtime": 100,
+  "ingredient": {
+    "item": "natureplus:rotten_brain"
+  },
+  "result": {
+    "item": "minecraft:leather"
+  }
+}

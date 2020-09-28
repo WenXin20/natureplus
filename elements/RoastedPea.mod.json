@@ -1,11 +1,12 @@
 {
-  "_fv": 11,
+  "_fv": 12,
   "_type": "food",
   "definition": {
     "renderType": 0,
     "texture": "roasted_pea",
     "customModelName": "Normal",
     "name": "Roasted Pea",
+    "rarity": "COMMON",
     "specialInfo": [],
     "creativeTab": {
       "value": "CUSTOM:PlantsVsZombiesTab"

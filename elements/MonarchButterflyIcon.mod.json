@@ -1,11 +1,12 @@
 {
-  "_fv": 11,
+  "_fv": 12,
   "_type": "item",
   "definition": {
     "renderType": 0,
     "texture": "monarch_butterfly",
     "customModelName": "Normal",
     "name": "Monarch Butterfly Icon",
+    "rarity": "COMMON",
     "creativeTab": {
       "value": "No creative tab entry"
     },

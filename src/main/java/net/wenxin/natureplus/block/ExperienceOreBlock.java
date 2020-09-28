@@ -59,12 +59,6 @@ public class ExperienceOreBlock extends NatureplusModElements.ModElement {
 			setRegistryName("experience_ore");
 		}
 
-		@OnlyIn(Dist.CLIENT)
-		@Override
-		public boolean isEmissiveRendering(BlockState blockState) {
-			return true;
-		}
-
 		@Override
 		public MaterialColor getMaterialColor(BlockState state, IBlockReader blockAccess, BlockPos pos) {
 			return MaterialColor.STONE;
@@ -79,7 +73,7 @@ public class ExperienceOreBlock extends NatureplusModElements.ModElement {
 		}
 
 		protected int getExperience(Random rand) {
-			return this == ExperienceOreBlock.block ? MathHelper.nextInt(rand, 1, 8) : 0;
+			return this == ExperienceOreBlock.block ? MathHelper.nextInt(rand, 2, 8) : 0;
 		}
 
 		@Override

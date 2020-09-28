@@ -25,7 +25,7 @@ import java.util.Comparator;
 @NatureplusModElements.ModElement.Tag
 public class SunflowerSpawnSunProcedure extends NatureplusModElements.ModElement {
 	public SunflowerSpawnSunProcedure(NatureplusModElements instance) {
-		super(instance, 639);
+		super(instance, 638);
 	}
 
 	public static void executeProcedure(Map<String, Object> dependencies) {
@@ -63,11 +63,11 @@ public class SunflowerSpawnSunProcedure extends NatureplusModElements.ModElement
 				&& ((entity instanceof SunflowerEntity.CustomEntity) && (world.getWorld().isDaytime())))) {
 			if ((((world
 					.getEntitiesWithinAABB(PlayerEntity.class,
-							new AxisAlignedBB(x - 32 / 2, y - 32 / 2, z - 32 / 2, x + 32 / 2, y + 32 / 2, z + 32 / 2), null)
+							new AxisAlignedBB(x - (32 / 2d), y - (32 / 2d), z - (32 / 2d), x + (32 / 2d), y + (32 / 2d), z + (32 / 2d)), null)
 					.stream().sorted(Comparator.comparing(_entcnd -> _entcnd.getDistanceSq(x, y, z))).findFirst().orElse(null)) != null)
 					|| ((world
 							.getEntitiesWithinAABB(ServerPlayerEntity.class,
-									new AxisAlignedBB(x - 32 / 2, y - 32 / 2, z - 32 / 2, x + 32 / 2, y + 32 / 2, z + 32 / 2), null)
+									new AxisAlignedBB(x - (32 / 2d), y - (32 / 2d), z - (32 / 2d), x + (32 / 2d), y + (32 / 2d), z + (32 / 2d)), null)
 							.stream().sorted(Comparator.comparing(_entcnd -> _entcnd.getDistanceSq(x, y, z))).findFirst().orElse(null)) != null))) {
 				if (!world.getWorld().isRemote) {
 					ItemEntity entityToSpawn = new ItemEntity(world.getWorld(), (entity.getPosX()), ((entity.getPosY()) + 1.2), (entity.getPosZ()),

@@ -2,6 +2,7 @@
 package net.wenxin.natureplus.entity;
 
 import net.wenxin.natureplus.procedures.MonarchCaterpillarSpawnProcedure;
+import net.wenxin.natureplus.procedures.EntityTimerProcedure;
 import net.wenxin.natureplus.procedures.ButterflyEggNaturalSpawnProcedure;
 import net.wenxin.natureplus.itemgroup.NaturePlusTabItemGroup;
 import net.wenxin.natureplus.NatureplusModElements;
@@ -20,14 +21,20 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraft.world.gen.Heightmap;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.World;
+import net.minecraft.world.IWorld;
+import net.minecraft.world.DifficultyInstance;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.DamageSource;
 import net.minecraft.network.IPacket;
+import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.item.SpawnEggItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Item;
 import net.minecraft.entity.passive.AnimalEntity;
+import net.minecraft.entity.SpawnReason;
 import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.ILivingEntityData;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EntitySpawnPlacementRegistry;
 import net.minecraft.entity.EntityClassification;
@@ -144,6 +151,22 @@ public class MonarchEggEntity extends NatureplusModElements.ModElement {
 		}
 
 		@Override
+		public ILivingEntityData onInitialSpawn(IWorld world, DifficultyInstance difficulty, SpawnReason reason, ILivingEntityData livingdata,
+				CompoundNBT tag) {
+			ILivingEntityData retval = super.onInitialSpawn(world, difficulty, reason, livingdata, tag);
+			double x = this.getPosX();
+			double y = this.getPosY();
+			double z = this.getPosZ();
+			Entity entity = this;
+			{
+				Map<String, Object> $_dependencies = new HashMap<>();
+				$_dependencies.put("entity", entity);
+				EntityTimerProcedure.executeProcedure($_dependencies);
+			}
+			return retval;
+		}
+
+		@Override
 		public void baseTick() {
 			super.baseTick();
 			double x = this.getPosX();
@@ -177,7 +200,10 @@ public class MonarchEggEntity extends NatureplusModElements.ModElement {
 
 		@Override
 		public AgeableEntity createChild(AgeableEntity ageable) {
-			return (CustomEntity) entity.create(this.world);
+			CustomEntity retval = (CustomEntity) entity.create(this.world);
+			retval.onInitialSpawn(this.world, this.world.getDifficultyForLocation(new BlockPos(retval)), SpawnReason.BREEDING,
+					(ILivingEntityData) null, (CompoundNBT) null);
+			return retval;
 		}
 
 		@Override

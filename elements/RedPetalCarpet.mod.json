@@ -1,5 +1,5 @@
 {
-  "_fv": 11,
+  "_fv": 12,
   "_type": "block",
   "definition": {
     "texture": "red_petal_block",
@@ -27,6 +27,7 @@
     "hardness": 0.2,
     "resistance": 1.0,
     "hasGravity": true,
+    "isWaterloggable": false,
     "creativeTab": {
       "value": "CUSTOM:NaturePlusTab"
     },

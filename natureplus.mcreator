@@ -495,7 +495,7 @@
       "type": "biome",
       "sortid": 263,
       "compiles": true,
-      "locked_code": true,
+      "locked_code": false,
       "ids": {},
       "registry_name": "azure_forest"
     },
@@ -1620,42 +1620,9 @@
       "registry_name": "wooden_trapdoors_item_tag"
     },
     {
-      "name": "StrippedAzureCrateRecipe3",
-      "type": "procedure",
-      "sortid": 344,
-      "compiles": true,
-      "locked_code": true,
-      "ids": {},
-      "registry_name": "stripped_azure_crate_recipe_3",
-      "metadata": {
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          },
-          {
-            "name": "x",
-            "type": "int"
-          },
-          {
-            "name": "y",
-            "type": "int"
-          },
-          {
-            "name": "z",
-            "type": "int"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
-      }
-    },
-    {
       "name": "AzureCrateLoot",
       "type": "loottable",
-      "sortid": 345,
+      "sortid": 344,
       "compiles": true,
       "locked_code": true,
       "ids": {},
@@ -1673,7 +1640,7 @@
     {
       "name": "AzureGlassTrapdoorFuel",
       "type": "fuel",
-      "sortid": 346,
+      "sortid": 345,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -1682,7 +1649,7 @@
     {
       "name": "AzureGlassTrapdoorRecipe",
       "type": "recipe",
-      "sortid": 347,
+      "sortid": 346,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -1691,7 +1658,7 @@
     {
       "name": "LootHandler",
       "type": "code",
-      "sortid": 348,
+      "sortid": 347,
       "compiles": true,
       "locked_code": true,
       "ids": {},
@@ -1709,7 +1676,7 @@
     {
       "name": "ThornsDamage",
       "type": "procedure",
-      "sortid": 349,
+      "sortid": 348,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -1735,7 +1702,7 @@
     {
       "name": "PlantStemFuel",
       "type": "fuel",
-      "sortid": 350,
+      "sortid": 349,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -1753,7 +1720,7 @@
     {
       "name": "AzureLogsBlockTag",
       "type": "tag",
-      "sortid": 351,
+      "sortid": 350,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -1762,7 +1729,7 @@
     {
       "name": "AzureLogsItemTag",
       "type": "tag",
-      "sortid": 352,
+      "sortid": 351,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -1771,7 +1738,7 @@
     {
       "name": "PlantStemWoodFuel",
       "type": "fuel",
-      "sortid": 353,
+      "sortid": 352,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -1780,7 +1747,7 @@
     {
       "name": "PlantStemWoodRecipe",
       "type": "recipe",
-      "sortid": 354,
+      "sortid": 353,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -1789,7 +1756,7 @@
     {
       "name": "AzurePlanksItemTag",
       "type": "tag",
-      "sortid": 355,
+      "sortid": 354,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -1798,7 +1765,7 @@
     {
       "name": "ThornsDrops",
       "type": "loottable",
-      "sortid": 356,
+      "sortid": 355,
       "compiles": true,
       "locked_code": true,
       "ids": {},
@@ -1825,7 +1792,7 @@
     {
       "name": "StrippedPlantStemFuel",
       "type": "fuel",
-      "sortid": 357,
+      "sortid": 356,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -1834,7 +1801,7 @@
     {
       "name": "StrippedPlantStemWoodFuel",
       "type": "fuel",
-      "sortid": 358,
+      "sortid": 357,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -1843,7 +1810,7 @@
     {
       "name": "StrippedPlantStemWoodRecipe2",
       "type": "recipe",
-      "sortid": 359,
+      "sortid": 358,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -1852,7 +1819,7 @@
     {
       "name": "PlantStemItemTag",
       "type": "tag",
-      "sortid": 360,
+      "sortid": 359,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -1861,7 +1828,7 @@
     {
       "name": "PlantStemBlockTag",
       "type": "tag",
-      "sortid": 361,
+      "sortid": 360,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -1879,7 +1846,7 @@
     {
       "name": "StrippedPlantStemRecipe",
       "type": "procedure",
-      "sortid": 362,
+      "sortid": 361,
       "compiles": true,
       "locked_code": true,
       "ids": {},
@@ -1912,7 +1879,7 @@
     {
       "name": "StrippedPlantStemWoodRecipe",
       "type": "procedure",
-      "sortid": 363,
+      "sortid": 362,
       "compiles": true,
       "locked_code": true,
       "ids": {},
@@ -1954,7 +1921,7 @@
     {
       "name": "PlantStemWallFuel",
       "type": "fuel",
-      "sortid": 364,
+      "sortid": 363,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -1963,7 +1930,7 @@
     {
       "name": "PlantStemWallRecipe",
       "type": "recipe",
-      "sortid": 365,
+      "sortid": 364,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -1972,7 +1939,7 @@
     {
       "name": "PlantStemWallRecipe2",
       "type": "recipe",
-      "sortid": 366,
+      "sortid": 365,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -1981,7 +1948,7 @@
     {
       "name": "StrippedPlantStemWallFuel",
       "type": "fuel",
-      "sortid": 367,
+      "sortid": 366,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -1990,7 +1957,7 @@
     {
       "name": "StrippedPlantStemWallRecipe",
       "type": "recipe",
-      "sortid": 368,
+      "sortid": 367,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -1999,7 +1966,7 @@
     {
       "name": "StrippedPlantStemWallRecipe2",
       "type": "recipe",
-      "sortid": 369,
+      "sortid": 368,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -2008,7 +1975,7 @@
     {
       "name": "StrippedPlantStemWallRecipe3",
       "type": "procedure",
-      "sortid": 370,
+      "sortid": 369,
       "compiles": true,
       "locked_code": true,
       "ids": {},
@@ -2050,7 +2017,7 @@
     {
       "name": "PlantStemPlanksFuel",
       "type": "fuel",
-      "sortid": 371,
+      "sortid": 370,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -2068,7 +2035,7 @@
     {
       "name": "VerticalPlantStemPlanksFuel",
       "type": "fuel",
-      "sortid": 372,
+      "sortid": 371,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -2077,7 +2044,7 @@
     {
       "name": "PlantStemPlanksItemTag",
       "type": "tag",
-      "sortid": 373,
+      "sortid": 372,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -2086,7 +2053,7 @@
     {
       "name": "PlantStemPlanksRecipe",
       "type": "recipe",
-      "sortid": 374,
+      "sortid": 373,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -2095,7 +2062,7 @@
     {
       "name": "VerticalPlantStemPlanksRecipe",
       "type": "recipe",
-      "sortid": 375,
+      "sortid": 374,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -2104,7 +2071,7 @@
     {
       "name": "ThornsFlowerPot",
       "type": "block",
-      "sortid": 376,
+      "sortid": 375,
       "compiles": true,
       "locked_code": true,
       "ids": {},
@@ -2113,7 +2080,7 @@
     {
       "name": "ThornsFlowerPotDrops",
       "type": "loottable",
-      "sortid": 377,
+      "sortid": 376,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -2122,7 +2089,7 @@
     {
       "name": "ThornsFlowerPotRightClick",
       "type": "procedure",
-      "sortid": 378,
+      "sortid": 377,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -2155,7 +2122,7 @@
     {
       "name": "ThornsFlowerPotRecipe",
       "type": "procedure",
-      "sortid": 379,
+      "sortid": 378,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -2197,7 +2164,7 @@
     {
       "name": "PlantStemFenceFuel",
       "type": "fuel",
-      "sortid": 380,
+      "sortid": 379,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -2206,7 +2173,7 @@
     {
       "name": "PlantStemFenceRecipe",
       "type": "recipe",
-      "sortid": 381,
+      "sortid": 380,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -2215,7 +2182,7 @@
     {
       "name": "CrateGUI2",
       "type": "gui",
-      "sortid": 382,
+      "sortid": 381,
       "compiles": true,
       "locked_code": true,
       "ids": {},
@@ -2233,7 +2200,7 @@
     {
       "name": "PlantStemSlabFuel",
       "type": "fuel",
-      "sortid": 383,
+      "sortid": 382,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -2242,7 +2209,7 @@
     {
       "name": "PlantStemSlabRecipe",
       "type": "recipe",
-      "sortid": 384,
+      "sortid": 383,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -2260,7 +2227,7 @@
     {
       "name": "VerticalAzureSlabFuel",
       "type": "fuel",
-      "sortid": 385,
+      "sortid": 384,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -2269,7 +2236,7 @@
     {
       "name": "VerticalPlantStemSlabFuel",
       "type": "fuel",
-      "sortid": 386,
+      "sortid": 385,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -2278,7 +2245,7 @@
     {
       "name": "VerticalPlantStemSlabRecipe",
       "type": "recipe",
-      "sortid": 387,
+      "sortid": 386,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -2296,7 +2263,7 @@
     {
       "name": "PlantStemStairsFuel",
       "type": "fuel",
-      "sortid": 388,
+      "sortid": 387,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -2305,7 +2272,7 @@
     {
       "name": "PlantStemStairsRecipe",
       "type": "recipe",
-      "sortid": 389,
+      "sortid": 388,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -2314,7 +2281,7 @@
     {
       "name": "CookMexicanSunflowerFurnace",
       "type": "recipe",
-      "sortid": 390,
+      "sortid": 389,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -2323,7 +2290,7 @@
     {
       "name": "CookMexicanSunflowerSmoker",
       "type": "recipe",
-      "sortid": 391,
+      "sortid": 390,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -2332,7 +2299,7 @@
     {
       "name": "CookMexicanSunflowerCampfire",
       "type": "recipe",
-      "sortid": 392,
+      "sortid": 391,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -2350,7 +2317,7 @@
     {
       "name": "PlantStemCrateRecipe",
       "type": "recipe",
-      "sortid": 393,
+      "sortid": 392,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -2359,7 +2326,7 @@
     {
       "name": "PlantStemCrateRecipe2",
       "type": "recipe",
-      "sortid": 394,
+      "sortid": 393,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -2377,7 +2344,7 @@
     {
       "name": "VerticalPlantStemStairsFuel",
       "type": "fuel",
-      "sortid": 395,
+      "sortid": 394,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -2386,7 +2353,7 @@
     {
       "name": "VerticalPlantStemStairsRecipe",
       "type": "recipe",
-      "sortid": 396,
+      "sortid": 395,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -2404,7 +2371,7 @@
     {
       "name": "StrippedPlantStemCrateRecipe",
       "type": "recipe",
-      "sortid": 397,
+      "sortid": 396,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -2413,7 +2380,7 @@
     {
       "name": "StrippedPlantStemCrateRecipe2",
       "type": "recipe",
-      "sortid": 398,
+      "sortid": 397,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -2422,7 +2389,7 @@
     {
       "name": "StrippedPlantStemCrateRecipe3",
       "type": "procedure",
-      "sortid": 399,
+      "sortid": 398,
       "compiles": true,
       "locked_code": true,
       "ids": {},
@@ -2473,7 +2440,7 @@
     {
       "name": "PlantStemTrapdoorFuel",
       "type": "fuel",
-      "sortid": 400,
+      "sortid": 399,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -2482,7 +2449,7 @@
     {
       "name": "PlantStemTrapdoorRecipe",
       "type": "recipe",
-      "sortid": 401,
+      "sortid": 400,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -2491,7 +2458,7 @@
     {
       "name": "PlantStemGlassTrapdoorFuel",
       "type": "fuel",
-      "sortid": 402,
+      "sortid": 401,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -2500,7 +2467,7 @@
     {
       "name": "AzureGlassTrapdoorRecipe2",
       "type": "recipe",
-      "sortid": 403,
+      "sortid": 402,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -2509,7 +2476,7 @@
     {
       "name": "PlantStemGlassTrapdoorRecipe2",
       "type": "recipe",
-      "sortid": 404,
+      "sortid": 403,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -2518,7 +2485,7 @@
     {
       "name": "PlantStemGlassTrapdoorRecipe",
       "type": "recipe",
-      "sortid": 405,
+      "sortid": 404,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -2545,7 +2512,7 @@
     {
       "name": "LeafBlockDrops",
       "type": "loottable",
-      "sortid": 406,
+      "sortid": 405,
       "compiles": true,
       "locked_code": true,
       "ids": {},
@@ -2554,7 +2521,7 @@
     {
       "name": "RedPetalBlockDrops",
       "type": "loottable",
-      "sortid": 407,
+      "sortid": 406,
       "compiles": true,
       "locked_code": true,
       "ids": {},
@@ -2572,7 +2539,7 @@
     {
       "name": "OrangePetalBlockDrops",
       "type": "loottable",
-      "sortid": 408,
+      "sortid": 407,
       "compiles": true,
       "locked_code": true,
       "ids": {},
@@ -2707,7 +2674,7 @@
     {
       "name": "BlackPetalBlockDrops",
       "type": "loottable",
-      "sortid": 409,
+      "sortid": 408,
       "compiles": true,
       "locked_code": true,
       "ids": {},
@@ -2716,7 +2683,7 @@
     {
       "name": "BluePetalBlockDrops",
       "type": "loottable",
-      "sortid": 410,
+      "sortid": 409,
       "compiles": true,
       "locked_code": true,
       "ids": {},
@@ -2725,7 +2692,7 @@
     {
       "name": "BrownPetalBlockDrops",
       "type": "loottable",
-      "sortid": 411,
+      "sortid": 410,
       "compiles": true,
       "locked_code": true,
       "ids": {},
@@ -2734,7 +2701,7 @@
     {
       "name": "CyanPetalBlockDrops",
       "type": "loottable",
-      "sortid": 412,
+      "sortid": 411,
       "compiles": true,
       "locked_code": true,
       "ids": {},
@@ -2743,7 +2710,7 @@
     {
       "name": "GrayPetalBlockDrops",
       "type": "loottable",
-      "sortid": 413,
+      "sortid": 412,
       "compiles": true,
       "locked_code": true,
       "ids": {},
@@ -2752,7 +2719,7 @@
     {
       "name": "GreenPetalBlockDrops",
       "type": "loottable",
-      "sortid": 414,
+      "sortid": 413,
       "compiles": true,
       "locked_code": true,
       "ids": {},
@@ -2761,7 +2728,7 @@
     {
       "name": "LightBluePetalBlockDrops",
       "type": "loottable",
-      "sortid": 415,
+      "sortid": 414,
       "compiles": true,
       "locked_code": true,
       "ids": {},
@@ -2770,7 +2737,7 @@
     {
       "name": "LightGrayPetalBlockDrops",
       "type": "loottable",
-      "sortid": 416,
+      "sortid": 415,
       "compiles": true,
       "locked_code": true,
       "ids": {},
@@ -2779,7 +2746,7 @@
     {
       "name": "LimePetalBlockDrops",
       "type": "loottable",
-      "sortid": 417,
+      "sortid": 416,
       "compiles": true,
       "locked_code": true,
       "ids": {},
@@ -2788,7 +2755,7 @@
     {
       "name": "MagentaPetalBlockDrops",
       "type": "loottable",
-      "sortid": 418,
+      "sortid": 417,
       "compiles": true,
       "locked_code": true,
       "ids": {},
@@ -2797,7 +2764,7 @@
     {
       "name": "PinkPetalBlockDrops",
       "type": "loottable",
-      "sortid": 419,
+      "sortid": 418,
       "compiles": true,
       "locked_code": true,
       "ids": {},
@@ -2806,7 +2773,7 @@
     {
       "name": "PurplePetalBlockDrops",
       "type": "loottable",
-      "sortid": 420,
+      "sortid": 419,
       "compiles": true,
       "locked_code": true,
       "ids": {},
@@ -2815,7 +2782,7 @@
     {
       "name": "WhitePetalBlockDrops",
       "type": "loottable",
-      "sortid": 421,
+      "sortid": 420,
       "compiles": true,
       "locked_code": true,
       "ids": {},
@@ -2824,7 +2791,7 @@
     {
       "name": "YellowPetalBlockDrops",
       "type": "loottable",
-      "sortid": 422,
+      "sortid": 421,
       "compiles": true,
       "locked_code": true,
       "ids": {},
@@ -2833,7 +2800,7 @@
     {
       "name": "PetalBlocksBlockTag",
       "type": "tag",
-      "sortid": 423,
+      "sortid": 422,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -2842,7 +2809,7 @@
     {
       "name": "PetalBlocksItemTag",
       "type": "tag",
-      "sortid": 424,
+      "sortid": 423,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -2851,7 +2818,7 @@
     {
       "name": "BlackPetalBlockRecipe",
       "type": "recipe",
-      "sortid": 425,
+      "sortid": 424,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -2860,7 +2827,7 @@
     {
       "name": "BluePetalBlockRecipe",
       "type": "recipe",
-      "sortid": 426,
+      "sortid": 425,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -2869,7 +2836,7 @@
     {
       "name": "BrownPetalBlockRecipe",
       "type": "recipe",
-      "sortid": 427,
+      "sortid": 426,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -2878,7 +2845,7 @@
     {
       "name": "CyanPetalBlockRecipe",
       "type": "recipe",
-      "sortid": 428,
+      "sortid": 427,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -2887,7 +2854,7 @@
     {
       "name": "GrayPetalBlockRecipe",
       "type": "recipe",
-      "sortid": 429,
+      "sortid": 428,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -2896,7 +2863,7 @@
     {
       "name": "GreenPetalBlockRecipe",
       "type": "recipe",
-      "sortid": 430,
+      "sortid": 429,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -2905,7 +2872,7 @@
     {
       "name": "LightBluePetalBlockRecipe",
       "type": "recipe",
-      "sortid": 431,
+      "sortid": 430,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -2914,7 +2881,7 @@
     {
       "name": "LightGrayPetalBlockRecipe",
       "type": "recipe",
-      "sortid": 432,
+      "sortid": 431,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -2923,7 +2890,7 @@
     {
       "name": "LimePetalBlockRecipe",
       "type": "recipe",
-      "sortid": 433,
+      "sortid": 432,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -2932,7 +2899,7 @@
     {
       "name": "MagentaPetalBlockRecipe",
       "type": "recipe",
-      "sortid": 434,
+      "sortid": 433,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -2941,7 +2908,7 @@
     {
       "name": "OrangePetalBlockRecipe",
       "type": "recipe",
-      "sortid": 435,
+      "sortid": 434,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -2950,7 +2917,7 @@
     {
       "name": "PinkPetalBlockRecipe",
       "type": "recipe",
-      "sortid": 436,
+      "sortid": 435,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -2959,7 +2926,7 @@
     {
       "name": "PurplePetalBlockRecipe",
       "type": "recipe",
-      "sortid": 437,
+      "sortid": 436,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -2968,7 +2935,7 @@
     {
       "name": "RedPetalBlockRecipe",
       "type": "recipe",
-      "sortid": 438,
+      "sortid": 437,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -2977,7 +2944,7 @@
     {
       "name": "WhitePetalBlockRecipe",
       "type": "recipe",
-      "sortid": 439,
+      "sortid": 438,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -2986,7 +2953,7 @@
     {
       "name": "YellowPetalBlockRecipe",
       "type": "recipe",
-      "sortid": 440,
+      "sortid": 439,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -3013,7 +2980,7 @@
     {
       "name": "WhitePetalRecipe",
       "type": "recipe",
-      "sortid": 441,
+      "sortid": 440,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -3022,7 +2989,7 @@
     {
       "name": "WhitePetalBlockRecipe2",
       "type": "recipe",
-      "sortid": 442,
+      "sortid": 441,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -3166,7 +3133,7 @@
     {
       "name": "BlackPetalBlockRecipe2",
       "type": "recipe",
-      "sortid": 443,
+      "sortid": 442,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -3175,7 +3142,7 @@
     {
       "name": "BluePetalBlockRecipe2",
       "type": "recipe",
-      "sortid": 444,
+      "sortid": 443,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -3184,7 +3151,7 @@
     {
       "name": "BrownPetalBlockRecipe2",
       "type": "recipe",
-      "sortid": 445,
+      "sortid": 444,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -3193,7 +3160,7 @@
     {
       "name": "CyanPetalBlockRecipe2",
       "type": "recipe",
-      "sortid": 446,
+      "sortid": 445,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -3202,7 +3169,7 @@
     {
       "name": "GrayPetalBlockRecipe2",
       "type": "recipe",
-      "sortid": 447,
+      "sortid": 446,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -3211,7 +3178,7 @@
     {
       "name": "GreenPetalBlockRecipe2",
       "type": "recipe",
-      "sortid": 448,
+      "sortid": 447,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -3220,7 +3187,7 @@
     {
       "name": "LightBluePetalBlockRecipe2",
       "type": "recipe",
-      "sortid": 449,
+      "sortid": 448,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -3229,7 +3196,7 @@
     {
       "name": "LightGrayPetalBlockRecipe2",
       "type": "recipe",
-      "sortid": 450,
+      "sortid": 449,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -3238,7 +3205,7 @@
     {
       "name": "LimePetalBlockRecipe2",
       "type": "recipe",
-      "sortid": 451,
+      "sortid": 450,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -3247,7 +3214,7 @@
     {
       "name": "MagentaPetalBlockRecipe2",
       "type": "recipe",
-      "sortid": 452,
+      "sortid": 451,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -3256,7 +3223,7 @@
     {
       "name": "OrangePetalBlockRecipe2",
       "type": "recipe",
-      "sortid": 453,
+      "sortid": 452,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -3265,7 +3232,7 @@
     {
       "name": "PinkPetalBlockRecipe2",
       "type": "recipe",
-      "sortid": 454,
+      "sortid": 453,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -3274,7 +3241,7 @@
     {
       "name": "PurplePetalBlockRecipe2",
       "type": "recipe",
-      "sortid": 455,
+      "sortid": 454,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -3283,7 +3250,7 @@
     {
       "name": "RedPetalBlockRecipe2",
       "type": "recipe",
-      "sortid": 456,
+      "sortid": 455,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -3292,7 +3259,7 @@
     {
       "name": "YellowPetalBlockRecipe2",
       "type": "recipe",
-      "sortid": 457,
+      "sortid": 456,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -3301,7 +3268,7 @@
     {
       "name": "BlackPetalRecipe",
       "type": "recipe",
-      "sortid": 458,
+      "sortid": 457,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -3310,7 +3277,7 @@
     {
       "name": "BluePetalRecipe",
       "type": "recipe",
-      "sortid": 459,
+      "sortid": 458,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -3319,7 +3286,7 @@
     {
       "name": "BrownPetalRecipe",
       "type": "recipe",
-      "sortid": 460,
+      "sortid": 459,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -3328,7 +3295,7 @@
     {
       "name": "CyanPetalRecipe",
       "type": "recipe",
-      "sortid": 461,
+      "sortid": 460,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -3337,7 +3304,7 @@
     {
       "name": "GrayPetalRecipe",
       "type": "recipe",
-      "sortid": 462,
+      "sortid": 461,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -3346,7 +3313,7 @@
     {
       "name": "GreenPetalRecipe",
       "type": "recipe",
-      "sortid": 463,
+      "sortid": 462,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -3355,7 +3322,7 @@
     {
       "name": "LightBluePetalRecipe",
       "type": "recipe",
-      "sortid": 464,
+      "sortid": 463,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -3364,7 +3331,7 @@
     {
       "name": "LightGrayPetalRecipe",
       "type": "recipe",
-      "sortid": 465,
+      "sortid": 464,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -3373,7 +3340,7 @@
     {
       "name": "LimePetalRecipe",
       "type": "recipe",
-      "sortid": 466,
+      "sortid": 465,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -3382,7 +3349,7 @@
     {
       "name": "MagentaPetalRecipe",
       "type": "recipe",
-      "sortid": 467,
+      "sortid": 466,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -3391,7 +3358,7 @@
     {
       "name": "OrangePetalRecipe",
       "type": "recipe",
-      "sortid": 468,
+      "sortid": 467,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -3400,7 +3367,7 @@
     {
       "name": "PinkPetalRecipe",
       "type": "recipe",
-      "sortid": 469,
+      "sortid": 468,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -3409,7 +3376,7 @@
     {
       "name": "PurplePetalRecipe",
       "type": "recipe",
-      "sortid": 470,
+      "sortid": 469,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -3418,7 +3385,7 @@
     {
       "name": "RedPetalRecipe",
       "type": "recipe",
-      "sortid": 471,
+      "sortid": 470,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -3427,7 +3394,7 @@
     {
       "name": "YellowPetalRecipe",
       "type": "recipe",
-      "sortid": 472,
+      "sortid": 471,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -3436,7 +3403,7 @@
     {
       "name": "GiantPoppy",
       "type": "structure",
-      "sortid": 473,
+      "sortid": 472,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -3445,16 +3412,16 @@
     {
       "name": "GiantFlora",
       "type": "biome",
-      "sortid": 474,
+      "sortid": 473,
       "compiles": true,
-      "locked_code": true,
+      "locked_code": false,
       "ids": {},
       "registry_name": "giant_flora"
     },
     {
       "name": "GrowGiantPoppyBonemeal",
       "type": "procedure",
-      "sortid": 475,
+      "sortid": 474,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -3487,7 +3454,7 @@
     {
       "name": "LeafBlockRecipe",
       "type": "recipe",
-      "sortid": 476,
+      "sortid": 475,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -3496,7 +3463,7 @@
     {
       "name": "GrowGiantDandelionBonemeal",
       "type": "procedure",
-      "sortid": 477,
+      "sortid": 476,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -3529,7 +3496,7 @@
     {
       "name": "GiantDandelion",
       "type": "structure",
-      "sortid": 478,
+      "sortid": 477,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -3538,7 +3505,7 @@
     {
       "name": "GiantBlueOrchid",
       "type": "structure",
-      "sortid": 479,
+      "sortid": 478,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -3547,7 +3514,7 @@
     {
       "name": "GrowGiantBlueOrchidBonemeal",
       "type": "procedure",
-      "sortid": 480,
+      "sortid": 479,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -3589,7 +3556,7 @@
     {
       "name": "ClearPotionEffects",
       "type": "procedure",
-      "sortid": 481,
+      "sortid": 480,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -3606,7 +3573,7 @@
     {
       "name": "GiantFloraAdvancement",
       "type": "achievement",
-      "sortid": 482,
+      "sortid": 481,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -3615,7 +3582,7 @@
     {
       "name": "PetalsAdvancement",
       "type": "achievement",
-      "sortid": 483,
+      "sortid": 482,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -3624,7 +3591,7 @@
     {
       "name": "GrantPetalsAdvancement",
       "type": "procedure",
-      "sortid": 484,
+      "sortid": 483,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -3641,7 +3608,7 @@
     {
       "name": "GiantPoppyAdvancement",
       "type": "achievement",
-      "sortid": 485,
+      "sortid": 484,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -3650,7 +3617,7 @@
     {
       "name": "GiantBlueOrchidAdvancement",
       "type": "achievement",
-      "sortid": 486,
+      "sortid": 485,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -3659,7 +3626,7 @@
     {
       "name": "GiantDandelionAdvancement",
       "type": "achievement",
-      "sortid": 487,
+      "sortid": 486,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -3668,7 +3635,7 @@
     {
       "name": "PetalsItemTag",
       "type": "tag",
-      "sortid": 488,
+      "sortid": 487,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -3677,7 +3644,7 @@
     {
       "name": "GiantAllium",
       "type": "structure",
-      "sortid": 489,
+      "sortid": 488,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -3686,7 +3653,7 @@
     {
       "name": "GiantAllium2",
       "type": "structure",
-      "sortid": 490,
+      "sortid": 489,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -3695,7 +3662,7 @@
     {
       "name": "GiantAlliumAdvancement",
       "type": "achievement",
-      "sortid": 491,
+      "sortid": 490,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -3704,7 +3671,7 @@
     {
       "name": "GrowGiantAlliumBonemeal",
       "type": "procedure",
-      "sortid": 492,
+      "sortid": 491,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -3737,7 +3704,7 @@
     {
       "name": "PollenRecipe",
       "type": "recipe",
-      "sortid": 493,
+      "sortid": 492,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -3746,7 +3713,7 @@
     {
       "name": "PollenBlockRecipe",
       "type": "recipe",
-      "sortid": 494,
+      "sortid": 493,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -3773,7 +3740,7 @@
     {
       "name": "AzureLeavesCarpetRecipe",
       "type": "recipe",
-      "sortid": 495,
+      "sortid": 494,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -3782,7 +3749,7 @@
     {
       "name": "WhitePetalCarpetRecipe",
       "type": "recipe",
-      "sortid": 496,
+      "sortid": 495,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -3800,7 +3767,7 @@
     {
       "name": "OrangePetalCarpetRecipe",
       "type": "recipe",
-      "sortid": 497,
+      "sortid": 496,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -3818,7 +3785,7 @@
     {
       "name": "MagentaPetalCarpetRecipe",
       "type": "recipe",
-      "sortid": 498,
+      "sortid": 497,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -3836,7 +3803,7 @@
     {
       "name": "LightBluePetalCarpetRecipe",
       "type": "recipe",
-      "sortid": 499,
+      "sortid": 498,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -3854,7 +3821,7 @@
     {
       "name": "YellowPetalCarpetRecipe",
       "type": "recipe",
-      "sortid": 500,
+      "sortid": 499,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -3872,7 +3839,7 @@
     {
       "name": "LimePetalCarpetRecipe",
       "type": "recipe",
-      "sortid": 501,
+      "sortid": 500,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -3890,7 +3857,7 @@
     {
       "name": "PinkPetalCarpetRecipe",
       "type": "recipe",
-      "sortid": 502,
+      "sortid": 501,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -3917,7 +3884,7 @@
     {
       "name": "LightGrayPetalCarpetRecipe",
       "type": "recipe",
-      "sortid": 503,
+      "sortid": 502,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -3935,7 +3902,7 @@
     {
       "name": "CyanPetalCarpetRecipe",
       "type": "recipe",
-      "sortid": 504,
+      "sortid": 503,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -3953,7 +3920,7 @@
     {
       "name": "PurplePetalCarpetRecipe",
       "type": "recipe",
-      "sortid": 505,
+      "sortid": 504,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -3980,7 +3947,7 @@
     {
       "name": "BrownPetalCarpetRecipe",
       "type": "recipe",
-      "sortid": 506,
+      "sortid": 505,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -3998,7 +3965,7 @@
     {
       "name": "GreenPetalCarpetRecipe",
       "type": "recipe",
-      "sortid": 507,
+      "sortid": 506,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -4016,7 +3983,7 @@
     {
       "name": "RedPetalCarpetRecipe",
       "type": "recipe",
-      "sortid": 508,
+      "sortid": 507,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -4034,7 +4001,7 @@
     {
       "name": "BlackPetalCarpetRecipe",
       "type": "recipe",
-      "sortid": 509,
+      "sortid": 508,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -4052,7 +4019,7 @@
     {
       "name": "LeafCarpetRecipe",
       "type": "recipe",
-      "sortid": 510,
+      "sortid": 509,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -4061,7 +4028,7 @@
     {
       "name": "BluePetalCarpetRecipe",
       "type": "recipe",
-      "sortid": 511,
+      "sortid": 510,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -4070,7 +4037,7 @@
     {
       "name": "GrayPetalCarpetRecipe",
       "type": "recipe",
-      "sortid": 512,
+      "sortid": 511,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -4079,7 +4046,7 @@
     {
       "name": "GiantAzureBluet",
       "type": "structure",
-      "sortid": 513,
+      "sortid": 512,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -4088,7 +4055,7 @@
     {
       "name": "GrowGiantAzureBluet",
       "type": "procedure",
-      "sortid": 514,
+      "sortid": 513,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -4121,7 +4088,7 @@
     {
       "name": "GiantAzureBluetAdvancement",
       "type": "achievement",
-      "sortid": 515,
+      "sortid": 514,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -4130,7 +4097,7 @@
     {
       "name": "BlackPetalBlockRecipe3",
       "type": "recipe",
-      "sortid": 516,
+      "sortid": 515,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -4139,7 +4106,7 @@
     {
       "name": "BluePetalBlockRecipe3",
       "type": "recipe",
-      "sortid": 517,
+      "sortid": 516,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -4148,7 +4115,7 @@
     {
       "name": "BrownPetalBlockRecipe3",
       "type": "recipe",
-      "sortid": 518,
+      "sortid": 517,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -4157,7 +4124,7 @@
     {
       "name": "CyanPetalBlockRecipe3",
       "type": "recipe",
-      "sortid": 519,
+      "sortid": 518,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -4166,7 +4133,7 @@
     {
       "name": "GrayPetalBlockRecipe3",
       "type": "recipe",
-      "sortid": 520,
+      "sortid": 519,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -4175,7 +4142,7 @@
     {
       "name": "GreenPetalBlockRecipe3",
       "type": "recipe",
-      "sortid": 521,
+      "sortid": 520,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -4184,7 +4151,7 @@
     {
       "name": "LightBluePetalBlockRecipe3",
       "type": "recipe",
-      "sortid": 522,
+      "sortid": 521,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -4193,7 +4160,7 @@
     {
       "name": "LightGrayPetalBlockRecipe3",
       "type": "recipe",
-      "sortid": 523,
+      "sortid": 522,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -4202,7 +4169,7 @@
     {
       "name": "LimePetalBlockRecipe3",
       "type": "recipe",
-      "sortid": 524,
+      "sortid": 523,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -4211,7 +4178,7 @@
     {
       "name": "MagentaPetalBlockRecipe3",
       "type": "recipe",
-      "sortid": 525,
+      "sortid": 524,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -4220,7 +4187,7 @@
     {
       "name": "OrangePetalBlockRecipe3",
       "type": "recipe",
-      "sortid": 526,
+      "sortid": 525,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -4229,7 +4196,7 @@
     {
       "name": "PinkPetalBlockRecipe3",
       "type": "recipe",
-      "sortid": 527,
+      "sortid": 526,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -4238,7 +4205,7 @@
     {
       "name": "PurplePetalBlockRecipe3",
       "type": "recipe",
-      "sortid": 528,
+      "sortid": 527,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -4247,7 +4214,7 @@
     {
       "name": "RedPetalBlockRecipe3",
       "type": "recipe",
-      "sortid": 529,
+      "sortid": 528,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -4256,7 +4223,7 @@
     {
       "name": "WhitePetalBlockRecipe3",
       "type": "recipe",
-      "sortid": 530,
+      "sortid": 529,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -4265,7 +4232,7 @@
     {
       "name": "YellowPetalBlockRecipe3",
       "type": "recipe",
-      "sortid": 531,
+      "sortid": 530,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -4292,7 +4259,7 @@
     {
       "name": "PeashooterSpawn",
       "type": "procedure",
-      "sortid": 532,
+      "sortid": 531,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -4325,7 +4292,7 @@
     {
       "name": "PeashooterSeedPacketRecipe",
       "type": "recipe",
-      "sortid": 533,
+      "sortid": 532,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -4334,7 +4301,7 @@
     {
       "name": "EmptySeedPacketRecipe",
       "type": "recipe",
-      "sortid": 534,
+      "sortid": 533,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -4343,7 +4310,7 @@
     {
       "name": "PeaRecipe",
       "type": "recipe",
-      "sortid": 535,
+      "sortid": 534,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -4352,7 +4319,7 @@
     {
       "name": "VegetablesTag",
       "type": "tag",
-      "sortid": 536,
+      "sortid": 535,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -4361,7 +4328,7 @@
     {
       "name": "VegetablesPeaTag",
       "type": "tag",
-      "sortid": 537,
+      "sortid": 536,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -4370,7 +4337,7 @@
     {
       "name": "SeedsTag",
       "type": "tag",
-      "sortid": 538,
+      "sortid": 537,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -4379,7 +4346,7 @@
     {
       "name": "PeaCropsItemTag",
       "type": "tag",
-      "sortid": 539,
+      "sortid": 538,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -4388,7 +4355,7 @@
     {
       "name": "CropsItemTag",
       "type": "tag",
-      "sortid": 540,
+      "sortid": 539,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -4406,7 +4373,7 @@
     {
       "name": "SpadeRecipe",
       "type": "recipe",
-      "sortid": 541,
+      "sortid": 540,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -4415,7 +4382,7 @@
     {
       "name": "SpadeRemovePeashooter",
       "type": "procedure",
-      "sortid": 542,
+      "sortid": 541,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -4452,7 +4419,7 @@
     {
       "name": "PlantsVsZombiesTab",
       "type": "tab",
-      "sortid": 543,
+      "sortid": 542,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -4485,7 +4452,7 @@
     {
       "name": "ConeheadZombie",
       "type": "mob",
-      "sortid": 178,
+      "sortid": 179,
       "compiles": true,
       "locked_code": true,
       "ids": {},
@@ -4494,7 +4461,7 @@
     {
       "name": "ConeRecipe",
       "type": "recipe",
-      "sortid": 544,
+      "sortid": 543,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -4503,7 +4470,7 @@
     {
       "name": "ConeBlockToHelmet",
       "type": "recipe",
-      "sortid": 545,
+      "sortid": 544,
       "compiles": true,
       "locked_code": true,
       "ids": {},
@@ -4512,7 +4479,7 @@
     {
       "name": "ConePreciseHitbox",
       "type": "code",
-      "sortid": 546,
+      "sortid": 545,
       "compiles": true,
       "locked_code": true,
       "ids": {},
@@ -4530,7 +4497,7 @@
     {
       "name": "PeashooterHeadPreciseHitbox",
       "type": "code",
-      "sortid": 547,
+      "sortid": 546,
       "compiles": true,
       "locked_code": true,
       "ids": {},
@@ -4539,7 +4506,7 @@
     {
       "name": "PeaSplatSounds",
       "type": "procedure",
-      "sortid": 548,
+      "sortid": 547,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -4568,7 +4535,7 @@
     {
       "name": "PeashooterSeedPacketRecipe2",
       "type": "recipe",
-      "sortid": 549,
+      "sortid": 548,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -4592,7 +4559,7 @@
     {
       "name": "PVZZombie",
       "type": "mob",
-      "sortid": 177,
+      "sortid": 178,
       "compiles": true,
       "locked_code": true,
       "ids": {},
@@ -4610,7 +4577,7 @@
     {
       "name": "BoneMealJarRecipe",
       "type": "recipe",
-      "sortid": 550,
+      "sortid": 549,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -4637,7 +4604,7 @@
     {
       "name": "RoastedPeaFurnace",
       "type": "recipe",
-      "sortid": 551,
+      "sortid": 550,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -4646,7 +4613,7 @@
     {
       "name": "RoastedPeaCampfire",
       "type": "recipe",
-      "sortid": 552,
+      "sortid": 551,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -4655,7 +4622,7 @@
     {
       "name": "RoastedPeaSmoker",
       "type": "recipe",
-      "sortid": 553,
+      "sortid": 552,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -4682,7 +4649,7 @@
     {
       "name": "PeaCampfire",
       "type": "recipe",
-      "sortid": 554,
+      "sortid": 553,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -4691,7 +4658,7 @@
     {
       "name": "PeaFurnace",
       "type": "recipe",
-      "sortid": 555,
+      "sortid": 554,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -4700,7 +4667,7 @@
     {
       "name": "PeaSmoker",
       "type": "recipe",
-      "sortid": 556,
+      "sortid": 555,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -4727,7 +4694,7 @@
     {
       "name": "SnowPeaSpawn",
       "type": "procedure",
-      "sortid": 557,
+      "sortid": 556,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -4760,7 +4727,7 @@
     {
       "name": "FrozenPeaRecipe",
       "type": "recipe",
-      "sortid": 558,
+      "sortid": 557,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -4769,7 +4736,7 @@
     {
       "name": "SpadeRemoveSnowPea",
       "type": "procedure",
-      "sortid": 559,
+      "sortid": 558,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -4830,7 +4797,7 @@
     {
       "name": "SnowPeaHeadPreciseHitbox",
       "type": "code",
-      "sortid": 560,
+      "sortid": 559,
       "compiles": true,
       "locked_code": true,
       "ids": {},
@@ -4839,7 +4806,7 @@
     {
       "name": "FrozenPeaEffects",
       "type": "procedure",
-      "sortid": 561,
+      "sortid": 560,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -4890,7 +4857,7 @@
     {
       "name": "AzureDoorRecipe",
       "type": "recipe",
-      "sortid": 562,
+      "sortid": 561,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -4899,7 +4866,7 @@
     {
       "name": "AzureDoorFuel",
       "type": "fuel",
-      "sortid": 563,
+      "sortid": 562,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -4908,7 +4875,7 @@
     {
       "name": "AzureGlassDoorRecipe",
       "type": "recipe",
-      "sortid": 564,
+      "sortid": 563,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -4917,7 +4884,7 @@
     {
       "name": "AzureGlassDoorFuel",
       "type": "fuel",
-      "sortid": 565,
+      "sortid": 564,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -4926,7 +4893,7 @@
     {
       "name": "AzureGlassDoorRecipe2",
       "type": "recipe",
-      "sortid": 566,
+      "sortid": 565,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -4935,7 +4902,7 @@
     {
       "name": "SnowPeaSeedPacketRecipe",
       "type": "recipe",
-      "sortid": 567,
+      "sortid": 566,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -4962,7 +4929,7 @@
     {
       "name": "PlantStemDoorFuel",
       "type": "fuel",
-      "sortid": 568,
+      "sortid": 567,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -4971,7 +4938,7 @@
     {
       "name": "PlantStemGlassDoorFuel",
       "type": "fuel",
-      "sortid": 569,
+      "sortid": 568,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -4980,7 +4947,7 @@
     {
       "name": "PlantStemDoorRecipe",
       "type": "recipe",
-      "sortid": 570,
+      "sortid": 569,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -4989,7 +4956,7 @@
     {
       "name": "PlantStemGlassDoorRecipe",
       "type": "recipe",
-      "sortid": 571,
+      "sortid": 570,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -4998,7 +4965,7 @@
     {
       "name": "PlantStemGlassDoorRecipe2",
       "type": "recipe",
-      "sortid": 572,
+      "sortid": 571,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -5007,7 +4974,7 @@
     {
       "name": "GrowAzureTreeBonemealJar",
       "type": "procedure",
-      "sortid": 573,
+      "sortid": 572,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -5049,7 +5016,7 @@
     {
       "name": "TickUpdate",
       "type": "procedure",
-      "sortid": 574,
+      "sortid": 573,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -5075,7 +5042,7 @@
     {
       "name": "MonarchEggSpawn",
       "type": "procedure",
-      "sortid": 575,
+      "sortid": 574,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -5105,7 +5072,7 @@
     {
       "name": "MonarchButterflySpawn",
       "type": "procedure",
-      "sortid": 576,
+      "sortid": 575,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -5138,7 +5105,7 @@
     {
       "name": "MonarchEggItemSpawn",
       "type": "procedure",
-      "sortid": 577,
+      "sortid": 576,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -5180,7 +5147,7 @@
     {
       "name": "MonarchCocoonSpawn",
       "type": "procedure",
-      "sortid": 578,
+      "sortid": 577,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -5213,7 +5180,7 @@
     {
       "name": "EntityTimer",
       "type": "procedure",
-      "sortid": 579,
+      "sortid": 578,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -5228,15 +5195,6 @@
       }
     },
     {
-      "name": "EmptyJar",
-      "type": "item",
-      "sortid": 117,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "empty_jar"
-    },
-    {
       "name": "MonarchEggJar",
       "type": "item",
       "sortid": 120,
@@ -5248,7 +5206,7 @@
     {
       "name": "EmptyJarCaptureMonarchEgg",
       "type": "procedure",
-      "sortid": 580,
+      "sortid": 579,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -5294,7 +5252,7 @@
     {
       "name": "EmptyJarCaptureMonarchCocoon",
       "type": "procedure",
-      "sortid": 581,
+      "sortid": 580,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -5331,7 +5289,7 @@
     {
       "name": "MonarchCocoonItemSpawn",
       "type": "procedure",
-      "sortid": 582,
+      "sortid": 581,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -5373,7 +5331,7 @@
     {
       "name": "MonarchCocoonLootTable",
       "type": "loottable",
-      "sortid": 583,
+      "sortid": 582,
       "compiles": true,
       "locked_code": true,
       "ids": {},
@@ -5382,7 +5340,7 @@
     {
       "name": "MonarchEggLootTable",
       "type": "loottable",
-      "sortid": 584,
+      "sortid": 583,
       "compiles": true,
       "locked_code": true,
       "ids": {},
@@ -5391,7 +5349,7 @@
     {
       "name": "SnowPeaLootTable",
       "type": "loottable",
-      "sortid": 585,
+      "sortid": 584,
       "compiles": true,
       "locked_code": true,
       "ids": {},
@@ -5400,7 +5358,7 @@
     {
       "name": "PeashooterLootTable",
       "type": "loottable",
-      "sortid": 586,
+      "sortid": 585,
       "compiles": true,
       "locked_code": true,
       "ids": {},
@@ -5409,7 +5367,7 @@
     {
       "name": "ConeheadZombieLootTable",
       "type": "loottable",
-      "sortid": 587,
+      "sortid": 586,
       "compiles": true,
       "locked_code": true,
       "ids": {},
@@ -5418,7 +5376,7 @@
     {
       "name": "PVZZombieLootTable",
       "type": "loottable",
-      "sortid": 588,
+      "sortid": 587,
       "compiles": true,
       "locked_code": true,
       "ids": {},
@@ -5427,7 +5385,7 @@
     {
       "name": "MonarchButterflyLootTable",
       "type": "loottable",
-      "sortid": 589,
+      "sortid": 588,
       "compiles": true,
       "locked_code": true,
       "ids": {},
@@ -5436,7 +5394,7 @@
     {
       "name": "MonarchCaterpillarLootTable",
       "type": "loottable",
-      "sortid": 590,
+      "sortid": 589,
       "compiles": true,
       "locked_code": true,
       "ids": {},
@@ -5445,7 +5403,7 @@
     {
       "name": "StopTimer",
       "type": "procedure",
-      "sortid": 591,
+      "sortid": 590,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -5482,7 +5440,7 @@
     {
       "name": "EmptyJarRecipe",
       "type": "recipe",
-      "sortid": 592,
+      "sortid": 591,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -5491,7 +5449,7 @@
     {
       "name": "BoneMealJarRecipe2",
       "type": "recipe",
-      "sortid": 593,
+      "sortid": 592,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -5500,7 +5458,7 @@
     {
       "name": "GiantRedTulipAdvancement",
       "type": "achievement",
-      "sortid": 594,
+      "sortid": 593,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -5509,7 +5467,7 @@
     {
       "name": "GrowGiantRedTulipBonemeal",
       "type": "procedure",
-      "sortid": 595,
+      "sortid": 594,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -5542,7 +5500,7 @@
     {
       "name": "GiantRedTulip",
       "type": "structure",
-      "sortid": 596,
+      "sortid": 595,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -5551,7 +5509,7 @@
     {
       "name": "ThornsBreakNoSupport",
       "type": "procedure",
-      "sortid": 597,
+      "sortid": 596,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -5563,7 +5521,7 @@
     {
       "name": "GiantOxeyeDaisyAdvancement",
       "type": "achievement",
-      "sortid": 598,
+      "sortid": 597,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -5572,7 +5530,7 @@
     {
       "name": "GrowGiantOxeyeDaisy",
       "type": "procedure",
-      "sortid": 599,
+      "sortid": 598,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -5605,7 +5563,7 @@
     {
       "name": "GiantCornflowerAdvancement",
       "type": "achievement",
-      "sortid": 600,
+      "sortid": 599,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -5614,7 +5572,7 @@
     {
       "name": "GrowGiantCornflowerBonemeal",
       "type": "procedure",
-      "sortid": 601,
+      "sortid": 600,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -5647,7 +5605,7 @@
     {
       "name": "GiantOxeyeDaisy",
       "type": "structure",
-      "sortid": 602,
+      "sortid": 601,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -5656,7 +5614,7 @@
     {
       "name": "GiantOxeyeDaisy2",
       "type": "structure",
-      "sortid": 603,
+      "sortid": 602,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -5665,7 +5623,7 @@
     {
       "name": "GiantCornflower",
       "type": "structure",
-      "sortid": 604,
+      "sortid": 603,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -5674,7 +5632,7 @@
     {
       "name": "GiantOrangeTulip",
       "type": "structure",
-      "sortid": 605,
+      "sortid": 604,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -5683,7 +5641,7 @@
     {
       "name": "GiantWhiteTulip",
       "type": "structure",
-      "sortid": 606,
+      "sortid": 605,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -5692,7 +5650,7 @@
     {
       "name": "GiantPinkTulip",
       "type": "structure",
-      "sortid": 607,
+      "sortid": 606,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -5701,7 +5659,7 @@
     {
       "name": "GiantOrangeTulipAdvancement",
       "type": "achievement",
-      "sortid": 608,
+      "sortid": 607,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -5710,7 +5668,7 @@
     {
       "name": "GiantWhiteTulipAdvancement",
       "type": "achievement",
-      "sortid": 609,
+      "sortid": 608,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -5719,7 +5677,7 @@
     {
       "name": "GiantPinkTulipAdvancement",
       "type": "achievement",
-      "sortid": 610,
+      "sortid": 609,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -5728,7 +5686,7 @@
     {
       "name": "GrowGiantOrangeTulipBonemeal",
       "type": "procedure",
-      "sortid": 611,
+      "sortid": 610,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -5761,7 +5719,7 @@
     {
       "name": "GrowGiantWhiteTulipBonemeal",
       "type": "procedure",
-      "sortid": 612,
+      "sortid": 611,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -5794,7 +5752,7 @@
     {
       "name": "GrowGiantPinkTulipBonemeal",
       "type": "procedure",
-      "sortid": 613,
+      "sortid": 612,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -5827,7 +5785,7 @@
     {
       "name": "GiantLilyOfTheValleyAdvancement",
       "type": "achievement",
-      "sortid": 614,
+      "sortid": 613,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -5836,7 +5794,7 @@
     {
       "name": "GiantLilyOfTheValley",
       "type": "structure",
-      "sortid": 615,
+      "sortid": 614,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -5845,7 +5803,7 @@
     {
       "name": "GrowGiantLilyOfTheValleyBonemeal",
       "type": "procedure",
-      "sortid": 616,
+      "sortid": 615,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -5905,7 +5863,7 @@
     {
       "name": "WitherPetalBlockDrops",
       "type": "loottable",
-      "sortid": 617,
+      "sortid": 616,
       "compiles": true,
       "locked_code": true,
       "ids": {},
@@ -5923,7 +5881,7 @@
     {
       "name": "WitherBoneMealJarRecipe",
       "type": "recipe",
-      "sortid": 618,
+      "sortid": 617,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -5932,7 +5890,7 @@
     {
       "name": "GrowGiantWitherRoseWitherBonemeal",
       "type": "procedure",
-      "sortid": 619,
+      "sortid": 618,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -5965,7 +5923,7 @@
     {
       "name": "GiantWitherRoseAdvancement",
       "type": "achievement",
-      "sortid": 620,
+      "sortid": 619,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -5974,7 +5932,7 @@
     {
       "name": "WitherPetalCarpetRecipe",
       "type": "recipe",
-      "sortid": 621,
+      "sortid": 620,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -5983,7 +5941,7 @@
     {
       "name": "WitherPetalRecipe",
       "type": "recipe",
-      "sortid": 622,
+      "sortid": 621,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -5992,7 +5950,7 @@
     {
       "name": "TallFlowersBlockTag",
       "type": "tag",
-      "sortid": 623,
+      "sortid": 622,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -6001,7 +5959,7 @@
     {
       "name": "GiantMexicanSunflowerAdvancement",
       "type": "achievement",
-      "sortid": 624,
+      "sortid": 623,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -6010,7 +5968,7 @@
     {
       "name": "GiantMexicanSunflower",
       "type": "structure",
-      "sortid": 625,
+      "sortid": 624,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -6019,7 +5977,7 @@
     {
       "name": "GrowGiantMexicanSunflowerBonemeal",
       "type": "procedure",
-      "sortid": 626,
+      "sortid": 625,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -6052,7 +6010,7 @@
     {
       "name": "PollenBlockDrops",
       "type": "loottable",
-      "sortid": 627,
+      "sortid": 626,
       "compiles": true,
       "locked_code": true,
       "ids": {},
@@ -6061,7 +6019,7 @@
     {
       "name": "WitherPetalBlockRecipe",
       "type": "recipe",
-      "sortid": 628,
+      "sortid": 627,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -6070,7 +6028,7 @@
     {
       "name": "CookedMexicanSunflowerSeedsSmoker",
       "type": "recipe",
-      "sortid": 629,
+      "sortid": 628,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -6079,7 +6037,7 @@
     {
       "name": "MonarchCaterpillarSpawn",
       "type": "procedure",
-      "sortid": 630,
+      "sortid": 629,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -6121,7 +6079,7 @@
     {
       "name": "SunRecipe",
       "type": "recipe",
-      "sortid": 631,
+      "sortid": 630,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -6130,7 +6088,7 @@
     {
       "name": "MiniSunRecipe",
       "type": "recipe",
-      "sortid": 632,
+      "sortid": 631,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -6148,7 +6106,7 @@
     {
       "name": "SunflowerLootTable",
       "type": "loottable",
-      "sortid": 633,
+      "sortid": 632,
       "compiles": true,
       "locked_code": true,
       "ids": {},
@@ -6166,7 +6124,7 @@
     {
       "name": "SunflowerSeedPacketRecipe",
       "type": "recipe",
-      "sortid": 634,
+      "sortid": 633,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -6175,7 +6133,7 @@
     {
       "name": "SpadeItemTag",
       "type": "tag",
-      "sortid": 635,
+      "sortid": 634,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -6184,7 +6142,7 @@
     {
       "name": "SpadeRemoveSunflower",
       "type": "procedure",
-      "sortid": 636,
+      "sortid": 635,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -6221,7 +6179,7 @@
     {
       "name": "SunflowerSpawn",
       "type": "procedure",
-      "sortid": 637,
+      "sortid": 636,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -6287,7 +6245,7 @@
     {
       "name": "EntityTimerSunflower",
       "type": "procedure",
-      "sortid": 638,
+      "sortid": 637,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -6304,7 +6262,7 @@
     {
       "name": "SunflowerSpawnSun",
       "type": "procedure",
-      "sortid": 639,
+      "sortid": 638,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -6382,7 +6340,7 @@
     {
       "name": "WoodenSpadeRecipe",
       "type": "recipe",
-      "sortid": 640,
+      "sortid": 639,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -6391,7 +6349,7 @@
     {
       "name": "IronSpadeRecipe",
       "type": "recipe",
-      "sortid": 641,
+      "sortid": 640,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -6400,7 +6358,7 @@
     {
       "name": "GoldenSpadeRecipe",
       "type": "recipe",
-      "sortid": 642,
+      "sortid": 641,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -6409,7 +6367,7 @@
     {
       "name": "DiamondSpadeRecipe",
       "type": "recipe",
-      "sortid": 643,
+      "sortid": 642,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -6436,7 +6394,7 @@
     {
       "name": "RandomVaseRandomOutput",
       "type": "procedure",
-      "sortid": 644,
+      "sortid": 643,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -6469,7 +6427,7 @@
     {
       "name": "PlantVaseRandomOutput",
       "type": "procedure",
-      "sortid": 645,
+      "sortid": 644,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -6520,7 +6478,7 @@
     {
       "name": "GlassSlabRecipe",
       "type": "recipe",
-      "sortid": 646,
+      "sortid": 645,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -6529,7 +6487,7 @@
     {
       "name": "GlassStairsRecipe",
       "type": "recipe",
-      "sortid": 647,
+      "sortid": 646,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -6538,7 +6496,7 @@
     {
       "name": "GlassSlabDrops",
       "type": "loottable",
-      "sortid": 648,
+      "sortid": 647,
       "compiles": true,
       "locked_code": true,
       "ids": {},
@@ -6547,7 +6505,7 @@
     {
       "name": "GlassStairsDrops",
       "type": "loottable",
-      "sortid": 649,
+      "sortid": 648,
       "compiles": true,
       "locked_code": true,
       "ids": {},
@@ -6556,7 +6514,7 @@
     {
       "name": "RandomVaseDrops",
       "type": "loottable",
-      "sortid": 650,
+      "sortid": 649,
       "compiles": true,
       "locked_code": true,
       "ids": {},
@@ -6565,7 +6523,7 @@
     {
       "name": "PlantVaseDrops",
       "type": "loottable",
-      "sortid": 651,
+      "sortid": 650,
       "compiles": true,
       "locked_code": true,
       "ids": {},
@@ -6574,7 +6532,7 @@
     {
       "name": "VasePreciseHitbox",
       "type": "code",
-      "sortid": 652,
+      "sortid": 651,
       "compiles": true,
       "locked_code": true,
       "ids": {},
@@ -6583,7 +6541,7 @@
     {
       "name": "RandomVaseSpawn",
       "type": "structure",
-      "sortid": 653,
+      "sortid": 652,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -6592,7 +6550,7 @@
     {
       "name": "PlantVaseSpawn",
       "type": "structure",
-      "sortid": 654,
+      "sortid": 653,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -6601,7 +6559,7 @@
     {
       "name": "BothVasesSpawn",
       "type": "structure",
-      "sortid": 655,
+      "sortid": 654,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -6610,7 +6568,7 @@
     {
       "name": "VaseDungeonSpawn",
       "type": "structure",
-      "sortid": 656,
+      "sortid": 655,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -6619,7 +6577,7 @@
     {
       "name": "VaseDungeonSandstoneSpawn",
       "type": "structure",
-      "sortid": 657,
+      "sortid": 656,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -6628,7 +6586,7 @@
     {
       "name": "VaseDungeonMesaSpawn",
       "type": "structure",
-      "sortid": 658,
+      "sortid": 657,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -6646,7 +6604,7 @@
     {
       "name": "CornSplatSounds",
       "type": "procedure",
-      "sortid": 659,
+      "sortid": 658,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -6675,7 +6633,7 @@
     {
       "name": "CornEffects",
       "type": "procedure",
-      "sortid": 660,
+      "sortid": 659,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -6717,7 +6675,7 @@
     {
       "name": "SpadeRemoveKernelPult",
       "type": "procedure",
-      "sortid": 661,
+      "sortid": 660,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -6754,7 +6712,7 @@
     {
       "name": "VegetablesCornTag",
       "type": "tag",
-      "sortid": 662,
+      "sortid": 661,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -6763,7 +6721,7 @@
     {
       "name": "KernelPultLootTable",
       "type": "loottable",
-      "sortid": 663,
+      "sortid": 662,
       "compiles": true,
       "locked_code": true,
       "ids": {},
@@ -6781,7 +6739,7 @@
     {
       "name": "KernelPultSpawn",
       "type": "procedure",
-      "sortid": 664,
+      "sortid": 663,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -6814,7 +6772,7 @@
     {
       "name": "KernelPultSeedPacketRecipe",
       "type": "recipe",
-      "sortid": 665,
+      "sortid": 664,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -6823,7 +6781,7 @@
     {
       "name": "CornCropsItemTag",
       "type": "tag",
-      "sortid": 666,
+      "sortid": 665,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -6832,7 +6790,7 @@
     {
       "name": "KernelPultSeedPacketRecipe2",
       "type": "recipe",
-      "sortid": 667,
+      "sortid": 666,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -6865,7 +6823,7 @@
     {
       "name": "KernelPultHeadPreciseHitbox",
       "type": "code",
-      "sortid": 668,
+      "sortid": 667,
       "compiles": true,
       "locked_code": true,
       "ids": {},
@@ -6874,7 +6832,7 @@
     {
       "name": "EnchantedGoldenPlumRecipe",
       "type": "recipe",
-      "sortid": 669,
+      "sortid": 668,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -6883,7 +6841,7 @@
     {
       "name": "FreezingPotion",
       "type": "potion",
-      "sortid": 670,
+      "sortid": 669,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -6892,7 +6850,7 @@
     {
       "name": "FreezingPotionEffects",
       "type": "procedure",
-      "sortid": 671,
+      "sortid": 670,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -6914,7 +6872,7 @@
     {
       "name": "FreezingOverlay",
       "type": "overlay",
-      "sortid": 672,
+      "sortid": 671,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -6923,7 +6881,7 @@
     {
       "name": "ButterOverlay",
       "type": "overlay",
-      "sortid": 673,
+      "sortid": 672,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -6932,7 +6890,7 @@
     {
       "name": "DisablePushingOfMobs",
       "type": "procedure",
-      "sortid": 674,
+      "sortid": 673,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -6949,7 +6907,7 @@
     {
       "name": "ButterPotionEffect",
       "type": "procedure",
-      "sortid": 675,
+      "sortid": 674,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -6971,7 +6929,7 @@
     {
       "name": "ButterPotion",
       "type": "potion",
-      "sortid": 676,
+      "sortid": 675,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -6980,7 +6938,7 @@
     {
       "name": "ButterOverlayDisplay",
       "type": "procedure",
-      "sortid": 677,
+      "sortid": 676,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -6992,7 +6950,7 @@
     {
       "name": "UprootEnchantment",
       "type": "enchantment",
-      "sortid": 678,
+      "sortid": 677,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -7001,7 +6959,7 @@
     {
       "name": "PlantsVsZombiesAdvancement",
       "type": "achievement",
-      "sortid": 679,
+      "sortid": 678,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -7010,7 +6968,7 @@
     {
       "name": "ButterflyNetRecipe",
       "type": "recipe",
-      "sortid": 680,
+      "sortid": 679,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -7019,7 +6977,7 @@
     {
       "name": "ButterflyNetCaptureMonarchButterfly",
       "type": "procedure",
-      "sortid": 681,
+      "sortid": 680,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -7031,7 +6989,7 @@
     {
       "name": "MonarchButterflyRelease",
       "type": "procedure",
-      "sortid": 682,
+      "sortid": 681,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -7064,7 +7022,7 @@
     {
       "name": "ButterflyAdvancement",
       "type": "achievement",
-      "sortid": 683,
+      "sortid": 682,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -7073,7 +7031,7 @@
     {
       "name": "CaptureButterflyAdvancement",
       "type": "achievement",
-      "sortid": 684,
+      "sortid": 683,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -7082,7 +7040,7 @@
     {
       "name": "FeedCaterpillarAdvancement",
       "type": "achievement",
-      "sortid": 685,
+      "sortid": 684,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -7091,7 +7049,7 @@
     {
       "name": "NameMonarchButterfly",
       "type": "procedure",
-      "sortid": 686,
+      "sortid": 685,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -7108,7 +7066,7 @@
     {
       "name": "CocoonToButterfly",
       "type": "achievement",
-      "sortid": 687,
+      "sortid": 686,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -7117,7 +7075,7 @@
     {
       "name": "BreakRandomVase",
       "type": "achievement",
-      "sortid": 688,
+      "sortid": 687,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -7126,7 +7084,7 @@
     {
       "name": "BreakPlantVase",
       "type": "achievement",
-      "sortid": 689,
+      "sortid": 688,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -7135,7 +7093,7 @@
     {
       "name": "ConeHat",
       "type": "achievement",
-      "sortid": 690,
+      "sortid": 689,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -7144,7 +7102,7 @@
     {
       "name": "ConeHatGrantAdvancement",
       "type": "procedure",
-      "sortid": 691,
+      "sortid": 690,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -7161,7 +7119,7 @@
     {
       "name": "SpawnSunflowerSeedPacket",
       "type": "achievement",
-      "sortid": 692,
+      "sortid": 691,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -7170,7 +7128,7 @@
     {
       "name": "SpawnPeashooterSeedPacket",
       "type": "achievement",
-      "sortid": 693,
+      "sortid": 692,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -7179,7 +7137,7 @@
     {
       "name": "SpawnSnowPeaSeedPacket",
       "type": "achievement",
-      "sortid": 694,
+      "sortid": 693,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -7188,7 +7146,7 @@
     {
       "name": "SpawnKernelPultSeedPacket",
       "type": "achievement",
-      "sortid": 695,
+      "sortid": 694,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -7197,7 +7155,7 @@
     {
       "name": "PlaceConeBlock",
       "type": "achievement",
-      "sortid": 696,
+      "sortid": 695,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -7206,7 +7164,7 @@
     {
       "name": "GrantKillPVZZombie",
       "type": "procedure",
-      "sortid": 697,
+      "sortid": 696,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -7227,7 +7185,7 @@
     {
       "name": "KillPVZZombie",
       "type": "achievement",
-      "sortid": 698,
+      "sortid": 697,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -7236,7 +7194,7 @@
     {
       "name": "KillConeheadZombies",
       "type": "achievement",
-      "sortid": 699,
+      "sortid": 698,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -7245,7 +7203,7 @@
     {
       "name": "GrantKillConeheadZombie",
       "type": "procedure",
-      "sortid": 700,
+      "sortid": 699,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -7266,7 +7224,7 @@
     {
       "name": "UprootEnchantmentFunction",
       "type": "procedure",
-      "sortid": 701,
+      "sortid": 700,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -7299,7 +7257,7 @@
     {
       "name": "EntityTimerButterfly",
       "type": "procedure",
-      "sortid": 702,
+      "sortid": 701,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -7316,7 +7274,7 @@
     {
       "name": "MonarchButterflyIcon",
       "type": "item",
-      "sortid": 703,
+      "sortid": 702,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -7325,7 +7283,7 @@
     {
       "name": "MonarchCaterpillarIcon",
       "type": "item",
-      "sortid": 704,
+      "sortid": 703,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -7334,7 +7292,7 @@
     {
       "name": "ButterflyNetCaptureBee",
       "type": "procedure",
-      "sortid": 705,
+      "sortid": 704,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -7346,7 +7304,7 @@
     {
       "name": "BeeRelease",
       "type": "procedure",
-      "sortid": 706,
+      "sortid": 705,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -7379,7 +7337,7 @@
     {
       "name": "CraftButterflyNet",
       "type": "achievement",
-      "sortid": 707,
+      "sortid": 706,
       "compiles": true,
       "locked_code": true,
       "ids": {},
@@ -7388,7 +7346,7 @@
     {
       "name": "CaptureBeeAdvancement",
       "type": "achievement",
-      "sortid": 708,
+      "sortid": 707,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -7397,7 +7355,7 @@
     {
       "name": "PlantVaseRandomOutputRedstone",
       "type": "procedure",
-      "sortid": 709,
+      "sortid": 708,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -7426,7 +7384,7 @@
     {
       "name": "RandomVaseRandomOutputRedstone",
       "type": "procedure",
-      "sortid": 710,
+      "sortid": 709,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -7455,7 +7413,7 @@
     {
       "name": "MonarchCaterpillarGrowthDecreaseTime",
       "type": "procedure",
-      "sortid": 711,
+      "sortid": 710,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -7501,7 +7459,7 @@
     {
       "name": "BalloonUpwardsMovement",
       "type": "procedure",
-      "sortid": 712,
+      "sortid": 711,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -7531,7 +7489,7 @@
     {
       "name": "SpawnWhiteBalloon",
       "type": "procedure",
-      "sortid": 713,
+      "sortid": 712,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -7582,7 +7540,7 @@
     {
       "name": "SpawnOrangeBalloon",
       "type": "procedure",
-      "sortid": 714,
+      "sortid": 713,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -7633,7 +7591,7 @@
     {
       "name": "SpawnMagentaBalloon",
       "type": "procedure",
-      "sortid": 715,
+      "sortid": 714,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -7666,7 +7624,7 @@
     {
       "name": "RemoveWhiteBalloon",
       "type": "procedure",
-      "sortid": 716,
+      "sortid": 715,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -7703,7 +7661,7 @@
     {
       "name": "RemoveOrangeBalloon",
       "type": "procedure",
-      "sortid": 717,
+      "sortid": 716,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -7740,7 +7698,7 @@
     {
       "name": "RemoveMagentaBalloon",
       "type": "procedure",
-      "sortid": 718,
+      "sortid": 717,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -7795,7 +7753,7 @@
     {
       "name": "SpawnLightBlueBalloon",
       "type": "procedure",
-      "sortid": 719,
+      "sortid": 718,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -7828,7 +7786,7 @@
     {
       "name": "RemoveLightBlueBalloon",
       "type": "procedure",
-      "sortid": 720,
+      "sortid": 719,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -7883,7 +7841,7 @@
     {
       "name": "SpawnYellowBalloon",
       "type": "procedure",
-      "sortid": 721,
+      "sortid": 720,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -7916,7 +7874,7 @@
     {
       "name": "RemoveYellowBalloon",
       "type": "procedure",
-      "sortid": 722,
+      "sortid": 721,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -7953,7 +7911,7 @@
     {
       "name": "BalloonParticlesOnDeath",
       "type": "procedure",
-      "sortid": 723,
+      "sortid": 722,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -7992,7 +7950,7 @@
     {
       "name": "SpawnLimeBalloon",
       "type": "procedure",
-      "sortid": 724,
+      "sortid": 723,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -8025,7 +7983,7 @@
     {
       "name": "RemoveLimeBalloon",
       "type": "procedure",
-      "sortid": 725,
+      "sortid": 724,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -8161,7 +8119,7 @@
     {
       "name": "SpawnPinkBalloon",
       "type": "procedure",
-      "sortid": 726,
+      "sortid": 725,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -8194,7 +8152,7 @@
     {
       "name": "RemovePinkBalloon",
       "type": "procedure",
-      "sortid": 727,
+      "sortid": 726,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -8240,7 +8198,7 @@
     {
       "name": "SpawnGrayBalloon",
       "type": "procedure",
-      "sortid": 728,
+      "sortid": 727,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -8273,7 +8231,7 @@
     {
       "name": "RemoveGrayBalloon",
       "type": "procedure",
-      "sortid": 729,
+      "sortid": 728,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -8319,7 +8277,7 @@
     {
       "name": "SpawnLightGrayBalloon",
       "type": "procedure",
-      "sortid": 730,
+      "sortid": 729,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -8352,7 +8310,7 @@
     {
       "name": "RemoveLightGrayBalloon",
       "type": "procedure",
-      "sortid": 731,
+      "sortid": 730,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -8398,7 +8356,7 @@
     {
       "name": "SpawnCyanBalloon",
       "type": "procedure",
-      "sortid": 732,
+      "sortid": 731,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -8431,7 +8389,7 @@
     {
       "name": "RemoveCyanBalloon",
       "type": "procedure",
-      "sortid": 733,
+      "sortid": 732,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -8477,7 +8435,7 @@
     {
       "name": "SpawnPurpleBalloon",
       "type": "procedure",
-      "sortid": 734,
+      "sortid": 733,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -8510,7 +8468,7 @@
     {
       "name": "RemovePurpleBalloon",
       "type": "procedure",
-      "sortid": 735,
+      "sortid": 734,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -8556,7 +8514,7 @@
     {
       "name": "SpawnBlueBalloon",
       "type": "procedure",
-      "sortid": 736,
+      "sortid": 735,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -8589,7 +8547,7 @@
     {
       "name": "RemoveBlueBalloon",
       "type": "procedure",
-      "sortid": 737,
+      "sortid": 736,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -8635,7 +8593,7 @@
     {
       "name": "SpawnBrownBalloon",
       "type": "procedure",
-      "sortid": 738,
+      "sortid": 737,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -8668,7 +8626,7 @@
     {
       "name": "RemoveBrownBalloon",
       "type": "procedure",
-      "sortid": 739,
+      "sortid": 738,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -8714,7 +8672,7 @@
     {
       "name": "SpawnGreenBalloon",
       "type": "procedure",
-      "sortid": 740,
+      "sortid": 739,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -8747,7 +8705,7 @@
     {
       "name": "RemoveGreenBalloon",
       "type": "procedure",
-      "sortid": 741,
+      "sortid": 740,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -8793,7 +8751,7 @@
     {
       "name": "SpawnRedBalloon",
       "type": "procedure",
-      "sortid": 742,
+      "sortid": 741,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -8826,7 +8784,7 @@
     {
       "name": "RemoveRedBalloon",
       "type": "procedure",
-      "sortid": 743,
+      "sortid": 742,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -8872,7 +8830,7 @@
     {
       "name": "SpawnBlackBalloon",
       "type": "procedure",
-      "sortid": 744,
+      "sortid": 743,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -8905,7 +8863,7 @@
     {
       "name": "RemoveBlackBalloon",
       "type": "procedure",
-      "sortid": 745,
+      "sortid": 744,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -8960,7 +8918,7 @@
     {
       "name": "SpawnUndyedBalloon",
       "type": "procedure",
-      "sortid": 746,
+      "sortid": 745,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -8993,7 +8951,7 @@
     {
       "name": "RemoveUndyedBalloon",
       "type": "procedure",
-      "sortid": 747,
+      "sortid": 746,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -9030,7 +8988,7 @@
     {
       "name": "UndyedBalloonRecipe",
       "type": "recipe",
-      "sortid": 748,
+      "sortid": 747,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -9039,7 +8997,7 @@
     {
       "name": "BlackBalloonRecipe",
       "type": "recipe",
-      "sortid": 749,
+      "sortid": 748,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -9048,7 +9006,7 @@
     {
       "name": "BlueBalloonRecipe",
       "type": "recipe",
-      "sortid": 750,
+      "sortid": 749,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -9057,7 +9015,7 @@
     {
       "name": "BrownBalloonRecipe",
       "type": "recipe",
-      "sortid": 751,
+      "sortid": 750,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -9066,7 +9024,7 @@
     {
       "name": "CyanBalloonRecipe",
       "type": "recipe",
-      "sortid": 752,
+      "sortid": 751,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -9075,7 +9033,7 @@
     {
       "name": "GrayBalloonRecipe",
       "type": "recipe",
-      "sortid": 753,
+      "sortid": 752,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -9084,7 +9042,7 @@
     {
       "name": "GreenBalloonRecipe",
       "type": "recipe",
-      "sortid": 754,
+      "sortid": 753,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -9093,7 +9051,7 @@
     {
       "name": "LightBlueBalloonRecipe",
       "type": "recipe",
-      "sortid": 755,
+      "sortid": 754,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -9102,7 +9060,7 @@
     {
       "name": "LightGrayBalloonRecipe",
       "type": "recipe",
-      "sortid": 756,
+      "sortid": 755,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -9111,7 +9069,7 @@
     {
       "name": "LimeBalloonRecipe",
       "type": "recipe",
-      "sortid": 757,
+      "sortid": 756,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -9120,7 +9078,7 @@
     {
       "name": "MagentaBalloonRecipe",
       "type": "recipe",
-      "sortid": 758,
+      "sortid": 757,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -9129,7 +9087,7 @@
     {
       "name": "OrangeBalloonRecipe",
       "type": "recipe",
-      "sortid": 759,
+      "sortid": 758,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -9138,7 +9096,7 @@
     {
       "name": "PinkBalloonRecipe",
       "type": "recipe",
-      "sortid": 760,
+      "sortid": 759,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -9147,7 +9105,7 @@
     {
       "name": "PurpleBalloonRecipe",
       "type": "recipe",
-      "sortid": 761,
+      "sortid": 760,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -9156,7 +9114,7 @@
     {
       "name": "RedBalloonRecipe",
       "type": "recipe",
-      "sortid": 762,
+      "sortid": 761,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -9165,7 +9123,7 @@
     {
       "name": "WhiteBalloonRecipe",
       "type": "recipe",
-      "sortid": 763,
+      "sortid": 762,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -9174,7 +9132,7 @@
     {
       "name": "YellowBalloonRecipe",
       "type": "recipe",
-      "sortid": 764,
+      "sortid": 763,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -9210,7 +9168,7 @@
     {
       "name": "BalloonsItemTag",
       "type": "tag",
-      "sortid": 765,
+      "sortid": 764,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -9219,7 +9177,7 @@
     {
       "name": "UndyedBalloonRecipe2",
       "type": "recipe",
-      "sortid": 766,
+      "sortid": 765,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -9246,7 +9204,7 @@
     {
       "name": "IsNightInWorld",
       "type": "procedure",
-      "sortid": 767,
+      "sortid": 766,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -9291,7 +9249,7 @@
     {
       "name": "AzureLadderRecipe",
       "type": "recipe",
-      "sortid": 768,
+      "sortid": 767,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -9300,7 +9258,7 @@
     {
       "name": "PlantStemLadderRecipe",
       "type": "recipe",
-      "sortid": 769,
+      "sortid": 768,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -9309,7 +9267,7 @@
     {
       "name": "AzureLadderFuel",
       "type": "fuel",
-      "sortid": 770,
+      "sortid": 769,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -9318,7 +9276,7 @@
     {
       "name": "PlantStemLadderFuel",
       "type": "fuel",
-      "sortid": 771,
+      "sortid": 770,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -9327,7 +9285,7 @@
     {
       "name": "MobNBTHelper",
       "type": "code",
-      "sortid": 772,
+      "sortid": 771,
       "compiles": true,
       "locked_code": true,
       "ids": {},
@@ -9336,7 +9294,7 @@
     {
       "name": "Message",
       "type": "code",
-      "sortid": 773,
+      "sortid": 772,
       "compiles": true,
       "locked_code": true,
       "ids": {},
@@ -9345,7 +9303,7 @@
     {
       "name": "ButterflyNetSoundAndParticles",
       "type": "procedure",
-      "sortid": 774,
+      "sortid": 773,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -9378,7 +9336,7 @@
     {
       "name": "SnowPeaNaturalSpawn",
       "type": "procedure",
-      "sortid": 775,
+      "sortid": 774,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -9408,7 +9366,7 @@
     {
       "name": "RenderTypeDictionary",
       "type": "code",
-      "sortid": 776,
+      "sortid": 775,
       "compiles": true,
       "locked_code": true,
       "ids": {},
@@ -9417,7 +9375,7 @@
     {
       "name": "ClientEventHandler",
       "type": "code",
-      "sortid": 777,
+      "sortid": 776,
       "compiles": true,
       "locked_code": true,
       "ids": {},
@@ -9426,7 +9384,7 @@
     {
       "name": "PeashooterNaturalSpawn",
       "type": "procedure",
-      "sortid": 778,
+      "sortid": 777,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -9456,7 +9414,7 @@
     {
       "name": "MexicanSunflowerNaturalSpawn",
       "type": "procedure",
-      "sortid": 779,
+      "sortid": 778,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -9486,7 +9444,7 @@
     {
       "name": "SunflowerNaturalSpawn",
       "type": "procedure",
-      "sortid": 780,
+      "sortid": 779,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -9516,7 +9474,7 @@
     {
       "name": "KernelPultNaturalSpawn",
       "type": "procedure",
-      "sortid": 781,
+      "sortid": 780,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -9546,7 +9504,7 @@
     {
       "name": "ZombieNaturalSpawn",
       "type": "procedure",
-      "sortid": 782,
+      "sortid": 781,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -9576,7 +9534,7 @@
     {
       "name": "DragonflyNaturalSpawn",
       "type": "procedure",
-      "sortid": 783,
+      "sortid": 782,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -9606,7 +9564,7 @@
     {
       "name": "HostileDragonflyNaturalSpawn",
       "type": "procedure",
-      "sortid": 784,
+      "sortid": 783,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -9636,7 +9594,7 @@
     {
       "name": "ButterflyEggNaturalSpawn",
       "type": "procedure",
-      "sortid": 785,
+      "sortid": 784,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -9666,7 +9624,7 @@
     {
       "name": "CaterpillarNaturalSpawn",
       "type": "procedure",
-      "sortid": 786,
+      "sortid": 785,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -9696,7 +9654,7 @@
     {
       "name": "ButterflyNaturalSpawn",
       "type": "procedure",
-      "sortid": 787,
+      "sortid": 786,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -9726,7 +9684,7 @@
     {
       "name": "MexicanSunflowerCrop",
       "type": "block",
-      "sortid": 788,
+      "sortid": 787,
       "compiles": true,
       "locked_code": true,
       "ids": {},
@@ -9735,7 +9693,7 @@
     {
       "name": "CropsBlockTag",
       "type": "tag",
-      "sortid": 789,
+      "sortid": 788,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -9744,7 +9702,7 @@
     {
       "name": "MexicanSunflowerCropDrops",
       "type": "loottable",
-      "sortid": 790,
+      "sortid": 789,
       "compiles": true,
       "locked_code": true,
       "ids": {},
@@ -9762,7 +9720,7 @@
     {
       "name": "AzureFenceGateRecipe",
       "type": "recipe",
-      "sortid": 791,
+      "sortid": 790,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -9771,7 +9729,7 @@
     {
       "name": "FenceGatesBlockTag",
       "type": "tag",
-      "sortid": 792,
+      "sortid": 791,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -9780,7 +9738,7 @@
     {
       "name": "FenceGatesItemTag",
       "type": "tag",
-      "sortid": 793,
+      "sortid": 792,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -9789,7 +9747,7 @@
     {
       "name": "AzureFenceGateFuel",
       "type": "fuel",
-      "sortid": 794,
+      "sortid": 793,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -9807,7 +9765,7 @@
     {
       "name": "PlantStemFenceGateRecipe",
       "type": "recipe",
-      "sortid": 795,
+      "sortid": 794,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -9816,7 +9774,7 @@
     {
       "name": "PlantStemFenceGateFuel",
       "type": "fuel",
-      "sortid": 796,
+      "sortid": 795,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -9825,7 +9783,7 @@
     {
       "name": "WoodenDoorsBlockTag",
       "type": "tag",
-      "sortid": 797,
+      "sortid": 796,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -9834,7 +9792,7 @@
     {
       "name": "WoodenDoorsItemTag",
       "type": "tag",
-      "sortid": 798,
+      "sortid": 797,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -9843,7 +9801,7 @@
     {
       "name": "GlassSlabStonecutterRecipe",
       "type": "recipe",
-      "sortid": 799,
+      "sortid": 798,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -9852,7 +9810,7 @@
     {
       "name": "GlassStairsStonecutterRecipe",
       "type": "recipe",
-      "sortid": 800,
+      "sortid": 799,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -9861,7 +9819,7 @@
     {
       "name": "BlockTimer",
       "type": "procedure",
-      "sortid": 801,
+      "sortid": 800,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -9890,7 +9848,7 @@
     {
       "name": "UprootEnchantment3x3",
       "type": "procedure",
-      "sortid": 802,
+      "sortid": 801,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -9947,7 +9905,7 @@
     {
       "name": "StoneButterflyNetRecipe",
       "type": "recipe",
-      "sortid": 804,
+      "sortid": 802,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -9956,7 +9914,7 @@
     {
       "name": "IronButterflyNetRecipe",
       "type": "recipe",
-      "sortid": 805,
+      "sortid": 803,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -9965,7 +9923,7 @@
     {
       "name": "GoldenButterflyNetRecipe",
       "type": "recipe",
-      "sortid": 806,
+      "sortid": 804,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -9974,7 +9932,7 @@
     {
       "name": "DiamondButterflyNetRecipe",
       "type": "recipe",
-      "sortid": 807,
+      "sortid": 805,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -9983,7 +9941,7 @@
     {
       "name": "ExperienceOreDrops",
       "type": "loottable",
-      "sortid": 808,
+      "sortid": 806,
       "compiles": true,
       "locked_code": true,
       "ids": {},
@@ -9992,7 +9950,7 @@
     {
       "name": "ButterflyNetsTag",
       "type": "tag",
-      "sortid": 809,
+      "sortid": 807,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -10001,7 +9959,7 @@
     {
       "name": "FreezingPotionIceBreak",
       "type": "procedure",
-      "sortid": 810,
+      "sortid": 808,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -10022,7 +9980,7 @@
     {
       "name": "OresBlockTag",
       "type": "tag",
-      "sortid": 811,
+      "sortid": 809,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -10031,7 +9989,7 @@
     {
       "name": "OresItemTag",
       "type": "tag",
-      "sortid": 812,
+      "sortid": 810,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -10040,7 +9998,7 @@
     {
       "name": "ExperienceOreBlockTag",
       "type": "tag",
-      "sortid": 813,
+      "sortid": 811,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -10049,7 +10007,7 @@
     {
       "name": "ExperienceOreItemTag",
       "type": "tag",
-      "sortid": 814,
+      "sortid": 812,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -10058,7 +10016,7 @@
     {
       "name": "ButtonCloseGUI",
       "type": "procedure",
-      "sortid": 815,
+      "sortid": 813,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -10084,7 +10042,7 @@
     {
       "name": "DuckNaturalSpawn",
       "type": "procedure",
-      "sortid": 816,
+      "sortid": 814,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -10123,7 +10081,7 @@
     {
       "name": "Cactus",
       "type": "mob",
-      "sortid": 179,
+      "sortid": 177,
       "compiles": true,
       "locked_code": true,
       "ids": {},
@@ -10132,7 +10090,7 @@
     {
       "name": "CactusNaturalSpawn",
       "type": "procedure",
-      "sortid": 817,
+      "sortid": 815,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -10162,7 +10120,7 @@
     {
       "name": "SpadeRemoveCactus",
       "type": "procedure",
-      "sortid": 818,
+      "sortid": 816,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -10208,7 +10166,7 @@
     {
       "name": "CactusSpawn",
       "type": "procedure",
-      "sortid": 819,
+      "sortid": 817,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -10241,7 +10199,7 @@
     {
       "name": "SpawnCactusSeedPacket",
       "type": "achievement",
-      "sortid": 820,
+      "sortid": 818,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -10250,7 +10208,7 @@
     {
       "name": "SpikeHitSounds",
       "type": "procedure",
-      "sortid": 821,
+      "sortid": 819,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -10279,7 +10237,7 @@
     {
       "name": "CactusLootTable",
       "type": "loottable",
-      "sortid": 822,
+      "sortid": 820,
       "compiles": true,
       "locked_code": true,
       "ids": {},
@@ -10288,7 +10246,7 @@
     {
       "name": "BlackDyeRecipe",
       "type": "recipe",
-      "sortid": 823,
+      "sortid": 821,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -10297,7 +10255,7 @@
     {
       "name": "BlackDyeRecipe2",
       "type": "recipe",
-      "sortid": 824,
+      "sortid": 822,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -10306,7 +10264,7 @@
     {
       "name": "BlueDyeRecipe",
       "type": "recipe",
-      "sortid": 825,
+      "sortid": 823,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -10315,7 +10273,7 @@
     {
       "name": "WhiteDyeRecipe",
       "type": "recipe",
-      "sortid": 826,
+      "sortid": 824,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -10324,7 +10282,7 @@
     {
       "name": "OrangeDyeRecipe",
       "type": "recipe",
-      "sortid": 827,
+      "sortid": 825,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -10333,7 +10291,7 @@
     {
       "name": "MagentaDyeRecipe",
       "type": "recipe",
-      "sortid": 828,
+      "sortid": 826,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -10342,7 +10300,7 @@
     {
       "name": "LightBlueDyeRecipe",
       "type": "recipe",
-      "sortid": 829,
+      "sortid": 827,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -10351,7 +10309,7 @@
     {
       "name": "YellowDyeRecipe",
       "type": "recipe",
-      "sortid": 830,
+      "sortid": 828,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -10360,7 +10318,7 @@
     {
       "name": "LimeDyeRecipe",
       "type": "recipe",
-      "sortid": 831,
+      "sortid": 829,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -10369,7 +10327,7 @@
     {
       "name": "PinkDyeRecipe",
       "type": "recipe",
-      "sortid": 832,
+      "sortid": 830,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -10378,7 +10336,7 @@
     {
       "name": "GrayDyeRecipe",
       "type": "recipe",
-      "sortid": 833,
+      "sortid": 831,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -10387,7 +10345,7 @@
     {
       "name": "LightGrayDyeRecipe",
       "type": "recipe",
-      "sortid": 834,
+      "sortid": 832,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -10396,7 +10354,7 @@
     {
       "name": "CyanDyeRecipe",
       "type": "recipe",
-      "sortid": 835,
+      "sortid": 833,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -10405,7 +10363,7 @@
     {
       "name": "PurpleDyeRecipe",
       "type": "recipe",
-      "sortid": 836,
+      "sortid": 834,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -10414,7 +10372,7 @@
     {
       "name": "BrownDyeRecipe",
       "type": "recipe",
-      "sortid": 837,
+      "sortid": 835,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -10423,7 +10381,7 @@
     {
       "name": "GreenDyeRecipe",
       "type": "recipe",
-      "sortid": 838,
+      "sortid": 836,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -10432,7 +10390,7 @@
     {
       "name": "RedDyeRecipe",
       "type": "recipe",
-      "sortid": 839,
+      "sortid": 837,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -10441,7 +10399,7 @@
     {
       "name": "IsPeaceful",
       "type": "procedure",
-      "sortid": 840,
+      "sortid": 838,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -10499,7 +10457,7 @@
     {
       "name": "BlueDragonflyLootTable",
       "type": "loottable",
-      "sortid": 841,
+      "sortid": 839,
       "compiles": true,
       "locked_code": true,
       "ids": {},
@@ -10508,7 +10466,7 @@
     {
       "name": "GreenDragonflyLootTable",
       "type": "loottable",
-      "sortid": 842,
+      "sortid": 840,
       "compiles": true,
       "locked_code": true,
       "ids": {},
@@ -10517,7 +10475,7 @@
     {
       "name": "RedDragonflyLootTable",
       "type": "loottable",
-      "sortid": 843,
+      "sortid": 841,
       "compiles": true,
       "locked_code": true,
       "ids": {},
@@ -10526,7 +10484,7 @@
     {
       "name": "CookedDuckCampfire",
       "type": "recipe",
-      "sortid": 844,
+      "sortid": 842,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -10535,7 +10493,7 @@
     {
       "name": "CookedDuckFurnace",
       "type": "recipe",
-      "sortid": 845,
+      "sortid": 843,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -10544,7 +10502,7 @@
     {
       "name": "CookedDuckSmoker",
       "type": "recipe",
-      "sortid": 846,
+      "sortid": 844,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -10553,7 +10511,7 @@
     {
       "name": "MallardDuckLootTable",
       "type": "loottable",
-      "sortid": 847,
+      "sortid": 845,
       "compiles": true,
       "locked_code": true,
       "ids": {},
@@ -10562,7 +10520,7 @@
     {
       "name": "RoastedDragonflyCampfire",
       "type": "recipe",
-      "sortid": 848,
+      "sortid": 846,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -10571,7 +10529,7 @@
     {
       "name": "RoastedDragonflyFurnace",
       "type": "recipe",
-      "sortid": 849,
+      "sortid": 847,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -10580,7 +10538,7 @@
     {
       "name": "RoastedDragonflySmoker",
       "type": "recipe",
-      "sortid": 850,
+      "sortid": 848,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -10598,7 +10556,7 @@
     {
       "name": "FeathersTag",
       "type": "tag",
-      "sortid": 851,
+      "sortid": 849,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -10607,7 +10565,7 @@
     {
       "name": "ArrowRecipe",
       "type": "recipe",
-      "sortid": 852,
+      "sortid": 850,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -10616,7 +10574,7 @@
     {
       "name": "CactusSeedPacketRecipe",
       "type": "recipe",
-      "sortid": 853,
+      "sortid": 851,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -10625,7 +10583,7 @@
     {
       "name": "ShearCactusSpikes",
       "type": "procedure",
-      "sortid": 854,
+      "sortid": 852,
       "compiles": true,
       "locked_code": true,
       "ids": {},
@@ -10658,7 +10616,7 @@
     {
       "name": "SpikeRecipe",
       "type": "recipe",
-      "sortid": 855,
+      "sortid": 853,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -10667,7 +10625,7 @@
     {
       "name": "DungeonSpawnDesert",
       "type": "procedure",
-      "sortid": 856,
+      "sortid": 854,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -10697,7 +10655,7 @@
     {
       "name": "DungeonSpawnMesa",
       "type": "procedure",
-      "sortid": 857,
+      "sortid": 855,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -10727,7 +10685,7 @@
     {
       "name": "DungeonSpawnNormal",
       "type": "procedure",
-      "sortid": 858,
+      "sortid": 856,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -10757,7 +10715,7 @@
     {
       "name": "ThornsRecipe",
       "type": "recipe",
-      "sortid": 859,
+      "sortid": 857,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -10790,7 +10748,7 @@
     {
       "name": "KillBucketheadZombie",
       "type": "achievement",
-      "sortid": 860,
+      "sortid": 858,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -10799,7 +10757,7 @@
     {
       "name": "GrantKillBucketheadZombie",
       "type": "procedure",
-      "sortid": 861,
+      "sortid": 859,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -10820,7 +10778,7 @@
     {
       "name": "BucketHelmetRecipe",
       "type": "recipe",
-      "sortid": 862,
+      "sortid": 860,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -10829,7 +10787,7 @@
     {
       "name": "BucketHelmetRecipe2",
       "type": "recipe",
-      "sortid": 863,
+      "sortid": 861,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -10838,7 +10796,7 @@
     {
       "name": "BannerPatternNew",
       "type": "code",
-      "sortid": 864,
+      "sortid": 862,
       "compiles": true,
       "locked_code": true,
       "ids": {},
@@ -10847,7 +10805,7 @@
     {
       "name": "BannerPatternRegistry",
       "type": "code",
-      "sortid": 865,
+      "sortid": 863,
       "compiles": true,
       "locked_code": true,
       "ids": {},
@@ -10856,7 +10814,7 @@
     {
       "name": "BrainBannerPatternRecipe",
       "type": "recipe",
-      "sortid": 866,
+      "sortid": 864,
       "compiles": true,
       "locked_code": true,
       "ids": {},
@@ -10874,7 +10832,7 @@
     {
       "name": "BucketheadZombieLootTable",
       "type": "loottable",
-      "sortid": 867,
+      "sortid": 865,
       "compiles": true,
       "locked_code": true,
       "ids": {},
@@ -10892,7 +10850,7 @@
     {
       "name": "FlagZombieSpawnZombies",
       "type": "procedure",
-      "sortid": 868,
+      "sortid": 866,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -10913,7 +10871,7 @@
     {
       "name": "FlagZombieLootTable",
       "type": "loottable",
-      "sortid": 869,
+      "sortid": 867,
       "compiles": true,
       "locked_code": true,
       "ids": {},
@@ -10922,7 +10880,7 @@
     {
       "name": "KillFlagZombie",
       "type": "achievement",
-      "sortid": 870,
+      "sortid": 868,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -10931,7 +10889,7 @@
     {
       "name": "GrantKillFlagZombie",
       "type": "procedure",
-      "sortid": 871,
+      "sortid": 869,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -10952,24 +10910,19 @@
     {
       "name": "EntityTimerButterflyEgg",
       "type": "procedure",
-      "sortid": 872,
+      "sortid": 870,
       "compiles": true,
       "locked_code": false,
       "ids": {},
       "registry_name": "entity_timer_butterfly_egg",
       "metadata": {
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          }
-        ]
+        "dependencies": []
       }
     },
     {
       "name": "GrantButterflyBreederAdvancement",
       "type": "procedure",
-      "sortid": 873,
+      "sortid": 871,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -10990,7 +10943,7 @@
     {
       "name": "BlockTimerGrave",
       "type": "procedure",
-      "sortid": 874,
+      "sortid": 872,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -11028,7 +10981,7 @@
     {
       "name": "GraveSpawnZombies",
       "type": "procedure",
-      "sortid": 875,
+      "sortid": 873,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -11057,7 +11010,7 @@
     {
       "name": "GraveDrops",
       "type": "loottable",
-      "sortid": 876,
+      "sortid": 874,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -11066,7 +11019,7 @@
     {
       "name": "BreakGraveSpawnZombies",
       "type": "procedure",
-      "sortid": 877,
+      "sortid": 875,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -11099,7 +11052,7 @@
     {
       "name": "GravesBlockTag",
       "type": "tag",
-      "sortid": 878,
+      "sortid": 876,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -11108,7 +11061,7 @@
     {
       "name": "GravesItemTag",
       "type": "tag",
-      "sortid": 879,
+      "sortid": 877,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -11117,7 +11070,7 @@
     {
       "name": "GraveRecipe",
       "type": "recipe",
-      "sortid": 880,
+      "sortid": 878,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -11135,7 +11088,7 @@
     {
       "name": "GraveStonecutter",
       "type": "recipe",
-      "sortid": 881,
+      "sortid": 879,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -11144,7 +11097,7 @@
     {
       "name": "CrossGraveStonecutter",
       "type": "recipe",
-      "sortid": 882,
+      "sortid": 880,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -11153,7 +11106,7 @@
     {
       "name": "CrossGraveRecipe",
       "type": "recipe",
-      "sortid": 883,
+      "sortid": 881,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -11162,7 +11115,7 @@
     {
       "name": "CrossGraveDrops",
       "type": "loottable",
-      "sortid": 884,
+      "sortid": 882,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -11171,7 +11124,7 @@
     {
       "name": "CrossGravePreciseHitbox",
       "type": "code",
-      "sortid": 885,
+      "sortid": 883,
       "compiles": true,
       "locked_code": true,
       "ids": {},
@@ -11189,7 +11142,7 @@
     {
       "name": "BatGraveStonecutter",
       "type": "recipe",
-      "sortid": 886,
+      "sortid": 884,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -11198,7 +11151,7 @@
     {
       "name": "BatGraveDrops",
       "type": "loottable",
-      "sortid": 887,
+      "sortid": 885,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -11207,7 +11160,7 @@
     {
       "name": "BatGravePreciseHitbox",
       "type": "code",
-      "sortid": 888,
+      "sortid": 886,
       "compiles": true,
       "locked_code": true,
       "ids": {},
@@ -11225,7 +11178,7 @@
     {
       "name": "SkullGraveDrops",
       "type": "loottable",
-      "sortid": 889,
+      "sortid": 887,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -11234,7 +11187,7 @@
     {
       "name": "SkullGravePreciseHitbox",
       "type": "code",
-      "sortid": 890,
+      "sortid": 888,
       "compiles": true,
       "locked_code": true,
       "ids": {},
@@ -11243,7 +11196,7 @@
     {
       "name": "SkullGraveStonecutter",
       "type": "recipe",
-      "sortid": 891,
+      "sortid": 889,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -11261,7 +11214,7 @@
     {
       "name": "SmallCrossGraveDrops",
       "type": "loottable",
-      "sortid": 892,
+      "sortid": 890,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -11270,7 +11223,7 @@
     {
       "name": "SmallCrossGraveStonecutter",
       "type": "recipe",
-      "sortid": 893,
+      "sortid": 891,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -11279,7 +11232,7 @@
     {
       "name": "SmallCrossGravePreciseHitbox",
       "type": "code",
-      "sortid": 894,
+      "sortid": 892,
       "compiles": true,
       "locked_code": true,
       "ids": {},
@@ -11288,7 +11241,7 @@
     {
       "name": "CarpetsBlockTag",
       "type": "tag",
-      "sortid": 895,
+      "sortid": 893,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -11297,7 +11250,7 @@
     {
       "name": "CarpetsItemTag",
       "type": "tag",
-      "sortid": 896,
+      "sortid": 894,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -11306,7 +11259,7 @@
     {
       "name": "LadderBlockTag",
       "type": "tag",
-      "sortid": 897,
+      "sortid": 895,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -11315,7 +11268,7 @@
     {
       "name": "LadderItemTag",
       "type": "tag",
-      "sortid": 898,
+      "sortid": 896,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -11324,7 +11277,7 @@
     {
       "name": "DespawnPeaceful",
       "type": "procedure",
-      "sortid": 899,
+      "sortid": 897,
       "compiles": true,
       "locked_code": false,
       "ids": {},
@@ -11341,6 +11294,345 @@
           }
         ]
       }
+    },
+    {
+      "name": "StripAzureCrate",
+      "type": "procedure",
+      "sortid": 898,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "strip_azure_crate",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "StripAzureLog",
+      "type": "procedure",
+      "sortid": 899,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "strip_azure_log",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "StripAzureWood",
+      "type": "procedure",
+      "sortid": 900,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "strip_azure_wood",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "StripAzureWoodWall",
+      "type": "procedure",
+      "sortid": 901,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "strip_azure_wood_wall",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "StripPlantStemCrate",
+      "type": "procedure",
+      "sortid": 902,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "strip_plant_stem_crate",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "StripPlantStem",
+      "type": "procedure",
+      "sortid": 903,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "strip_plant_stem",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "StripPlantStemWood",
+      "type": "procedure",
+      "sortid": 904,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "strip_plant_stem_wood",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "StripPlantStemWall",
+      "type": "procedure",
+      "sortid": 905,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "strip_plant_stem_wall",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "LeatherCampfire",
+      "type": "recipe",
+      "sortid": 906,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "leather_campfire"
+    },
+    {
+      "name": "LeatherFurnace",
+      "type": "recipe",
+      "sortid": 907,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "leather_furnace"
+    },
+    {
+      "name": "LeatherSmoker",
+      "type": "recipe",
+      "sortid": 908,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "leather_smoker"
+    },
+    {
+      "name": "ToolShovelsTag",
+      "type": "tag",
+      "sortid": 909,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "tool_shovels_tag"
+    },
+    {
+      "name": "EmptyJarBlockDrops",
+      "type": "loottable",
+      "sortid": 911,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "empty_jar_block_drops"
+    },
+    {
+      "name": "PlaceEmptyJarBlock",
+      "type": "procedure",
+      "sortid": 912,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "place_empty_jar_block",
+      "metadata": {
+        "dependencies": []
+      }
+    },
+    {
+      "name": "EmptyJar",
+      "type": "block",
+      "sortid": 913,
+      "compiles": true,
+      "locked_code": true,
+      "ids": {},
+      "registry_name": "empty_jar"
+    },
+    {
+      "name": "EmptyJarPreciseHitbox",
+      "type": "code",
+      "sortid": 914,
+      "compiles": true,
+      "locked_code": true,
+      "ids": {},
+      "registry_name": "empty_jar_precise_hitbox"
     }
   ],
   "variable_elements": [
@@ -11624,11 +11916,12 @@
     "en_us": {
       "block.natureplus.vertical_azure_slab": "Vertical Azure Slab",
       "item.natureplus.black_balloon_item": "Black Balloon",
+      "block.natureplus.empty_jar": "Empty Jar",
       "item.natureplus.green_balloon_spawn_egg": "Green Balloon Spawn Egg",
       "block.natureplus.snow_pea_head": "Snow Pea Head",
       "advancements.kill_conehead_zombies.title": "Give Me Your Cone!",
       "block.natureplus.cyan_petal_carpet": "Cyan Petals Carpet",
-      "advancements.cone_hat.descr": "Place a Traffic Cone on your head",
+      "advancements.cone_hat.descr": "Place a cone on your head",
       "advancements.giant_blue_orchid_advancement.title": "Giant Blue Orchids",
       "block.natureplus.white_petal_block": "White Petals Block",
       "block.minecraft.banner.brain.light_blue": "Light Blue Brain",
@@ -11649,7 +11942,7 @@
       "item.natureplus.captured_monarch_butterfly_butterfly_net": "Butterfly Net - Captured Monarch Butterfly",
       "item.minecraft.tipped_arrow.effect.butter_potion": "Arrow of Potion of Butter",
       "entity.natureplus.sunflower": "Sunflower",
-      "advancements.place_cone_block.descr": "Place a Traffic Cone",
+      "advancements.place_cone_block.descr": "Place a Cone",
       "block.natureplus.stripped_azure_wood": "Stripped Azure Wood",
       "block.natureplus.purple_petal_carpet": "Purple Petals Carpet",
       "entity.natureplus.monarch_caterpillar": "Monarch Caterpillar",
@@ -11924,7 +12217,6 @@
       "entity.natureplus.monarch_butterfly": "Monarch Butterfly",
       "item.natureplus.golden_mexican_sunflower_seeds": "§bGolden Mexican Sunflower Seeds",
       "advancements.giant_azure_bluet_advancement.title": "Giant Azure Bluets",
-      "item.natureplus.empty_jar": "Empty Jar",
       "item.cookedmexicansunflowerseeds.name": "Cooked Mexican Sunflower Seeds",
       "subtitles.swoosh": "Swoosh",
       "item.natureplus.green_dragonfly": "Green Dragonfly Spawn Egg",
@@ -12022,7 +12314,7 @@
       "item.natureplus.pea": "Pea",
       "item.natureplus.golden_spade": "Golden Spade",
       "entity.natureplus.snow_pea": "Snow Pea",
-      "biome.natureplus.giant_flora": "Giant Flora Forest",
+      "biome.natureplus.giant_flora": "Giant Flora",
       "block.natureplus.vertical_azure_planks": "Vertical Azure Planks",
       "block.natureplus.peashooter_head": "Peashooter Head",
       "advancements.kill_flag_zombie.descr": "Kill a Flag Zombie",
@@ -12047,7 +12339,7 @@
       "block.natureplus.small_cross_grave": "Small Cross Grave",
       "natureplus.tooltip.butterfly_net.health.key": "§6Health: %d/%d",
       "advancements.consume_golden_mexican_sunflower_seeds.title": "Yum!",
-      "advancements.cone_hat.title": "Traffic Cone Hat",
+      "advancements.cone_hat.title": "Cone Hat",
       "block.natureplus.glass_slab": "Glass Slab",
       "block.natureplus.azure_wood_wall": "Azure Wood Wall",
       "item.natureplus.brain_banner_pattern.desc": "Brain",
@@ -12126,5 +12418,5 @@
     "modElementsPackage": "net.wenxin.natureplus",
     "lockBaseModFiles": false
   },
-  "mcreatorVersion": 202000535716
+  "mcreatorVersion": 202000539514
 }

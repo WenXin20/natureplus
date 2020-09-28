@@ -1,11 +1,12 @@
 {
-  "_fv": 11,
+  "_fv": 12,
   "_type": "item",
   "definition": {
     "renderType": 0,
     "texture": "orange_petal",
     "customModelName": "Normal",
     "name": "Orange Petal",
+    "rarity": "COMMON",
     "creativeTab": {
       "value": "CUSTOM:NaturePlusTab"
     },

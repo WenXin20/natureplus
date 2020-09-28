@@ -12,7 +12,7 @@ import java.util.Map;
 @NatureplusModElements.ModElement.Tag
 public class KernelPultNaturalSpawnProcedure extends NatureplusModElements.ModElement {
 	public KernelPultNaturalSpawnProcedure(NatureplusModElements instance) {
-		super(instance, 781);
+		super(instance, 780);
 	}
 
 	public static boolean executeProcedure(Map<String, Object> dependencies) {

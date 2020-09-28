@@ -175,7 +175,12 @@ public class MonarchButterflyEntity extends NatureplusModElements.ModElement {
 
 		@Override
 		public AgeableEntity createChild(AgeableEntity ageable) {
-			return (MonarchEggEntity.CustomEntity) MonarchEggEntity.entity.create(this.world);
+//			return (MonarchEggEntity.CustomEntity) MonarchEggEntity.entity.create(this.world);
+			MonarchEggEntity.CustomEntity retval = (MonarchEggEntity.CustomEntity) MonarchEggEntity.entity.create(this.world);
+			retval.onInitialSpawn(this.world, this.world.getDifficultyForLocation(new BlockPos(retval)), SpawnReason.BREEDING,
+					(ILivingEntityData) null, (CompoundNBT) null);
+			return retval;
+
 		}
 
 		@Override

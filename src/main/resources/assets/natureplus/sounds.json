@@ -1,7 +1,7 @@
 {
   "balloon_inflate": {
     "category": "neutral",
-    "subtitle": "Balloon inflating",
+    "subtitle": "subtitles.balloon_inflate",
     "sounds": [
       {
         "name": "natureplus:balloon_inflate",
@@ -11,7 +11,7 @@
   },
   "balloon_pop": {
     "category": "neutral",
-    "subtitle": "Balloon pop",
+    "subtitle": "subtitles.balloon_pop",
     "sounds": [
       {
         "name": "natureplus:balloon_pop",
@@ -21,7 +21,7 @@
   },
   "balloon_rub": {
     "category": "neutral",
-    "subtitle": "Balloon rub",
+    "subtitle": "subtitles.balloon_rub",
     "sounds": [
       {
         "name": "natureplus:balloon_rub",
@@ -31,7 +31,7 @@
   },
   "bug_squish": {
     "category": "ambient",
-    "subtitle": "Bug squish",
+    "subtitle": "subtitles.bug_squish",
     "sounds": [
       {
         "name": "natureplus:bug_squish",
@@ -41,7 +41,7 @@
   },
   "butterfly_flying": {
     "category": "ambient",
-    "subtitle": "Butterfly flying",
+    "subtitle": "subtitles.butterfly_flying",
     "sounds": [
       {
         "name": "natureplus:butterfly_flying",
@@ -51,7 +51,7 @@
   },
   "cactus_death": {
     "category": "neutral",
-    "subtitle": "Cactus dies",
+    "subtitle": "subtitles.cactus_death",
     "sounds": [
       {
         "name": "natureplus:cactus_death",
@@ -61,7 +61,7 @@
   },
   "cactus_hurt": {
     "category": "neutral",
-    "subtitle": "Cactus hurts",
+    "subtitle": "subtitles.cactus_hurt",
     "sounds": [
       {
         "name": "natureplus:cactus_hurt",
@@ -79,7 +79,7 @@
   },
   "cactus_shoot": {
     "category": "neutral",
-    "subtitle": "Cactus shooting",
+    "subtitle": "subtitles.cactus_shoot",
     "sounds": [
       {
         "name": "natureplus:cactus_shoot",
@@ -113,7 +113,7 @@
   },
   "shovel": {
     "category": "block",
-    "subtitle": "Shoveling",
+    "subtitle": "subtitles.shovel",
     "sounds": [
       {
         "name": "natureplus:shovel",
@@ -123,7 +123,7 @@
   },
   "planting": {
     "category": "block",
-    "subtitle": "Planting",
+    "subtitle": "subtitles.planting",
     "sounds": [
       {
         "name": "natureplus:plant",
@@ -137,7 +137,7 @@
   },
   "planting_water": {
     "category": "block",
-    "subtitle": "Planting",
+    "subtitle": "subtitles.planting_water",
     "sounds": [
       {
         "name": "natureplus:plant_water",
@@ -147,7 +147,7 @@
   },
   "squitch": {
     "category": "ambient",
-    "subtitle": "Bug squitched",
+    "subtitle": "subtitles.squitch",
     "sounds": [
       {
         "name": "natureplus:squitch",
@@ -157,7 +157,7 @@
   },
   "snow_pea_shoot": {
     "category": "ambient",
-    "subtitle": "Snow Pea shooting",
+    "subtitle": "subtitles.snow_pea_shoot",
     "sounds": [
       {
         "name": "natureplus:snow_pea_sparkles",
@@ -171,7 +171,7 @@
   },
   "sunflower_collect": {
     "category": "neutral",
-    "subtitle": "Sun dropped",
+    "subtitle": "subtitles.sunflower_collect",
     "sounds": [
       {
         "name": "natureplus:sunflower_collect",
@@ -181,7 +181,7 @@
   },
   "swoosh": {
     "category": "ambient",
-    "subtitle": "Swoosh",
+    "subtitle": "subtitles.swoosh",
     "sounds": [
       {
         "name": "natureplus:swoosh",
@@ -191,7 +191,7 @@
   },
   "throw": {
     "category": "ambient",
-    "subtitle": "Shooting",
+    "subtitle": "subtitles.throw",
     "sounds": [
       {
         "name": "natureplus:throw",
@@ -205,7 +205,7 @@
   },
   "vase_breaking": {
     "category": "block",
-    "subtitle": "Vase smashing",
+    "subtitle": "subtitles.vase_breaking",
     "sounds": [
       {
         "name": "natureplus:vase_breaking",
@@ -215,7 +215,7 @@
   },
   "zombie_bite": {
     "category": "hostile",
-    "subtitle": "Zombie biting",
+    "subtitle": "subtitles.zombie_bite",
     "sounds": [
       {
         "name": "natureplus:zombiebite",
@@ -225,7 +225,7 @@
   },
   "zombie_gulp": {
     "category": "hostile",
-    "subtitle": "Gulp",
+    "subtitle": "subtitles.zombie_gulp",
     "sounds": [
       {
         "name": "natureplus:gulp",
@@ -235,7 +235,7 @@
   },
   "splat": {
     "category": "ambient",
-    "subtitle": "Splat",
+    "subtitle": "subtitles.splat",
     "sounds": [
       {
         "name": "natureplus:splat",
@@ -253,7 +253,7 @@
   },
   "peashooter_shoot": {
     "category": "neutral",
-    "subtitle": "Peashooter shooting",
+    "subtitle": "subtitles.peashooter_shoot",
     "sounds": [
       {
         "name": "natureplus:peashooter_shoot",
@@ -267,7 +267,7 @@
   },
   "kernel_pult": {
     "category": "neutral",
-    "subtitle": "Plop",
+    "subtitle": "subtitles.kernel_pult",
     "sounds": [
       {
         "name": "natureplus:kernelpult",
@@ -281,7 +281,7 @@
   },
   "spike_hit": {
     "category": "ambient",
-    "subtitle": "Thud",
+    "subtitle": "subtitles.spike_hit",
     "sounds": [
       {
         "name": "natureplus:spike_hit",
@@ -299,7 +299,7 @@
   },
   "duck_death": {
     "category": "neutral",
-    "subtitle": "Duck dies",
+    "subtitle": "subtitles.duck_death",
     "sounds": [
       {
         "name": "natureplus:duck_death",
@@ -309,7 +309,7 @@
   },
   "duck_hurt": {
     "category": "neutral",
-    "subtitle": "Duck hurts",
+    "subtitle": "subtitles.duck_hurt",
     "sounds": [
       {
         "name": "natureplus:duck_hurt",
@@ -319,7 +319,7 @@
   },
   "duck_ambient": {
     "category": "neutral",
-    "subtitle": "Duck quacks",
+    "subtitle": "subtitles.duck_ambient",
     "sounds": [
       {
         "name": "natureplus:duck_ambient",
@@ -341,7 +341,7 @@
   },
   "grave_rumble": {
     "category": "block",
-    "subtitle": "Grave rumbles",
+    "subtitle": "subtitles.grave_rumble",
     "sounds": [
       {
         "name": "natureplus:gravestone_rumble",
@@ -351,7 +351,7 @@
   },
   "zombie_groan": {
     "category": "hostile",
-    "subtitle": "Zombie groans",
+    "subtitle": "subtitles.zombie_groan",
     "sounds": [
       {
         "name": "natureplus:groan",

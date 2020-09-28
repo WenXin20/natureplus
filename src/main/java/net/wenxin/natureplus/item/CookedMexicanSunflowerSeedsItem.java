@@ -7,6 +7,7 @@ import net.wenxin.natureplus.NatureplusModElements;
 import net.minecraftforge.registries.ObjectHolder;
 
 import net.minecraft.item.UseAction;
+import net.minecraft.item.Rarity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Item;
 import net.minecraft.item.Food;
@@ -25,13 +26,13 @@ public class CookedMexicanSunflowerSeedsItem extends NatureplusModElements.ModEl
 	}
 	public static class FoodItemCustom extends Item {
 		public FoodItemCustom() {
-			super(new Item.Properties().group(NaturePlusTabItemGroup.tab).maxStackSize(64)
+			super(new Item.Properties().group(NaturePlusTabItemGroup.tab).maxStackSize(64).rarity(Rarity.COMMON)
 					.food((new Food.Builder()).hunger(4).saturation(0.300000011920929f).setAlwaysEdible().build()));
 			setRegistryName("cooked_mexican_sunflower_seeds");
 		}
 
 		@Override
-		public UseAction getUseAction(ItemStack par1ItemStack) {
+		public UseAction getUseAction(ItemStack itemstack) {
 			return UseAction.EAT;
 		}
 	}

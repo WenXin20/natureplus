@@ -1,0 +1,11 @@
+{
+  "mappings": {
+    "default": {
+      "map": {
+        "side": "empty_jar_side",
+        "top": "empty_jar_top"
+      },
+      "name": "default"
+    }
+  }
+}

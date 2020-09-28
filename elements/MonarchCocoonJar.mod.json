@@ -1,11 +1,12 @@
 {
-  "_fv": 11,
+  "_fv": 12,
   "_type": "item",
   "definition": {
     "renderType": 0,
     "texture": "monarch_cocoon_jar",
     "customModelName": "Normal",
     "name": "Monarch Cocoon Jar",
+    "rarity": "COMMON",
     "creativeTab": {
       "value": "CUSTOM:NaturePlusTab"
     },

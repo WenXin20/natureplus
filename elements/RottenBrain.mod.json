@@ -1,11 +1,12 @@
 {
-  "_fv": 11,
+  "_fv": 12,
   "_type": "food",
   "definition": {
     "renderType": 0,
     "texture": "rotten_brain",
     "customModelName": "Normal",
     "name": "Rotten Brain",
+    "rarity": "COMMON",
     "specialInfo": [],
     "creativeTab": {
       "value": "CUSTOM:PlantsVsZombiesTab"

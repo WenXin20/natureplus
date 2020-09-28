@@ -1,5 +1,5 @@
 {
-  "_fv": 11,
+  "_fv": 12,
   "_type": "block",
   "definition": {
     "texture": "cross_gravestone_front",
@@ -27,6 +27,7 @@
     "hardness": 50.0,
     "resistance": 1200.0,
     "hasGravity": false,
+    "isWaterloggable": false,
     "creativeTab": {
       "value": "CUSTOM:PlantsVsZombiesTab"
     },

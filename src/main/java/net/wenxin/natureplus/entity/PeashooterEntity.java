@@ -25,8 +25,10 @@ import net.minecraft.world.gen.Heightmap;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.World;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.DamageSource;
+import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.item.SpawnEggItem;
 import net.minecraft.item.Items;
@@ -44,10 +46,12 @@ import net.minecraft.entity.ai.goal.LookRandomlyGoal;
 import net.minecraft.entity.ai.goal.LookAtGoal;
 import net.minecraft.entity.ai.goal.HurtByTargetGoal;
 import net.minecraft.entity.ai.goal.BreedGoal;
+import net.minecraft.entity.SpawnReason;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.MobEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.IRangedAttackMob;
+import net.minecraft.entity.ILivingEntityData;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EntitySpawnPlacementRegistry;
 import net.minecraft.entity.EntityClassification;
@@ -152,7 +156,10 @@ public class PeashooterEntity extends NatureplusModElements.ModElement {
 
 		@Override
 		public AgeableEntity createChild(AgeableEntity ageable) {
-			return (CustomEntity) entity.create(this.world);
+			CustomEntity retval = (CustomEntity) entity.create(this.world);
+			retval.onInitialSpawn(this.world, this.world.getDifficultyForLocation(new BlockPos(retval)), SpawnReason.BREEDING,
+					(ILivingEntityData) null, (CompoundNBT) null);
+			return retval;
 		}
 
 		@Override

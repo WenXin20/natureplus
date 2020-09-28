@@ -1,11 +1,12 @@
 {
-  "_fv": 11,
+  "_fv": 12,
   "_type": "food",
   "definition": {
     "renderType": 0,
     "texture": "cooked_duck",
     "customModelName": "Normal",
     "name": "Cooked Duck",
+    "rarity": "COMMON",
     "specialInfo": [],
     "creativeTab": {
       "value": "CUSTOM:NaturePlusTab"

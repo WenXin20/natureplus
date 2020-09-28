@@ -13,6 +13,7 @@ import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.Direction;
 import net.minecraft.util.ActionResultType;
+import net.minecraft.item.Rarity;
 import net.minecraft.item.ItemUseContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Item;
@@ -38,7 +39,7 @@ public class MonarchEggJarItem extends NatureplusModElements.ModElement {
 	}
 	public static class ItemCustom extends Item {
 		public ItemCustom() {
-			super(new Item.Properties().group(NaturePlusTabItemGroup.tab).maxStackSize(64));
+			super(new Item.Properties().group(NaturePlusTabItemGroup.tab).maxStackSize(64).rarity(Rarity.COMMON));
 			setRegistryName("monarch_egg_jar");
 		}
 

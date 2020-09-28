@@ -1,11 +1,12 @@
 {
-  "_fv": 11,
+  "_fv": 12,
   "_type": "food",
   "definition": {
     "renderType": 0,
     "texture": "golden_mexican_sunflower_seeds",
     "customModelName": "Normal",
     "name": "§bGolden Mexican Sunflower Seeds",
+    "rarity": "COMMON",
     "specialInfo": [],
     "creativeTab": {
       "value": "CUSTOM:NaturePlusTab"

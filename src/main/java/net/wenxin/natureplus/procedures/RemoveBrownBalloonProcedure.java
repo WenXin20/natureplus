@@ -24,7 +24,7 @@ import java.util.Map;
 @NatureplusModElements.ModElement.Tag
 public class RemoveBrownBalloonProcedure extends NatureplusModElements.ModElement {
 	public RemoveBrownBalloonProcedure(NatureplusModElements instance) {
-		super(instance, 739);
+		super(instance, 738);
 	}
 
 	public static void executeProcedure(Map<String, Object> dependencies) {

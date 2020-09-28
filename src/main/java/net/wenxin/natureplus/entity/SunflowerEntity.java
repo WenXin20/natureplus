@@ -30,6 +30,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.DamageSource;
 import net.minecraft.nbt.CompoundNBT;
@@ -152,7 +153,10 @@ public class SunflowerEntity extends NatureplusModElements.ModElement {
 
 		@Override
 		public AgeableEntity createChild(AgeableEntity ageable) {
-			return (CustomEntity) entity.create(this.world);
+			CustomEntity retval = (CustomEntity) entity.create(this.world);
+			retval.onInitialSpawn(this.world, this.world.getDifficultyForLocation(new BlockPos(retval)), SpawnReason.BREEDING,
+					(ILivingEntityData) null, (CompoundNBT) null);
+			return retval;
 		}
 
 		@Override
@@ -187,7 +191,7 @@ public class SunflowerEntity extends NatureplusModElements.ModElement {
 
 		@Override
 		public boolean hitByEntity(Entity entity) {
-			if (entity instanceof FrozenPeaItem.ArrowCustomEntity || entity instanceof CornItem.ArrowCustomEntity )
+			if (entity instanceof FrozenPeaItem.ArrowCustomEntity || entity instanceof CornItem.ArrowCustomEntity)
 				return true;
 			return false;
 		}

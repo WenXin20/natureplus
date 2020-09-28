@@ -16,7 +16,7 @@ import java.util.Iterator;
 @NatureplusModElements.ModElement.Tag
 public class GrantKillFlagZombieProcedure extends NatureplusModElements.ModElement {
 	public GrantKillFlagZombieProcedure(NatureplusModElements instance) {
-		super(instance, 871);
+		super(instance, 869);
 	}
 
 	public static void executeProcedure(Map<String, Object> dependencies) {

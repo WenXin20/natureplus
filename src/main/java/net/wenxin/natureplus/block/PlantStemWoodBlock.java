@@ -76,7 +76,7 @@ public class PlantStemWoodBlock extends NatureplusModElements.ModElement {
 			else if (facing == Direction.NORTH || facing == Direction.SOUTH)
 				facing = Direction.EAST;
 			else
-				facing = Direction.SOUTH;
+				facing = Direction.SOUTH;;
 			return this.getDefaultState().with(FACING, facing);
 		}
 

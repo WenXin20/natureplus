@@ -1,5 +1,5 @@
 {
-  "_fv": 11,
+  "_fv": 12,
   "_type": "recipe",
   "definition": {
     "recipeType": "Crafting",
@@ -13,16 +13,16 @@
         "value": "CUSTOM:EmptyJar"
       },
       {
-        "value": "Items.DYE#15"
+        "value": "Blocks.BONE_BLOCK"
       },
       {
         "value": ""
       },
       {
-        "value": "Items.DYE#15"
+        "value": ""
       },
       {
-        "value": "Items.DYE#15"
+        "value": ""
       },
       {
         "value": ""

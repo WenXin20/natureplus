@@ -1,11 +1,12 @@
 {
-  "_fv": 11,
+  "_fv": 12,
   "_type": "item",
   "definition": {
     "renderType": 0,
     "texture": "small_sun",
     "customModelName": "Normal",
     "name": "Small Sun",
+    "rarity": "COMMON",
     "creativeTab": {
       "value": "CUSTOM:PlantsVsZombiesTab"
     },

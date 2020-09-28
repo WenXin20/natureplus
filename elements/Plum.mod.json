@@ -1,11 +1,12 @@
 {
-  "_fv": 11,
+  "_fv": 12,
   "_type": "food",
   "definition": {
     "renderType": 0,
     "texture": "plum",
     "customModelName": "Normal",
     "name": "Plum",
+    "rarity": "COMMON",
     "specialInfo": [],
     "creativeTab": {
       "value": "CUSTOM:NaturePlusTab"

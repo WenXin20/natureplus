@@ -1,8 +1,8 @@
 package net.wenxin.natureplus.procedures;
 
 import net.wenxin.natureplus.item.MonarchCocoonJarItem;
-import net.wenxin.natureplus.item.EmptyJarItem;
 import net.wenxin.natureplus.entity.MonarchCocoonEntity;
+import net.wenxin.natureplus.block.EmptyJarBlock;
 import net.wenxin.natureplus.NatureplusModElements;
 
 import net.minecraftforge.registries.ForgeRegistries;
@@ -30,7 +30,7 @@ import java.util.HashMap;
 @NatureplusModElements.ModElement.Tag
 public class EmptyJarCaptureMonarchCocoonProcedure extends NatureplusModElements.ModElement {
 	public EmptyJarCaptureMonarchCocoonProcedure(NatureplusModElements instance) {
-		super(instance, 581);
+		super(instance, 580);
 		MinecraftForge.EVENT_BUS.register(this);
 	}
 
@@ -72,7 +72,7 @@ public class EmptyJarCaptureMonarchCocoonProcedure extends NatureplusModElements
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
 		IWorld world = (IWorld) dependencies.get("world");
 		if (((((sourceentity instanceof LivingEntity) ? ((LivingEntity) sourceentity).getHeldItemMainhand() : ItemStack.EMPTY)
-				.getItem() == new ItemStack(EmptyJarItem.block, (int) (1)).getItem()) && (entity instanceof MonarchCocoonEntity.CustomEntity))) {
+				.getItem() == new ItemStack(EmptyJarBlock.block, (int) (1)).getItem()) && (entity instanceof MonarchCocoonEntity.CustomEntity))) {
 			if (!world.getWorld().isRemote) {
 				world.playSound(null, new BlockPos((int) x, (int) y, (int) z),
 						(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("item.bottle.fill")),
@@ -104,7 +104,7 @@ public class EmptyJarCaptureMonarchCocoonProcedure extends NatureplusModElements
 				((LivingEntity) sourceentity).swing(Hand.MAIN_HAND, true);
 			}
 		} else if (((((sourceentity instanceof LivingEntity) ? ((LivingEntity) sourceentity).getHeldItemOffhand() : ItemStack.EMPTY)
-				.getItem() == new ItemStack(EmptyJarItem.block, (int) (1)).getItem()) && (entity instanceof MonarchCocoonEntity.CustomEntity))) {
+				.getItem() == new ItemStack(EmptyJarBlock.block, (int) (1)).getItem()) && (entity instanceof MonarchCocoonEntity.CustomEntity))) {
 			if (!world.getWorld().isRemote) {
 				world.playSound(null, new BlockPos((int) x, (int) y, (int) z),
 						(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("item.bottle.fill")),

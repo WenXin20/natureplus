@@ -1,0 +1,9 @@
+{
+  "parent": "natureplus:custom/empty_jar",
+  "textures": {
+    "all": "natureplus:blocks/empty_jar_side",
+    "particle": "natureplus:blocks/empty_jar_side",
+    "side": "natureplus:blocks/empty_jar_side",
+    "top": "natureplus:blocks/empty_jar_top"
+  }
+}

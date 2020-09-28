@@ -1,6 +1,7 @@
 
 package net.wenxin.natureplus.world.biome;
 
+import net.wenxin.natureplus.entity.SunflowerEntity;
 import net.wenxin.natureplus.entity.SnowPeaEntity;
 import net.wenxin.natureplus.entity.PeashooterEntity;
 import net.wenxin.natureplus.entity.PVZZombieEntity;
@@ -20,12 +21,18 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraft.world.gen.placement.Placement;
+import net.minecraft.world.gen.placement.IPlacementConfig;
 import net.minecraft.world.gen.placement.FrequencyConfig;
 import net.minecraft.world.gen.placement.ChanceConfig;
 import net.minecraft.world.gen.placement.AtSurfaceWithExtraConfig;
+import net.minecraft.world.gen.feature.structure.VillageConfig;
+import net.minecraft.world.gen.feature.structure.MineshaftStructure;
+import net.minecraft.world.gen.feature.structure.MineshaftConfig;
 import net.minecraft.world.gen.feature.TwoFeatureChoiceConfig;
 import net.minecraft.world.gen.feature.SphereReplaceConfig;
+import net.minecraft.world.gen.feature.SeaGrassConfig;
 import net.minecraft.world.gen.feature.MultipleRandomFeatureConfig;
+import net.minecraft.world.gen.feature.IFeatureConfig;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.biome.DefaultBiomeFeatures;
@@ -36,17 +43,13 @@ import net.minecraft.block.Blocks;
 
 import com.google.common.collect.Lists;
 import com.google.common.collect.ImmutableList;
-import net.minecraft.world.gen.feature.structure.VillageConfig;
-import net.minecraft.world.gen.feature.IFeatureConfig;
-import net.minecraft.world.gen.feature.structure.MineshaftConfig;
-import net.minecraft.world.gen.feature.structure.MineshaftStructure;
 
 @NatureplusModElements.ModElement.Tag
 public class GiantFloraBiome extends NatureplusModElements.ModElement {
 	@ObjectHolder("natureplus:giant_flora")
 	public static final CustomBiome biome = null;
 	public GiantFloraBiome(NatureplusModElements instance) {
-		super(instance, 398);
+		super(instance, 473);
 	}
 
 	@Override
@@ -56,7 +59,7 @@ public class GiantFloraBiome extends NatureplusModElements.ModElement {
 
 	@Override
 	public void init(FMLCommonSetupEvent event) {
-		BiomeDictionary.addTypes(biome, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.MAGICAL);
+		BiomeDictionary.addTypes(biome, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.LUSH, BiomeDictionary.Type.MAGICAL);
 		BiomeManager.addSpawnBiome(biome);
 		BiomeManager.addBiome(BiomeManager.BiomeType.WARM, new BiomeManager.BiomeEntry(biome, 10));
 	}
@@ -66,20 +69,41 @@ public class GiantFloraBiome extends NatureplusModElements.ModElement {
 					.category(Biome.Category.FOREST).waterColor(-14329397).waterFogColor(-14329397)
 					.surfaceBuilder(SurfaceBuilder.DEFAULT, new SurfaceBuilderConfig(Blocks.GRASS_BLOCK.getDefaultState(),
 							Blocks.DIRT.getDefaultState(), Blocks.DIRT.getDefaultState())));
-	      	this.addStructure(Feature.VILLAGE.withConfiguration(new VillageConfig("village/plains/town_centers", 6)));
-	      	this.addStructure(Feature.PILLAGER_OUTPOST.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
-	      	this.addStructure(Feature.MINESHAFT.withConfiguration(new MineshaftConfig(0.004D, MineshaftStructure.Type.NORMAL)));
-	      	this.addStructure(Feature.STRONGHOLD.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
 			setRegistryName("giant_flora");
 			DefaultBiomeFeatures.addCarvers(this);
-			DefaultBiomeFeatures.addStructures(this);
 			DefaultBiomeFeatures.addMonsterRooms(this);
+			DefaultBiomeFeatures.addStructures(this);
 			DefaultBiomeFeatures.addOres(this);
 			DefaultBiomeFeatures.addLakes(this);
+			DefaultBiomeFeatures.addBamboo(this);
+			DefaultBiomeFeatures.addBerryBushes(this);
+			DefaultBiomeFeatures.addDefaultFlowers(this);
+			DefaultBiomeFeatures.addDoubleFlowers(this);
+			DefaultBiomeFeatures.addExtraDefaultFlowers(this);
+			DefaultBiomeFeatures.addExtraReedsPumpkinsCactus(this);
+			DefaultBiomeFeatures.addFossils(this);
+			DefaultBiomeFeatures.addGrass(this);
+			DefaultBiomeFeatures.addJungleGrass(this);
+			DefaultBiomeFeatures.addJunglePlants(this);
+			DefaultBiomeFeatures.addPlainsTallGrass(this);
+			DefaultBiomeFeatures.addReedsAndPumpkins(this);
+			DefaultBiomeFeatures.addReedsPumpkinsCactus(this);
+			DefaultBiomeFeatures.addSwampVegetation(this);
+			DefaultBiomeFeatures.addTaigaGrassAndMushrooms(this);
+			DefaultBiomeFeatures.addTaigaLargeFerns(this);
+			DefaultBiomeFeatures.addTallSeagrassLush(this);
+			DefaultBiomeFeatures.addDefaultFlowers(this);
+			this.addStructure(Feature.STRONGHOLD.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
+			this.addStructure(Feature.MINESHAFT.withConfiguration(new MineshaftConfig(0.004D, MineshaftStructure.Type.NORMAL)));
+			this.addStructure(Feature.PILLAGER_OUTPOST.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
+			this.addStructure(Feature.VILLAGE.withConfiguration(new VillageConfig("village/plains/town_centers", 6)));
+			this.addStructure(Feature.JUNGLE_TEMPLE.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
 			addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.FLOWER.withConfiguration(DefaultBiomeFeatures.DEFAULT_FLOWER_CONFIG)
-					.withPlacement(Placement.COUNT_HEIGHTMAP_32.configure(new FrequencyConfig(4))));
+					.withPlacement(Placement.COUNT_HEIGHTMAP_32.configure(new FrequencyConfig(20))));
 			addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.withConfiguration(DefaultBiomeFeatures.GRASS_CONFIG)
 					.withPlacement(Placement.COUNT_HEIGHTMAP_DOUBLE.configure(new FrequencyConfig(4))));
+			this.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.SEAGRASS.withConfiguration(new SeaGrassConfig(3, 0.3D))
+					.withPlacement(Placement.TOP_SOLID_HEIGHTMAP.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)));
 			addFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
 					Feature.RANDOM_PATCH.withConfiguration(DefaultBiomeFeatures.BROWN_MUSHROOM_CONFIG)
 							.withPlacement(Placement.CHANCE_HEIGHTMAP_DOUBLE.configure(new ChanceConfig(2))));
@@ -97,9 +121,9 @@ public class GiantFloraBiome extends NatureplusModElements.ModElement {
 							Feature.HUGE_BROWN_MUSHROOM.withConfiguration(DefaultBiomeFeatures.BIG_BROWN_MUSHROOM)))
 					.withPlacement(Placement.COUNT_HEIGHTMAP.configure(new FrequencyConfig(1))));
 			addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.withConfiguration(DefaultBiomeFeatures.SUGAR_CANE_CONFIG)
-					.withPlacement(Placement.COUNT_HEIGHTMAP_DOUBLE.configure(new FrequencyConfig(1))));
+					.withPlacement(Placement.COUNT_HEIGHTMAP_DOUBLE.configure(new FrequencyConfig(3))));
 			addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.withConfiguration(DefaultBiomeFeatures.CACTUS_CONFIG)
-					.withPlacement(Placement.COUNT_HEIGHTMAP_DOUBLE.configure(new FrequencyConfig(1))));
+					.withPlacement(Placement.COUNT_HEIGHTMAP_DOUBLE.configure(new FrequencyConfig(2))));
 			addFeature(GenerationStage.Decoration.UNDERGROUND_ORES,
 					Feature.DISK
 							.withConfiguration(new SphereReplaceConfig(Blocks.SAND.getDefaultState(), 7, 2,
@@ -139,6 +163,7 @@ public class GiantFloraBiome extends NatureplusModElements.ModElement {
 			this.addSpawn(EntityClassification.CREATURE, new Biome.SpawnListEntry(MonarchButterflyEntity.entity, 5, 1, 3));
 			this.addSpawn(EntityClassification.CREATURE, new Biome.SpawnListEntry(MonarchEggEntity.entity, 8, 1, 3));
 			this.addSpawn(EntityClassification.CREATURE, new Biome.SpawnListEntry(EntityType.BEE, 8, 1, 5));
+			this.addSpawn(EntityClassification.CREATURE, new Biome.SpawnListEntry(SunflowerEntity.entity, 8, 1, 4));
 		}
 
 		@OnlyIn(Dist.CLIENT)

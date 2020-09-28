@@ -1,5 +1,5 @@
 {
-  "_fv": 11,
+  "_fv": 12,
   "_type": "plant",
   "definition": {
     "renderType": 12,
@@ -9,6 +9,7 @@
     "staticPlantGenerationType": "Flower",
     "growapableSpawnType": "Plains",
     "growapableMaxHeight": 1,
+    "doublePlantGenerationType": "Flower",
     "name": "Azure Sapling",
     "specialInfo": [
       "§4Do not grow near important structures (WIP)"
@@ -23,6 +24,7 @@
     "soundOnStep": {
       "value": "PLANT"
     },
+    "useLootTableForDrops": false,
     "customDrop": {
       "value": ""
     },

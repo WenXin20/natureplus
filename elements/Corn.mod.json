@@ -1,5 +1,5 @@
 {
-  "_fv": 11,
+  "_fv": 12,
   "_type": "gun",
   "definition": {
     "renderType": 1,
@@ -22,6 +22,7 @@
       "value": "CUSTOM:throw"
     },
     "hasGlow": false,
+    "animation": "bow",
     "enableMeleeDamage": false,
     "damageVsEntity": 0.0,
     "bulletPower": 0.6,

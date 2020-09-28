@@ -1,14 +1,14 @@
 {
-  "_fv": 11,
+  "_fv": 12,
   "_type": "biome",
   "definition": {
+    "name": "Giant Flora",
     "groundBlock": {
       "value": "Blocks.GRASS"
     },
     "undergroundBlock": {
       "value": "Blocks.DIRT#0"
     },
-    "generateLakes": true,
     "treeType": 0,
     "vanillaTreeType": "Default",
     "minHeight": 7,
@@ -33,19 +33,28 @@
       "value": -16738048,
       "falpha": 0.0
     },
+    "foliageColor": {
+      "value": -16738048,
+      "falpha": 0.0
+    },
     "waterColor": {
+      "value": -14329397,
+      "falpha": 0.0
+    },
+    "waterFogColor": {
       "value": -14329397,
       "falpha": 0.0
     },
     "treesPerChunk": 1,
     "grassPerChunk": 4,
-    "flowersPerChunk": 4,
+    "seagrassPerChunk": 3,
+    "flowersPerChunk": 20,
     "mushroomsPerChunk": 2,
     "bigMushroomsChunk": 1,
     "sandPathcesPerChunk": 1,
     "gravelPatchesPerChunk": 1,
-    "reedsPerChunk": 1,
-    "cactiPerChunk": 1,
+    "reedsPerChunk": 3,
+    "cactiPerChunk": 2,
     "rainingPossibility": 0.30000000000000004,
     "temperature": 0.5,
     "baseHeight": 0.1,
@@ -57,8 +66,46 @@
     "parent": {
       "value": "No parent"
     },
+    "spawnStronghold": true,
+    "spawnMineshaft": true,
+    "spawnPillagerOutpost": true,
+    "villageType": "plains",
+    "spawnWoodlandMansion": false,
+    "spawnJungleTemple": true,
+    "spawnDesertPyramid": false,
+    "spawnIgloo": false,
+    "spawnOceanMonument": false,
+    "spawnShipwreck": false,
+    "oceanRuinType": "NONE",
     "biomeDictionaryTypes": [
-      "FOREST"
+      "FOREST",
+      "LUSH",
+      "MAGICAL"
+    ],
+    "defaultFeatures": [
+      "Caves",
+      "MonsterRooms",
+      "Structures",
+      "Ores",
+      "Lakes",
+      "Bamboo",
+      "BerryBushes",
+      "DefaultFlowers",
+      "DoubleFlowers",
+      "ExtraDefaultFlowers",
+      "ExtraReedsPumpkinsCactus",
+      "Fossils",
+      "Grass",
+      "JungleGrass",
+      "JunglePlants",
+      "PlainsTallGrass",
+      "ReedsAndPumpkins",
+      "ReedsPumpkinsCactus",
+      "SwampVegetation",
+      "TaigaGrassAndMushrooms",
+      "TaigaLargeFerns",
+      "TallSeagrassLush",
+      "DefaultFlowers"
     ],
     "spawnEntries": [
       {
@@ -319,6 +366,15 @@
         },
         "minGroup": 1,
         "maxGroup": 5,
+        "weight": 8,
+        "spawnType": "creature"
+      },
+      {
+        "entity": {
+          "value": "CUSTOM:Sunflower"
+        },
+        "minGroup": 1,
+        "maxGroup": 4,
         "weight": 8,
         "spawnType": "creature"
       }

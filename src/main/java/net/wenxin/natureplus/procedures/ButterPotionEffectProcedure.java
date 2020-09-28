@@ -18,7 +18,7 @@ import java.util.Collection;
 @NatureplusModElements.ModElement.Tag
 public class ButterPotionEffectProcedure extends NatureplusModElements.ModElement {
 	public ButterPotionEffectProcedure(NatureplusModElements instance) {
-		super(instance, 675);
+		super(instance, 674);
 	}
 
 	public static boolean executeProcedure(Map<String, Object> dependencies) {
@@ -35,9 +35,9 @@ public class ButterPotionEffectProcedure extends NatureplusModElements.ModElemen
 		Entity entity = (Entity) dependencies.get("entity");
 		IWorld world = (IWorld) dependencies.get("world");
 		if ((new Object() {
-			boolean check(LivingEntity _entity) {
+			boolean check(Entity _entity) {
 				if (_entity instanceof LivingEntity) {
-					Collection<EffectInstance> effects = _entity.getActivePotionEffects();
+					Collection<EffectInstance> effects = ((LivingEntity) _entity).getActivePotionEffects();
 					for (EffectInstance effect : effects) {
 						if (effect.getPotion() == ButterPotionPotion.potion)
 							return true;
@@ -45,7 +45,7 @@ public class ButterPotionEffectProcedure extends NatureplusModElements.ModElemen
 				}
 				return false;
 			}
-		}.check((LivingEntity) entity))) {
+		}.check(entity))) {
 			if ((!((entity instanceof PlayerEntity) ? ((PlayerEntity) entity).abilities.isCreativeMode : false))) {
 				entity.setMotion(0, (entity.getMotion().getY()), 0);
 				if (entity instanceof LivingEntity)
@@ -57,9 +57,9 @@ public class ButterPotionEffectProcedure extends NatureplusModElements.ModElemen
 			}
 		}
 		return (new Object() {
-			boolean check(LivingEntity _entity) {
+			boolean check(Entity _entity) {
 				if (_entity instanceof LivingEntity) {
-					Collection<EffectInstance> effects = _entity.getActivePotionEffects();
+					Collection<EffectInstance> effects = ((LivingEntity) _entity).getActivePotionEffects();
 					for (EffectInstance effect : effects) {
 						if (effect.getPotion() == ButterPotionPotion.potion)
 							return true;
@@ -67,6 +67,6 @@ public class ButterPotionEffectProcedure extends NatureplusModElements.ModElemen
 				}
 				return false;
 			}
-		}.check((LivingEntity) entity));
+		}.check(entity));
 	}
 }
