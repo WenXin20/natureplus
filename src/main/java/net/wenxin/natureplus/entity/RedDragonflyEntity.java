@@ -1,8 +1,8 @@
 
 package net.wenxin.natureplus.entity;
 
+import net.wenxin.natureplus.procedures.RedDragonflyBurnInDaylightProcedure;
 import net.wenxin.natureplus.procedures.HostileDragonflyNaturalSpawnProcedure;
-import net.wenxin.natureplus.procedures.DespawnPeacefulProcedure;
 import net.wenxin.natureplus.itemgroup.NaturePlusTabItemGroup;
 import net.wenxin.natureplus.NatureplusModElements;
 
@@ -38,6 +38,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.ai.goal.TemptGoal;
 import net.minecraft.entity.ai.goal.SwimGoal;
+import net.minecraft.entity.ai.goal.RestrictSunGoal;
 import net.minecraft.entity.ai.goal.RandomWalkingGoal;
 import net.minecraft.entity.ai.goal.NearestAttackableTargetGoal;
 import net.minecraft.entity.ai.goal.MeleeAttackGoal;
@@ -151,8 +152,9 @@ public class RedDragonflyEntity extends NatureplusModElements.ModElement {
 					return new Vec3d(dir_x, dir_y, dir_z);
 				}
 			});
-			this.goalSelector.addGoal(10, new LookRandomlyGoal(this));
-			this.goalSelector.addGoal(11, new SwimGoal(this));
+			this.goalSelector.addGoal(10, new RestrictSunGoal(this));
+			this.goalSelector.addGoal(11, new LookRandomlyGoal(this));
+			this.goalSelector.addGoal(12, new SwimGoal(this));
 		}
 
 		@Override
@@ -186,7 +188,7 @@ public class RedDragonflyEntity extends NatureplusModElements.ModElement {
 				Map<String, Object> $_dependencies = new HashMap<>();
 				$_dependencies.put("entity", entity);
 				$_dependencies.put("world", world);
-				DespawnPeacefulProcedure.executeProcedure($_dependencies);
+				RedDragonflyBurnInDaylightProcedure.executeProcedure($_dependencies);
 			}
 		}
 

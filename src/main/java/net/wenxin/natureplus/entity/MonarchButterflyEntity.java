@@ -146,11 +146,11 @@ public class MonarchButterflyEntity extends NatureplusModElements.ModElement {
 				}
 			});
 			this.goalSelector.addGoal(3, new FollowMobGoal(this, (float) 1, 10, 5));
-			this.goalSelector.addGoal(4, new AvoidEntityGoal(this, ParrotEntity.class, (float) 6, 1, 2.5));
-			this.goalSelector.addGoal(4, new AvoidEntityGoal(this, BlueDragonflyEntity.CustomEntity.class, (float) 6, 1, 2.5));
-			this.goalSelector.addGoal(4, new AvoidEntityGoal(this, GreenDragonflyEntity.CustomEntity.class, (float) 6, 1, 2.5));
-			this.goalSelector.addGoal(4, new AvoidEntityGoal(this, RedDragonflyEntity.CustomEntity.class, (float) 6, 1, 2.5));
-			this.goalSelector.addGoal(5, new PanicGoal(this, 2.0));
+			this.goalSelector.addGoal(4, new AvoidEntityGoal(this, ParrotEntity.class, (float) 6, 2.8, 2.0));
+			this.goalSelector.addGoal(4, new AvoidEntityGoal(this, BlueDragonflyEntity.CustomEntity.class, (float) 6, 2.8, 2.0));
+			this.goalSelector.addGoal(4, new AvoidEntityGoal(this, GreenDragonflyEntity.CustomEntity.class, (float) 6, 2.8, 2.0));
+			this.goalSelector.addGoal(4, new AvoidEntityGoal(this, RedDragonflyEntity.CustomEntity.class, (float) 6, 2.8, 2.0));
+			this.goalSelector.addGoal(5, new PanicGoal(this, 2.8));
 			this.goalSelector.addGoal(5, new LookRandomlyGoal(this));
 			this.goalSelector.addGoal(6, new WaterAvoidingRandomWalkingGoal(this, 1.5));
 			this.goalSelector.addGoal(6, new SwimGoal(this));
