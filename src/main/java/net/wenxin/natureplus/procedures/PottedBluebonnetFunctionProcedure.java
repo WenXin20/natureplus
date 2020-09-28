@@ -74,21 +74,6 @@ public class PottedBluebonnetFunctionProcedure extends NatureplusModElements.Mod
 				((LivingEntity) entity).swing(Hand.MAIN_HAND, true);
 			}
 			world.setBlockState(new BlockPos((int) x, (int) y, (int) z), PottedBluebonnetBlock.block.getDefaultState(), 3);
-		} else if (((((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemOffhand() : ItemStack.EMPTY)
-				.getItem() == new ItemStack(BluebonnetBlock.block, (int) (1)).getItem())
-				&& ((world.getBlockState(new BlockPos((int) x, (int) y, (int) z))).getBlock() == Blocks.FLOWER_POT.getDefaultState().getBlock()))) {
-			if ((!((entity instanceof PlayerEntity) ? ((PlayerEntity) entity).abilities.isCreativeMode : false))) {
-				if (entity instanceof PlayerEntity)
-					((PlayerEntity) entity).inventory.clearMatchingItems(
-							p -> ((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemOffhand() : ItemStack.EMPTY).getItem() == p
-									.getItem(),
-							(int) 1);
-			}
-			world.setBlockState(new BlockPos((int) x, (int) y, (int) z), Blocks.AIR.getDefaultState(), 3);
-			if (entity instanceof LivingEntity) {
-				((LivingEntity) entity).swing(Hand.OFF_HAND, true);
-			}
-			world.setBlockState(new BlockPos((int) x, (int) y, (int) z), PottedBluebonnetBlock.block.getDefaultState(), 3);
 		}
 	}
 

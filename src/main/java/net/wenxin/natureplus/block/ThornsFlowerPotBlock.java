@@ -86,14 +86,6 @@ public class ThornsFlowerPotBlock extends NatureplusModElements.ModElement {
 			return new ItemStack(ThornsBlock.block, (int) (1));
 		}
 
-		@Override
-		public List<ItemStack> getDrops(BlockState state, LootContext.Builder builder) {
-			List<ItemStack> dropsOriginal = super.getDrops(state, builder);
-			if (!dropsOriginal.isEmpty())
-				return dropsOriginal;
-			return Collections.singletonList(new ItemStack(Blocks.FLOWER_POT, (int) (1)));
-		}
-
 		public void onEntityWalk(World worldIn, BlockPos pos, Entity entityIn) {
 			if (entityIn instanceof LivingEntity) {
 				entityIn.attackEntityFrom(DamageSource.CACTUS, 1.0F);

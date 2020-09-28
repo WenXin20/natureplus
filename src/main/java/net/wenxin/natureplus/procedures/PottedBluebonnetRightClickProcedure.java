@@ -4,13 +4,11 @@ import net.wenxin.natureplus.block.PottedBluebonnetBlock;
 import net.wenxin.natureplus.block.BluebonnetBlock;
 import net.wenxin.natureplus.NatureplusModElements;
 
-import net.minecraftforge.items.ItemHandlerHelper;
-
 import net.minecraft.world.IWorld;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.Hand;
 import net.minecraft.item.ItemStack;
-import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.Entity;
 import net.minecraft.block.Blocks;
@@ -55,20 +53,20 @@ public class PottedBluebonnetRightClickProcedure extends NatureplusModElements.M
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
 		IWorld world = (IWorld) dependencies.get("world");
 		if (((PottedBluebonnetBlock.block.getDefaultState().getBlock() == (world.getBlockState(new BlockPos((int) x, (int) y, (int) z))).getBlock())
-				&& ((new ItemStack(Blocks.AIR, (int) (1))
-						.getItem() == ((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY).getItem())
-						&& (new ItemStack(Blocks.AIR, (int) (1))
-								.getItem() == ((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemOffhand() : ItemStack.EMPTY)
-										.getItem())))) {
+				&& (new ItemStack(Blocks.AIR, (int) (1))
+						.getItem() == ((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY)
+								.getItem()))) {
 			if (entity instanceof LivingEntity) {
 				((LivingEntity) entity).swing(Hand.MAIN_HAND, true);
 			}
 			world.setBlockState(new BlockPos((int) x, (int) y, (int) z), Blocks.AIR.getDefaultState(), 3);
 			world.setBlockState(new BlockPos((int) x, (int) y, (int) z), Blocks.FLOWER_POT.getDefaultState(), 3);
-			if (entity instanceof PlayerEntity) {
+			if (entity instanceof LivingEntity) {
 				ItemStack _setstack = new ItemStack(BluebonnetBlock.block, (int) (1));
 				_setstack.setCount((int) 1);
-				ItemHandlerHelper.giveItemToPlayer(((PlayerEntity) entity), _setstack);
+				((LivingEntity) entity).setHeldItem(Hand.MAIN_HAND, _setstack);
+				if (entity instanceof ServerPlayerEntity)
+					((ServerPlayerEntity) entity).inventory.markDirty();
 			}
 		}
 	}
