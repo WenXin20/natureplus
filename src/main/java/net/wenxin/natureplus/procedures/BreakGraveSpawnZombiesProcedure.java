@@ -11,6 +11,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraft.world.server.ServerWorld;
 import net.minecraft.world.World;
 import net.minecraft.world.IWorld;
+import net.minecraft.world.Difficulty;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.ResourceLocation;
@@ -69,7 +70,8 @@ public class BreakGraveSpawnZombiesProcedure extends NatureplusModElements.ModEl
 		IWorld world = (IWorld) dependencies.get("world");
 		if (((!((EnchantmentHelper.getEnchantmentLevel(Enchantments.SILK_TOUCH,
 				((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY))) >= 1))
-				&& (!((entity instanceof PlayerEntity) ? ((PlayerEntity) entity).abilities.isCreativeMode : false)))) {
+				&& ((!((entity instanceof PlayerEntity) ? ((PlayerEntity) entity).abilities.isCreativeMode : false))
+						&& (!(world.getDifficulty() == Difficulty.PEACEFUL))))) {
 			if (world instanceof ServerWorld) {
 				((ServerWorld) world).spawnParticle(ParticleTypes.CAMPFIRE_COSY_SMOKE, (x + 0.5), y, (z + 0.5), (int) 20, 0.5, 0.5, 0.5, 0.01);
 			}

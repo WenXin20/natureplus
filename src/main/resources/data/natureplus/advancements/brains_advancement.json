@@ -1,0 +1,37 @@
+{
+  "display": {
+    "icon": {
+      "item": "natureplus:rotten_brain"
+    },
+    "title": {
+      "translate": "advancements.brains_advancement.title"
+    },
+    "description": {
+      "translate": "advancements.brains_advancement.descr"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "brains_advancement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "natureplus:rotten_brain",
+            "count": {
+              "min": 1,
+              "max": 2000
+            }
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "experience": 1
+  },
+  "parent": "natureplus:kill_pvz_zombie"
+}

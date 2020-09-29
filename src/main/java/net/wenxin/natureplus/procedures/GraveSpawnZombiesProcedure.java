@@ -11,6 +11,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraft.world.server.ServerWorld;
 import net.minecraft.world.World;
 import net.minecraft.world.IWorld;
+import net.minecraft.world.Difficulty;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.SoundCategory;
@@ -71,7 +72,8 @@ public class GraveSpawnZombiesProcedure extends NatureplusModElements.ModElement
 			}
 		}.getValue(new BlockPos((int) x, (int) y, (int) z), "timer_grave")) <= 1)
 				&& ((!(world.getBlockState(new BlockPos((int) x, (int) (y + 1), (int) z)).isSolid()))
-						&& ((!(world.getWorld().isDaytime())) || ((world.getLight(new BlockPos((int) x, (int) y, (int) z))) <= 7))))) {
+						&& ((!(world.getDifficulty() == Difficulty.PEACEFUL))
+								&& ((!(world.getWorld().isDaytime())) || ((world.getLight(new BlockPos((int) x, (int) y, (int) z))) <= 7)))))) {
 			if ((((world
 					.getEntitiesWithinAABB(PlayerEntity.class,
 							new AxisAlignedBB(x - (32 / 2d), y - (32 / 2d), z - (32 / 2d), x + (32 / 2d), y + (32 / 2d), z + (32 / 2d)), null)
