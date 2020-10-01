@@ -12,7 +12,7 @@ import java.util.HashMap;
 @NatureplusModElements.ModElement.Tag
 public class RedDragonflyBurnInDaylightProcedure extends NatureplusModElements.ModElement {
 	public RedDragonflyBurnInDaylightProcedure(NatureplusModElements instance) {
-		super(instance, 917);
+		super(instance, 916);
 	}
 
 	public static void executeProcedure(Map<String, Object> dependencies) {
@@ -28,15 +28,15 @@ public class RedDragonflyBurnInDaylightProcedure extends NatureplusModElements.M
 		}
 		Entity entity = (Entity) dependencies.get("entity");
 		IWorld world = (IWorld) dependencies.get("world");
-		if (((world.getWorld().isDaytime()) && ((!(entity.isInWaterRainOrBubbleColumn()))
-				&& (world.canBlockSeeSky(new BlockPos((int) (entity.getPosX()), (int) (entity.getPosY()), (int) (entity.getPosZ()))))))) {
-			entity.setFire((int) 8);
-		}
 		{
 			Map<String, Object> $_dependencies = new HashMap<>();
 			$_dependencies.put("entity", entity);
 			$_dependencies.put("world", world);
 			DespawnPeacefulProcedure.executeProcedure($_dependencies);
+		}
+		if (((world.getWorld().isDaytime()) && ((!(entity.isInWaterRainOrBubbleColumn()))
+				&& (world.canBlockSeeSky(new BlockPos((int) (entity.getPosX()), (int) (entity.getPosY()), (int) (entity.getPosZ()))))))) {
+			entity.setFire((int) 1);
 		}
 	}
 }

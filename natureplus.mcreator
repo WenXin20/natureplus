@@ -6524,15 +6524,6 @@
       "registry_name": "plant_vase_spawn"
     },
     {
-      "name": "BothVasesSpawn",
-      "type": "structure",
-      "sortid": 655,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "both_vases_spawn"
-    },
-    {
       "name": "VaseDungeonSpawn",
       "type": "structure",
       "sortid": 656,
@@ -11035,15 +11026,6 @@
       "registry_name": "graves_item_tag"
     },
     {
-      "name": "GraveRecipe",
-      "type": "recipe",
-      "sortid": 879,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "grave_recipe"
-    },
-    {
       "name": "CrossGrave",
       "type": "block",
       "sortid": 189,
@@ -11051,33 +11033,6 @@
       "locked_code": true,
       "ids": {},
       "registry_name": "cross_grave"
-    },
-    {
-      "name": "GraveStonecutter",
-      "type": "recipe",
-      "sortid": 880,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "grave_stonecutter"
-    },
-    {
-      "name": "CrossGraveStonecutter",
-      "type": "recipe",
-      "sortid": 881,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "cross_grave_stonecutter"
-    },
-    {
-      "name": "CrossGraveRecipe",
-      "type": "recipe",
-      "sortid": 882,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "cross_grave_recipe"
     },
     {
       "name": "CrossGraveDrops",
@@ -11105,15 +11060,6 @@
       "locked_code": true,
       "ids": {},
       "registry_name": "bat_grave"
-    },
-    {
-      "name": "BatGraveStonecutter",
-      "type": "recipe",
-      "sortid": 885,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "bat_grave_stonecutter"
     },
     {
       "name": "BatGraveDrops",
@@ -11161,15 +11107,6 @@
       "registry_name": "skull_grave_precise_hitbox"
     },
     {
-      "name": "SkullGraveStonecutter",
-      "type": "recipe",
-      "sortid": 890,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "skull_grave_stonecutter"
-    },
-    {
       "name": "SmallCrossGrave",
       "type": "block",
       "sortid": 188,
@@ -11186,15 +11123,6 @@
       "locked_code": false,
       "ids": {},
       "registry_name": "small_cross_grave_drops"
-    },
-    {
-      "name": "SmallCrossGraveStonecutter",
-      "type": "recipe",
-      "sortid": 892,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "small_cross_grave_stonecutter"
     },
     {
       "name": "SmallCrossGravePreciseHitbox",
@@ -11936,6 +11864,51 @@
           }
         ]
       }
+    },
+    {
+      "name": "StructureHelper",
+      "type": "code",
+      "sortid": 931,
+      "compiles": true,
+      "locked_code": true,
+      "ids": {},
+      "registry_name": "structure_helper"
+    },
+    {
+      "name": "GraveyardPieces",
+      "type": "code",
+      "sortid": 932,
+      "compiles": true,
+      "locked_code": true,
+      "ids": {},
+      "registry_name": "graveyard_pieces"
+    },
+    {
+      "name": "WorldInit",
+      "type": "code",
+      "sortid": 933,
+      "compiles": true,
+      "locked_code": true,
+      "ids": {},
+      "registry_name": "world_init"
+    },
+    {
+      "name": "Graveyard2",
+      "type": "structure",
+      "sortid": 934,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "graveyard_2"
+    },
+    {
+      "name": "GraveyardStructure",
+      "type": "code",
+      "sortid": 935,
+      "compiles": true,
+      "locked_code": true,
+      "ids": {},
+      "registry_name": "graveyard_structure"
     }
   ],
   "variable_elements": [
@@ -12233,7 +12206,7 @@
       "item.natureplus.wither_petal": "Wither Petal",
       "subtitles.spike_hit": "Thud",
       "item.natureplus.monarch_egg_item": "Monarch Egg",
-      "block.natureplus.random_vase": "Random Vase",
+      "block.natureplus.random_vase": "Mystery Vase",
       "block.natureplus.azure_wood": "Azure Wood",
       "block.natureplus.blue_petal_block": "Blue Petals Block",
       "item.minecraft.splash_potion.effect.butter_potion": "Splash Potion of Butter",
@@ -12481,7 +12454,7 @@
       "advancements.consume_golden_mexican_sunflower_seeds.descr": "Consume a Golden Mexican Sunflower Seed",
       "item.natureplus.light_gray_petal": "Light Gray Petal",
       "item.natureplus.light_blue_balloon_spawn_egg": "Light Blue Balloon Spawn Egg",
-      "advancements.break_random_vase.descr": "Break a Random Vase",
+      "advancements.break_random_vase.descr": "Break a Mystery Vase",
       "item.natureplus.white_balloon": "White Balloon Spawn Egg",
       "item.minecraft.tipped_arrow.effect.freezing_potion": "Arrow of Potion of Freezing",
       "item.natureplus.light_blue_petal": "Light Blue Petal",

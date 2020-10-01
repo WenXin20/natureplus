@@ -49,7 +49,7 @@ public class GiantFloraBiome extends NatureplusModElements.ModElement {
 	@ObjectHolder("natureplus:giant_flora")
 	public static final CustomBiome biome = null;
 	public GiantFloraBiome(NatureplusModElements instance) {
-		super(instance, 473);
+		super(instance, 474);
 	}
 
 	@Override
@@ -61,7 +61,7 @@ public class GiantFloraBiome extends NatureplusModElements.ModElement {
 	public void init(FMLCommonSetupEvent event) {
 		BiomeDictionary.addTypes(biome, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.LUSH, BiomeDictionary.Type.MAGICAL);
 		BiomeManager.addSpawnBiome(biome);
-		BiomeManager.addBiome(BiomeManager.BiomeType.WARM, new BiomeManager.BiomeEntry(biome, 10));
+		BiomeManager.addBiome(BiomeManager.BiomeType.WARM, new BiomeManager.BiomeEntry(biome, 2));
 	}
 	static class CustomBiome extends Biome {
 		public CustomBiome() {

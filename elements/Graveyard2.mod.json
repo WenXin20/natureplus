@@ -2,19 +2,22 @@
   "_fv": 12,
   "_type": "structure",
   "definition": {
-    "structure": "both_vases1",
+    "structure": "graveyard",
     "randomlyRotateStructure": true,
     "surfaceDetectionType": "First motion blocking block",
-    "spawnProbability": 10000,
+    "spawnProbability": 2000,
     "minCountPerChunk": 1,
     "maxCountPerChunk": 1,
     "spawnLocation": "Ground",
-    "spawnHeightOffset": 1,
+    "spawnHeightOffset": -1,
     "spawnWorldTypes": [
       "Surface"
     ],
     "restrictionBlocks": [],
     "restrictionBiomes": [],
-    "ignoreBlocks": "AIR_AND_STRUCTURE_BLOCK"
+    "ignoreBlocks": "STRUCTURE_BLOCK",
+    "generateCondition": {
+      "name": "GraveyardSpawn"
+    }
   }
 }

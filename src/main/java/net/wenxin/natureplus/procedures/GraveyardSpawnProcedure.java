@@ -47,30 +47,22 @@ public class GraveyardSpawnProcedure extends NatureplusModElements.ModElement {
 								|| ((BiomeDictionary.hasType(world.getBiome(new BlockPos((int) x, (int) y, (int) z)), BiomeDictionary.Type.SWAMP))
 										|| ((BiomeDictionary.hasType(world.getBiome(new BlockPos((int) x, (int) y, (int) z)),
 												BiomeDictionary.Type.SPOOKY))
-												|| (BiomeDictionary.hasType(world.getBiome(new BlockPos((int) x, (int) y, (int) z)),
-														BiomeDictionary.Type.DEAD))))))))
-				&& ((!(BiomeDictionary.hasType(world.getBiome(new BlockPos((int) x, (int) y, (int) z)), BiomeDictionary.Type.COLD)))
-						&& ((!(BiomeDictionary.hasType(world.getBiome(new BlockPos((int) x, (int) y, (int) z)), BiomeDictionary.Type.SNOWY)))
-								&& ((!(BiomeDictionary.hasType(world.getBiome(new BlockPos((int) x, (int) y, (int) z)),
-										BiomeDictionary.Type.WASTELAND)))
+												|| ((BiomeDictionary.hasType(world.getBiome(new BlockPos((int) x, (int) y, (int) z)),
+														BiomeDictionary.Type.DEAD))
+														|| ((BiomeDictionary.hasType(world.getBiome(new BlockPos((int) x, (int) y, (int) z)),
+																BiomeDictionary.Type.COLD))
+																|| (BiomeDictionary.hasType(world.getBiome(new BlockPos((int) x, (int) y, (int) z)),
+																		BiomeDictionary.Type.HOT))))))))))
+				&& ((!(BiomeDictionary.hasType(world.getBiome(new BlockPos((int) x, (int) y, (int) z)), BiomeDictionary.Type.WASTELAND)))
+						&& ((!(BiomeDictionary.hasType(world.getBiome(new BlockPos((int) x, (int) y, (int) z)), BiomeDictionary.Type.NETHER)))
+								&& ((!(BiomeDictionary.hasType(world.getBiome(new BlockPos((int) x, (int) y, (int) z)), BiomeDictionary.Type.END)))
 										&& ((!(BiomeDictionary.hasType(world.getBiome(new BlockPos((int) x, (int) y, (int) z)),
-												BiomeDictionary.Type.NETHER)))
+												BiomeDictionary.Type.VOID)))
 												&& ((!(BiomeDictionary.hasType(world.getBiome(new BlockPos((int) x, (int) y, (int) z)),
-														BiomeDictionary.Type.END)))
+														BiomeDictionary.Type.OCEAN)))
 														&& ((!(BiomeDictionary.hasType(world.getBiome(new BlockPos((int) x, (int) y, (int) z)),
-																BiomeDictionary.Type.VOID)))
-																&& ((!(BiomeDictionary.hasType(
-																		world.getBiome(new BlockPos((int) x, (int) y, (int) z)),
-																		BiomeDictionary.Type.OCEAN)))
-																		&& ((!(BiomeDictionary.hasType(
-																				world.getBiome(new BlockPos((int) x, (int) y, (int) z)),
-																				BiomeDictionary.Type.RIVER)))
-																				&& ((!(BiomeDictionary.hasType(
-																						world.getBiome(new BlockPos((int) x, (int) y, (int) z)),
-																						BiomeDictionary.Type.WATER)))
-																						&& (!(BiomeDictionary.hasType(
-																								world.getBiome(
-																										new BlockPos((int) x, (int) y, (int) z)),
-																								BiomeDictionary.Type.SANDY)))))))))))));
+																BiomeDictionary.Type.RIVER)))
+																&& (!(BiomeDictionary.hasType(world.getBiome(new BlockPos((int) x, (int) y, (int) z)),
+																		BiomeDictionary.Type.WATER))))))))));
 	}
 }

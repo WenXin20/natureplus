@@ -47,7 +47,7 @@ public class PlantVaseSpawnStructure extends NatureplusModElements.ModElement {
 					dimensionCriteria = true;
 				if (!dimensionCriteria)
 					return false;
-				if ((random.nextInt(1000000) + 1) <= 10000) {
+				if ((random.nextInt(1000000) + 1) <= 8000) {
 					int count = random.nextInt(3) + 1;
 					for (int a = 0; a < count; a++) {
 						int i = ci + random.nextInt(16);

@@ -38,7 +38,7 @@ public class AzureForestBiome extends NatureplusModElements.ModElement {
 	@ObjectHolder("natureplus:azure_forest")
 	public static final CustomBiome biome = null;
 	public AzureForestBiome(NatureplusModElements instance) {
-		super(instance, 263);
+		super(instance, 264);
 	}
 
 	@Override
@@ -50,7 +50,7 @@ public class AzureForestBiome extends NatureplusModElements.ModElement {
 	public void init(FMLCommonSetupEvent event) {
 		BiomeDictionary.addTypes(biome, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.MAGICAL);
 		BiomeManager.addSpawnBiome(biome);
-		BiomeManager.addBiome(BiomeManager.BiomeType.COOL, new BiomeManager.BiomeEntry(biome, 10));
+		BiomeManager.addBiome(BiomeManager.BiomeType.COOL, new BiomeManager.BiomeEntry(biome, 2));
 	}
 	static class CustomBiome extends Biome {
 		public CustomBiome() {

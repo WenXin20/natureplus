@@ -1,6 +1,7 @@
 
 package net.wenxin.natureplus.world.structure;
 
+import net.wenxin.natureplus.procedures.GraveyardSpawnProcedure;
 import net.wenxin.natureplus.NatureplusModElements;
 
 import net.minecraftforge.registries.ForgeRegistries;
@@ -28,10 +29,12 @@ import net.minecraft.util.Mirror;
 
 import java.util.Random;
 
+import com.google.common.collect.ImmutableMap;
+
 @NatureplusModElements.ModElement.Tag
-public class BothVasesSpawnStructure extends NatureplusModElements.ModElement {
-	public BothVasesSpawnStructure(NatureplusModElements instance) {
-		super(instance, 655);
+public class Graveyard2Structure extends NatureplusModElements.ModElement {
+	public Graveyard2Structure(NatureplusModElements instance) {
+		super(instance, 934);
 	}
 
 	@Override
@@ -47,7 +50,7 @@ public class BothVasesSpawnStructure extends NatureplusModElements.ModElement {
 					dimensionCriteria = true;
 				if (!dimensionCriteria)
 					return false;
-				if ((random.nextInt(1000000) + 1) <= 10000) {
+				if ((random.nextInt(1000000) + 1) <= 2000) {
 					int count = random.nextInt(1) + 1;
 					for (int a = 0; a < count; a++) {
 						int i = ci + random.nextInt(16);
@@ -56,16 +59,18 @@ public class BothVasesSpawnStructure extends NatureplusModElements.ModElement {
 						j -= 1;
 						Rotation rotation = Rotation.values()[random.nextInt(3)];
 						Mirror mirror = Mirror.values()[random.nextInt(2)];
-						BlockPos spawnTo = new BlockPos(i, j + 1, k);
+						BlockPos spawnTo = new BlockPos(i, j + -1, k);
 						int x = spawnTo.getX();
 						int y = spawnTo.getY();
 						int z = spawnTo.getZ();
+						if (!GraveyardSpawnProcedure.executeProcedure(ImmutableMap.of("x", x, "y", y, "z", z, "world", world)))
+							continue;
 						Template template = ((ServerWorld) world.getWorld()).getSaveHandler().getStructureTemplateManager()
-								.getTemplateDefaulted(new ResourceLocation("natureplus", "both_vases1"));
+								.getTemplateDefaulted(new ResourceLocation("natureplus", "graveyard"));
 						if (template == null)
 							return false;
 						template.addBlocksToWorld(world, spawnTo, new PlacementSettings().setRotation(rotation).setRandom(random).setMirror(mirror)
-								.addProcessor(BlockIgnoreStructureProcessor.AIR_AND_STRUCTURE_BLOCK).setChunk(null).setIgnoreEntities(false));
+								.addProcessor(BlockIgnoreStructureProcessor.STRUCTURE_BLOCK).setChunk(null).setIgnoreEntities(false));
 					}
 				}
 				return true;

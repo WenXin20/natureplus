@@ -15,6 +15,7 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraft.world.storage.loot.LootContext;
 import net.minecraft.world.server.ServerWorld;
 import net.minecraft.world.World;
+import net.minecraft.world.IWorldReader;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.util.math.shapes.VoxelShape;
@@ -71,7 +72,7 @@ public class RandomVaseBlock extends NatureplusModElements.ModElement implements
 	public static class CustomBlock extends Block implements IWaterLoggable {
 		public CustomBlock() {
 			super(Block.Properties.create(Material.ROCK).sound(SoundType.LANTERN).hardnessAndResistance(1.25f, 4.2f).lightValue(0).harvestLevel(1)
-					.harvestTool(ToolType.PICKAXE).notSolid().tickRandomly());
+					.harvestTool(ToolType.PICKAXE).notSolid());
 			this.setDefaultState(this.stateContainer.getBaseState().with(WATERLOGGED, false));
 			setRegistryName("random_vase");
 		}
@@ -137,6 +138,20 @@ public class RandomVaseBlock extends NatureplusModElements.ModElement implements
 			if (!dropsOriginal.isEmpty())
 				return dropsOriginal;
 			return Collections.singletonList(new ItemStack(this, 0));
+		}
+
+		@Override
+		public int tickRate(IWorldReader world) {
+			return 1;
+		}
+
+		@Override
+		public void onBlockAdded(BlockState state, World world, BlockPos pos, BlockState oldState, boolean moving) {
+			super.onBlockAdded(state, world, pos, oldState, moving);
+			int x = pos.getX();
+			int y = pos.getY();
+			int z = pos.getZ();
+			world.getPendingBlockTicks().scheduleTick(new BlockPos(x, y, z), this, this.tickRate(world));
 		}
 
 		@Override

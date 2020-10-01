@@ -1,9 +1,0 @@
-{
-  "group": "natureplus",
-  "type": "minecraft:stonecutting",
-  "count": 1,
-  "ingredient": {
-    "tag": "natureplus:graves"
-  },
-  "result": "natureplus:cross_grave"
-}
