@@ -30,7 +30,7 @@ public class MonarchEggJarItem extends NatureplusModElements.ModElement {
 	@ObjectHolder("natureplus:monarch_egg_jar")
 	public static final Item block = null;
 	public MonarchEggJarItem(NatureplusModElements instance) {
-		super(instance, 120);
+		super(instance, 121);
 	}
 
 	@Override
@@ -39,7 +39,7 @@ public class MonarchEggJarItem extends NatureplusModElements.ModElement {
 	}
 	public static class ItemCustom extends Item {
 		public ItemCustom() {
-			super(new Item.Properties().group(NaturePlusTabItemGroup.tab).maxStackSize(64).rarity(Rarity.COMMON));
+			super(new Item.Properties().group(NaturePlusTabItemGroup.tab).maxStackSize(1).rarity(Rarity.COMMON));
 			setRegistryName("monarch_egg_jar");
 		}
 
