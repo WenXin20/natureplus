@@ -15,13 +15,16 @@
     "useDuration": 0,
     "toolType": 1.0,
     "damageCount": 0,
+    "recipeRemainder": {
+      "value": ""
+    },
     "destroyAnyBlock": false,
     "stayInGridWhenCrafting": false,
     "damageOnCrafting": false,
     "enableMeleeDamage": false,
     "damageVsEntity": 0.0,
     "specialInfo": [
-      "§b§oSpawns a Monarch Butterfly"
+      "§7§oSpawns a Monarch Butterfly"
     ],
     "hasGlow": false,
     "guiBoundTo": "<NONE>",

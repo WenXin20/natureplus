@@ -18,7 +18,7 @@ import java.util.Map;
 @NatureplusModElements.ModElement.Tag
 public class PottedBluebonnetRightClickProcedure extends NatureplusModElements.ModElement {
 	public PottedBluebonnetRightClickProcedure(NatureplusModElements instance) {
-		super(instance, 923);
+		super(instance, 912);
 	}
 
 	public static void executeProcedure(Map<String, Object> dependencies) {

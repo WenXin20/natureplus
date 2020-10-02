@@ -1,7 +1,7 @@
 package net.wenxin.natureplus.procedures;
 
-import net.wenxin.natureplus.item.MonarchCocoonJarItem;
 import net.wenxin.natureplus.entity.MonarchCocoonEntity;
+import net.wenxin.natureplus.block.MonarchCocoonJarBlock;
 import net.wenxin.natureplus.block.EmptyJarBlock;
 import net.wenxin.natureplus.NatureplusModElements;
 
@@ -30,7 +30,7 @@ import java.util.HashMap;
 @NatureplusModElements.ModElement.Tag
 public class EmptyJarCaptureMonarchCocoonProcedure extends NatureplusModElements.ModElement {
 	public EmptyJarCaptureMonarchCocoonProcedure(NatureplusModElements instance) {
-		super(instance, 580);
+		super(instance, 579);
 		MinecraftForge.EVENT_BUS.register(this);
 	}
 
@@ -85,7 +85,7 @@ public class EmptyJarCaptureMonarchCocoonProcedure extends NatureplusModElements
 						SoundCategory.NEUTRAL, (float) 1, (float) 1, false);
 			}
 			if (sourceentity instanceof PlayerEntity) {
-				ItemStack _setstack = new ItemStack(MonarchCocoonJarItem.block, (int) (1));
+				ItemStack _setstack = new ItemStack(MonarchCocoonJarBlock.block, (int) (1));
 				_setstack.setCount((int) 1);
 				ItemHandlerHelper.giveItemToPlayer(((PlayerEntity) sourceentity), _setstack);
 			}
@@ -119,7 +119,7 @@ public class EmptyJarCaptureMonarchCocoonProcedure extends NatureplusModElements
 						SoundCategory.NEUTRAL, (float) 1, (float) 1, false);
 			}
 			if (sourceentity instanceof PlayerEntity) {
-				ItemStack _setstack = new ItemStack(MonarchCocoonJarItem.block, (int) (1));
+				ItemStack _setstack = new ItemStack(MonarchCocoonJarBlock.block, (int) (1));
 				_setstack.setCount((int) 1);
 				ItemHandlerHelper.giveItemToPlayer(((PlayerEntity) sourceentity), _setstack);
 			}

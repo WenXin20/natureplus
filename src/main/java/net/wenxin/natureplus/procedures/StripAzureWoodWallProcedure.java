@@ -32,7 +32,7 @@ import java.util.HashMap;
 @NatureplusModElements.ModElement.Tag
 public class StripAzureWoodWallProcedure extends NatureplusModElements.ModElement {
 	public StripAzureWoodWallProcedure(NatureplusModElements instance) {
-		super(instance, 902);
+		super(instance, 892);
 		MinecraftForge.EVENT_BUS.register(this);
 	}
 

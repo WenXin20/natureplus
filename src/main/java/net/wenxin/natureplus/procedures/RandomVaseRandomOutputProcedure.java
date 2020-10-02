@@ -3,7 +3,6 @@ package net.wenxin.natureplus.procedures;
 import net.wenxin.natureplus.item.SunflowerSeedPacketItem;
 import net.wenxin.natureplus.item.SnowPeaSeedPacketItem;
 import net.wenxin.natureplus.item.PeashooterSeedPacketItem;
-import net.wenxin.natureplus.item.MonarchEggJarItem;
 import net.wenxin.natureplus.item.KernelPultSeedPacketItem;
 import net.wenxin.natureplus.item.CactusSeedPacketItem;
 import net.wenxin.natureplus.entity.PVZZombieEntity;
@@ -11,6 +10,7 @@ import net.wenxin.natureplus.entity.MonarchCaterpillarEntity;
 import net.wenxin.natureplus.entity.ConeheadZombieEntity;
 import net.wenxin.natureplus.entity.BucketheadZombieEntity;
 import net.wenxin.natureplus.block.RandomVaseBlock;
+import net.wenxin.natureplus.block.MonarchEggJarBlock;
 import net.wenxin.natureplus.NatureplusModVariables;
 import net.wenxin.natureplus.NatureplusModElements;
 
@@ -49,7 +49,7 @@ import java.util.HashMap;
 @NatureplusModElements.ModElement.Tag
 public class RandomVaseRandomOutputProcedure extends NatureplusModElements.ModElement {
 	public RandomVaseRandomOutputProcedure(NatureplusModElements instance) {
-		super(instance, 644);
+		super(instance, 642);
 		MinecraftForge.EVENT_BUS.register(this);
 	}
 
@@ -197,7 +197,7 @@ public class RandomVaseRandomOutputProcedure extends NatureplusModElements.ModEl
 					} else {
 						if (!world.getWorld().isRemote) {
 							ItemEntity entityToSpawn = new ItemEntity(world.getWorld(), (x + 0.5), y, (z + 0.5),
-									new ItemStack(MonarchEggJarItem.block, (int) (1)));
+									new ItemStack(MonarchEggJarBlock.block, (int) (1)));
 							entityToSpawn.setPickupDelay(10);
 							world.addEntity(entityToSpawn);
 						}

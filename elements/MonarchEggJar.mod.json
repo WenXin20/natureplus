@@ -1,37 +1,103 @@
 {
   "_fv": 12,
-  "_type": "item",
+  "_type": "block",
   "definition": {
-    "renderType": 0,
-    "texture": "monarch_egg_jar",
-    "customModelName": "Normal",
-    "name": "Monarch Egg Jar",
-    "rarity": "COMMON",
+    "texture": "empty_jar_side",
+    "textureTop": "",
+    "textureLeft": "",
+    "textureFront": "",
+    "textureRight": "",
+    "textureBack": "",
+    "renderType": 2,
+    "customModelName": "butterfly_egg_jar:default",
+    "rotationMode": 0,
+    "emissiveRendering": false,
+    "itemTexture": "",
+    "hasTransparency": true,
+    "connectedSides": false,
+    "transparencyType": "CUTOUT",
+    "mx": 0.218,
+    "my": 0.0,
+    "mz": 0.218,
+    "Mx": 0.781,
+    "My": 0.687,
+    "Mz": 0.781,
+    "name": "Filled Jar - Monarch Egg",
+    "specialInfo": [
+      "§7§oSneak-right-click to release"
+    ],
+    "hardness": 0.3,
+    "resistance": 10.0,
+    "hasGravity": false,
+    "isWaterloggable": true,
     "creativeTab": {
       "value": "CUSTOM:NaturePlusTab"
     },
-    "stackSize": 1,
-    "enchantability": 0,
-    "useDuration": 0,
-    "toolType": 1.0,
-    "damageCount": 0,
-    "recipeRemainder": {
+    "destroyTool": "pickaxe",
+    "customDrop": {
       "value": ""
     },
-    "destroyAnyBlock": false,
-    "stayInGridWhenCrafting": false,
-    "damageOnCrafting": false,
-    "enableMeleeDamage": false,
-    "damageVsEntity": 0.0,
-    "specialInfo": [
-      "§b§oSpawns a Monarch Caterpillar"
-    ],
-    "hasGlow": false,
+    "dropAmount": 1,
+    "useLootTableForDrops": true,
+    "isBeaconBase": false,
+    "enchantPowerBonus": 0.0,
+    "plantsGrowOn": false,
+    "canProvidePower": false,
+    "lightOpacity": 0,
+    "material": {
+      "value": "GLASS"
+    },
+    "tickRate": 10,
+    "tickRandomly": false,
+    "isReplaceable": false,
+    "colorOnMap": "ADOBE",
+    "creativePickItem": {
+      "value": "CUSTOM:MonarchEggJar"
+    },
+    "offsetType": "NONE",
+    "aiPathNodeType": "DEFAULT",
+    "flammability": 0,
+    "fireSpreadSpeed": 0,
+    "isLadder": false,
+    "slipperiness": 0.6,
+    "reactionToPushing": "NORMAL",
+    "isNotColidable": false,
+    "soundOnStep": {
+      "value": "GLASS"
+    },
+    "luminance": 0.0,
+    "unbreakable": false,
+    "breakHarvestLevel": 0,
+    "spawnParticles": false,
+    "particleToSpawn": {
+      "value": "EXPLOSION_NORMAL"
+    },
+    "particleSpawningShape": "Spread",
+    "particleSpawningRadious": 0.5,
+    "particleAmount": 4,
+    "hasInventory": false,
     "guiBoundTo": "<NONE>",
+    "openGUIOnRightClick": false,
     "inventorySize": 9,
     "inventoryStackSize": 64,
-    "onRightClickedOnBlock": {
-      "name": "MonarchEggJarSpawn"
-    }
+    "inventoryDropWhenDestroyed": true,
+    "inventoryComparatorPower": true,
+    "inventoryOutSlotIDs": [],
+    "inventoryInSlotIDs": [],
+    "hasEnergyStorage": false,
+    "energyInitial": 0,
+    "energyCapacity": 400000,
+    "energyMaxReceive": 200,
+    "energyMaxExtract": 200,
+    "isFluidTank": false,
+    "fluidCapacity": 8000,
+    "fluidRestrictions": [],
+    "spawnWorldTypes": [],
+    "restrictionBiomes": [],
+    "blocksToReplace": [],
+    "frequencyPerChunks": 10,
+    "frequencyOnChunk": 16,
+    "minGenerateHeight": 0,
+    "maxGenerateHeight": 64
   }
 }

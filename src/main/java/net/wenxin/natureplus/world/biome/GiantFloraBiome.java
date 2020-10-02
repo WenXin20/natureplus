@@ -49,7 +49,7 @@ public class GiantFloraBiome extends NatureplusModElements.ModElement {
 	@ObjectHolder("natureplus:giant_flora")
 	public static final CustomBiome biome = null;
 	public GiantFloraBiome(NatureplusModElements instance) {
-		super(instance, 474);
+		super(instance, 473);
 	}
 
 	@Override

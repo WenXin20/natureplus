@@ -28,7 +28,7 @@ import java.util.Map;
 @NatureplusModElements.ModElement.Tag
 public class SpawnLightGrayBalloonProcedure extends NatureplusModElements.ModElement {
 	public SpawnLightGrayBalloonProcedure(NatureplusModElements instance) {
-		super(instance, 730);
+		super(instance, 727);
 	}
 
 	public static void executeProcedure(Map<String, Object> dependencies) {

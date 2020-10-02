@@ -33,7 +33,7 @@ import java.util.Random;
 @NatureplusModElements.ModElement.Tag
 public class GiantBlueOrchidStructure extends NatureplusModElements.ModElement {
 	public GiantBlueOrchidStructure(NatureplusModElements instance) {
-		super(instance, 479);
+		super(instance, 478);
 	}
 
 	@Override

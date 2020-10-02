@@ -32,7 +32,7 @@ import java.util.HashMap;
 @NatureplusModElements.ModElement.Tag
 public class StripPlantStemWallProcedure extends NatureplusModElements.ModElement {
 	public StripPlantStemWallProcedure(NatureplusModElements instance) {
-		super(instance, 906);
+		super(instance, 896);
 		MinecraftForge.EVENT_BUS.register(this);
 	}
 

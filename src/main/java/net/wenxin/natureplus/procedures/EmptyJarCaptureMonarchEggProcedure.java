@@ -1,7 +1,7 @@
 package net.wenxin.natureplus.procedures;
 
-import net.wenxin.natureplus.item.MonarchEggJarItem;
 import net.wenxin.natureplus.entity.MonarchEggEntity;
+import net.wenxin.natureplus.block.MonarchEggJarBlock;
 import net.wenxin.natureplus.block.EmptyJarBlock;
 import net.wenxin.natureplus.NatureplusModElements;
 
@@ -30,7 +30,7 @@ import java.util.HashMap;
 @NatureplusModElements.ModElement.Tag
 public class EmptyJarCaptureMonarchEggProcedure extends NatureplusModElements.ModElement {
 	public EmptyJarCaptureMonarchEggProcedure(NatureplusModElements instance) {
-		super(instance, 579);
+		super(instance, 578);
 		MinecraftForge.EVENT_BUS.register(this);
 	}
 
@@ -85,7 +85,7 @@ public class EmptyJarCaptureMonarchEggProcedure extends NatureplusModElements.Mo
 						SoundCategory.NEUTRAL, (float) 1, (float) 1, false);
 			}
 			if (sourceentity instanceof PlayerEntity) {
-				ItemStack _setstack = new ItemStack(MonarchEggJarItem.block, (int) (1));
+				ItemStack _setstack = new ItemStack(MonarchEggJarBlock.block, (int) (1));
 				_setstack.setCount((int) 1);
 				ItemHandlerHelper.giveItemToPlayer(((PlayerEntity) sourceentity), _setstack);
 			}
@@ -119,7 +119,7 @@ public class EmptyJarCaptureMonarchEggProcedure extends NatureplusModElements.Mo
 						SoundCategory.NEUTRAL, (float) 1, (float) 1, false);
 			}
 			if (sourceentity instanceof PlayerEntity) {
-				ItemStack _setstack = new ItemStack(MonarchEggJarItem.block, (int) (1));
+				ItemStack _setstack = new ItemStack(MonarchEggJarBlock.block, (int) (1));
 				_setstack.setCount((int) 1);
 				ItemHandlerHelper.giveItemToPlayer(((PlayerEntity) sourceentity), _setstack);
 			}

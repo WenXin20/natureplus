@@ -1,0 +1,12 @@
+{
+  "mappings": {
+    "default": {
+      "map": {
+        "side": "empty_jar_side",
+        "top": "empty_jar_top",
+        "egg": "yellow_petal_block"
+      },
+      "name": "default"
+    }
+  }
+}

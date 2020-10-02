@@ -26,7 +26,7 @@ import java.util.HashMap;
 @NatureplusModElements.ModElement.Tag
 public class GrantButterflyBreederAdvancementProcedure extends NatureplusModElements.ModElement {
 	public GrantButterflyBreederAdvancementProcedure(NatureplusModElements instance) {
-		super(instance, 872);
+		super(instance, 869);
 		MinecraftForge.EVENT_BUS.register(this);
 	}
 

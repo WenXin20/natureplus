@@ -14,7 +14,7 @@ import java.util.Map;
 @NatureplusModElements.ModElement.Tag
 public class BluebonnetNaturalSpawnProcedure extends NatureplusModElements.ModElement {
 	public BluebonnetNaturalSpawnProcedure(NatureplusModElements instance) {
-		super(instance, 920);
+		super(instance, 909);
 	}
 
 	public static boolean executeProcedure(Map<String, Object> dependencies) {

@@ -1,6 +1,22 @@
 {
-  "parent": "item/generated",
-  "textures": {
-    "layer0": "natureplus:items/monarch_cocoon_jar"
+  "parent": "natureplus:block/monarch_cocoon_jar",
+  "display": {
+    "thirdperson": {
+      "rotation": [
+        10,
+        -45,
+        170
+      ],
+      "translation": [
+        0,
+        1.5,
+        -2.75
+      ],
+      "scale": [
+        0.375,
+        0.375,
+        0.375
+      ]
+    }
   }
 }

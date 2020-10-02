@@ -1,0 +1,20 @@
+{
+  "mappings": {
+    "default": {
+      "map": {
+        "side": "empty_jar_side",
+        "filling": "bone_meal",
+        "top": "empty_jar_top"
+      },
+      "name": "default"
+    },
+    "wither_bone_meal_jar": {
+      "map": {
+        "side": "empty_jar_side",
+        "filling": "wither_bone_meal",
+        "top": "empty_jar_top"
+      },
+      "name": "wither_bone_meal_jar"
+    }
+  }
+}

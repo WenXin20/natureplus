@@ -1,8 +1,10 @@
 package net.wenxin.natureplus.procedures;
 
-import net.wenxin.natureplus.item.WitherBoneMealJarItem;
+import net.wenxin.natureplus.block.WitherBoneMealJarBlock;
+import net.wenxin.natureplus.block.EmptyJarBlock;
 import net.wenxin.natureplus.NatureplusModElements;
 
+import net.minecraftforge.items.ItemHandlerHelper;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.common.MinecraftForge;
@@ -12,6 +14,7 @@ import net.minecraft.world.gen.feature.template.Template;
 import net.minecraft.world.gen.feature.template.PlacementSettings;
 import net.minecraft.world.World;
 import net.minecraft.world.IWorld;
+import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.Rotation;
 import net.minecraft.util.ResourceLocation;
@@ -35,7 +38,7 @@ import java.util.HashMap;
 @NatureplusModElements.ModElement.Tag
 public class GrowGiantWitherRoseWitherBonemealProcedure extends NatureplusModElements.ModElement {
 	public GrowGiantWitherRoseWitherBonemealProcedure(NatureplusModElements instance) {
-		super(instance, 619);
+		super(instance, 617);
 		MinecraftForge.EVENT_BUS.register(this);
 	}
 
@@ -70,11 +73,11 @@ public class GrowGiantWitherRoseWitherBonemealProcedure extends NatureplusModEle
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
 		IWorld world = (IWorld) dependencies.get("world");
-		if (((world.canBlockSeeSky(new BlockPos((int) x, (int) y, (int) z)))
+		if (((entity.isSneaking()) && ((world.canBlockSeeSky(new BlockPos((int) x, (int) y, (int) z)))
 				&& ((((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY)
-						.getItem() == new ItemStack(WitherBoneMealJarItem.block, (int) (1)).getItem())
+						.getItem() == new ItemStack(WitherBoneMealJarBlock.block, (int) (1)).getItem())
 						&& ((world.getBlockState(new BlockPos((int) x, (int) y, (int) z))).getBlock() == Blocks.WITHER_ROSE.getDefaultState()
-								.getBlock())))) {
+								.getBlock()))))) {
 			if (world instanceof ServerWorld) {
 				((ServerWorld) world).spawnParticle(ParticleTypes.HAPPY_VILLAGER, (x + 0.5), (y + 0.5), (z + 0.5), (int) 25, 0.25, 0.25, 0.25, 5);
 			}
@@ -104,51 +107,35 @@ public class GrowGiantWitherRoseWitherBonemealProcedure extends NatureplusModEle
 				}
 			}
 			if ((!((entity instanceof PlayerEntity) ? ((PlayerEntity) entity).abilities.isCreativeMode : false))) {
-				if (entity instanceof PlayerEntity)
-					((PlayerEntity) entity).inventory.clearMatchingItems(
-							p -> ((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY).getItem() == p
-									.getItem(),
-							(int) 1);
+				if ((((((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY)).getCount()) == 1)) {
+					if (entity instanceof LivingEntity) {
+						ItemStack _setstack = new ItemStack(EmptyJarBlock.block, (int) (1));
+						_setstack.setCount((int) 1);
+						((LivingEntity) entity).setHeldItem(Hand.MAIN_HAND, _setstack);
+						if (entity instanceof ServerPlayerEntity)
+							((ServerPlayerEntity) entity).inventory.markDirty();
+					}
+				} else if ((((((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY))
+						.getCount()) > 1)) {
+					if (entity instanceof PlayerEntity)
+						((PlayerEntity) entity).inventory.clearMatchingItems(
+								p -> ((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY)
+										.getItem() == p.getItem(),
+								(int) 1);
+					if (entity instanceof PlayerEntity) {
+						ItemStack _setstack = new ItemStack(EmptyJarBlock.block, (int) (1));
+						_setstack.setCount((int) 1);
+						ItemHandlerHelper.giveItemToPlayer(((PlayerEntity) entity), _setstack);
+					}
+				}
 			}
-		} else if (((world.canBlockSeeSky(new BlockPos((int) x, (int) y, (int) z)))
-				&& ((((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemOffhand() : ItemStack.EMPTY)
-						.getItem() == new ItemStack(WitherBoneMealJarItem.block, (int) (1)).getItem())
+		} else if (((entity.isSneaking()) && ((!(world.canBlockSeeSky(new BlockPos((int) x, (int) y, (int) z))))
+				&& ((((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY)
+						.getItem() == new ItemStack(WitherBoneMealJarBlock.block, (int) (1)).getItem())
 						&& ((world.getBlockState(new BlockPos((int) x, (int) y, (int) z))).getBlock() == Blocks.WITHER_ROSE.getDefaultState()
-								.getBlock())))) {
-			if (world instanceof ServerWorld) {
-				((ServerWorld) world).spawnParticle(ParticleTypes.HAPPY_VILLAGER, (x + 0.5), (y + 0.5), (z + 0.5), (int) 25, 0.25, 0.25, 0.25, 5);
-			}
-			if (entity instanceof LivingEntity) {
-				((LivingEntity) entity).swing(Hand.OFF_HAND, true);
-			}
-			if ((!(world.getWorld().isRemote))) {
-				if (!world.getWorld().isRemote) {
-					Template template = ((ServerWorld) world.getWorld()).getSaveHandler().getStructureTemplateManager()
-							.getTemplateDefaulted(new ResourceLocation("natureplus", "giant_wither_rose1"));
-					if (template != null) {
-						template.addBlocksToWorld(world, new BlockPos((int) (x - 2), (int) y, (int) (z - 2)),
-								new PlacementSettings().setRotation(Rotation.NONE).setMirror(Mirror.NONE).setChunk(null).setIgnoreEntities(false));
-					}
-				}
-				if (entity instanceof ServerPlayerEntity) {
-					Advancement _adv = ((MinecraftServer) ((ServerPlayerEntity) entity).server).getAdvancementManager()
-							.getAdvancement(new ResourceLocation("natureplus:giant_wither_rose_advancement"));
-					AdvancementProgress _ap = ((ServerPlayerEntity) entity).getAdvancements().getProgress(_adv);
-					if (!_ap.isDone()) {
-						Iterator _iterator = _ap.getRemaningCriteria().iterator();
-						while (_iterator.hasNext()) {
-							String _criterion = (String) _iterator.next();
-							((ServerPlayerEntity) entity).getAdvancements().grantCriterion(_adv, _criterion);
-						}
-					}
-				}
-			}
-			if ((!((entity instanceof PlayerEntity) ? ((PlayerEntity) entity).abilities.isCreativeMode : false))) {
-				if (entity instanceof PlayerEntity)
-					((PlayerEntity) entity).inventory.clearMatchingItems(
-							p -> ((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemOffhand() : ItemStack.EMPTY).getItem() == p
-									.getItem(),
-							(int) 1);
+								.getBlock()))))) {
+			if (entity instanceof PlayerEntity && !entity.world.isRemote) {
+				((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("Wither Roses can't be grown beneath other blocks"), (true));
 			}
 		}
 	}

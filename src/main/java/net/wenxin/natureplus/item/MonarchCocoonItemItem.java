@@ -61,7 +61,7 @@ public class MonarchCocoonItemItem extends NatureplusModElements.ModElement {
 		@Override
 		public void addInformation(ItemStack itemstack, World world, List<ITextComponent> list, ITooltipFlag flag) {
 			super.addInformation(itemstack, world, list, flag);
-			list.add(new StringTextComponent("\u00A7b\u00A7oSpawns a Monarch Butterfly"));
+			list.add(new StringTextComponent("\u00A77\u00A7oSpawns a Monarch Butterfly"));
 		}
 
 		@Override

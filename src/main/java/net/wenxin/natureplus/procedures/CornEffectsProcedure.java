@@ -18,7 +18,7 @@ import java.util.Map;
 @NatureplusModElements.ModElement.Tag
 public class CornEffectsProcedure extends NatureplusModElements.ModElement {
 	public CornEffectsProcedure(NatureplusModElements instance) {
-		super(instance, 660);
+		super(instance, 657);
 	}
 
 	public static void executeProcedure(Map<String, Object> dependencies) {

@@ -54,7 +54,7 @@ public class PollenItem extends NatureplusModElements.ModElement {
 		@Override
 		public void addInformation(ItemStack itemstack, World world, List<ITextComponent> list, ITooltipFlag flag) {
 			super.addInformation(itemstack, world, list, flag);
-			list.add(new StringTextComponent("\u00A7b\u00A7oClears all potion effects"));
+			list.add(new StringTextComponent("\u00A77\u00A7oClears all potion effects"));
 		}
 
 		@Override

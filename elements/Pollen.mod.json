@@ -8,7 +8,7 @@
     "name": "Pollen",
     "rarity": "COMMON",
     "specialInfo": [
-      "§b§oClears all potion effects"
+      "§7§oClears all potion effects"
     ],
     "creativeTab": {
       "value": "CUSTOM:NaturePlusTab"

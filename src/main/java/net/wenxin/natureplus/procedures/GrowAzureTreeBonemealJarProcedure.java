@@ -1,6 +1,6 @@
 package net.wenxin.natureplus.procedures;
 
-import net.wenxin.natureplus.item.BoneMealJarItem;
+import net.wenxin.natureplus.block.BoneMealJarBlock;
 import net.wenxin.natureplus.block.AzureSaplingBlock;
 import net.wenxin.natureplus.NatureplusModElements;
 
@@ -36,7 +36,7 @@ import java.util.HashMap;
 @NatureplusModElements.ModElement.Tag
 public class GrowAzureTreeBonemealJarProcedure extends NatureplusModElements.ModElement {
 	public GrowAzureTreeBonemealJarProcedure(NatureplusModElements instance) {
-		super(instance, 573);
+		super(instance, 571);
 		MinecraftForge.EVENT_BUS.register(this);
 	}
 
@@ -73,7 +73,7 @@ public class GrowAzureTreeBonemealJarProcedure extends NatureplusModElements.Mod
 		IWorld world = (IWorld) dependencies.get("world");
 		if (((world.canBlockSeeSky(new BlockPos((int) x, (int) y, (int) z)))
 				&& ((((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY)
-						.getItem() == new ItemStack(BoneMealJarItem.block, (int) (1)).getItem())
+						.getItem() == new ItemStack(BoneMealJarBlock.block, (int) (1)).getItem())
 						&& ((world.getBlockState(new BlockPos((int) x, (int) y, (int) z))).getBlock() == AzureSaplingBlock.block.getDefaultState()
 								.getBlock())))) {
 			if (world instanceof ServerWorld) {
@@ -144,7 +144,7 @@ public class GrowAzureTreeBonemealJarProcedure extends NatureplusModElements.Mod
 			}
 		} else if (((world.canBlockSeeSky(new BlockPos((int) x, (int) y, (int) z)))
 				&& ((((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemOffhand() : ItemStack.EMPTY)
-						.getItem() == new ItemStack(BoneMealJarItem.block, (int) (1)).getItem())
+						.getItem() == new ItemStack(BoneMealJarBlock.block, (int) (1)).getItem())
 						&& ((world.getBlockState(new BlockPos((int) x, (int) y, (int) z))).getBlock() == AzureSaplingBlock.block.getDefaultState()
 								.getBlock())))) {
 			if (world instanceof ServerWorld) {

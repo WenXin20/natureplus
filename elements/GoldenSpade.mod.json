@@ -7,8 +7,8 @@
     "customModelName": "Normal",
     "name": "Golden Spade",
     "specialInfo": [
-      "§b§oRemoves PvZ plants,",
-      "§b§ostunts insect growth"
+      "§7§oRemoves PvZ plants,",
+      "§7§ostunts insect growth"
     ],
     "creativeTab": {
       "value": "CUSTOM:PlantsVsZombiesTab"

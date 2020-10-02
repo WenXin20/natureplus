@@ -14,7 +14,7 @@ public class UprootEnchantmentEnchantment extends NatureplusModElements.ModEleme
 	@ObjectHolder("natureplus:uproot_enchantment")
 	public static final Enchantment enchantment = null;
 	public UprootEnchantmentEnchantment(NatureplusModElements instance) {
-		super(instance, 678);
+		super(instance, 675);
 	}
 
 	@Override

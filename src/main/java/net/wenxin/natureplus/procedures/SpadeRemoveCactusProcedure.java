@@ -31,7 +31,7 @@ import java.util.HashMap;
 @NatureplusModElements.ModElement.Tag
 public class SpadeRemoveCactusProcedure extends NatureplusModElements.ModElement {
 	public SpadeRemoveCactusProcedure(NatureplusModElements instance) {
-		super(instance, 817);
+		super(instance, 814);
 		MinecraftForge.EVENT_BUS.register(this);
 	}
 

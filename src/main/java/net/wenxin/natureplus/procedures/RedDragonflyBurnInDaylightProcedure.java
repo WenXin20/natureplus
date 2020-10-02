@@ -12,7 +12,7 @@ import java.util.HashMap;
 @NatureplusModElements.ModElement.Tag
 public class RedDragonflyBurnInDaylightProcedure extends NatureplusModElements.ModElement {
 	public RedDragonflyBurnInDaylightProcedure(NatureplusModElements instance) {
-		super(instance, 916);
+		super(instance, 905);
 	}
 
 	public static void executeProcedure(Map<String, Object> dependencies) {
@@ -34,9 +34,11 @@ public class RedDragonflyBurnInDaylightProcedure extends NatureplusModElements.M
 			$_dependencies.put("world", world);
 			DespawnPeacefulProcedure.executeProcedure($_dependencies);
 		}
-		if (((world.getWorld().isDaytime()) && ((!(entity.isInWaterRainOrBubbleColumn()))
-				&& (world.canBlockSeeSky(new BlockPos((int) (entity.getPosX()), (int) (entity.getPosY()), (int) (entity.getPosZ()))))))) {
-			entity.setFire((int) 1);
+		if ((!(world.getWorld().isRemote))) {
+			if (((world.getWorld().isDaytime()) && ((!(entity.isInWaterRainOrBubbleColumn()))
+					&& (world.canBlockSeeSky(new BlockPos((int) (entity.getPosX()), (int) (entity.getPosY()), (int) (entity.getPosZ()))))))) {
+				entity.setFire((int) 8);
+			}
 		}
 	}
 }

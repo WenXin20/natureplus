@@ -75,7 +75,7 @@ public class EmptyJarBlock extends NatureplusModElements.ModElement {
 		@OnlyIn(Dist.CLIENT)
 		public void addInformation(ItemStack itemstack, IBlockReader world, List<ITextComponent> list, ITooltipFlag flag) {
 			super.addInformation(itemstack, world, list, flag);
-			list.add(new StringTextComponent("\u00A7b\u00A7oUse to carry Butterfly Eggs & Cocoons"));
+			list.add(new StringTextComponent("\u00A77\u00A7oSneak-right-click to capture butterfly eggs or cocoons"));
 		}
 
 		@Override
@@ -103,12 +103,12 @@ public class EmptyJarBlock extends NatureplusModElements.ModElement {
 		}
 
 		@Override
-		public BlockState updatePostPlacement(BlockState stateIn, Direction facing, BlockState facingState, IWorld worldIn, BlockPos currentPos,
+		public BlockState updatePostPlacement(BlockState state, Direction facing, BlockState facingState, IWorld world, BlockPos currentPos,
 				BlockPos facingPos) {
-			if (stateIn.get(WATERLOGGED)) {
-				worldIn.getPendingFluidTicks().scheduleTick(currentPos, Fluids.WATER, Fluids.WATER.getTickRate(worldIn));
+			if (state.get(WATERLOGGED)) {
+				world.getPendingFluidTicks().scheduleTick(currentPos, Fluids.WATER, Fluids.WATER.getTickRate(world));
 			}
-			return super.updatePostPlacement(stateIn, facing, facingState, worldIn, currentPos, facingPos);
+			return super.updatePostPlacement(state, facing, facingState, world, currentPos, facingPos);
 		}
 
 		@Override

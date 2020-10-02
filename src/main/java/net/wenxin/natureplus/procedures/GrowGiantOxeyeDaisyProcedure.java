@@ -1,6 +1,8 @@
 package net.wenxin.natureplus.procedures;
 
-import net.wenxin.natureplus.item.BoneMealJarItem;
+import net.wenxin.natureplus.block.EmptyJarBlock;
+import net.wenxin.natureplus.block.BoneMealJarBlock;
+import net.wenxin.natureplus.NatureplusModVariables;
 import net.wenxin.natureplus.NatureplusModElements;
 
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -12,6 +14,7 @@ import net.minecraft.world.gen.feature.template.Template;
 import net.minecraft.world.gen.feature.template.PlacementSettings;
 import net.minecraft.world.World;
 import net.minecraft.world.IWorld;
+import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.Rotation;
 import net.minecraft.util.ResourceLocation;
@@ -28,6 +31,7 @@ import net.minecraft.block.Blocks;
 import net.minecraft.advancements.AdvancementProgress;
 import net.minecraft.advancements.Advancement;
 
+import java.util.Random;
 import java.util.Map;
 import java.util.Iterator;
 import java.util.HashMap;
@@ -35,7 +39,7 @@ import java.util.HashMap;
 @NatureplusModElements.ModElement.Tag
 public class GrowGiantOxeyeDaisyProcedure extends NatureplusModElements.ModElement {
 	public GrowGiantOxeyeDaisyProcedure(NatureplusModElements instance) {
-		super(instance, 599);
+		super(instance, 597);
 		MinecraftForge.EVENT_BUS.register(this);
 	}
 
@@ -72,9 +76,11 @@ public class GrowGiantOxeyeDaisyProcedure extends NatureplusModElements.ModEleme
 		IWorld world = (IWorld) dependencies.get("world");
 		if (((world.canBlockSeeSky(new BlockPos((int) x, (int) y, (int) z)))
 				&& ((((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY)
-						.getItem() == new ItemStack(BoneMealJarItem.block, (int) (1)).getItem())
-						&& ((world.getBlockState(new BlockPos((int) x, (int) y, (int) z))).getBlock() == Blocks.OXEYE_DAISY.getDefaultState()
-								.getBlock())))) {
+						.getItem() == new ItemStack(BoneMealJarBlock.block, (int) (1)).getItem())
+						&& (((world.getBlockState(new BlockPos((int) x, (int) y, (int) z))).getBlock() == Blocks.OXEYE_DAISY.getDefaultState()
+								.getBlock())
+								&& ((((((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY))
+										.getDamage()) <= 18) && (!(entity.isSneaking()))))))) {
 			if (world instanceof ServerWorld) {
 				((ServerWorld) world).spawnParticle(ParticleTypes.HAPPY_VILLAGER, (x + 0.5), (y + 0.5), (z + 0.5), (int) 25, 0.25, 0.25, 0.25, 5);
 			}
@@ -82,7 +88,8 @@ public class GrowGiantOxeyeDaisyProcedure extends NatureplusModElements.ModEleme
 				((LivingEntity) entity).swing(Hand.MAIN_HAND, true);
 			}
 			if ((!(world.getWorld().isRemote))) {
-				if ((Math.random() <= 0.25)) {
+				NatureplusModVariables.i = (double) (Math.random() * 100);
+				if (((NatureplusModVariables.i) >= 50)) {
 					if (!world.getWorld().isRemote) {
 						Template template = ((ServerWorld) world.getWorld()).getSaveHandler().getStructureTemplateManager()
 								.getTemplateDefaulted(new ResourceLocation("natureplus", "giant_oxeye_daisy1"));
@@ -115,62 +122,46 @@ public class GrowGiantOxeyeDaisyProcedure extends NatureplusModElements.ModEleme
 				}
 			}
 			if ((!((entity instanceof PlayerEntity) ? ((PlayerEntity) entity).abilities.isCreativeMode : false))) {
-				if (entity instanceof PlayerEntity)
-					((PlayerEntity) entity).inventory.clearMatchingItems(
-							p -> ((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY).getItem() == p
-									.getItem(),
-							(int) 1);
+				{
+					ItemStack _ist = ((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY);
+					if (_ist.attemptDamageItem((int) 9, new Random(), null)) {
+						_ist.shrink(1);
+						_ist.setDamage(0);
+					}
+				}
+				((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY).getOrCreateTag().putDouble(
+						"damageTaken", ((((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY)
+								.getOrCreateTag().getDouble("damageTaken")) + 9));
+				if (((((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY).getOrCreateTag()
+						.getDouble("damageTaken")) == 27)) {
+					if (entity instanceof LivingEntity) {
+						ItemStack _setstack = new ItemStack(EmptyJarBlock.block, (int) (1));
+						_setstack.setCount((int) 1);
+						((LivingEntity) entity).setHeldItem(Hand.MAIN_HAND, _setstack);
+						if (entity instanceof ServerPlayerEntity)
+							((ServerPlayerEntity) entity).inventory.markDirty();
+					}
+				}
 			}
 		} else if (((world.canBlockSeeSky(new BlockPos((int) x, (int) y, (int) z)))
-				&& ((((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemOffhand() : ItemStack.EMPTY)
-						.getItem() == new ItemStack(BoneMealJarItem.block, (int) (1)).getItem())
-						&& ((world.getBlockState(new BlockPos((int) x, (int) y, (int) z))).getBlock() == Blocks.OXEYE_DAISY.getDefaultState()
-								.getBlock())))) {
-			if (world instanceof ServerWorld) {
-				((ServerWorld) world).spawnParticle(ParticleTypes.HAPPY_VILLAGER, (x + 0.5), (y + 0.5), (z + 0.5), (int) 25, 0.25, 0.25, 0.25, 5);
+				&& ((((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY)
+						.getItem() == new ItemStack(BoneMealJarBlock.block, (int) (1)).getItem())
+						&& (((world.getBlockState(new BlockPos((int) x, (int) y, (int) z))).getBlock() == Blocks.OXEYE_DAISY.getDefaultState()
+								.getBlock())
+								&& ((((((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY))
+										.getDamage()) > 18) && (!(entity.isSneaking()))))))) {
+			if (entity instanceof PlayerEntity && !entity.world.isRemote) {
+				((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("Not enough bone meal in the jar"), (true));
 			}
-			if (entity instanceof LivingEntity) {
-				((LivingEntity) entity).swing(Hand.OFF_HAND, true);
-			}
-			if ((!(world.getWorld().isRemote))) {
-				if ((Math.random() <= 0.25)) {
-					if (!world.getWorld().isRemote) {
-						Template template = ((ServerWorld) world.getWorld()).getSaveHandler().getStructureTemplateManager()
-								.getTemplateDefaulted(new ResourceLocation("natureplus", "giant_oxeye_daisy1"));
-						if (template != null) {
-							template.addBlocksToWorld(world, new BlockPos((int) (x - 3), (int) y, (int) (z - 2)), new PlacementSettings()
-									.setRotation(Rotation.NONE).setMirror(Mirror.NONE).setChunk(null).setIgnoreEntities(false));
-						}
-					}
-				} else {
-					if (!world.getWorld().isRemote) {
-						Template template = ((ServerWorld) world.getWorld()).getSaveHandler().getStructureTemplateManager()
-								.getTemplateDefaulted(new ResourceLocation("natureplus", "giant_oxeye_daisy2"));
-						if (template != null) {
-							template.addBlocksToWorld(world, new BlockPos((int) (x - 3), (int) y, (int) (z - 2)), new PlacementSettings()
-									.setRotation(Rotation.NONE).setMirror(Mirror.NONE).setChunk(null).setIgnoreEntities(false));
-						}
-					}
-				}
-				if (entity instanceof ServerPlayerEntity) {
-					Advancement _adv = ((MinecraftServer) ((ServerPlayerEntity) entity).server).getAdvancementManager()
-							.getAdvancement(new ResourceLocation("natureplus:giant_oxeye_daisy_advancement"));
-					AdvancementProgress _ap = ((ServerPlayerEntity) entity).getAdvancements().getProgress(_adv);
-					if (!_ap.isDone()) {
-						Iterator _iterator = _ap.getRemaningCriteria().iterator();
-						while (_iterator.hasNext()) {
-							String _criterion = (String) _iterator.next();
-							((ServerPlayerEntity) entity).getAdvancements().grantCriterion(_adv, _criterion);
-						}
-					}
-				}
-			}
-			if ((!((entity instanceof PlayerEntity) ? ((PlayerEntity) entity).abilities.isCreativeMode : false))) {
-				if (entity instanceof PlayerEntity)
-					((PlayerEntity) entity).inventory.clearMatchingItems(
-							p -> ((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemOffhand() : ItemStack.EMPTY).getItem() == p
-									.getItem(),
-							(int) 1);
+		} else if (((!(world.canBlockSeeSky(new BlockPos((int) x, (int) y, (int) z))))
+				&& ((((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY)
+						.getItem() == new ItemStack(BoneMealJarBlock.block, (int) (1)).getItem())
+						&& (((world.getBlockState(new BlockPos((int) x, (int) y, (int) z))).getBlock() == Blocks.OXEYE_DAISY.getDefaultState()
+								.getBlock())
+								&& ((((((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY))
+										.getDamage()) <= 18) && (!(entity.isSneaking()))))))) {
+			if (entity instanceof PlayerEntity && !entity.world.isRemote) {
+				((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("Oxeye Daisies can't be grown beneath other blocks"), (true));
 			}
 		}
 	}
