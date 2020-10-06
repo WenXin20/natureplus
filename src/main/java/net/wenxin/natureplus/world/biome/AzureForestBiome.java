@@ -38,7 +38,7 @@ public class AzureForestBiome extends NatureplusModElements.ModElement {
 	@ObjectHolder("natureplus:azure_forest")
 	public static final CustomBiome biome = null;
 	public AzureForestBiome(NatureplusModElements instance) {
-		super(instance, 264);
+		super(instance, 265);
 	}
 
 	@Override

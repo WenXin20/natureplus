@@ -34,7 +34,7 @@ import com.google.common.collect.ImmutableMap;
 @NatureplusModElements.ModElement.Tag
 public class Graveyard2Structure extends NatureplusModElements.ModElement {
 	public Graveyard2Structure(NatureplusModElements instance) {
-		super(instance, 923);
+		super(instance, 924);
 	}
 
 	@Override

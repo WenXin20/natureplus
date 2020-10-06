@@ -24,7 +24,7 @@ import java.util.HashMap;
 @NatureplusModElements.ModElement.Tag
 public class PottedBluebonnetFunctionProcedure extends NatureplusModElements.ModElement {
 	public PottedBluebonnetFunctionProcedure(NatureplusModElements instance) {
-		super(instance, 913);
+		super(instance, 914);
 		MinecraftForge.EVENT_BUS.register(this);
 	}
 

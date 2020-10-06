@@ -14,7 +14,7 @@ import java.util.Map;
 @NatureplusModElements.ModElement.Tag
 public class SunflowerNaturalSpawnProcedure extends NatureplusModElements.ModElement {
 	public SunflowerNaturalSpawnProcedure(NatureplusModElements instance) {
-		super(instance, 777);
+		super(instance, 778);
 	}
 
 	public static boolean executeProcedure(Map<String, Object> dependencies) {

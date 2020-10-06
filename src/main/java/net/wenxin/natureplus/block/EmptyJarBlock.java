@@ -81,6 +81,7 @@ public class EmptyJarBlock extends NatureplusModElements.ModElement {
 			super.addInformation(itemstack, world, list, flag);
 			long h = Minecraft.getInstance().getMainWindow().getHandle();
 			if (InputMappings.isKeyDown(h, GLFW.GLFW_KEY_LEFT_SHIFT)) {
+				list.add(new StringTextComponent("\u00A77\u00A7oRight-click to place"));
 				list.add(new StringTextComponent("\u00A77\u00A7oSneak-right-click to capture butterfly eggs or cocoons"));
 			} else {
 				list.add(new StringTextComponent("\u00A77\u00A7o[Shift]"));

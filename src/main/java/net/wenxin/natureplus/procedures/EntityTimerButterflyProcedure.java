@@ -9,7 +9,7 @@ import java.util.Map;
 @NatureplusModElements.ModElement.Tag
 public class EntityTimerButterflyProcedure extends NatureplusModElements.ModElement {
 	public EntityTimerButterflyProcedure(NatureplusModElements instance) {
-		super(instance, 699);
+		super(instance, 700);
 	}
 
 	public static void executeProcedure(Map<String, Object> dependencies) {

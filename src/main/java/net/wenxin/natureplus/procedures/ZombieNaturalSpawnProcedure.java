@@ -13,7 +13,7 @@ import java.util.Map;
 @NatureplusModElements.ModElement.Tag
 public class ZombieNaturalSpawnProcedure extends NatureplusModElements.ModElement {
 	public ZombieNaturalSpawnProcedure(NatureplusModElements instance) {
-		super(instance, 779);
+		super(instance, 780);
 	}
 
 	public static boolean executeProcedure(Map<String, Object> dependencies) {

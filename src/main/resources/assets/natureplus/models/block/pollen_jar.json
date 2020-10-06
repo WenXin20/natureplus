@@ -1,0 +1,11 @@
+{
+  "parent": "natureplus:custom/pollen_filled_jar",
+  "textures": {
+    "all": "natureplus:blocks/pollen_jar_side",
+    "particle": "natureplus:blocks/pollen_jar_side",
+    "side": "natureplus:blocks/empty_jar_side",
+    "top": "natureplus:blocks/empty_jar_top",
+    "filling_side": "natureplus:blocks/pollen_side",
+    "filling_top": "natureplus:blocks/pollen_top"
+  }
+}

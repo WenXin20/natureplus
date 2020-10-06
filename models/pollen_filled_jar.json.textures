@@ -1,0 +1,13 @@
+{
+  "mappings": {
+    "default": {
+      "map": {
+        "side": "empty_jar_side",
+        "top": "empty_jar_top",
+        "filling_side": "pollen_side",
+        "filling_top": "pollen_top"
+      },
+      "name": "default"
+    }
+  }
+}

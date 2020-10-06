@@ -16,7 +16,7 @@ import java.util.Map;
 @NatureplusModElements.ModElement.Tag
 public class GrowAzureTreeProcedure extends NatureplusModElements.ModElement {
 	public GrowAzureTreeProcedure(NatureplusModElements instance) {
-		super(instance, 275);
+		super(instance, 276);
 	}
 
 	public static void executeProcedure(Map<String, Object> dependencies) {

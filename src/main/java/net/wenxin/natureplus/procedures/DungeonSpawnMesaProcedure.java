@@ -14,7 +14,7 @@ import java.util.Map;
 @NatureplusModElements.ModElement.Tag
 public class DungeonSpawnMesaProcedure extends NatureplusModElements.ModElement {
 	public DungeonSpawnMesaProcedure(NatureplusModElements instance) {
-		super(instance, 853);
+		super(instance, 854);
 	}
 
 	public static boolean executeProcedure(Map<String, Object> dependencies) {

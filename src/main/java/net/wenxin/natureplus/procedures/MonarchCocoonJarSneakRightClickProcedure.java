@@ -40,7 +40,7 @@ import java.util.HashMap;
 @NatureplusModElements.ModElement.Tag
 public class MonarchCocoonJarSneakRightClickProcedure extends NatureplusModElements.ModElement {
 	public MonarchCocoonJarSneakRightClickProcedure(NatureplusModElements instance) {
-		super(instance, 927);
+		super(instance, 928);
 		MinecraftForge.EVENT_BUS.register(this);
 	}
 

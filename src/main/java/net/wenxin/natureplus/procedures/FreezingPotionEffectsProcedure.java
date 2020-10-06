@@ -18,7 +18,7 @@ import java.util.Collection;
 @NatureplusModElements.ModElement.Tag
 public class FreezingPotionEffectsProcedure extends NatureplusModElements.ModElement {
 	public FreezingPotionEffectsProcedure(NatureplusModElements instance) {
-		super(instance, 668);
+		super(instance, 669);
 	}
 
 	public static boolean executeProcedure(Map<String, Object> dependencies) {

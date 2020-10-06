@@ -51,7 +51,7 @@ public class MonarchEggJarBlock extends NatureplusModElements.ModElement {
 	@ObjectHolder("natureplus:monarch_egg_jar")
 	public static final Block block = null;
 	public MonarchEggJarBlock(NatureplusModElements instance) {
-		super(instance, 121);
+		super(instance, 122);
 	}
 
 	@Override

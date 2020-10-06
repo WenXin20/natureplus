@@ -38,7 +38,7 @@ import java.util.HashMap;
 @NatureplusModElements.ModElement.Tag
 public class GrowGiantRedTulipBonemealProcedure extends NatureplusModElements.ModElement {
 	public GrowGiantRedTulipBonemealProcedure(NatureplusModElements instance) {
-		super(instance, 593);
+		super(instance, 594);
 		MinecraftForge.EVENT_BUS.register(this);
 	}
 

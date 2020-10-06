@@ -12,7 +12,7 @@ import java.util.Map;
 @NatureplusModElements.ModElement.Tag
 public class GraveyardSpawnProcedure extends NatureplusModElements.ModElement {
 	public GraveyardSpawnProcedure(NatureplusModElements instance) {
-		super(instance, 919);
+		super(instance, 920);
 	}
 
 	public static boolean executeProcedure(Map<String, Object> dependencies) {

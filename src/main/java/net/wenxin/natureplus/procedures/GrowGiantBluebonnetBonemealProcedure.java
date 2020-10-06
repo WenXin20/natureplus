@@ -38,7 +38,7 @@ import java.util.HashMap;
 @NatureplusModElements.ModElement.Tag
 public class GrowGiantBluebonnetBonemealProcedure extends NatureplusModElements.ModElement {
 	public GrowGiantBluebonnetBonemealProcedure(NatureplusModElements instance) {
-		super(instance, 918);
+		super(instance, 919);
 		MinecraftForge.EVENT_BUS.register(this);
 	}
 

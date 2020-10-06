@@ -16,7 +16,7 @@ import java.util.Map;
 @NatureplusModElements.ModElement.Tag
 public class BlockTimerGraveProcedure extends NatureplusModElements.ModElement {
 	public BlockTimerGraveProcedure(NatureplusModElements instance) {
-		super(instance, 870);
+		super(instance, 871);
 	}
 
 	public static void executeProcedure(Map<String, Object> dependencies) {

@@ -51,7 +51,7 @@ public class MonarchCocoonJarBlock extends NatureplusModElements.ModElement {
 	@ObjectHolder("natureplus:monarch_cocoon_jar")
 	public static final Block block = null;
 	public MonarchCocoonJarBlock(NatureplusModElements instance) {
-		super(instance, 122);
+		super(instance, 123);
 	}
 
 	@Override

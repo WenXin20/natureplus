@@ -33,7 +33,7 @@ import java.util.Random;
 @NatureplusModElements.ModElement.Tag
 public class GiantBluebonnetStructure extends NatureplusModElements.ModElement {
 	public GiantBluebonnetStructure(NatureplusModElements instance) {
-		super(instance, 916);
+		super(instance, 917);
 	}
 
 	@Override

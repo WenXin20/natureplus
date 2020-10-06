@@ -20,7 +20,7 @@ import java.util.HashMap;
 @NatureplusModElements.ModElement.Tag
 public class NameMonarchButterflyProcedure extends NatureplusModElements.ModElement {
 	public NameMonarchButterflyProcedure(NatureplusModElements instance) {
-		super(instance, 683);
+		super(instance, 684);
 		MinecraftForge.EVENT_BUS.register(this);
 	}
 

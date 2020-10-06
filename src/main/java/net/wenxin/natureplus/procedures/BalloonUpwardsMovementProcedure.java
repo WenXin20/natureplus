@@ -17,7 +17,7 @@ import java.util.Collection;
 @NatureplusModElements.ModElement.Tag
 public class BalloonUpwardsMovementProcedure extends NatureplusModElements.ModElement {
 	public BalloonUpwardsMovementProcedure(NatureplusModElements instance) {
-		super(instance, 709);
+		super(instance, 710);
 	}
 
 	public static void executeProcedure(Map<String, Object> dependencies) {

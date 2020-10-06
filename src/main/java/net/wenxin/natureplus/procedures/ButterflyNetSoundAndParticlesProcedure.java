@@ -27,7 +27,7 @@ import java.util.HashMap;
 @NatureplusModElements.ModElement.Tag
 public class ButterflyNetSoundAndParticlesProcedure extends NatureplusModElements.ModElement {
 	public ButterflyNetSoundAndParticlesProcedure(NatureplusModElements instance) {
-		super(instance, 771);
+		super(instance, 772);
 		MinecraftForge.EVENT_BUS.register(this);
 	}
 

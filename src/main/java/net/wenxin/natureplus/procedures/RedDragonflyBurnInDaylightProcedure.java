@@ -12,7 +12,7 @@ import java.util.HashMap;
 @NatureplusModElements.ModElement.Tag
 public class RedDragonflyBurnInDaylightProcedure extends NatureplusModElements.ModElement {
 	public RedDragonflyBurnInDaylightProcedure(NatureplusModElements instance) {
-		super(instance, 905);
+		super(instance, 906);
 	}
 
 	public static void executeProcedure(Map<String, Object> dependencies) {

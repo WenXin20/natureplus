@@ -2,7 +2,7 @@
   "parent": "natureplus:custom/butterfly_egg_jar",
   "textures": {
     "all": "natureplus:blocks/empty_jar_side",
-    "particle": "natureplus:blocks/empty_jar_side",
+    "particle": "natureplus:blocks/monarch_egg_jar_side",
     "side": "natureplus:blocks/empty_jar_side",
     "top": "natureplus:blocks/empty_jar_top",
     "egg": "natureplus:monarch_egg"

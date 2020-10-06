@@ -35,7 +35,7 @@ import java.util.Comparator;
 @NatureplusModElements.ModElement.Tag
 public class GraveSpawnZombiesProcedure extends NatureplusModElements.ModElement {
 	public GraveSpawnZombiesProcedure(NatureplusModElements instance) {
-		super(instance, 871);
+		super(instance, 872);
 	}
 
 	public static void executeProcedure(Map<String, Object> dependencies) {

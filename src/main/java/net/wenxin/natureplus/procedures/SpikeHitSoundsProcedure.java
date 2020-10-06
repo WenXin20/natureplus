@@ -14,7 +14,7 @@ import java.util.Map;
 @NatureplusModElements.ModElement.Tag
 public class SpikeHitSoundsProcedure extends NatureplusModElements.ModElement {
 	public SpikeHitSoundsProcedure(NatureplusModElements instance) {
-		super(instance, 817);
+		super(instance, 818);
 	}
 
 	public static void executeProcedure(Map<String, Object> dependencies) {

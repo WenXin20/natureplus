@@ -18,7 +18,7 @@ import java.util.Map;
 @NatureplusModElements.ModElement.Tag
 public class MexicanSunflowerFlowerPotRightClickProcedure extends NatureplusModElements.ModElement {
 	public MexicanSunflowerFlowerPotRightClickProcedure(NatureplusModElements instance) {
-		super(instance, 257);
+		super(instance, 258);
 	}
 
 	public static void executeProcedure(Map<String, Object> dependencies) {

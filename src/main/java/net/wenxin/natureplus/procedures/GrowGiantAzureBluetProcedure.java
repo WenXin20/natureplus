@@ -38,7 +38,7 @@ import java.util.HashMap;
 @NatureplusModElements.ModElement.Tag
 public class GrowGiantAzureBluetProcedure extends NatureplusModElements.ModElement {
 	public GrowGiantAzureBluetProcedure(NatureplusModElements instance) {
-		super(instance, 513);
+		super(instance, 514);
 		MinecraftForge.EVENT_BUS.register(this);
 	}
 

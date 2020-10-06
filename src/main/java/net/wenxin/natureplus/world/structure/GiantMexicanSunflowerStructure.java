@@ -33,7 +33,7 @@ import java.util.Random;
 @NatureplusModElements.ModElement.Tag
 public class GiantMexicanSunflowerStructure extends NatureplusModElements.ModElement {
 	public GiantMexicanSunflowerStructure(NatureplusModElements instance) {
-		super(instance, 623);
+		super(instance, 624);
 	}
 
 	@Override

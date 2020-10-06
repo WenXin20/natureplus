@@ -12,7 +12,7 @@ import java.util.Map;
 @NatureplusModElements.ModElement.Tag
 public class DespawnPeacefulProcedure extends NatureplusModElements.ModElement {
 	public DespawnPeacefulProcedure(NatureplusModElements instance) {
-		super(instance, 888);
+		super(instance, 889);
 	}
 
 	public static void executeProcedure(Map<String, Object> dependencies) {
