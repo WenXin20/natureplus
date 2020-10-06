@@ -1,6 +1,8 @@
 
 package net.wenxin.natureplus.block;
 
+import org.lwjgl.glfw.GLFW;
+
 import net.wenxin.natureplus.itemgroup.NaturePlusTabItemGroup;
 import net.wenxin.natureplus.NatureplusModElements;
 import net.wenxin.natureplus.EmptyJarPreciseHitbox;
@@ -30,9 +32,11 @@ import net.minecraft.item.BlockItem;
 import net.minecraft.fluid.IFluidState;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.client.util.InputMappings;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.Minecraft;
 import net.minecraft.block.material.MaterialColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.SoundType;
@@ -75,7 +79,12 @@ public class EmptyJarBlock extends NatureplusModElements.ModElement {
 		@OnlyIn(Dist.CLIENT)
 		public void addInformation(ItemStack itemstack, IBlockReader world, List<ITextComponent> list, ITooltipFlag flag) {
 			super.addInformation(itemstack, world, list, flag);
-			list.add(new StringTextComponent("\u00A77\u00A7oSneak-right-click to capture butterfly eggs or cocoons"));
+			long h = Minecraft.getInstance().getMainWindow().getHandle();
+			if (InputMappings.isKeyDown(h, GLFW.GLFW_KEY_LEFT_SHIFT)) {
+				list.add(new StringTextComponent("\u00A77\u00A7oSneak-right-click to capture butterfly eggs or cocoons"));
+			} else {
+				list.add(new StringTextComponent("\u00A77\u00A7o[Shift]"));
+			}
 		}
 
 		@Override

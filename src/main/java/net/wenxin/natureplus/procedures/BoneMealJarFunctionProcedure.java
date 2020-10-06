@@ -127,22 +127,24 @@ public class BoneMealJarFunctionProcedure extends NatureplusModElements.ModEleme
 		BlockPos blockpos = event.getPos();
 		BlockPos blockpos1 = blockpos.offset(event.getFace());
 		ItemStack stack2 = ((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY);
-		if (event.getHand() != entity.getActiveHand())
-			return;
-		if ((((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY)
-				.getItem() == new ItemStack(BoneMealJarBlock.block, (int) (1)).getItem())) {
-			if (applyBonemeal(stack2, world, blockpos, event.getPlayer()) && !event.getPlayer().isSneaking()) {
-				((LivingEntity) entity).swing(Hand.MAIN_HAND, true);
-				if (!world.isRemote) {
-					world.playEvent(2005, blockpos, 0);
-				}
-			} else if (!event.getPlayer().isSneaking()) {
-				BlockState blockstate = world.getBlockState(blockpos);
-				boolean flag = blockstate.isSolidSide(world, blockpos, event.getFace());
-				if (flag && growSeagrass(stack2, world, blockpos1, event.getFace(), event.getPlayer())) {
+		if ((!(world.getWorld().isRemote))) {
+			if (event.getHand() != entity.getActiveHand())
+				return;
+			if ((((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY)
+					.getItem() == new ItemStack(BoneMealJarBlock.block, (int) (1)).getItem())) {
+				if (applyBonemeal(stack2, world, blockpos, event.getPlayer()) && !event.getPlayer().isSneaking()) {
 					((LivingEntity) entity).swing(Hand.MAIN_HAND, true);
 					if (!world.isRemote) {
-						world.playEvent(2005, blockpos1, 0);
+						world.playEvent(2005, blockpos, 0);
+					}
+				} else if (!event.getPlayer().isSneaking()) {
+					BlockState blockstate = world.getBlockState(blockpos);
+					boolean flag = blockstate.isSolidSide(world, blockpos, event.getFace());
+					if (flag && growSeagrass(stack2, world, blockpos1, event.getFace(), event.getPlayer())) {
+						((LivingEntity) entity).swing(Hand.MAIN_HAND, true);
+						if (!world.isRemote) {
+							world.playEvent(2005, blockpos1, 0);
+						}
 					}
 				}
 			}

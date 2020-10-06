@@ -1,6 +1,8 @@
 
 package net.wenxin.natureplus.item;
 
+import org.lwjgl.glfw.GLFW;
+
 import net.wenxin.natureplus.itemgroup.NaturePlusTabItemGroup;
 import net.wenxin.natureplus.NatureplusModElements;
 import net.wenxin.natureplus.MobNBTHelper;
@@ -23,26 +25,23 @@ import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.item.ItemUseContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Item;
-import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.monster.RavagerEntity;
 import net.minecraft.entity.monster.MonsterEntity;
 import net.minecraft.entity.monster.ElderGuardianEntity;
-import net.minecraft.entity.ai.attributes.AttributeModifier;
-import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.MobEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.Entity;
+import net.minecraft.client.util.InputMappings;
 import net.minecraft.client.util.ITooltipFlag;
+import net.minecraft.client.Minecraft;
 import net.minecraft.advancements.AdvancementProgress;
 import net.minecraft.advancements.Advancement;
 
 import java.util.List;
 import java.util.Iterator;
-
-import com.google.common.collect.Multimap;
 
 @NatureplusModElements.ModElement.Tag
 public class GoldenButterflyNetItem extends NatureplusModElements.ModElement {
@@ -157,6 +156,7 @@ public class GoldenButterflyNetItem extends NatureplusModElements.ModElement {
 
 		@Override
 		public void addInformation(ItemStack stack, World world, List<ITextComponent> tooltip, ITooltipFlag flag) {
+			long h = Minecraft.getInstance().getMainWindow().getHandle();
 			if (MobNBTHelper.hasMob(stack)) {
 				CompoundNBT nbt = MobNBTHelper.getBaseTag(stack);
 				String name = nbt.getString(MobNBTHelper.MOB_NAME);
@@ -177,7 +177,11 @@ public class GoldenButterflyNetItem extends NatureplusModElements.ModElement {
 					tooltip.add(Message.tooltip("natureplus.tooltip.butterfly_net.hostile.key"));
 				tooltip.add(Message.tooltip("natureplus.tooltip.butterfly_net.release_mob.key"));
 			} else {
-				tooltip.add(Message.tooltip("natureplus.tooltip.butterfly_net.capture.key"));
+				if (InputMappings.isKeyDown(h, GLFW.GLFW_KEY_LEFT_SHIFT)) {
+					tooltip.add(Message.tooltip("natureplus.tooltip.butterfly_net.capture.key"));
+				} else {
+					tooltip.add(Message.tooltip("natureplus.tooltip.butterfly_net.shift.key"));
+				}
 			}
 		}
 

@@ -73,7 +73,7 @@ public class GrowGiantWitherRoseWitherBonemealProcedure extends NatureplusModEle
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
 		IWorld world = (IWorld) dependencies.get("world");
-		if (((entity.isSneaking()) && ((world.canBlockSeeSky(new BlockPos((int) x, (int) y, (int) z)))
+		if (((!(entity.isSneaking())) && ((world.canBlockSeeSky(new BlockPos((int) x, (int) y, (int) z)))
 				&& ((((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY)
 						.getItem() == new ItemStack(WitherBoneMealJarBlock.block, (int) (1)).getItem())
 						&& ((world.getBlockState(new BlockPos((int) x, (int) y, (int) z))).getBlock() == Blocks.WITHER_ROSE.getDefaultState()
@@ -129,7 +129,7 @@ public class GrowGiantWitherRoseWitherBonemealProcedure extends NatureplusModEle
 					}
 				}
 			}
-		} else if (((entity.isSneaking()) && ((!(world.canBlockSeeSky(new BlockPos((int) x, (int) y, (int) z))))
+		} else if (((!(entity.isSneaking())) && ((!(world.canBlockSeeSky(new BlockPos((int) x, (int) y, (int) z))))
 				&& ((((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY)
 						.getItem() == new ItemStack(WitherBoneMealJarBlock.block, (int) (1)).getItem())
 						&& ((world.getBlockState(new BlockPos((int) x, (int) y, (int) z))).getBlock() == Blocks.WITHER_ROSE.getDefaultState()

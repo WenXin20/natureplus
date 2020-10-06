@@ -73,97 +73,100 @@ public class MonarchCocoonJarSpawnProcedure extends NatureplusModElements.ModEle
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
 		IWorld world = (IWorld) dependencies.get("world");
-		if (((entity.isSneaking()) && ((!(world.getBlockState(new BlockPos((int) x, (int) (y + 1), (int) z)).isSolid()))
-				&& (((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY)
-						.getItem() == new ItemStack(MonarchCocoonJarBlock.block, (int) (1)).getItem())))) {
-			if (world instanceof World && !world.getWorld().isRemote) {
-				Entity entityToSpawn = new MonarchCocoonEntity.CustomEntity(MonarchCocoonEntity.entity, world.getWorld());
-				entityToSpawn.setLocationAndAngles((x + 0.5), (y + 1), (z + 0.5), world.getRandom().nextFloat() * 360F, 0);
-				if (entityToSpawn instanceof MobEntity)
-					((MobEntity) entityToSpawn).onInitialSpawn(world, world.getDifficultyForLocation(new BlockPos(entityToSpawn)),
-							SpawnReason.MOB_SUMMONED, (ILivingEntityData) null, (CompoundNBT) null);
-				world.addEntity(entityToSpawn);
-			}
-			if (world instanceof ServerWorld) {
-				((ServerWorld) world).spawnParticle(ParticleTypes.HAPPY_VILLAGER, (x + 0.5), (y + 1.25), (z + 0.5), (int) 10, 0.25, 0.25, 0.25, 1);
-			}
-			if (!world.getWorld().isRemote) {
-				world.playSound(null, new BlockPos((int) x, (int) y, (int) z),
-						(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("item.bottle.empty")),
-						SoundCategory.NEUTRAL, (float) 1, (float) 1);
-			} else {
-				world.getWorld().playSound(x, y, z,
-						(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("item.bottle.empty")),
-						SoundCategory.NEUTRAL, (float) 1, (float) 1, false);
-			}
-			if (entity instanceof LivingEntity) {
-				((LivingEntity) entity).swing(Hand.MAIN_HAND, true);
-			}
-			if ((!((entity instanceof PlayerEntity) ? ((PlayerEntity) entity).abilities.isCreativeMode : false))) {
-				if (entity instanceof LivingEntity) {
-					ItemStack _setstack = new ItemStack(EmptyJarBlock.block, (int) (1));
-					_setstack.setCount((int) 1);
-					((LivingEntity) entity).setHeldItem(Hand.MAIN_HAND, _setstack);
-					if (entity instanceof ServerPlayerEntity)
-						((ServerPlayerEntity) entity).inventory.markDirty();
+		if ((!(world.getWorld().isRemote))) {
+			if (((entity.isSneaking()) && ((!(world.getBlockState(new BlockPos((int) x, (int) (y + 1), (int) z)).isSolid()))
+					&& (((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY)
+							.getItem() == new ItemStack(MonarchCocoonJarBlock.block, (int) (1)).getItem())))) {
+				if (world instanceof World && !world.getWorld().isRemote) {
+					Entity entityToSpawn = new MonarchCocoonEntity.CustomEntity(MonarchCocoonEntity.entity, world.getWorld());
+					entityToSpawn.setLocationAndAngles((x + 0.5), (y + 1), (z + 0.5), world.getRandom().nextFloat() * 360F, 0);
+					if (entityToSpawn instanceof MobEntity)
+						((MobEntity) entityToSpawn).onInitialSpawn(world, world.getDifficultyForLocation(new BlockPos(entityToSpawn)),
+								SpawnReason.MOB_SUMMONED, (ILivingEntityData) null, (CompoundNBT) null);
+					world.addEntity(entityToSpawn);
 				}
-			}
-			if (entity instanceof ServerPlayerEntity) {
-				Advancement _adv = ((MinecraftServer) ((ServerPlayerEntity) entity).server).getAdvancementManager()
-						.getAdvancement(new ResourceLocation("natureplus:cocoon_to_butterfly"));
-				AdvancementProgress _ap = ((ServerPlayerEntity) entity).getAdvancements().getProgress(_adv);
-				if (!_ap.isDone()) {
-					Iterator _iterator = _ap.getRemaningCriteria().iterator();
-					while (_iterator.hasNext()) {
-						String _criterion = (String) _iterator.next();
-						((ServerPlayerEntity) entity).getAdvancements().grantCriterion(_adv, _criterion);
+				if (world instanceof ServerWorld) {
+					((ServerWorld) world).spawnParticle(ParticleTypes.HAPPY_VILLAGER, (x + 0.5), (y + 1.25), (z + 0.5), (int) 10, 0.25, 0.25, 0.25,
+							1);
+				}
+				if (!world.getWorld().isRemote) {
+					world.playSound(null, new BlockPos((int) x, (int) y, (int) z),
+							(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("item.bottle.empty")),
+							SoundCategory.NEUTRAL, (float) 1, (float) 1);
+				} else {
+					world.getWorld().playSound(x, y, z,
+							(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("item.bottle.empty")),
+							SoundCategory.NEUTRAL, (float) 1, (float) 1, false);
+				}
+				if (entity instanceof LivingEntity) {
+					((LivingEntity) entity).swing(Hand.MAIN_HAND, true);
+				}
+				if ((!((entity instanceof PlayerEntity) ? ((PlayerEntity) entity).abilities.isCreativeMode : false))) {
+					if (entity instanceof LivingEntity) {
+						ItemStack _setstack = new ItemStack(EmptyJarBlock.block, (int) (1));
+						_setstack.setCount((int) 1);
+						((LivingEntity) entity).setHeldItem(Hand.MAIN_HAND, _setstack);
+						if (entity instanceof ServerPlayerEntity)
+							((ServerPlayerEntity) entity).inventory.markDirty();
 					}
 				}
-			}
-		} else if (((entity.isSneaking()) && ((!(world.getBlockState(new BlockPos((int) x, (int) (y + 1), (int) z)).isSolid()))
-				&& (((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemOffhand() : ItemStack.EMPTY)
-						.getItem() == new ItemStack(MonarchCocoonJarBlock.block, (int) (1)).getItem())))) {
-			if (world instanceof World && !world.getWorld().isRemote) {
-				Entity entityToSpawn = new MonarchCocoonEntity.CustomEntity(MonarchCocoonEntity.entity, world.getWorld());
-				entityToSpawn.setLocationAndAngles((x + 0.5), (y + 1), (z + 0.5), world.getRandom().nextFloat() * 360F, 0);
-				if (entityToSpawn instanceof MobEntity)
-					((MobEntity) entityToSpawn).onInitialSpawn(world, world.getDifficultyForLocation(new BlockPos(entityToSpawn)),
-							SpawnReason.MOB_SUMMONED, (ILivingEntityData) null, (CompoundNBT) null);
-				world.addEntity(entityToSpawn);
-			}
-			if (world instanceof ServerWorld) {
-				((ServerWorld) world).spawnParticle(ParticleTypes.HAPPY_VILLAGER, (x + 0.5), (y + 1), (z + 0.5), (int) 10, 0.25, 0.25, 0.25, 1);
-			}
-			if (!world.getWorld().isRemote) {
-				world.playSound(null, new BlockPos((int) x, (int) y, (int) z),
-						(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("item.bottle.empty")),
-						SoundCategory.NEUTRAL, (float) 1, (float) 1);
-			} else {
-				world.getWorld().playSound(x, y, z,
-						(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("item.bottle.empty")),
-						SoundCategory.NEUTRAL, (float) 1, (float) 1, false);
-			}
-			if (entity instanceof LivingEntity) {
-				((LivingEntity) entity).swing(Hand.OFF_HAND, true);
-			}
-			if ((!((entity instanceof PlayerEntity) ? ((PlayerEntity) entity).abilities.isCreativeMode : false))) {
-				if (entity instanceof LivingEntity) {
-					ItemStack _setstack = new ItemStack(EmptyJarBlock.block, (int) (1));
-					_setstack.setCount((int) 1);
-					((LivingEntity) entity).setHeldItem(Hand.OFF_HAND, _setstack);
-					if (entity instanceof ServerPlayerEntity)
-						((ServerPlayerEntity) entity).inventory.markDirty();
+				if (entity instanceof ServerPlayerEntity) {
+					Advancement _adv = ((MinecraftServer) ((ServerPlayerEntity) entity).server).getAdvancementManager()
+							.getAdvancement(new ResourceLocation("natureplus:cocoon_to_butterfly"));
+					AdvancementProgress _ap = ((ServerPlayerEntity) entity).getAdvancements().getProgress(_adv);
+					if (!_ap.isDone()) {
+						Iterator _iterator = _ap.getRemaningCriteria().iterator();
+						while (_iterator.hasNext()) {
+							String _criterion = (String) _iterator.next();
+							((ServerPlayerEntity) entity).getAdvancements().grantCriterion(_adv, _criterion);
+						}
+					}
 				}
-			}
-			if (entity instanceof ServerPlayerEntity) {
-				Advancement _adv = ((MinecraftServer) ((ServerPlayerEntity) entity).server).getAdvancementManager()
-						.getAdvancement(new ResourceLocation("natureplus:cocoon_to_butterfly"));
-				AdvancementProgress _ap = ((ServerPlayerEntity) entity).getAdvancements().getProgress(_adv);
-				if (!_ap.isDone()) {
-					Iterator _iterator = _ap.getRemaningCriteria().iterator();
-					while (_iterator.hasNext()) {
-						String _criterion = (String) _iterator.next();
-						((ServerPlayerEntity) entity).getAdvancements().grantCriterion(_adv, _criterion);
+			} else if (((entity.isSneaking()) && ((!(world.getBlockState(new BlockPos((int) x, (int) (y + 1), (int) z)).isSolid()))
+					&& (((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemOffhand() : ItemStack.EMPTY)
+							.getItem() == new ItemStack(MonarchCocoonJarBlock.block, (int) (1)).getItem())))) {
+				if (world instanceof World && !world.getWorld().isRemote) {
+					Entity entityToSpawn = new MonarchCocoonEntity.CustomEntity(MonarchCocoonEntity.entity, world.getWorld());
+					entityToSpawn.setLocationAndAngles((x + 0.5), (y + 1), (z + 0.5), world.getRandom().nextFloat() * 360F, 0);
+					if (entityToSpawn instanceof MobEntity)
+						((MobEntity) entityToSpawn).onInitialSpawn(world, world.getDifficultyForLocation(new BlockPos(entityToSpawn)),
+								SpawnReason.MOB_SUMMONED, (ILivingEntityData) null, (CompoundNBT) null);
+					world.addEntity(entityToSpawn);
+				}
+				if (world instanceof ServerWorld) {
+					((ServerWorld) world).spawnParticle(ParticleTypes.HAPPY_VILLAGER, (x + 0.5), (y + 1), (z + 0.5), (int) 10, 0.25, 0.25, 0.25, 1);
+				}
+				if (!world.getWorld().isRemote) {
+					world.playSound(null, new BlockPos((int) x, (int) y, (int) z),
+							(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("item.bottle.empty")),
+							SoundCategory.NEUTRAL, (float) 1, (float) 1);
+				} else {
+					world.getWorld().playSound(x, y, z,
+							(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("item.bottle.empty")),
+							SoundCategory.NEUTRAL, (float) 1, (float) 1, false);
+				}
+				if (entity instanceof LivingEntity) {
+					((LivingEntity) entity).swing(Hand.OFF_HAND, true);
+				}
+				if ((!((entity instanceof PlayerEntity) ? ((PlayerEntity) entity).abilities.isCreativeMode : false))) {
+					if (entity instanceof LivingEntity) {
+						ItemStack _setstack = new ItemStack(EmptyJarBlock.block, (int) (1));
+						_setstack.setCount((int) 1);
+						((LivingEntity) entity).setHeldItem(Hand.OFF_HAND, _setstack);
+						if (entity instanceof ServerPlayerEntity)
+							((ServerPlayerEntity) entity).inventory.markDirty();
+					}
+				}
+				if (entity instanceof ServerPlayerEntity) {
+					Advancement _adv = ((MinecraftServer) ((ServerPlayerEntity) entity).server).getAdvancementManager()
+							.getAdvancement(new ResourceLocation("natureplus:cocoon_to_butterfly"));
+					AdvancementProgress _ap = ((ServerPlayerEntity) entity).getAdvancements().getProgress(_adv);
+					if (!_ap.isDone()) {
+						Iterator _iterator = _ap.getRemaningCriteria().iterator();
+						while (_iterator.hasNext()) {
+							String _criterion = (String) _iterator.next();
+							((ServerPlayerEntity) entity).getAdvancements().grantCriterion(_adv, _criterion);
+						}
 					}
 				}
 			}

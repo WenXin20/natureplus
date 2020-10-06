@@ -1,6 +1,8 @@
 
 package net.wenxin.natureplus.item;
 
+import org.lwjgl.glfw.GLFW;
+
 import net.wenxin.natureplus.itemgroup.NaturePlusTabItemGroup;
 import net.wenxin.natureplus.NatureplusModElements;
 import net.wenxin.natureplus.MobNBTHelper;
@@ -11,6 +13,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.fml.ModList;
 
 import net.minecraft.world.World;
+import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.SoundCategory;
@@ -32,7 +35,9 @@ import net.minecraft.entity.MobEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.Entity;
+import net.minecraft.client.util.InputMappings;
 import net.minecraft.client.util.ITooltipFlag;
+import net.minecraft.client.Minecraft;
 import net.minecraft.advancements.AdvancementProgress;
 import net.minecraft.advancements.Advancement;
 
@@ -152,6 +157,7 @@ public class ButterflyNetItem extends NatureplusModElements.ModElement {
 
 		@Override
 		public void addInformation(ItemStack stack, World world, List<ITextComponent> tooltip, ITooltipFlag flag) {
+			long h = Minecraft.getInstance().getMainWindow().getHandle();
 			if (MobNBTHelper.hasMob(stack)) {
 				CompoundNBT nbt = MobNBTHelper.getBaseTag(stack);
 				String name = nbt.getString(MobNBTHelper.MOB_NAME);
@@ -172,7 +178,11 @@ public class ButterflyNetItem extends NatureplusModElements.ModElement {
 					tooltip.add(Message.tooltip("natureplus.tooltip.butterfly_net.hostile.key"));
 				tooltip.add(Message.tooltip("natureplus.tooltip.butterfly_net.release_mob.key"));
 			} else {
-				tooltip.add(Message.tooltip("natureplus.tooltip.butterfly_net.capture.key"));
+				if (InputMappings.isKeyDown(h, GLFW.GLFW_KEY_LEFT_SHIFT)) {
+					tooltip.add(Message.tooltip("natureplus.tooltip.butterfly_net.capture.key"));
+				} else {
+					tooltip.add(Message.tooltip("natureplus.tooltip.butterfly_net.shift.key"));
+				}
 			}
 		}
 

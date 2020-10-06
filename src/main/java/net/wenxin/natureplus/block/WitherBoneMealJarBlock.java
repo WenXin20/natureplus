@@ -1,6 +1,8 @@
 
 package net.wenxin.natureplus.block;
 
+import org.lwjgl.glfw.GLFW;
+
 import net.wenxin.natureplus.itemgroup.NaturePlusTabItemGroup;
 import net.wenxin.natureplus.NatureplusModElements;
 import net.wenxin.natureplus.EmptyJarPreciseHitbox;
@@ -30,9 +32,11 @@ import net.minecraft.item.BlockItem;
 import net.minecraft.fluid.IFluidState;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.client.util.InputMappings;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.Minecraft;
 import net.minecraft.block.material.MaterialColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.SoundType;
@@ -53,8 +57,8 @@ public class WitherBoneMealJarBlock extends NatureplusModElements.ModElement {
 	@Override
 	public void initElements() {
 		elements.blocks.add(() -> new CustomBlock());
-		elements.items
-				.add(() -> new BlockItem(block, new Item.Properties().group(NaturePlusTabItemGroup.tab).maxStackSize(1)).setRegistryName(block.getRegistryName()));
+		elements.items.add(() -> new BlockItem(block, new Item.Properties().group(NaturePlusTabItemGroup.tab).maxStackSize(1))
+				.setRegistryName(block.getRegistryName()));
 	}
 
 	@Override
@@ -75,8 +79,14 @@ public class WitherBoneMealJarBlock extends NatureplusModElements.ModElement {
 		@OnlyIn(Dist.CLIENT)
 		public void addInformation(ItemStack itemstack, IBlockReader world, List<ITextComponent> list, ITooltipFlag flag) {
 			super.addInformation(itemstack, world, list, flag);
-			list.add(new StringTextComponent("\u00A77\u00A7oSneak-right-click a Wither Rose to grow a giant version"));
-			list.add(new StringTextComponent("\u00A74Do not grow giant flowers near important structures (WIP)"));
+			long h = Minecraft.getInstance().getMainWindow().getHandle();
+			if (InputMappings.isKeyDown(h, GLFW.GLFW_KEY_LEFT_SHIFT)) {
+				list.add(new StringTextComponent("\u00A77\u00A7oSneak-right-click to place"));
+				list.add(new StringTextComponent("\u00A77\u00A7oRight-click a Wither Rose to grow a giant version"));
+				list.add(new StringTextComponent("\u00A74Do not grow giant flowers near important structures (WIP)"));
+			} else {
+				list.add(new StringTextComponent("\u00A77\u00A7o[Shift]"));
+			}
 		}
 
 		@Override
@@ -97,7 +107,7 @@ public class WitherBoneMealJarBlock extends NatureplusModElements.ModElement {
 		@Override
 		public BlockState getStateForPlacement(BlockItemUseContext context) {
 			boolean flag = context.getWorld().getFluidState(context.getPos()).getFluid() == Fluids.WATER;
-			if (!context.getPlayer().isSneaking()) {
+			if (context.getPlayer().isSneaking()) {
 				return this.getDefaultState().with(WATERLOGGED, flag);
 			}
 			return null;

@@ -1,6 +1,8 @@
 
 package net.wenxin.natureplus.block;
 
+import org.lwjgl.glfw.GLFW;
+
 import net.wenxin.natureplus.itemgroup.NaturePlusTabItemGroup;
 import net.wenxin.natureplus.NatureplusModElements;
 import net.wenxin.natureplus.EmptyJarPreciseHitbox;
@@ -32,9 +34,11 @@ import net.minecraft.fluid.IFluidState;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.client.util.InputMappings;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.Minecraft;
 import net.minecraft.block.material.MaterialColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.SoundType;
@@ -77,9 +81,15 @@ public class BoneMealJarBlock extends NatureplusModElements.ModElement {
 		@OnlyIn(Dist.CLIENT)
 		public void addInformation(ItemStack itemstack, IBlockReader world, List<ITextComponent> list, ITooltipFlag flag) {
 			super.addInformation(itemstack, world, list, flag);
-			list.add(new StringTextComponent("\u00A77\u00A7oWorks as Bone Meal"));
-			list.add(new StringTextComponent("\u00A77\u00A7oSneak-right-click a flower to grow a giant version"));
-			list.add(new StringTextComponent("\u00A74Do not grow giant flowers near important structures (WIP)"));
+			long h = Minecraft.getInstance().getMainWindow().getHandle();
+			if (InputMappings.isKeyDown(h, GLFW.GLFW_KEY_LEFT_SHIFT)) {
+				list.add(new StringTextComponent("\u00A77\u00A7oWorks as Bone Meal"));
+				list.add(new StringTextComponent("\u00A77\u00A7oSneak-right-click to place"));
+				list.add(new StringTextComponent("\u00A77\u00A7oRight-click a flower to grow a giant version"));
+				list.add(new StringTextComponent("\u00A74Do not grow giant flowers near important structures (WIP)"));
+			} else {
+				list.add(new StringTextComponent("\u00A77\u00A7o[Shift]"));
+			}
 		}
 
 		@Override
@@ -106,7 +116,7 @@ public class BoneMealJarBlock extends NatureplusModElements.ModElement {
 				if (!(stack.isDamaged())) {
 					return this.getDefaultState().with(WATERLOGGED, flag);
 				} else if ((stack.isDamaged())) {
-					if (entity instanceof PlayerEntity && !entity.world.isRemote) {
+					if (entity instanceof PlayerEntity && !(entity.world.getWorld().isRemote)) {
 						entity.sendStatusMessage(new StringTextComponent("Used jars cannot be placed"), (true));
 						return null;
 					}
