@@ -7,7 +7,7 @@
     "customModelName": "corn:default",
     "name": "Corn",
     "specialInfo": [
-      "§b§oRight-click to throw"
+      "§7§oRight-click to throw"
     ],
     "creativeTab": {
       "value": "CUSTOM:PlantsVsZombiesTab"

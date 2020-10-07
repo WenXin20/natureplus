@@ -1,0 +1,28 @@
+{
+  "_fv": 12,
+  "_type": "tag",
+  "definition": {
+    "type": "Blocks",
+    "items": [],
+    "blocks": [
+      {
+        "value": "CUSTOM:Grave"
+      },
+      {
+        "value": "CUSTOM:CrossGrave"
+      },
+      {
+        "value": "CUSTOM:BatGrave"
+      },
+      {
+        "value": "CUSTOM:SkullGrave"
+      },
+      {
+        "value": "CUSTOM:SmallCrossGrave"
+      }
+    ],
+    "functions": [],
+    "name": "dragon_immune",
+    "namespace": "minecraft"
+  }
+}

@@ -1,6 +1,8 @@
 
 package net.wenxin.natureplus.item;
 
+import org.lwjgl.glfw.GLFW;
+
 import net.wenxin.natureplus.procedures.CornSplatSoundsProcedure;
 import net.wenxin.natureplus.procedures.CornEffectsProcedure;
 import net.wenxin.natureplus.itemgroup.PlantsVsZombiesTabItemGroup;
@@ -37,6 +39,7 @@ import net.minecraft.entity.IRendersAsItem;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.Entity;
+import net.minecraft.client.util.InputMappings;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.client.renderer.model.ModelRenderer;
@@ -46,6 +49,7 @@ import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.Vector3f;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.IRenderTypeBuffer;
+import net.minecraft.client.Minecraft;
 
 import java.util.Random;
 import java.util.Map;
@@ -93,7 +97,12 @@ public class CornItem extends NatureplusModElements.ModElement {
 		@Override
 		public void addInformation(ItemStack itemstack, World world, List<ITextComponent> list, ITooltipFlag flag) {
 			super.addInformation(itemstack, world, list, flag);
-			list.add(new StringTextComponent("\u00A7b\u00A7oRight-click to throw"));
+			long h = Minecraft.getInstance().getMainWindow().getHandle();
+			if (InputMappings.isKeyDown(h, GLFW.GLFW_KEY_LEFT_SHIFT)) {
+				list.add(new StringTextComponent("\u00A77\u00A7oRight-click to throw"));
+			} else {
+				list.add(new StringTextComponent("\u00A77\u00A7o[Shift]"));
+			}
 		}
 
 		@Override

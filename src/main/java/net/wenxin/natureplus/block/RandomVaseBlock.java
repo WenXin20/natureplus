@@ -54,7 +54,7 @@ public class RandomVaseBlock extends NatureplusModElements.ModElement implements
 	@ObjectHolder("natureplus:random_vase")
 	public static final Block block = null;
 	public RandomVaseBlock(NatureplusModElements instance) {
-		super(instance, 183);
+		super(instance, 184);
 	}
 
 	@Override

@@ -1,6 +1,8 @@
 
 package net.wenxin.natureplus.item;
 
+import org.lwjgl.glfw.GLFW;
+
 import net.wenxin.natureplus.procedures.SpikeHitSoundsProcedure;
 import net.wenxin.natureplus.itemgroup.PlantsVsZombiesTabItemGroup;
 import net.wenxin.natureplus.NatureplusModElements;
@@ -36,6 +38,7 @@ import net.minecraft.entity.IRendersAsItem;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.Entity;
+import net.minecraft.client.util.InputMappings;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.client.renderer.entity.SpriteRenderer;
 import net.minecraft.client.Minecraft;
@@ -52,7 +55,7 @@ public class SpikeItem extends NatureplusModElements.ModElement {
 	@ObjectHolder("natureplus:entitybulletspike")
 	public static final EntityType arrow = null;
 	public SpikeItem(NatureplusModElements instance) {
-		super(instance, 215);
+		super(instance, 216);
 	}
 
 	@Override
@@ -89,8 +92,13 @@ public class SpikeItem extends NatureplusModElements.ModElement {
 		@Override
 		public void addInformation(ItemStack itemstack, World world, List<ITextComponent> list, ITooltipFlag flag) {
 			super.addInformation(itemstack, world, list, flag);
-			list.add(new StringTextComponent("\u00A77\u00A7oShear cacti to obtain"));
-			list.add(new StringTextComponent("\u00A7b\u00A7oRight-click to throw"));
+			long h = Minecraft.getInstance().getMainWindow().getHandle();
+			if (InputMappings.isKeyDown(h, GLFW.GLFW_KEY_LEFT_SHIFT)) {
+				list.add(new StringTextComponent("\u00A77\u00A7oShear cacti to obtain"));
+				list.add(new StringTextComponent("\u00A77\u00A7oRight-click to throw"));
+			} else {
+				list.add(new StringTextComponent("\u00A77\u00A7o[Shift]"));
+			}
 		}
 
 		@Override

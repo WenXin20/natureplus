@@ -88,7 +88,7 @@ public class GraveBlock extends NatureplusModElements.ModElement implements IWat
 	@ObjectHolder("natureplus:grave")
 	public static final TileEntityType<CustomTileEntity> tileEntityType = null;
 	public GraveBlock(NatureplusModElements instance) {
-		super(instance, 185);
+		super(instance, 186);
 		FMLJavaModLoadingContext.get().getModEventBus().register(this);
 	}
 

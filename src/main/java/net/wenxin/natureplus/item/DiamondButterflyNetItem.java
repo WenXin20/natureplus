@@ -48,7 +48,7 @@ public class DiamondButterflyNetItem extends NatureplusModElements.ModElement {
 	@ObjectHolder("natureplus:diamond_butterfly_net")
 	public static final Item block = null;
 	public DiamondButterflyNetItem(NatureplusModElements instance) {
-		super(instance, 129);
+		super(instance, 130);
 	}
 
 	@Override

@@ -65,7 +65,7 @@ import com.google.common.collect.ImmutableMap;
 public class BucketheadZombieEntity extends NatureplusModElements.ModElement {
 	public static EntityType entity = null;
 	public BucketheadZombieEntity(NatureplusModElements instance) {
-		super(instance, 181);
+		super(instance, 182);
 		FMLJavaModLoadingContext.get().getModEventBus().register(this);
 	}
 

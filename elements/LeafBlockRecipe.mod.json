@@ -10,19 +10,19 @@
     "recipeShapeless": false,
     "recipeSlots": [
       {
-        "value": "Blocks.LEAVES#0"
+        "value": "TAG:minecraft:leaves"
       },
       {
-        "value": "Blocks.LEAVES#0"
+        "value": "TAG:minecraft:leaves"
       },
       {
         "value": ""
       },
       {
-        "value": "Blocks.LEAVES#0"
+        "value": "TAG:minecraft:leaves"
       },
       {
-        "value": "Blocks.LEAVES#0"
+        "value": "TAG:minecraft:leaves"
       },
       {
         "value": ""

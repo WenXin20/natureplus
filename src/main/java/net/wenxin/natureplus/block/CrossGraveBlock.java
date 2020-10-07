@@ -87,7 +87,7 @@ public class CrossGraveBlock extends NatureplusModElements.ModElement implements
 	@ObjectHolder("natureplus:cross_grave")
 	public static final TileEntityType<CustomTileEntity> tileEntityType = null;
 	public CrossGraveBlock(NatureplusModElements instance) {
-		super(instance, 189);
+		super(instance, 190);
 		FMLJavaModLoadingContext.get().getModEventBus().register(this);
 	}
 

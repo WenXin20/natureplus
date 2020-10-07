@@ -7,16 +7,16 @@
   ],
   "key": {
     "0": {
-      "item": "minecraft:oak_leaves"
+      "tag": "minecraft:leaves"
     },
     "1": {
-      "item": "minecraft:oak_leaves"
+      "tag": "minecraft:leaves"
     },
     "2": {
-      "item": "minecraft:oak_leaves"
+      "tag": "minecraft:leaves"
     },
     "3": {
-      "item": "minecraft:oak_leaves"
+      "tag": "minecraft:leaves"
     }
   },
   "result": {

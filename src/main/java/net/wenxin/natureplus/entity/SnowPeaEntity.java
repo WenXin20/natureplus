@@ -81,7 +81,7 @@ import com.google.common.collect.ImmutableList;
 public class SnowPeaEntity extends NatureplusModElements.ModElement {
 	public static EntityType entity = null;
 	public SnowPeaEntity(NatureplusModElements instance) {
-		super(instance, 176);
+		super(instance, 177);
 		FMLJavaModLoadingContext.get().getModEventBus().register(this);
 	}
 

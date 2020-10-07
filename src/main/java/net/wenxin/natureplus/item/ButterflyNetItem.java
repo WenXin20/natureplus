@@ -49,7 +49,7 @@ public class ButterflyNetItem extends NatureplusModElements.ModElement {
 	@ObjectHolder("natureplus:butterfly_net")
 	public static final Item block = null;
 	public ButterflyNetItem(NatureplusModElements instance) {
-		super(instance, 125);
+		super(instance, 126);
 	}
 
 	@Override

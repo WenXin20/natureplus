@@ -1,6 +1,8 @@
 
 package net.wenxin.natureplus.item;
 
+import org.lwjgl.glfw.GLFW;
+
 import net.wenxin.natureplus.procedures.PeaSplatSoundsProcedure;
 import net.wenxin.natureplus.itemgroup.PlantsVsZombiesTabItemGroup;
 import net.wenxin.natureplus.NatureplusModElements;
@@ -37,6 +39,7 @@ import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.Entity;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.enchantment.EnchantmentHelper;
+import net.minecraft.client.util.InputMappings;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.client.renderer.entity.SpriteRenderer;
 import net.minecraft.client.Minecraft;
@@ -51,7 +54,7 @@ public class PeaItem extends NatureplusModElements.ModElement {
 	@ObjectHolder("natureplus:entitybulletpea")
 	public static final EntityType arrow = null;
 	public PeaItem(NatureplusModElements instance) {
-		super(instance, 212);
+		super(instance, 213);
 	}
 
 	@Override
@@ -88,7 +91,12 @@ public class PeaItem extends NatureplusModElements.ModElement {
 		@Override
 		public void addInformation(ItemStack itemstack, World world, List<ITextComponent> list, ITooltipFlag flag) {
 			super.addInformation(itemstack, world, list, flag);
-			list.add(new StringTextComponent("\u00A7b\u00A7oRight-click to throw"));
+			long h = Minecraft.getInstance().getMainWindow().getHandle();
+			if (InputMappings.isKeyDown(h, GLFW.GLFW_KEY_LEFT_SHIFT)) {
+				list.add(new StringTextComponent("\u00A77\u00A7oRight-click to throw"));
+			} else {
+				list.add(new StringTextComponent("\u00A77\u00A7o[Shift]"));
+			}
 		}
 
 		@Override

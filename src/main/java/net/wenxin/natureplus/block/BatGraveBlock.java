@@ -87,7 +87,7 @@ public class BatGraveBlock extends NatureplusModElements.ModElement implements I
 	@ObjectHolder("natureplus:bat_grave")
 	public static final TileEntityType<CustomTileEntity> tileEntityType = null;
 	public BatGraveBlock(NatureplusModElements instance) {
-		super(instance, 186);
+		super(instance, 187);
 		FMLJavaModLoadingContext.get().getModEventBus().register(this);
 	}
 
