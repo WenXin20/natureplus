@@ -13,7 +13,7 @@
     "rotationMode": 0,
     "emissiveRendering": false,
     "itemTexture": "",
-    "hasTransparency": true,
+    "hasTransparency": false,
     "connectedSides": false,
     "transparencyType": "SOLID",
     "mx": 0.0,

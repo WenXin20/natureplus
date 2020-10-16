@@ -125,7 +125,6 @@ public class PVZZombieEntity extends NatureplusModElements.ModElement {
 			this.targetSelector.addGoal(3, new HurtByTargetGoal(this).setCallsForHelp(this.getClass()));
 			this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, PlayerEntity.class, true));
 			this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, AbstractVillagerEntity.class, false));
-			this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, SunflowerEntity.CustomEntity.class, true));
 			this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, IronGolemEntity.class, true));
 			this.targetSelector.addGoal(5,
 					new NearestAttackableTargetGoal<>(this, TurtleEntity.class, 10, true, false, TurtleEntity.TARGET_DRY_BABY));

@@ -12,8 +12,9 @@ import net.minecraftforge.registries.ObjectHolder;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.fml.ModList;
 
+import net.minecraft.world.server.ServerWorld;
 import net.minecraft.world.World;
-import net.minecraft.util.text.StringTextComponent;
+import net.minecraft.world.IWorld;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.SoundCategory;
@@ -22,6 +23,7 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.Direction;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.server.MinecraftServer;
+import net.minecraft.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.item.ItemUseContext;
 import net.minecraft.item.ItemStack;
@@ -41,8 +43,10 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.advancements.AdvancementProgress;
 import net.minecraft.advancements.Advancement;
 
+import java.util.Map;
 import java.util.List;
 import java.util.Iterator;
+import java.util.HashMap;
 
 @NatureplusModElements.ModElement.Tag
 public class ButterflyNetItem extends NatureplusModElements.ModElement {
@@ -101,6 +105,10 @@ public class ButterflyNetItem extends NatureplusModElements.ModElement {
 				player.world.playSound((PlayerEntity) null, player.getPosX(), player.getPosY(), player.getPosZ(),
 						(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("natureplus:swoosh")),
 						SoundCategory.NEUTRAL, (float) 1, (float) 1);
+//				if (world instanceof ServerWorld) {
+//					target.world.spawnParticle(ParticleTypes.CLOUD, (target.getPosX() + 0.5), target.getPosY(), (target.getPosZ() + 0.5), (int) 10,
+//							0.25, 0.25, 0.25, 0.05);
+//				}
 				if (player instanceof ServerPlayerEntity) {
 					Advancement _adv = ((MinecraftServer) ((ServerPlayerEntity) player).server).getAdvancementManager()
 							.getAdvancement(new ResourceLocation("natureplus:capture_butterfly_advancement"));
@@ -124,9 +132,6 @@ public class ButterflyNetItem extends NatureplusModElements.ModElement {
 			Direction facing = context.getFace();
 			BlockPos pos = context.getPos().offset(facing);
 			World world = context.getWorld();
-			world.playSound((PlayerEntity) null, player.getPosX(), player.getPosY(), player.getPosZ(),
-					(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("natureplus:swoosh")),
-					SoundCategory.NEUTRAL, (float) 1, (float) 1);
 			if (!MobNBTHelper.hasMob(stack))
 				return ActionResultType.FAIL;
 			if (!player.canPlayerEdit(pos, facing, stack))
@@ -139,6 +144,9 @@ public class ButterflyNetItem extends NatureplusModElements.ModElement {
 				});
 				BlockPos blockPos = pos.offset(context.getFace());
 				mob.setPositionAndRotation(pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5, world.getRandom().nextFloat() * 360F, 0);
+				world.playSound((PlayerEntity) null, player.getPosX(), player.getPosY(), player.getPosZ(),
+						(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("natureplus:swoosh")),
+						SoundCategory.NEUTRAL, (float) 1, (float) 1);
 				if (mob != null)
 					world.addEntity(mob);
 				// if (IWorld instanceof ServerWorld) {

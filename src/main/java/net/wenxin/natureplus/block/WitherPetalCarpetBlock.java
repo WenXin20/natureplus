@@ -72,7 +72,7 @@ public class WitherPetalCarpetBlock extends NatureplusModElements.ModElement {
 	public static class CustomBlock extends FallingBlock {
 		public CustomBlock() {
 			super(Block.Properties.create(Material.CARPET).sound(SoundType.PLANT).hardnessAndResistance(0.2f, 1f).lightValue(0).harvestLevel(0)
-					.harvestTool(ToolType.AXE).notSolid());
+					.harvestTool(ToolType.AXE));
 			setRegistryName("wither_petal_carpet");
 		}
 	

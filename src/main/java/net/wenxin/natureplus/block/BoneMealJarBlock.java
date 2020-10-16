@@ -112,20 +112,22 @@ public class BoneMealJarBlock extends NatureplusModElements.ModElement {
 			PlayerEntity entity = context.getPlayer();
 			ItemStack stack = ((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY);
 			boolean flag = context.getWorld().getFluidState(context.getPos()).getFluid() == Fluids.WATER;
-			if (context.getPlayer().isSneaking()) {
-				if (!(stack.isDamaged())) {
-					return this.getDefaultState().with(WATERLOGGED, flag);
-				} else if ((stack.isDamaged())) {
-					if (entity instanceof PlayerEntity && !(entity.world.getWorld().isRemote)) {
-						entity.sendStatusMessage(new StringTextComponent("Used jars cannot be placed"), (true));
-						return null;
+			if ((!(entity.world.getWorld().isRemote))) {
+				if (context.getPlayer().isSneaking()) {
+					if (!(stack.isDamaged())) {
+						return this.getDefaultState().with(WATERLOGGED, flag);
+					} else if ((stack.isDamaged())) {
+						if (entity instanceof PlayerEntity && !(entity.world.getWorld().isRemote)) {
+							entity.sendStatusMessage(new StringTextComponent("Used jars cannot be placed"), (true));
+							return null;
+						}
 					}
+					return null;
+				} else if (!(context.getPlayer().isSneaking()) && !(entity.abilities.isCreativeMode)) {
+					stack.damageItem(0, entity, onBroken -> {
+						entity.setHeldItem(Hand.MAIN_HAND, new ItemStack(EmptyJarBlock.block, (int) (1)));
+					});
 				}
-				return null;
-			} else if (!(context.getPlayer().isSneaking()) && !(entity.abilities.isCreativeMode)) {
-				stack.damageItem(0, entity, onBroken -> {
-					entity.setHeldItem(Hand.MAIN_HAND, new ItemStack(EmptyJarBlock.block, (int) (1)));
-				});
 			}
 			return null;
 		}

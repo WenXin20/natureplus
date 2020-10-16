@@ -199,11 +199,13 @@ public class CactusEntity extends NatureplusModElements.ModElement {
 			return (net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("natureplus:cactus_death"));
 		}
 
-		protected void collideWithEntity(Entity entityIn) {
-			entityIn.applyEntityCollision(this);
-			if (entityIn instanceof LivingEntity && !(entityIn instanceof CactusEntity.CustomEntity)) {
-				entityIn.attackEntityFrom(DamageSource.causeThornsDamage(this), 1.0F);
-			}
+		protected void collideWithEntity(Entity entity) {
+			entity.applyEntityCollision(this);
+//			if ((!(world.getWorld().isRemote))) {
+				if (entity instanceof LivingEntity && !(entity instanceof CactusEntity.CustomEntity)) {
+					entity.attackEntityFrom(DamageSource.causeThornsDamage(this), 1.0F);
+				}
+//			}
 		}
 
 		@Override

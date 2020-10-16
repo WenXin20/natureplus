@@ -5,10 +5,7 @@ import net.wenxin.natureplus.itemgroup.NaturePlusTabItemGroup;
 import net.wenxin.natureplus.NatureplusModElements;
 
 import net.minecraftforge.registries.ObjectHolder;
-import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.common.ToolType;
-import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.api.distmarker.Dist;
 
 import net.minecraft.world.storage.loot.LootContext;
 import net.minecraft.world.IBlockReader;
@@ -23,8 +20,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.Item;
 import net.minecraft.item.BlockItem;
 import net.minecraft.entity.MobEntity;
-import net.minecraft.client.renderer.RenderTypeLookup;
-import net.minecraft.client.renderer.RenderType;
 import net.minecraft.block.material.MaterialColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.SoundType;
@@ -49,22 +44,11 @@ public class YellowPetalCarpetBlock extends NatureplusModElements.ModElement {
 		elements.items
 				.add(() -> new BlockItem(block, new Item.Properties().group(NaturePlusTabItemGroup.tab)).setRegistryName(block.getRegistryName()));
 	}
-
-	@Override
-	@OnlyIn(Dist.CLIENT)
-	public void clientLoad(FMLClientSetupEvent event) {
-		RenderTypeLookup.setRenderLayer(block, RenderType.getCutout());
-	}
 	public static class CustomBlock extends FallingBlock {
 		public CustomBlock() {
 			super(Block.Properties.create(Material.CARPET).sound(SoundType.PLANT).hardnessAndResistance(0.2f, 1f).lightValue(0).harvestLevel(0)
-					.harvestTool(ToolType.AXE).notSolid());
+					.harvestTool(ToolType.AXE));
 			setRegistryName("yellow_petal_carpet");
-		}
-
-		@Override
-		public boolean isNormalCube(BlockState state, IBlockReader worldIn, BlockPos pos) {
-			return false;
 		}
 
 		@Override

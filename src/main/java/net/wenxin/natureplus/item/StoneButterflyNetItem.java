@@ -123,9 +123,6 @@ public class StoneButterflyNetItem extends NatureplusModElements.ModElement {
 			Direction facing = context.getFace();
 			BlockPos pos = context.getPos().offset(facing);
 			World world = context.getWorld();
-			world.playSound((PlayerEntity) null, player.getPosX(), player.getPosY(), player.getPosZ(),
-					(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("natureplus:swoosh")),
-					SoundCategory.NEUTRAL, (float) 1, (float) 1);
 			if (!MobNBTHelper.hasMob(stack))
 				return ActionResultType.FAIL;
 			if (!player.canPlayerEdit(pos, facing, stack))
@@ -138,6 +135,9 @@ public class StoneButterflyNetItem extends NatureplusModElements.ModElement {
 				});
 				BlockPos blockPos = pos.offset(context.getFace());
 				mob.setPositionAndRotation(pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5, world.getRandom().nextFloat() * 360F, 0);
+				world.playSound((PlayerEntity) null, player.getPosX(), player.getPosY(), player.getPosZ(),
+						(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("natureplus:swoosh")),
+						SoundCategory.NEUTRAL, (float) 1, (float) 1);
 				if (mob != null)
 					world.addEntity(mob);
 				// if (IWorld instanceof ServerWorld) {

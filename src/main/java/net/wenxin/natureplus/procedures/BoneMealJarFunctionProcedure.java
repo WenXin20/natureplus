@@ -26,6 +26,7 @@ import net.minecraft.block.BlockState;
 import javax.annotation.Nullable;
 
 import java.util.Random;
+import net.minecraft.item.Item;
 
 @NatureplusModElements.ModElement.Tag
 public class BoneMealJarFunctionProcedure extends NatureplusModElements.ModElement {
@@ -34,6 +35,32 @@ public class BoneMealJarFunctionProcedure extends NatureplusModElements.ModEleme
 		MinecraftForge.EVENT_BUS.register(this);
 	}
 
+	/**
+	 * Called when this item is used when targetting a Block
+	 */
+	// public ActionResultType onItemUse(ItemUseContext context) {
+	// World world = context.getWorld();
+	// BlockPos blockpos = context.getPos();
+	// BlockPos blockpos1 = blockpos.offset(context.getFace());
+	// if (applyBonemeal(context.getItem(), world, blockpos, context.getPlayer())) {
+	// if (!world.isRemote) {
+	// world.playEvent(2005, blockpos, 0);
+	// }
+	// return ActionResultType.SUCCESS;
+	// } else {
+	// BlockState blockstate = world.getBlockState(blockpos);
+	// boolean flag = blockstate.isSolidSide(world, blockpos, context.getFace());
+	// if (flag && growSeagrass(context.getItem(), world, blockpos1,
+	// context.getFace())) {
+	// if (!world.isRemote) {
+	// world.playEvent(2005, blockpos1, 0);
+	// }
+	// return ActionResultType.SUCCESS;
+	// } else {
+	// return ActionResultType.PASS;
+	// }
+	// }
+	// }
 	@Deprecated // Forge: Use Player/Hand version
 	public static boolean applyBonemeal(ItemStack stack, World worldIn, BlockPos pos) {
 		if (worldIn instanceof net.minecraft.world.server.ServerWorld)
@@ -53,6 +80,7 @@ public class BoneMealJarFunctionProcedure extends NatureplusModElements.ModEleme
 				if (worldIn instanceof ServerWorld) {
 					if (igrowable.canUseBonemeal(worldIn, worldIn.rand, pos, blockstate)) {
 						igrowable.grow((ServerWorld) worldIn, worldIn.rand, pos, blockstate);
+						System.out.println("Bone mealed grass");
 					}
 					if (!(player.abilities.isCreativeMode)) {
 						stack.damageItem(1, player, onBroken -> {
@@ -93,6 +121,7 @@ public class BoneMealJarFunctionProcedure extends NatureplusModElements.ModEleme
 						} else if (random.nextInt(4) == 0) {
 							blockstate = BlockTags.UNDERWATER_BONEMEALS.getRandomElement(random).getDefaultState();
 						}
+						System.out.println("Bone mealed water");
 					}
 					if (blockstate.getBlock().isIn(BlockTags.WALL_CORALS)) {
 						for (int k = 0; !blockstate.isValidPosition(worldIn, blockpos) && k < 4; ++k) {
@@ -105,6 +134,7 @@ public class BoneMealJarFunctionProcedure extends NatureplusModElements.ModEleme
 							worldIn.setBlockState(blockpos, blockstate, 3);
 						} else if (blockstate1.getBlock() == Blocks.SEAGRASS && random.nextInt(10) == 0) {
 							((IGrowable) Blocks.SEAGRASS).grow((ServerWorld) worldIn, random, blockpos, blockstate1);
+							System.out.println("Bone mealed water 2");
 						}
 					}
 				}
@@ -121,33 +151,42 @@ public class BoneMealJarFunctionProcedure extends NatureplusModElements.ModEleme
 	}
 
 	@SubscribeEvent
-	public void onRightClickBlock(PlayerInteractEvent.RightClickBlock event) {
+	public void onRightClickBlock(final PlayerInteractEvent.RightClickBlock event) {
 		PlayerEntity entity = event.getPlayer();
 		World world = event.getWorld();
 		BlockPos blockpos = event.getPos();
 		BlockPos blockpos1 = blockpos.offset(event.getFace());
-		ItemStack stack2 = ((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY);
-		if ((!(world.getWorld().isRemote))) {
+//		ItemStack stack = ((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY);
+        ItemStack stack = event.getPlayer().getHeldItem(event.getHand());
+        Item item = new ItemStack(BoneMealJarBlock.block, (int) (1)).getItem();
+		System.out.println("Right-clicked");
+//		if ((!(world.getWorld().isRemote))) {
 			if (event.getHand() != entity.getActiveHand())
 				return;
-			if ((((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY)
-					.getItem() == new ItemStack(BoneMealJarBlock.block, (int) (1)).getItem())) {
-				if (applyBonemeal(stack2, world, blockpos, event.getPlayer()) && !event.getPlayer().isSneaking()) {
+//			if ((((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY)
+//					.getItem() == new ItemStack(BoneMealJarBlock.block, (int) (1)).getItem())) {
+
+			if ((stack.getItem() == item)) {
+
+				System.out.println("bone meal jar detected");
+				if (applyBonemeal(stack, world, blockpos, event.getPlayer()) && !event.getPlayer().isSneaking()) {
 					((LivingEntity) entity).swing(Hand.MAIN_HAND, true);
 					if (!world.isRemote) {
 						world.playEvent(2005, blockpos, 0);
+						System.out.println("bone meal triggered");
 					}
 				} else if (!event.getPlayer().isSneaking()) {
 					BlockState blockstate = world.getBlockState(blockpos);
 					boolean flag = blockstate.isSolidSide(world, blockpos, event.getFace());
-					if (flag && growSeagrass(stack2, world, blockpos1, event.getFace(), event.getPlayer())) {
+					if (flag && growSeagrass(stack, world, blockpos1, event.getFace(), event.getPlayer())) {
 						((LivingEntity) entity).swing(Hand.MAIN_HAND, true);
 						if (!world.isRemote) {
 							world.playEvent(2005, blockpos1, 0);
+							System.out.println("bone meal triggered 2");
 						}
 					}
 				}
 			}
-		}
+//		}
 	}
 }
