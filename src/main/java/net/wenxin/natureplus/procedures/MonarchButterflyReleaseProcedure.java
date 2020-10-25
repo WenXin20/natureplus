@@ -91,11 +91,10 @@ public class MonarchButterflyReleaseProcedure extends NatureplusModElements.ModE
 				((LivingEntity) entity).swing(Hand.MAIN_HAND, true);
 			}
 			if ((!((entity instanceof PlayerEntity) ? ((PlayerEntity) entity).abilities.isCreativeMode : false))) {
-				if (entity instanceof PlayerEntity)
-					((PlayerEntity) entity).inventory.clearMatchingItems(
-							p -> ((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY).getItem() == p
-									.getItem(),
-							(int) 1);
+				if (entity instanceof PlayerEntity) {
+					ItemStack _stktoremove = ((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY);
+					((PlayerEntity) entity).inventory.clearMatchingItems(p -> _stktoremove.getItem() == p.getItem(), (int) 1);
+				}
 				if (entity instanceof PlayerEntity) {
 					ItemStack _setstack = new ItemStack(ButterflyNetItem.block, (int) (1));
 					_setstack.setCount((int) 1);
@@ -129,11 +128,10 @@ public class MonarchButterflyReleaseProcedure extends NatureplusModElements.ModE
 				((LivingEntity) entity).swing(Hand.OFF_HAND, true);
 			}
 			if ((!((entity instanceof PlayerEntity) ? ((PlayerEntity) entity).abilities.isCreativeMode : false))) {
-				if (entity instanceof PlayerEntity)
-					((PlayerEntity) entity).inventory.clearMatchingItems(
-							p -> ((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemOffhand() : ItemStack.EMPTY).getItem() == p
-									.getItem(),
-							(int) 1);
+				if (entity instanceof PlayerEntity) {
+					ItemStack _stktoremove = ((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemOffhand() : ItemStack.EMPTY);
+					((PlayerEntity) entity).inventory.clearMatchingItems(p -> _stktoremove.getItem() == p.getItem(), (int) 1);
+				}
 				if (entity instanceof PlayerEntity) {
 					ItemStack _setstack = new ItemStack(ButterflyNetItem.block, (int) (1));
 					_setstack.setCount((int) 1);

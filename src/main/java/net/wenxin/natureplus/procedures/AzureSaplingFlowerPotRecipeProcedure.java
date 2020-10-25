@@ -63,11 +63,10 @@ public class AzureSaplingFlowerPotRecipeProcedure extends NatureplusModElements.
 				.getItem() == new ItemStack(AzureSaplingBlock.block, (int) (1)).getItem())
 				&& ((world.getBlockState(new BlockPos((int) x, (int) y, (int) z))).getBlock() == Blocks.FLOWER_POT.getDefaultState().getBlock()))) {
 			if ((!((entity instanceof PlayerEntity) ? ((PlayerEntity) entity).abilities.isCreativeMode : false))) {
-				if (entity instanceof PlayerEntity)
-					((PlayerEntity) entity).inventory.clearMatchingItems(
-							p -> ((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY).getItem() == p
-									.getItem(),
-							(int) 1);
+				if (entity instanceof PlayerEntity) {
+					ItemStack _stktoremove = ((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY);
+					((PlayerEntity) entity).inventory.clearMatchingItems(p -> _stktoremove.getItem() == p.getItem(), (int) 1);
+				}
 			}
 			world.setBlockState(new BlockPos((int) x, (int) y, (int) z), Blocks.AIR.getDefaultState(), 3);
 			if (entity instanceof LivingEntity) {

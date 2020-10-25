@@ -94,11 +94,12 @@ public class StopTimerProcedure extends NatureplusModElements.ModElement {
 			if (((!((sourceentity instanceof PlayerEntity) ? ((PlayerEntity) sourceentity).abilities.isCreativeMode : false))
 					&& (((sourceentity instanceof LivingEntity) ? ((LivingEntity) sourceentity).getHeldItemMainhand() : ItemStack.EMPTY)
 							.getItem() == new ItemStack(Items.POISONOUS_POTATO, (int) (1)).getItem()))) {
-				if (sourceentity instanceof PlayerEntity)
-					((PlayerEntity) sourceentity).inventory.clearMatchingItems(
-							p -> ((sourceentity instanceof LivingEntity) ? ((LivingEntity) sourceentity).getHeldItemMainhand() : ItemStack.EMPTY)
-									.getItem() == p.getItem(),
-							(int) 1);
+				if (sourceentity instanceof PlayerEntity) {
+					ItemStack _stktoremove = ((sourceentity instanceof LivingEntity)
+							? ((LivingEntity) sourceentity).getHeldItemMainhand()
+							: ItemStack.EMPTY);
+					((PlayerEntity) sourceentity).inventory.clearMatchingItems(p -> _stktoremove.getItem() == p.getItem(), (int) 1);
+				}
 			} else if (((!((sourceentity instanceof PlayerEntity) ? ((PlayerEntity) sourceentity).abilities.isCreativeMode : false))
 					&& (((sourceentity instanceof LivingEntity) ? ((LivingEntity) sourceentity).getHeldItemMainhand() : ItemStack.EMPTY)
 							.getItem() == new ItemStack(SpadeItem.block, (int) (1)).getItem()))) {
@@ -133,11 +134,12 @@ public class StopTimerProcedure extends NatureplusModElements.ModElement {
 			if (((!((sourceentity instanceof PlayerEntity) ? ((PlayerEntity) sourceentity).abilities.isCreativeMode : false))
 					&& (((sourceentity instanceof LivingEntity) ? ((LivingEntity) sourceentity).getHeldItemOffhand() : ItemStack.EMPTY)
 							.getItem() == new ItemStack(Items.POISONOUS_POTATO, (int) (1)).getItem()))) {
-				if (sourceentity instanceof PlayerEntity)
-					((PlayerEntity) sourceentity).inventory.clearMatchingItems(
-							p -> ((sourceentity instanceof LivingEntity) ? ((LivingEntity) sourceentity).getHeldItemOffhand() : ItemStack.EMPTY)
-									.getItem() == p.getItem(),
-							(int) 1);
+				if (sourceentity instanceof PlayerEntity) {
+					ItemStack _stktoremove = ((sourceentity instanceof LivingEntity)
+							? ((LivingEntity) sourceentity).getHeldItemOffhand()
+							: ItemStack.EMPTY);
+					((PlayerEntity) sourceentity).inventory.clearMatchingItems(p -> _stktoremove.getItem() == p.getItem(), (int) 1);
+				}
 			} else if (((!((sourceentity instanceof PlayerEntity) ? ((PlayerEntity) sourceentity).abilities.isCreativeMode : false))
 					&& (((sourceentity instanceof LivingEntity) ? ((LivingEntity) sourceentity).getHeldItemOffhand() : ItemStack.EMPTY)
 							.getItem() == new ItemStack(SpadeItem.block, (int) (1)).getItem()))) {

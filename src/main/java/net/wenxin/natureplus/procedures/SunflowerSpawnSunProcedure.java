@@ -19,6 +19,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.entity.Entity;
 
+import java.util.function.Function;
 import java.util.Map;
 import java.util.Comparator;
 
@@ -61,18 +62,25 @@ public class SunflowerSpawnSunProcedure extends NatureplusModElements.ModElement
 		IWorld world = (IWorld) dependencies.get("world");
 		if ((((entity.getPersistentData().getDouble("timer_plant")) <= 1)
 				&& ((entity instanceof SunflowerEntity.CustomEntity) && (world.getWorld().isDaytime())))) {
-			if ((((world
+			if (((((Entity) world
 					.getEntitiesWithinAABB(PlayerEntity.class,
 							new AxisAlignedBB(x - (32 / 2d), y - (32 / 2d), z - (32 / 2d), x + (32 / 2d), y + (32 / 2d), z + (32 / 2d)), null)
-					.stream().sorted(Comparator.comparing(_entcnd -> _entcnd.getDistanceSq(x, y, z))).findFirst().orElse(null)) != null)
-					|| ((world
+					.stream().sorted(new Object() {
+						Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
+							return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
+						}
+					}.compareDistOf(x, y, z)).findFirst().orElse(null)) != null) || (((Entity) world
 							.getEntitiesWithinAABB(ServerPlayerEntity.class,
 									new AxisAlignedBB(x - (32 / 2d), y - (32 / 2d), z - (32 / 2d), x + (32 / 2d), y + (32 / 2d), z + (32 / 2d)), null)
-							.stream().sorted(Comparator.comparing(_entcnd -> _entcnd.getDistanceSq(x, y, z))).findFirst().orElse(null)) != null))) {
+							.stream().sorted(new Object() {
+								Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
+									return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
+								}
+							}.compareDistOf(x, y, z)).findFirst().orElse(null)) != null))) {
 				if (!world.getWorld().isRemote) {
 					ItemEntity entityToSpawn = new ItemEntity(world.getWorld(), (entity.getPosX()), ((entity.getPosY()) + 1.2), (entity.getPosZ()),
 							new ItemStack(SunItem.block, (int) (1)));
-					entityToSpawn.setPickupDelay(10);
+					entityToSpawn.setPickupDelay((int) 10);
 					world.addEntity(entityToSpawn);
 				}
 				entity.getPersistentData().putDouble("timer_plant", 2000);

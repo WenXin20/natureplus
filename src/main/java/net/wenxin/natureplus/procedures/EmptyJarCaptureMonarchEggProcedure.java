@@ -96,11 +96,12 @@ public class EmptyJarCaptureMonarchEggProcedure extends NatureplusModElements.Mo
 			if (!entity.world.isRemote)
 				entity.remove();
 			if ((!((sourceentity instanceof PlayerEntity) ? ((PlayerEntity) sourceentity).abilities.isCreativeMode : false))) {
-				if (sourceentity instanceof PlayerEntity)
-					((PlayerEntity) sourceentity).inventory.clearMatchingItems(
-							p -> ((sourceentity instanceof LivingEntity) ? ((LivingEntity) sourceentity).getHeldItemMainhand() : ItemStack.EMPTY)
-									.getItem() == p.getItem(),
-							(int) 1);
+				if (sourceentity instanceof PlayerEntity) {
+					ItemStack _stktoremove = ((sourceentity instanceof LivingEntity)
+							? ((LivingEntity) sourceentity).getHeldItemMainhand()
+							: ItemStack.EMPTY);
+					((PlayerEntity) sourceentity).inventory.clearMatchingItems(p -> _stktoremove.getItem() == p.getItem(), (int) 1);
+				}
 			}
 			if (sourceentity instanceof LivingEntity) {
 				((LivingEntity) sourceentity).swing(Hand.MAIN_HAND, true);
@@ -130,11 +131,12 @@ public class EmptyJarCaptureMonarchEggProcedure extends NatureplusModElements.Mo
 						0.1, 0.1, 0.1);
 			}
 			if ((!((sourceentity instanceof PlayerEntity) ? ((PlayerEntity) sourceentity).abilities.isCreativeMode : false))) {
-				if (sourceentity instanceof PlayerEntity)
-					((PlayerEntity) sourceentity).inventory.clearMatchingItems(
-							p -> ((sourceentity instanceof LivingEntity) ? ((LivingEntity) sourceentity).getHeldItemOffhand() : ItemStack.EMPTY)
-									.getItem() == p.getItem(),
-							(int) 1);
+				if (sourceentity instanceof PlayerEntity) {
+					ItemStack _stktoremove = ((sourceentity instanceof LivingEntity)
+							? ((LivingEntity) sourceentity).getHeldItemOffhand()
+							: ItemStack.EMPTY);
+					((PlayerEntity) sourceentity).inventory.clearMatchingItems(p -> _stktoremove.getItem() == p.getItem(), (int) 1);
+				}
 			}
 			if (sourceentity instanceof LivingEntity) {
 				((LivingEntity) sourceentity).swing(Hand.OFF_HAND, true);

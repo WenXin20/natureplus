@@ -48,8 +48,8 @@ public class GoldenMexicanSunflowerSeedsItem extends NatureplusModElements.ModEl
 		}
 
 		@Override
-		public ItemStack onItemUseFinish(ItemStack itemStack, World world, LivingEntity entity) {
-			ItemStack retval = super.onItemUseFinish(itemStack, world, entity);
+		public ItemStack onItemUseFinish(ItemStack itemstack, World world, LivingEntity entity) {
+			ItemStack retval = super.onItemUseFinish(itemstack, world, entity);
 			double x = entity.getPosX();
 			double y = entity.getPosY();
 			double z = entity.getPosZ();

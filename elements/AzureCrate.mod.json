@@ -1,5 +1,5 @@
 {
-  "_fv": 12,
+  "_fv": 13,
   "_type": "block",
   "definition": {
     "texture": "azure_planks",
@@ -12,6 +12,7 @@
     "customModelName": "crate:azure_crate",
     "rotationMode": 5,
     "emissiveRendering": false,
+    "displayFluidOverlay": false,
     "hasTransparency": true,
     "connectedSides": false,
     "transparencyType": "SOLID",

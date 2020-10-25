@@ -38,7 +38,7 @@ import java.util.HashMap;
 @NatureplusModElements.ModElement.Tag
 public class GrowGiantWitherRoseWitherBonemealProcedure extends NatureplusModElements.ModElement {
 	public GrowGiantWitherRoseWitherBonemealProcedure(NatureplusModElements instance) {
-		super(instance, 617);
+		super(instance, 618);
 		MinecraftForge.EVENT_BUS.register(this);
 	}
 
@@ -117,11 +117,10 @@ public class GrowGiantWitherRoseWitherBonemealProcedure extends NatureplusModEle
 					}
 				} else if ((((((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY))
 						.getCount()) > 1)) {
-					if (entity instanceof PlayerEntity)
-						((PlayerEntity) entity).inventory.clearMatchingItems(
-								p -> ((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY)
-										.getItem() == p.getItem(),
-								(int) 1);
+					if (entity instanceof PlayerEntity) {
+						ItemStack _stktoremove = ((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY);
+						((PlayerEntity) entity).inventory.clearMatchingItems(p -> _stktoremove.getItem() == p.getItem(), (int) 1);
+					}
 					if (entity instanceof PlayerEntity) {
 						ItemStack _setstack = new ItemStack(EmptyJarBlock.block, (int) (1));
 						_setstack.setCount((int) 1);

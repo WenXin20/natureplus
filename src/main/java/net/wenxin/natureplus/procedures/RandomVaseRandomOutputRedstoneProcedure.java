@@ -133,42 +133,42 @@ public class RandomVaseRandomOutputRedstoneProcedure extends NatureplusModElemen
 						if (!world.getWorld().isRemote) {
 							ItemEntity entityToSpawn = new ItemEntity(world.getWorld(), (x + 0.5), y, (z + 0.5),
 									new ItemStack(PeashooterSeedPacketItem.block, (int) (1)));
-							entityToSpawn.setPickupDelay(10);
+							entityToSpawn.setPickupDelay((int) 10);
 							world.addEntity(entityToSpawn);
 						}
 					} else if ((((NatureplusModVariables.i) >= 30) && (!((NatureplusModVariables.i) >= 60)))) {
 						if (!world.getWorld().isRemote) {
 							ItemEntity entityToSpawn = new ItemEntity(world.getWorld(), (x + 0.5), y, (z + 0.5),
 									new ItemStack(SunflowerSeedPacketItem.block, (int) (1)));
-							entityToSpawn.setPickupDelay(10);
+							entityToSpawn.setPickupDelay((int) 10);
 							world.addEntity(entityToSpawn);
 						}
 					} else if ((((NatureplusModVariables.i) >= 20) && (!((NatureplusModVariables.i) >= 30)))) {
 						if (!world.getWorld().isRemote) {
 							ItemEntity entityToSpawn = new ItemEntity(world.getWorld(), (x + 0.5), y, (z + 0.5),
 									new ItemStack(CactusSeedPacketItem.block, (int) (1)));
-							entityToSpawn.setPickupDelay(10);
+							entityToSpawn.setPickupDelay((int) 10);
 							world.addEntity(entityToSpawn);
 						}
 					} else if ((((NatureplusModVariables.i) >= 10) && (!((NatureplusModVariables.i) >= 20)))) {
 						if (!world.getWorld().isRemote) {
 							ItemEntity entityToSpawn = new ItemEntity(world.getWorld(), (x + 0.5), y, (z + 0.5),
 									new ItemStack(KernelPultSeedPacketItem.block, (int) (1)));
-							entityToSpawn.setPickupDelay(10);
+							entityToSpawn.setPickupDelay((int) 10);
 							world.addEntity(entityToSpawn);
 						}
 					} else if ((((NatureplusModVariables.i) >= 5) && (!((NatureplusModVariables.i) >= 10)))) {
 						if (!world.getWorld().isRemote) {
 							ItemEntity entityToSpawn = new ItemEntity(world.getWorld(), (x + 0.5), y, (z + 0.5),
 									new ItemStack(SnowPeaSeedPacketItem.block, (int) (1)));
-							entityToSpawn.setPickupDelay(10);
+							entityToSpawn.setPickupDelay((int) 10);
 							world.addEntity(entityToSpawn);
 						}
 					} else {
 						if (!world.getWorld().isRemote) {
 							ItemEntity entityToSpawn = new ItemEntity(world.getWorld(), (x + 0.5), y, (z + 0.5),
 									new ItemStack(MonarchEggJarBlock.block, (int) (1)));
-							entityToSpawn.setPickupDelay(10);
+							entityToSpawn.setPickupDelay((int) 10);
 							world.addEntity(entityToSpawn);
 						}
 					}

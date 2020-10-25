@@ -101,11 +101,10 @@ public class SunflowerSpawnProcedure extends NatureplusModElements.ModElement {
 				}
 			}
 			if ((!((entity instanceof PlayerEntity) ? ((PlayerEntity) entity).abilities.isCreativeMode : false))) {
-				if (entity instanceof PlayerEntity)
-					((PlayerEntity) entity).inventory.clearMatchingItems(
-							p -> ((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY).getItem() == p
-									.getItem(),
-							(int) 1);
+				if (entity instanceof PlayerEntity) {
+					ItemStack _stktoremove = ((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY);
+					((PlayerEntity) entity).inventory.clearMatchingItems(p -> _stktoremove.getItem() == p.getItem(), (int) 1);
+				}
 			}
 		} else if (((((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemOffhand() : ItemStack.EMPTY)
 				.getItem() == new ItemStack(SunflowerSeedPacketItem.block, (int) (1)).getItem())
@@ -143,11 +142,10 @@ public class SunflowerSpawnProcedure extends NatureplusModElements.ModElement {
 				}
 			}
 			if ((!((entity instanceof PlayerEntity) ? ((PlayerEntity) entity).abilities.isCreativeMode : false))) {
-				if (entity instanceof PlayerEntity)
-					((PlayerEntity) entity).inventory.clearMatchingItems(
-							p -> ((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemOffhand() : ItemStack.EMPTY).getItem() == p
-									.getItem(),
-							(int) 1);
+				if (entity instanceof PlayerEntity) {
+					ItemStack _stktoremove = ((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemOffhand() : ItemStack.EMPTY);
+					((PlayerEntity) entity).inventory.clearMatchingItems(p -> _stktoremove.getItem() == p.getItem(), (int) 1);
+				}
 			}
 		}
 	}

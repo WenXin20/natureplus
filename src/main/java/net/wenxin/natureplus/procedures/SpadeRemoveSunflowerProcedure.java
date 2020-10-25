@@ -115,21 +115,21 @@ public class SpadeRemoveSunflowerProcedure extends NatureplusModElements.ModElem
 				if ((Math.random() < 1)) {
 					if (!world.getWorld().isRemote) {
 						ItemEntity entityToSpawn = new ItemEntity(world.getWorld(), x, y, z, new ItemStack(SmallSunItem.block, (int) (1)));
-						entityToSpawn.setPickupDelay(10);
+						entityToSpawn.setPickupDelay((int) 10);
 						world.addEntity(entityToSpawn);
 					}
 				}
 				if ((Math.random() < 0.25)) {
 					if (!world.getWorld().isRemote) {
 						ItemEntity entityToSpawn = new ItemEntity(world.getWorld(), x, y, z, new ItemStack(SmallSunItem.block, (int) (1)));
-						entityToSpawn.setPickupDelay(10);
+						entityToSpawn.setPickupDelay((int) 10);
 						world.addEntity(entityToSpawn);
 					}
 				}
 				if ((Math.random() < 0.05)) {
 					if (!world.getWorld().isRemote) {
 						ItemEntity entityToSpawn = new ItemEntity(world.getWorld(), x, y, z, new ItemStack(SmallSunItem.block, (int) (1)));
-						entityToSpawn.setPickupDelay(10);
+						entityToSpawn.setPickupDelay((int) 10);
 						world.addEntity(entityToSpawn);
 					}
 				}
@@ -173,21 +173,21 @@ public class SpadeRemoveSunflowerProcedure extends NatureplusModElements.ModElem
 				if ((Math.random() < 1)) {
 					if (!world.getWorld().isRemote) {
 						ItemEntity entityToSpawn = new ItemEntity(world.getWorld(), x, y, z, new ItemStack(SmallSunItem.block, (int) (1)));
-						entityToSpawn.setPickupDelay(10);
+						entityToSpawn.setPickupDelay((int) 10);
 						world.addEntity(entityToSpawn);
 					}
 				}
 				if ((Math.random() < 0.25)) {
 					if (!world.getWorld().isRemote) {
 						ItemEntity entityToSpawn = new ItemEntity(world.getWorld(), x, y, z, new ItemStack(SmallSunItem.block, (int) (1)));
-						entityToSpawn.setPickupDelay(10);
+						entityToSpawn.setPickupDelay((int) 10);
 						world.addEntity(entityToSpawn);
 					}
 				}
 				if ((Math.random() < 0.05)) {
 					if (!world.getWorld().isRemote) {
 						ItemEntity entityToSpawn = new ItemEntity(world.getWorld(), x, y, z, new ItemStack(SmallSunItem.block, (int) (1)));
-						entityToSpawn.setPickupDelay(10);
+						entityToSpawn.setPickupDelay((int) 10);
 						world.addEntity(entityToSpawn);
 					}
 				}

@@ -29,6 +29,7 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.entity.Entity;
 import net.minecraft.block.BlockState;
 
+import java.util.function.Function;
 import java.util.Map;
 import java.util.Comparator;
 
@@ -74,14 +75,21 @@ public class GraveSpawnZombiesProcedure extends NatureplusModElements.ModElement
 				&& ((!(world.getBlockState(new BlockPos((int) x, (int) (y + 1), (int) z)).isSolid()))
 						&& ((!(world.getDifficulty() == Difficulty.PEACEFUL))
 								&& ((!(world.getWorld().isDaytime())) || ((world.getLight(new BlockPos((int) x, (int) y, (int) z))) <= 7)))))) {
-			if ((((world
+			if (((((Entity) world
 					.getEntitiesWithinAABB(PlayerEntity.class,
 							new AxisAlignedBB(x - (32 / 2d), y - (32 / 2d), z - (32 / 2d), x + (32 / 2d), y + (32 / 2d), z + (32 / 2d)), null)
-					.stream().sorted(Comparator.comparing(_entcnd -> _entcnd.getDistanceSq(x, y, z))).findFirst().orElse(null)) != null)
-					|| ((world
+					.stream().sorted(new Object() {
+						Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
+							return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
+						}
+					}.compareDistOf(x, y, z)).findFirst().orElse(null)) != null) || (((Entity) world
 							.getEntitiesWithinAABB(ServerPlayerEntity.class,
 									new AxisAlignedBB(x - (32 / 2d), y - (32 / 2d), z - (32 / 2d), x + (32 / 2d), y + (32 / 2d), z + (32 / 2d)), null)
-							.stream().sorted(Comparator.comparing(_entcnd -> _entcnd.getDistanceSq(x, y, z))).findFirst().orElse(null)) != null))) {
+							.stream().sorted(new Object() {
+								Comparator<Entity> compareDistOf(double _x, double _y, double _z) {
+									return Comparator.comparing((Function<Entity, Double>) (_entcnd -> _entcnd.getDistanceSq(_x, _y, _z)));
+								}
+							}.compareDistOf(x, y, z)).findFirst().orElse(null)) != null))) {
 				if (!world.getWorld().isRemote) {
 					BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);
 					TileEntity _tileEntity = world.getTileEntity(_bp);

@@ -89,11 +89,10 @@ public class SpawnYellowBalloonProcedure extends NatureplusModElements.ModElemen
 				((LivingEntity) entity).swing(Hand.MAIN_HAND, true);
 			}
 			if ((!((entity instanceof PlayerEntity) ? ((PlayerEntity) entity).abilities.isCreativeMode : false))) {
-				if (entity instanceof PlayerEntity)
-					((PlayerEntity) entity).inventory.clearMatchingItems(
-							p -> ((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY).getItem() == p
-									.getItem(),
-							(int) 1);
+				if (entity instanceof PlayerEntity) {
+					ItemStack _stktoremove = ((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY);
+					((PlayerEntity) entity).inventory.clearMatchingItems(p -> _stktoremove.getItem() == p.getItem(), (int) 1);
+				}
 			}
 		} else if (((!(world.getBlockState(new BlockPos((int) x, (int) (y + 1), (int) z)).isSolid()))
 				&& (((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemOffhand() : ItemStack.EMPTY)
@@ -122,11 +121,10 @@ public class SpawnYellowBalloonProcedure extends NatureplusModElements.ModElemen
 				((LivingEntity) entity).swing(Hand.OFF_HAND, true);
 			}
 			if ((!((entity instanceof PlayerEntity) ? ((PlayerEntity) entity).abilities.isCreativeMode : false))) {
-				if (entity instanceof PlayerEntity)
-					((PlayerEntity) entity).inventory.clearMatchingItems(
-							p -> ((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemOffhand() : ItemStack.EMPTY).getItem() == p
-									.getItem(),
-							(int) 1);
+				if (entity instanceof PlayerEntity) {
+					ItemStack _stktoremove = ((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemOffhand() : ItemStack.EMPTY);
+					((PlayerEntity) entity).inventory.clearMatchingItems(p -> _stktoremove.getItem() == p.getItem(), (int) 1);
+				}
 			}
 		}
 	}

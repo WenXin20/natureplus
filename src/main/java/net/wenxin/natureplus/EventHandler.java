@@ -53,14 +53,16 @@ public class EventHandler extends NatureplusModElements.ModElement {
 
 	@SubscribeEvent
 	public void onEntitySpawned(@NotNull final EntityJoinWorldEvent event) {
-		if (event.getEntity() instanceof RedDragonflyEntity.CustomEntity
-				|| event.getEntity() instanceof IMob && !(event.getEntity() instanceof CreeperEntity)) {
-			MobEntity mob = (MobEntity) event.getEntity();
-			mob.targetSelector.addGoal(8, new NearestAttackableTargetGoal<>(mob, SunflowerEntity.CustomEntity.class, false));
-			mob.targetSelector.addGoal(7, new NearestAttackableTargetGoal<>(mob, PeashooterEntity.CustomEntity.class, false));
-			mob.targetSelector.addGoal(7, new NearestAttackableTargetGoal<>(mob, SnowPeaEntity.CustomEntity.class, false));
-			mob.targetSelector.addGoal(7, new NearestAttackableTargetGoal<>(mob, KernelPultEntity.CustomEntity.class, false));
-			mob.targetSelector.addGoal(7, new NearestAttackableTargetGoal<>(mob, CactusEntity.CustomEntity.class, false));
+		if (!event.getWorld().isRemote) {
+			if (event.getEntity() instanceof RedDragonflyEntity.CustomEntity
+					|| event.getEntity() instanceof IMob && !(event.getEntity() instanceof CreeperEntity)) {
+				MobEntity mob = (MobEntity) event.getEntity();
+				mob.targetSelector.addGoal(8, new NearestAttackableTargetGoal<>(mob, SunflowerEntity.CustomEntity.class, false));
+				mob.targetSelector.addGoal(7, new NearestAttackableTargetGoal<>(mob, PeashooterEntity.CustomEntity.class, false));
+				mob.targetSelector.addGoal(7, new NearestAttackableTargetGoal<>(mob, SnowPeaEntity.CustomEntity.class, false));
+				mob.targetSelector.addGoal(7, new NearestAttackableTargetGoal<>(mob, KernelPultEntity.CustomEntity.class, false));
+				mob.targetSelector.addGoal(7, new NearestAttackableTargetGoal<>(mob, CactusEntity.CustomEntity.class, false));
+			}
 		}
 	}
 

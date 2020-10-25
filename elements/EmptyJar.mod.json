@@ -1,5 +1,5 @@
 {
-  "_fv": 12,
+  "_fv": 13,
   "_type": "block",
   "definition": {
     "texture": "empty_jar_side",
@@ -12,6 +12,7 @@
     "customModelName": "empty_jar:default",
     "rotationMode": 0,
     "emissiveRendering": false,
+    "displayFluidOverlay": false,
     "itemTexture": "",
     "hasTransparency": true,
     "connectedSides": false,

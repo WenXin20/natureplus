@@ -30,7 +30,7 @@ import java.util.HashMap;
 @NatureplusModElements.ModElement.Tag
 public class EmptyJarCaptureMonarchCocoonProcedure extends NatureplusModElements.ModElement {
 	public EmptyJarCaptureMonarchCocoonProcedure(NatureplusModElements instance) {
-		super(instance, 579);
+		super(instance, 580);
 		MinecraftForge.EVENT_BUS.register(this);
 	}
 
@@ -96,11 +96,12 @@ public class EmptyJarCaptureMonarchCocoonProcedure extends NatureplusModElements
 						0.1, 0.1, 0.1);
 			}
 			if ((!((sourceentity instanceof PlayerEntity) ? ((PlayerEntity) sourceentity).abilities.isCreativeMode : false))) {
-				if (sourceentity instanceof PlayerEntity)
-					((PlayerEntity) sourceentity).inventory.clearMatchingItems(
-							p -> ((sourceentity instanceof LivingEntity) ? ((LivingEntity) sourceentity).getHeldItemMainhand() : ItemStack.EMPTY)
-									.getItem() == p.getItem(),
-							(int) 1);
+				if (sourceentity instanceof PlayerEntity) {
+					ItemStack _stktoremove = ((sourceentity instanceof LivingEntity)
+							? ((LivingEntity) sourceentity).getHeldItemMainhand()
+							: ItemStack.EMPTY);
+					((PlayerEntity) sourceentity).inventory.clearMatchingItems(p -> _stktoremove.getItem() == p.getItem(), (int) 1);
+				}
 			}
 			if (sourceentity instanceof LivingEntity) {
 				((LivingEntity) sourceentity).swing(Hand.MAIN_HAND, true);
@@ -130,11 +131,12 @@ public class EmptyJarCaptureMonarchCocoonProcedure extends NatureplusModElements
 						0.1, 0.1, 0.1);
 			}
 			if ((!((sourceentity instanceof PlayerEntity) ? ((PlayerEntity) sourceentity).abilities.isCreativeMode : false))) {
-				if (sourceentity instanceof PlayerEntity)
-					((PlayerEntity) sourceentity).inventory.clearMatchingItems(
-							p -> ((sourceentity instanceof LivingEntity) ? ((LivingEntity) sourceentity).getHeldItemOffhand() : ItemStack.EMPTY)
-									.getItem() == p.getItem(),
-							(int) 1);
+				if (sourceentity instanceof PlayerEntity) {
+					ItemStack _stktoremove = ((sourceentity instanceof LivingEntity)
+							? ((LivingEntity) sourceentity).getHeldItemOffhand()
+							: ItemStack.EMPTY);
+					((PlayerEntity) sourceentity).inventory.clearMatchingItems(p -> _stktoremove.getItem() == p.getItem(), (int) 1);
+				}
 			}
 			if (sourceentity instanceof LivingEntity) {
 				((LivingEntity) sourceentity).swing(Hand.OFF_HAND, true);

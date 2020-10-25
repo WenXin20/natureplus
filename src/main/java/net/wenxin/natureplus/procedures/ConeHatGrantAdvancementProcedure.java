@@ -29,7 +29,7 @@ public class ConeHatGrantAdvancementProcedure extends NatureplusModElements.ModE
 		}
 		Entity entity = (Entity) dependencies.get("entity");
 		if ((new ItemStack(ConeHelmetItem.helmet, (int) (1))
-				.getItem() == ((entity instanceof PlayerEntity) ? ((PlayerEntity) entity).inventory.armorInventory.get(3) : ItemStack.EMPTY)
+				.getItem() == ((entity instanceof PlayerEntity) ? ((PlayerEntity) entity).inventory.armorInventory.get((int) 3) : ItemStack.EMPTY)
 						.getItem())) {
 			if (entity instanceof ServerPlayerEntity) {
 				Advancement _adv = ((MinecraftServer) ((ServerPlayerEntity) entity).server).getAdvancementManager()

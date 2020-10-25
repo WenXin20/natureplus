@@ -123,11 +123,12 @@ public class MonarchCaterpillarGrowthDecreaseTimeProcedure extends NatureplusMod
 				((LivingEntity) sourceentity).swing(Hand.MAIN_HAND, true);
 			}
 			if ((!((sourceentity instanceof PlayerEntity) ? ((PlayerEntity) sourceentity).abilities.isCreativeMode : false))) {
-				if (sourceentity instanceof PlayerEntity)
-					((PlayerEntity) sourceentity).inventory.clearMatchingItems(
-							p -> ((sourceentity instanceof LivingEntity) ? ((LivingEntity) sourceentity).getHeldItemMainhand() : ItemStack.EMPTY)
-									.getItem() == p.getItem(),
-							(int) 1);
+				if (sourceentity instanceof PlayerEntity) {
+					ItemStack _stktoremove = ((sourceentity instanceof LivingEntity)
+							? ((LivingEntity) sourceentity).getHeldItemMainhand()
+							: ItemStack.EMPTY);
+					((PlayerEntity) sourceentity).inventory.clearMatchingItems(p -> _stktoremove.getItem() == p.getItem(), (int) 1);
+				}
 			}
 		} else if ((((ItemTags.getCollection().getOrCreate(new ResourceLocation(("minecraft:leaves").toLowerCase(java.util.Locale.ENGLISH)))
 				.contains(((sourceentity instanceof LivingEntity) ? ((LivingEntity) sourceentity).getHeldItemOffhand() : ItemStack.EMPTY).getItem()))
@@ -180,11 +181,12 @@ public class MonarchCaterpillarGrowthDecreaseTimeProcedure extends NatureplusMod
 				((LivingEntity) sourceentity).swing(Hand.OFF_HAND, true);
 			}
 			if ((!((sourceentity instanceof PlayerEntity) ? ((PlayerEntity) sourceentity).abilities.isCreativeMode : false))) {
-				if (sourceentity instanceof PlayerEntity)
-					((PlayerEntity) sourceentity).inventory.clearMatchingItems(
-							p -> ((sourceentity instanceof LivingEntity) ? ((LivingEntity) sourceentity).getHeldItemOffhand() : ItemStack.EMPTY)
-									.getItem() == p.getItem(),
-							(int) 1);
+				if (sourceentity instanceof PlayerEntity) {
+					ItemStack _stktoremove = ((sourceentity instanceof LivingEntity)
+							? ((LivingEntity) sourceentity).getHeldItemOffhand()
+							: ItemStack.EMPTY);
+					((PlayerEntity) sourceentity).inventory.clearMatchingItems(p -> _stktoremove.getItem() == p.getItem(), (int) 1);
+				}
 			}
 		}
 	}

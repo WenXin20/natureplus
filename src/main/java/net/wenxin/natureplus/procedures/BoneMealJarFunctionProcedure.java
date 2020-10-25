@@ -160,7 +160,7 @@ public class BoneMealJarFunctionProcedure extends NatureplusModElements.ModEleme
         ItemStack stack = event.getPlayer().getHeldItem(event.getHand());
         Item item = new ItemStack(BoneMealJarBlock.block, (int) (1)).getItem();
 		System.out.println("Right-clicked");
-//		if ((!(world.getWorld().isRemote))) {
+		if ((!(world.getWorld().isRemote))) {
 			if (event.getHand() != entity.getActiveHand())
 				return;
 //			if ((((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY)
@@ -187,6 +187,6 @@ public class BoneMealJarFunctionProcedure extends NatureplusModElements.ModEleme
 					}
 				}
 			}
-//		}
+		}
 	}
 }

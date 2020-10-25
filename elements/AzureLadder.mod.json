@@ -1,5 +1,5 @@
 {
-  "_fv": 12,
+  "_fv": 13,
   "_type": "block",
   "definition": {
     "texture": "azure_ladder",
@@ -12,6 +12,7 @@
     "customModelName": "ladder:default",
     "rotationMode": 3,
     "emissiveRendering": false,
+    "displayFluidOverlay": false,
     "itemTexture": "azure_ladder",
     "hasTransparency": true,
     "connectedSides": false,

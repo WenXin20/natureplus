@@ -38,7 +38,7 @@ import java.util.HashMap;
 @NatureplusModElements.ModElement.Tag
 public class MonarchCocoonJarSpawnProcedure extends NatureplusModElements.ModElement {
 	public MonarchCocoonJarSpawnProcedure(NatureplusModElements instance) {
-		super(instance, 904);
+		super(instance, 905);
 		MinecraftForge.EVENT_BUS.register(this);
 	}
 
