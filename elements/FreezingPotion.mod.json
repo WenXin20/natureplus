@@ -13,8 +13,8 @@
     "isBad": true,
     "isBenefitical": false,
     "registerPotionType": true,
-    "renderStatusInInventory": false,
-    "renderStatusInHUD": true,
+    "renderStatusInInventory": true,
+    "renderStatusInHUD": false,
     "onActiveTick": {
       "name": "FreezingPotionEffects"
     },
