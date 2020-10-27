@@ -893,22 +893,22 @@ public class MonarchButterflyEntity extends NatureplusModElements.ModElement {
 			main.setRotationPoint(0.0F, 22.0F, 0.0F);
 			main.setTextureOffset(17, 42).addBox(-2.0F, -2.0F, -4.0F, 4.0F, 4.0F, 12.0F, 0.0F, false);
 			wing_left = new ModelRenderer(this);
-			wing_left.setRotationPoint(2.0F, 23.0F, 0.0F);
-			wing_left.setTextureOffset(-19, 21).addBox(-0.5F, -1.0F, -10.0F, 24.0F, 0.0F, 20.0F, 0.0F, false);
+			wing_left.setRotationPoint(2.0F, 22.0F, 0.0F);
+			wing_left.setTextureOffset(-19, 21).addBox(-0.5F, 0.0F, -10.0F, 24.0F, 0.0F, 20.0F, 0.0F, false);
 			wing_right = new ModelRenderer(this);
-			wing_right.setRotationPoint(-1.0F, 23.0F, 1.0F);
-			wing_right.setTextureOffset(-19, 1).addBox(-24.5F, -1.0F, -11.0F, 24.0F, 0.0F, 20.0F, 0.0F, false);
+			wing_right.setRotationPoint(-1.0F, 22.0F, 0.0F);
+			wing_right.setTextureOffset(-19, 1).addBox(-24.5F, 0.0F, -10.0F, 24.0F, 0.0F, 20.0F, 0.0F, false);
 			head = new ModelRenderer(this);
-			head.setRotationPoint(0.0F, 23.0F, -2.0F);
-			head.setTextureOffset(1, 42).addBox(-2.0F, -3.0F, -6.0F, 4.0F, 4.0F, 4.0F, 0.0F, false);
+			head.setRotationPoint(0.0F, 22.0F, -4.0F);
+			head.setTextureOffset(1, 42).addBox(-2.0F, -2.0F, -4.0F, 4.0F, 4.0F, 4.0F, 0.0F, false);
 			antenna_left = new ModelRenderer(this);
-			antenna_left.setRotationPoint(-0.5F, -0.5F, -2.0F);
+			antenna_left.setRotationPoint(-1.5F, -1.5F, -4.0F);
 			head.addChild(antenna_left);
-			antenna_left.setTextureOffset(1, 51).addBox(2.0F, -4.5F, -8.0F, 0.0F, 4.0F, 4.0F, 0.0F, false);
+			antenna_left.setTextureOffset(1, 51).addBox(3.0F, -3.5F, -4.0F, 0.0F, 4.0F, 4.0F, 0.0F, false);
 			antenna_right = new ModelRenderer(this);
-			antenna_right.setRotationPoint(0.5F, -0.5F, -2.0F);
+			antenna_right.setRotationPoint(1.5F, -1.0F, -4.0F);
 			head.addChild(antenna_right);
-			antenna_right.setTextureOffset(1, 46).addBox(-2.0F, -4.5F, -8.0F, 0.0F, 4.0F, 4.0F, 0.0F, false);
+			antenna_right.setTextureOffset(1, 46).addBox(-3.0F, -4.0F, -4.0F, 0.0F, 4.0F, 4.0F, 0.0F, false);
 		}
 
 		@Override
