@@ -12,8 +12,9 @@
     "customModelName": "Single texture",
     "rotationMode": 0,
     "emissiveRendering": false,
-    "displayFluidOverlay": false,
+    "displayFluidOverlay": true,
     "itemTexture": "",
+    "particleTexture": "",
     "blockBase": "Leaves",
     "hasTransparency": false,
     "connectedSides": false,
@@ -70,11 +71,11 @@
     "breakHarvestLevel": 0,
     "spawnParticles": true,
     "particleToSpawn": {
-      "value": "FALLING_NECTAR"
+      "value": "CUSTOM:FallingPollen"
     },
     "particleSpawningShape": "Spread",
     "particleSpawningRadious": 0.5,
-    "particleAmount": 2,
+    "particleAmount": 1,
     "hasInventory": false,
     "guiBoundTo": "<NONE>",
     "openGUIOnRightClick": false,

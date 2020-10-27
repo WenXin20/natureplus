@@ -29,25 +29,36 @@ import net.minecraft.util.SoundEvents;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.DamageSource;
 import net.minecraft.tags.ItemTags;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.state.properties.DoubleBlockHalf;
+import net.minecraft.state.IntegerProperty;
 import net.minecraft.pathfinding.PathNavigator;
 import net.minecraft.pathfinding.FlyingPathNavigator;
+import net.minecraft.particles.ParticleTypes;
+import net.minecraft.particles.IParticleData;
+import net.minecraft.network.datasync.EntityDataManager;
+import net.minecraft.network.datasync.DataSerializers;
+import net.minecraft.network.datasync.DataParameter;
+import net.minecraft.nbt.NBTUtil;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.item.SpawnEggItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Item;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.passive.ParrotEntity;
 import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.ai.goal.WaterAvoidingRandomWalkingGoal;
 import net.minecraft.entity.ai.goal.TemptGoal;
 import net.minecraft.entity.ai.goal.SwimGoal;
-import net.minecraft.entity.ai.goal.RandomWalkingGoal;
 import net.minecraft.entity.ai.goal.PanicGoal;
 import net.minecraft.entity.ai.goal.LookRandomlyGoal;
+import net.minecraft.entity.ai.goal.Goal;
 import net.minecraft.entity.ai.goal.FollowMobGoal;
 import net.minecraft.entity.ai.goal.BreedGoal;
 import net.minecraft.entity.ai.goal.AvoidEntityGoal;
 import net.minecraft.entity.ai.controller.FlyingMovementController;
+import net.minecraft.entity.ai.RandomPositionGenerator;
 import net.minecraft.entity.SpawnReason;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.Pose;
@@ -62,11 +73,21 @@ import net.minecraft.entity.AgeableEntity;
 import net.minecraft.client.renderer.model.ModelRenderer;
 import net.minecraft.client.renderer.entity.model.EntityModel;
 import net.minecraft.client.renderer.entity.MobRenderer;
+import net.minecraft.block.SweetBerryBushBlock;
+import net.minecraft.block.StemBlock;
+import net.minecraft.block.DoublePlantBlock;
+import net.minecraft.block.CropsBlock;
+import net.minecraft.block.Blocks;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.Block;
 
-import java.util.Random;
+import javax.annotation.Nullable;
+
+import java.util.function.Predicate;
+import java.util.Optional;
 import java.util.Map;
 import java.util.HashMap;
+import java.util.EnumSet;
 
 import com.mojang.blaze3d.vertex.IVertexBuilder;
 import com.mojang.blaze3d.matrix.MatrixStack;
@@ -118,6 +139,15 @@ public class MonarchButterflyEntity extends NatureplusModElements.ModElement {
 		});
 	}
 	public static class CustomEntity extends AnimalEntity {
+		private static final DataParameter<Byte> DATA_FLAGS_ID = EntityDataManager.createKey(MonarchButterflyEntity.CustomEntity.class,
+				DataSerializers.BYTE);
+		@Nullable
+		private BlockPos savedFlowerPos = null;
+		private MonarchButterflyEntity.CustomEntity.FindFlowerGoal findFlowerGoal;
+		private MonarchButterflyEntity.CustomEntity.PollinateGoal pollinateGoal;
+		private int remainingCooldownBeforeLocatingNewFlower = 0;
+		private int ticksWithoutNectarSinceExitingHive;
+		private int numCropsGrownSincePollination;
 		public CustomEntity(FMLPlayMessages.SpawnEntity packet, World world) {
 			this(entity, world);
 		}
@@ -135,31 +165,46 @@ public class MonarchButterflyEntity extends NatureplusModElements.ModElement {
 			super.registerGoals();
 			this.goalSelector.addGoal(1, new BreedGoal(this, 1.8));
 			this.goalSelector.addGoal(2, new TemptGoal(this, 1.8, Ingredient.fromTag(ItemTags.FLOWERS), false));
-			this.goalSelector.addGoal(3, new RandomWalkingGoal(this, 1.5, 20) {
-				@Override
-				protected Vec3d getPosition() {
-					Random random = CustomEntity.this.getRNG();
-					double dir_x = CustomEntity.this.getPosX() + ((random.nextFloat() * 2 - 1) * 32);
-					double dir_y = CustomEntity.this.getPosY() + ((random.nextFloat() * 2 - 1) * 24);
-					double dir_z = CustomEntity.this.getPosZ() + ((random.nextFloat() * 2 - 1) * 32);
-					return new Vec3d(dir_x, dir_y, dir_z);
-				}
-			});
-			this.goalSelector.addGoal(3, new FollowMobGoal(this, (float) 1, 10, 5));
-			this.goalSelector.addGoal(4, new AvoidEntityGoal(this, ParrotEntity.class, (float) 6, 2.8, 2.0));
-			this.goalSelector.addGoal(4, new AvoidEntityGoal(this, BlueDragonflyEntity.CustomEntity.class, (float) 6, 2.8, 2.0));
-			this.goalSelector.addGoal(4, new AvoidEntityGoal(this, GreenDragonflyEntity.CustomEntity.class, (float) 6, 2.8, 2.0));
-			this.goalSelector.addGoal(4, new AvoidEntityGoal(this, RedDragonflyEntity.CustomEntity.class, (float) 6, 2.8, 2.0));
-			this.goalSelector.addGoal(5, new PanicGoal(this, 2.8));
-			this.goalSelector.addGoal(5, new LookRandomlyGoal(this));
-			this.goalSelector.addGoal(6, new WaterAvoidingRandomWalkingGoal(this, 1.5));
-			this.goalSelector.addGoal(6, new SwimGoal(this));
+			this.goalSelector.addGoal(2, new FollowMobGoal(this, (float) 1, 10, 5));
+			this.pollinateGoal = new MonarchButterflyEntity.CustomEntity.PollinateGoal();
+			this.goalSelector.addGoal(3, this.pollinateGoal);
+			this.findFlowerGoal = new MonarchButterflyEntity.CustomEntity.FindFlowerGoal();
+			this.goalSelector.addGoal(4, this.findFlowerGoal);
+			this.goalSelector.addGoal(5, new MonarchButterflyEntity.CustomEntity.FindPollinationTargetGoal());
+			this.goalSelector.addGoal(6, new MonarchButterflyEntity.CustomEntity.WanderGoal());
+			// this.goalSelector.addGoal(6, new RandomWalkingGoal(this, 1.5, 20) {
+			// @Override
+			// protected Vec3d getPosition() {
+			// Random random = CustomEntity.this.getRNG();
+			// double dir_x = CustomEntity.this.getPosX() + ((random.nextFloat() * 2 - 1) *
+			// 32);
+			// double dir_y = CustomEntity.this.getPosY() + ((random.nextFloat() * 2 - 1) *
+			// 24);
+			// double dir_z = CustomEntity.this.getPosZ() + ((random.nextFloat() * 2 - 1) *
+			// 32);
+			// return new Vec3d(dir_x, dir_y, dir_z);
+			// }
+			// });
+			this.goalSelector.addGoal(6, new AvoidEntityGoal(this, ParrotEntity.class, (float) 6, 2.8, 2.0));
+			this.goalSelector.addGoal(6, new AvoidEntityGoal(this, BlueDragonflyEntity.CustomEntity.class, (float) 6, 2.8, 2.0));
+			this.goalSelector.addGoal(6, new AvoidEntityGoal(this, GreenDragonflyEntity.CustomEntity.class, (float) 6, 2.8, 2.0));
+			this.goalSelector.addGoal(6, new AvoidEntityGoal(this, RedDragonflyEntity.CustomEntity.class, (float) 6, 2.8, 2.0));
+			this.goalSelector.addGoal(6, new PanicGoal(this, 2.8));
+			this.goalSelector.addGoal(7, new LookRandomlyGoal(this));
+			this.goalSelector.addGoal(8, new WaterAvoidingRandomWalkingGoal(this, 1.5));
+			this.goalSelector.addGoal(8, new SwimGoal(this));
 		}
 
 		protected PathNavigator createNavigator(World worldIn) {
 			FlyingPathNavigator flyingpathnavigator = new FlyingPathNavigator(this, worldIn) {
 				public boolean canEntityStandOnPos(BlockPos pos) {
 					return !this.world.getBlockState(pos.down()).isAir();
+				}
+
+				public void tick() {
+					if (!MonarchButterflyEntity.CustomEntity.this.pollinateGoal.isRunning()) {
+						super.tick();
+					}
 				}
 			};
 			flyingpathnavigator.setCanOpenDoors(false);
@@ -175,12 +220,10 @@ public class MonarchButterflyEntity extends NatureplusModElements.ModElement {
 
 		@Override
 		public AgeableEntity createChild(AgeableEntity ageable) {
-//			return (MonarchEggEntity.CustomEntity) MonarchEggEntity.entity.create(this.world);
 			MonarchEggEntity.CustomEntity retval = (MonarchEggEntity.CustomEntity) MonarchEggEntity.entity.create(this.world);
 			retval.onInitialSpawn(this.world, this.world.getDifficultyForLocation(new BlockPos(retval)), SpawnReason.BREEDING,
 					(ILivingEntityData) null, (CompoundNBT) null);
 			return retval;
-
 		}
 
 		@Override
@@ -203,7 +246,7 @@ public class MonarchButterflyEntity extends NatureplusModElements.ModElement {
 
 		@Override
 		public net.minecraft.util.SoundEvent getAmbientSound() {
-			return (net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(""));
+			return (net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("natureplus:butterfly_flying"));
 		}
 
 		@Override
@@ -232,9 +275,16 @@ public class MonarchButterflyEntity extends NatureplusModElements.ModElement {
 
 		@Override
 		public boolean attackEntityFrom(DamageSource source, float amount) {
-			if (source == DamageSource.FALL)
+			if (source == DamageSource.FALL) {
 				return false;
-			return super.attackEntityFrom(source, amount);
+			} else {
+				Entity entity = source.getTrueSource();
+				if (!this.world.isRemote && entity instanceof PlayerEntity && !((PlayerEntity) entity).isCreative() && this.canEntityBeSeen(entity)
+						&& !this.isAIDisabled()) {
+					this.pollinateGoal.cancel();
+				}
+				return super.attackEntityFrom(source, amount);
+			}
 		}
 
 		protected boolean makeFlySound() {
@@ -301,6 +351,514 @@ public class MonarchButterflyEntity extends NatureplusModElements.ModElement {
 		public void livingTick() {
 			super.livingTick();
 			this.setNoGravity(true);
+			if (!this.world.isRemote) {
+				if (this.remainingCooldownBeforeLocatingNewFlower > 0) {
+					--this.remainingCooldownBeforeLocatingNewFlower;
+				}
+			}
+		}
+
+		private boolean isFlowers(BlockPos pos) {
+			return this.world.isBlockPresent(pos) && this.world.getBlockState(pos).getBlock().isIn(BlockTags.FLOWERS);
+		}
+
+		private boolean isWithinDistance(BlockPos pos, int distance) {
+			return pos.withinDistance(new BlockPos(this), (double) distance);
+		}
+
+		private boolean isTooFar(BlockPos pos) {
+			return !this.isWithinDistance(pos, 48);
+		}
+
+		public void writeAdditional(CompoundNBT compound) {
+			super.writeAdditional(compound);
+			if (this.hasFlower()) {
+				compound.put("FlowerPos", NBTUtil.writeBlockPos(this.getFlowerPos()));
+			}
+			compound.putBoolean("HasNectar", this.hasNectar());
+			compound.putInt("CropsGrownSincePollination", this.numCropsGrownSincePollination);
+		}
+
+		public void readAdditional(CompoundNBT compound) {
+			this.savedFlowerPos = null;
+			if (compound.contains("FlowerPos")) {
+				this.savedFlowerPos = NBTUtil.readBlockPos(compound.getCompound("FlowerPos"));
+			}
+			super.readAdditional(compound);
+			this.setHasNectar(compound.getBoolean("HasNectar"));
+			this.numCropsGrownSincePollination = compound.getInt("CropsGrownSincePollination");
+		}
+
+		/**
+		 * Called to update the entity's position/logic.
+		 */
+		public void tick() {
+			super.tick();
+			if (this.hasNectar() && this.getCropsGrownSincePollination() < 10 && this.rand.nextFloat() < 0.05F) {
+				for (int i = 0; i < this.rand.nextInt(2) + 1; ++i) {
+					this.addParticle(this.world, this.getPosX() - (double) 0.3F, this.getPosX() + (double) 0.3F, this.getPosZ() - (double) 0.3F,
+							this.getPosZ() + (double) 0.3F, this.getPosYHeight(0.5D), ParticleTypes.FALLING_NECTAR);
+				}
+			}
+		}
+
+		private void addParticle(World worldIn, double p_226397_2_, double p_226397_4_, double p_226397_6_, double p_226397_8_, double posY,
+				IParticleData particleData) {
+			worldIn.addParticle(particleData, MathHelper.lerp(worldIn.rand.nextDouble(), p_226397_2_, p_226397_4_), posY,
+					MathHelper.lerp(worldIn.rand.nextDouble(), p_226397_6_, p_226397_8_), 0.0D, 0.0D, 0.0D);
+		}
+
+		public void resetTicksWithoutNectar() {
+			this.ticksWithoutNectarSinceExitingHive = 0;
+		}
+
+		public boolean hasNectar() {
+			return this.getButterflyFlag(8);
+		}
+
+		private void setHasNectar(boolean nectar) {
+			if (nectar) {
+				this.resetTicksWithoutNectar();
+			}
+			this.setButterflyFlag(8, nectar);
+		}
+
+		protected void registerData() {
+			super.registerData();
+			this.dataManager.register(DATA_FLAGS_ID, (byte) 0);
+		}
+
+		private void setButterflyFlag(int flagId, boolean flag) {
+			if (flag) {
+				this.dataManager.set(DATA_FLAGS_ID, (byte) (this.dataManager.get(DATA_FLAGS_ID) | flagId));
+			} else {
+				this.dataManager.set(DATA_FLAGS_ID, (byte) (this.dataManager.get(DATA_FLAGS_ID) & ~flagId));
+			}
+		}
+
+		private boolean getButterflyFlag(int flagId) {
+			return (this.dataManager.get(DATA_FLAGS_ID) & flagId) != 0;
+		}
+
+		@Nullable
+		public BlockPos getFlowerPos() {
+			return this.savedFlowerPos;
+		}
+
+		public boolean hasFlower() {
+			return this.savedFlowerPos != null;
+		}
+
+		public void setFlowerPos(BlockPos pos) {
+			this.savedFlowerPos = pos;
+		}
+
+		private void startMovingTo(BlockPos pos) {
+			Vec3d vec3d = new Vec3d(pos);
+			int i = 0;
+			BlockPos blockpos = new BlockPos(this);
+			int j = (int) vec3d.y - blockpos.getY();
+			if (j > 2) {
+				i = 4;
+			} else if (j < -2) {
+				i = -4;
+			}
+			int k = 6;
+			int l = 8;
+			int i1 = blockpos.manhattanDistance(pos);
+			if (i1 < 15) {
+				k = i1 / 2;
+				l = i1 / 2;
+			}
+			Vec3d vec3d1 = RandomPositionGenerator.func_226344_b_(this, k, l, i, vec3d, (double) ((float) Math.PI / 10F));
+			if (vec3d1 != null) {
+				this.navigator.setRangeMultiplier(0.5F);
+				this.navigator.tryMoveToXYZ(vec3d1.x, vec3d1.y, vec3d1.z, 1.0D);
+			}
+		}
+
+		private int getCropsGrownSincePollination() {
+			return this.numCropsGrownSincePollination;
+		}
+
+		private void resetCropCounter() {
+			this.numCropsGrownSincePollination = 0;
+		}
+
+		private void addCropCounter() {
+			++this.numCropsGrownSincePollination;
+		}
+
+		public void onNectarUsed() {
+			this.setHasNectar(false);
+			this.resetCropCounter();
+		}
+		public class FindFlowerGoal extends MonarchButterflyEntity.CustomEntity.PassiveGoal {
+			private int ticks = MonarchButterflyEntity.CustomEntity.this.world.rand.nextInt(10);
+			FindFlowerGoal() {
+				this.setMutexFlags(EnumSet.of(Goal.Flag.MOVE));
+			}
+
+			public boolean canButterflyStart() {
+				return MonarchButterflyEntity.CustomEntity.this.savedFlowerPos != null
+						&& MonarchButterflyEntity.CustomEntity.this.isFlowers(MonarchButterflyEntity.CustomEntity.this.savedFlowerPos)
+						&& !MonarchButterflyEntity.CustomEntity.this.isWithinDistance(MonarchButterflyEntity.CustomEntity.this.savedFlowerPos, 2);
+			}
+
+			public boolean canButterflyContinue() {
+				return this.canButterflyStart();
+			}
+
+			/**
+			 * Execute a one shot task or start executing a continuous task
+			 */
+			public void startExecuting() {
+				this.ticks = 0;
+				super.startExecuting();
+			}
+
+			/**
+			 * Reset the task's internal state. Called when this task is interrupted by
+			 * another one
+			 */
+			public void resetTask() {
+				this.ticks = 0;
+				MonarchButterflyEntity.CustomEntity.this.navigator.clearPath();
+				MonarchButterflyEntity.CustomEntity.this.navigator.resetRangeMultiplier();
+			}
+
+			/**
+			 * Keep ticking a continuous task that has already been started
+			 */
+			public void tick() {
+				if (MonarchButterflyEntity.CustomEntity.this.savedFlowerPos != null) {
+					++this.ticks;
+					if (this.ticks > 600) {
+						MonarchButterflyEntity.CustomEntity.this.savedFlowerPos = null;
+					} else if (!MonarchButterflyEntity.CustomEntity.this.navigator.func_226337_n_()) {
+						if (MonarchButterflyEntity.CustomEntity.this.isTooFar(MonarchButterflyEntity.CustomEntity.this.savedFlowerPos)) {
+							MonarchButterflyEntity.CustomEntity.this.savedFlowerPos = null;
+						} else {
+							MonarchButterflyEntity.CustomEntity.this.startMovingTo(MonarchButterflyEntity.CustomEntity.this.savedFlowerPos);
+						}
+					}
+				}
+			}
+
+			private boolean shouldMoveToFlower() {
+				return MonarchButterflyEntity.CustomEntity.this.ticksWithoutNectarSinceExitingHive > 2400;
+			}
+		}
+
+		abstract class PassiveGoal extends Goal {
+			private PassiveGoal() {
+			}
+
+			public abstract boolean canButterflyStart();
+
+			public abstract boolean canButterflyContinue();
+
+			/**
+			 * Returns whether execution should begin. You can also read and cache any state
+			 * necessary for execution in this method as well.
+			 */
+			public boolean shouldExecute() {
+				return this.canButterflyStart();
+			}
+
+			/**
+			 * Returns whether an in-progress EntityAIBase should continue executing
+			 */
+			public boolean shouldContinueExecuting() {
+				return this.canButterflyContinue();
+			}
+		}
+
+		class PollinateGoal extends MonarchButterflyEntity.CustomEntity.PassiveGoal {
+			private final Predicate<BlockState> flowerPredicate = (flower) -> {
+				if (flower.isIn(BlockTags.TALL_FLOWERS)) {
+					if (flower.getBlock() == Blocks.SUNFLOWER) {
+						return flower.get(DoublePlantBlock.HALF) == DoubleBlockHalf.UPPER;
+					} else {
+						return true;
+					}
+				} else {
+					return flower.isIn(BlockTags.SMALL_FLOWERS);
+				}
+			};
+			private int pollinationTicks = 0;
+			private int lastPollinationTick = 0;
+			private boolean running;
+			private Vec3d nextTarget;
+			private int ticks = 0;
+			PollinateGoal() {
+				this.setMutexFlags(EnumSet.of(Goal.Flag.MOVE));
+			}
+
+			public boolean canButterflyStart() {
+				if (MonarchButterflyEntity.CustomEntity.this.remainingCooldownBeforeLocatingNewFlower > 0) {
+					return false;
+				} else if (MonarchButterflyEntity.CustomEntity.this.hasNectar()) {
+					return false;
+				} else if (MonarchButterflyEntity.CustomEntity.this.world.isRaining()) {
+					return false;
+				} else if (MonarchButterflyEntity.CustomEntity.this.rand.nextFloat() < 0.7F) {
+					return false;
+				} else {
+					Optional<BlockPos> optional = this.getFlower();
+					if (optional.isPresent()) {
+						MonarchButterflyEntity.CustomEntity.this.savedFlowerPos = optional.get();
+						MonarchButterflyEntity.CustomEntity.this.navigator.tryMoveToXYZ(
+								(double) MonarchButterflyEntity.CustomEntity.this.savedFlowerPos.getX() + 0.5D,
+								(double) MonarchButterflyEntity.CustomEntity.this.savedFlowerPos.getY() + 0.5D,
+								(double) MonarchButterflyEntity.CustomEntity.this.savedFlowerPos.getZ() + 0.5D, (double) 1.2F);
+						return true;
+					} else {
+						return false;
+					}
+				}
+			}
+
+			public boolean canButterflyContinue() {
+				if (!this.running) {
+					return false;
+				} else if (!MonarchButterflyEntity.CustomEntity.this.hasFlower()) {
+					return false;
+				} else if (MonarchButterflyEntity.CustomEntity.this.world.isRaining()) {
+					return false;
+				} else if (this.completedPollination()) {
+					return MonarchButterflyEntity.CustomEntity.this.rand.nextFloat() < 0.2F;
+				} else if (MonarchButterflyEntity.CustomEntity.this.ticksExisted % 20 == 0
+						&& !MonarchButterflyEntity.CustomEntity.this.isFlowers(MonarchButterflyEntity.CustomEntity.this.savedFlowerPos)) {
+					MonarchButterflyEntity.CustomEntity.this.savedFlowerPos = null;
+					return false;
+				} else {
+					return true;
+				}
+			}
+
+			private boolean completedPollination() {
+				return this.pollinationTicks > 400;
+			}
+
+			private boolean isRunning() {
+				return this.running;
+			}
+
+			private void cancel() {
+				this.running = false;
+			}
+
+			/**
+			 * Execute a one shot task or start executing a continuous task
+			 */
+			public void startExecuting() {
+				this.pollinationTicks = 0;
+				this.ticks = 0;
+				this.lastPollinationTick = 0;
+				this.running = true;
+				MonarchButterflyEntity.CustomEntity.this.resetTicksWithoutNectar();
+			}
+
+			/**
+			 * Reset the task's internal state. Called when this task is interrupted by
+			 * another one
+			 */
+			public void resetTask() {
+				if (this.completedPollination()) {
+					MonarchButterflyEntity.CustomEntity.this.setHasNectar(true);
+				}
+				this.running = false;
+				MonarchButterflyEntity.CustomEntity.this.navigator.clearPath();
+				MonarchButterflyEntity.CustomEntity.this.remainingCooldownBeforeLocatingNewFlower = 200;
+			}
+
+			/**
+			 * Keep ticking a continuous task that has already been started
+			 */
+			public void tick() {
+				++this.ticks;
+				if (this.ticks > 600) {
+					MonarchButterflyEntity.CustomEntity.this.savedFlowerPos = null;
+				} else {
+					Vec3d vec3d = (new Vec3d(MonarchButterflyEntity.CustomEntity.this.savedFlowerPos)).add(0.5D, (double) 0.6F, 0.5D);
+					if (vec3d.distanceTo(MonarchButterflyEntity.CustomEntity.this.getPositionVec()) > 1.0D) {
+						this.nextTarget = vec3d;
+						this.moveToNextTarget();
+					} else {
+						if (this.nextTarget == null) {
+							this.nextTarget = vec3d;
+						}
+						boolean flag = MonarchButterflyEntity.CustomEntity.this.getPositionVec().distanceTo(this.nextTarget) <= 0.1D;
+						boolean flag1 = true;
+						if (!flag && this.ticks > 600) {
+							MonarchButterflyEntity.CustomEntity.this.savedFlowerPos = null;
+						} else {
+							if (flag) {
+								boolean flag2 = MonarchButterflyEntity.CustomEntity.this.rand.nextInt(100) == 0;
+								if (flag2) {
+									this.nextTarget = new Vec3d(vec3d.getX() + (double) this.getRandomOffset(), vec3d.getY(),
+											vec3d.getZ() + (double) this.getRandomOffset());
+									MonarchButterflyEntity.CustomEntity.this.navigator.clearPath();
+								} else {
+									flag1 = false;
+								}
+								MonarchButterflyEntity.CustomEntity.this.getLookController().setLookPosition(vec3d.getX(), vec3d.getY(),
+										vec3d.getZ());
+							}
+							if (flag1) {
+								this.moveToNextTarget();
+							}
+							++this.pollinationTicks;
+							if (MonarchButterflyEntity.CustomEntity.this.rand.nextFloat() < 0.05F
+									&& this.pollinationTicks > this.lastPollinationTick + 60) {
+								this.lastPollinationTick = this.pollinationTicks;
+								MonarchButterflyEntity.CustomEntity.this.playSound(SoundEvents.ENTITY_BEE_POLLINATE, 1.0F, 1.0F);
+							}
+						}
+					}
+				}
+			}
+
+			private void moveToNextTarget() {
+				MonarchButterflyEntity.CustomEntity.this.getMoveHelper().setMoveTo(this.nextTarget.getX(), this.nextTarget.getY(),
+						this.nextTarget.getZ(), (double) 0.35F);
+			}
+
+			private float getRandomOffset() {
+				return (MonarchButterflyEntity.CustomEntity.this.rand.nextFloat() * 2.0F - 1.0F) * 0.33333334F;
+			}
+
+			private Optional<BlockPos> getFlower() {
+				return this.findFlower(this.flowerPredicate, 5.0D);
+			}
+
+			private Optional<BlockPos> findFlower(Predicate<BlockState> p_226500_1_, double distance) {
+				BlockPos blockpos = new BlockPos(MonarchButterflyEntity.CustomEntity.this);
+				BlockPos.Mutable blockpos$mutable = new BlockPos.Mutable();
+				for (int i = 0; (double) i <= distance; i = i > 0 ? -i : 1 - i) {
+					for (int j = 0; (double) j < distance; ++j) {
+						for (int k = 0; k <= j; k = k > 0 ? -k : 1 - k) {
+							for (int l = k < j && k > -j ? j : 0; l <= j; l = l > 0 ? -l : 1 - l) {
+								blockpos$mutable.setPos(blockpos).move(k, i - 1, l);
+								if (blockpos.withinDistance(blockpos$mutable, distance)
+										&& p_226500_1_.test(MonarchButterflyEntity.CustomEntity.this.world.getBlockState(blockpos$mutable))) {
+									return Optional.of(blockpos$mutable);
+								}
+							}
+						}
+					}
+				}
+				return Optional.empty();
+			}
+		}
+
+		class WanderGoal extends Goal {
+			WanderGoal() {
+				this.setMutexFlags(EnumSet.of(Goal.Flag.MOVE));
+			}
+
+			/**
+			 * Returns whether execution should begin. You can also read and cache any state
+			 * necessary for execution in this method as well.
+			 */
+			public boolean shouldExecute() {
+				return MonarchButterflyEntity.CustomEntity.this.navigator.noPath() && MonarchButterflyEntity.CustomEntity.this.rand.nextInt(10) == 0;
+			}
+
+			/**
+			 * Returns whether an in-progress EntityAIBase should continue executing
+			 */
+			public boolean shouldContinueExecuting() {
+				return MonarchButterflyEntity.CustomEntity.this.navigator.func_226337_n_();
+			}
+
+			/**
+			 * Execute a one shot task or start executing a continuous task
+			 */
+			public void startExecuting() {
+				Vec3d vec3d = this.getRandomLocation();
+				if (vec3d != null) {
+					MonarchButterflyEntity.CustomEntity.this.navigator
+							.setPath(MonarchButterflyEntity.CustomEntity.this.navigator.getPathToPos(new BlockPos(vec3d), 1), 1.0D);
+				}
+			}
+
+			@Nullable
+			private Vec3d getRandomLocation() {
+				Vec3d vec3d;
+				vec3d = MonarchButterflyEntity.CustomEntity.this.getLook(0.0F);
+				int i = 8;
+				Vec3d vec3d2 = RandomPositionGenerator.findAirTarget(MonarchButterflyEntity.CustomEntity.this, 8, 7, vec3d, ((float) Math.PI / 2F), 2,
+						1);
+				return vec3d2 != null
+						? vec3d2
+						: RandomPositionGenerator.findGroundTarget(MonarchButterflyEntity.CustomEntity.this, 8, 4, -2, vec3d,
+								(double) ((float) Math.PI / 2F));
+			}
+		}
+
+		class FindPollinationTargetGoal extends MonarchButterflyEntity.CustomEntity.PassiveGoal {
+			private FindPollinationTargetGoal() {
+			}
+
+			public boolean canButterflyStart() {
+				if (MonarchButterflyEntity.CustomEntity.this.getCropsGrownSincePollination() >= 10) {
+					MonarchButterflyEntity.CustomEntity.this.onNectarUsed();
+					return false;
+				} else if (MonarchButterflyEntity.CustomEntity.this.rand.nextFloat() < 0.3F) {
+					return false;
+				} else {
+					return MonarchButterflyEntity.CustomEntity.this.hasNectar();
+				}
+			}
+			
+
+			public boolean canButterflyContinue() {
+				return this.canButterflyStart();
+			}
+
+			/**
+			 * Keep ticking a continuous task that has already been started
+			 */
+			public void tick() {
+				if (MonarchButterflyEntity.CustomEntity.this.rand.nextInt(30) == 0) {
+					for (int i = 1; i <= 2; ++i) {
+						BlockPos blockpos = (new BlockPos(MonarchButterflyEntity.CustomEntity.this)).down(i);
+						BlockState blockstate = MonarchButterflyEntity.CustomEntity.this.world.getBlockState(blockpos);
+						Block block = blockstate.getBlock();
+						boolean flag = false;
+						IntegerProperty integerproperty = null;
+						if (block.isIn(BlockTags.BEE_GROWABLES)) {
+							if (block instanceof CropsBlock) {
+								CropsBlock cropsblock = (CropsBlock) block;
+								if (!cropsblock.isMaxAge(blockstate)) {
+									flag = true;
+									integerproperty = cropsblock.getAgeProperty();
+								}
+							} else if (block instanceof StemBlock) {
+								int j = blockstate.get(StemBlock.AGE);
+								if (j < 7) {
+									flag = true;
+									integerproperty = StemBlock.AGE;
+								}
+							} else if (block == Blocks.SWEET_BERRY_BUSH) {
+								int k = blockstate.get(SweetBerryBushBlock.AGE);
+								if (k < 3) {
+									flag = true;
+									integerproperty = SweetBerryBushBlock.AGE;
+								}
+							}
+							if (flag) {
+								MonarchButterflyEntity.CustomEntity.this.world.playEvent(2005, blockpos, 0);
+								MonarchButterflyEntity.CustomEntity.this.world.setBlockState(blockpos,
+										blockstate.with(integerproperty, Integer.valueOf(blockstate.get(integerproperty) + 1)));
+								MonarchButterflyEntity.CustomEntity.this.addCropCounter();
+							}
+						}
+					}
+				}
+			}
 		}
 	}
 
@@ -358,7 +916,7 @@ public class MonarchButterflyEntity extends NatureplusModElements.ModElement {
 		public void setRotationAngles(Entity e, float f, float f1, float f2, float f3, float f4) {
 			this.antenna_left.rotateAngleX = MathHelper.cos(f2 * 0.03F) * (float) Math.PI * 0.15F;
 			this.antenna_right.rotateAngleX = MathHelper.cos(f2 * 0.031F) * (float) Math.PI * 0.15F;
-			boolean flag = e.getMotion().lengthSquared() < 2.0E-7D; // e.onGround &&
+			boolean flag = e.onGround && e.getMotion().lengthSquared() < 2.0E-7D; //
 			if (flag) {
 				this.wing_right.rotateAngleZ = 1.0F + -(MathHelper.cos(f2 * 0.4F) * (float) Math.PI * 0.18F);
 				this.wing_left.rotateAngleZ = -1.0F + (MathHelper.cos(f2 * 0.4F) * (float) Math.PI * 0.18F);

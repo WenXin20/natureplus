@@ -66,7 +66,7 @@ public class AzureTreeStructure extends NatureplusModElements.ModElement {
 							continue;
 						Rotation rotation = Rotation.values()[random.nextInt(3)];
 						Mirror mirror = Mirror.values()[random.nextInt(2)];
-						BlockPos spawnTo = new BlockPos(i + 0, j + 1, k + 0);
+						BlockPos spawnTo = new BlockPos(i + -3, j + 1, k + -3);
 						int x = spawnTo.getX();
 						int y = spawnTo.getY();
 						int z = spawnTo.getZ();

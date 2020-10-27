@@ -2,7 +2,7 @@
 // Exported for Minecraft version 1.15
 // Paste this class into your mod and generate all required imports
 
-public static class ModelSnowPea extends EntityModel<Entity> {
+public static class ModelSnowPea<T extends Entity> extends AgeableModel<T> {
 	private final ModelRenderer main;
 	private final ModelRenderer disk;
 	private final ModelRenderer head;
@@ -39,11 +39,12 @@ public static class ModelSnowPea extends EntityModel<Entity> {
 		head.setTextureOffset(25, 15).addBox(-1.0F, -3.0F, 3.5F, 2.0F, 2.0F, 3.0F, 0.0F, false);
 	}
 
-	@Override
-	public void render(MatrixStack matrixStack, IVertexBuilder buffer, int packedLight, int packedOverlay, float red,
-			float green, float blue, float alpha) {
-		main.render(matrixStack, buffer, packedLight, packedOverlay);
-		head.render(matrixStack, buffer, packedLight, packedOverlay);
+	protected Iterable<ModelRenderer> getHeadParts() {
+		return ImmutableList.of();
+	}
+
+	protected Iterable<ModelRenderer> getBodyParts() {
+		return ImmutableList.of(this.head, this.main);
 	}
 
 	public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {

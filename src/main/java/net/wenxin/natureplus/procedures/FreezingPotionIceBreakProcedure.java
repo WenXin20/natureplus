@@ -1,9 +1,11 @@
 package net.wenxin.natureplus.procedures;
 
+import net.wenxin.natureplus.particle.IcicleBreakParticle;
 import net.wenxin.natureplus.NatureplusModElements;
 
 import net.minecraftforge.registries.ForgeRegistries;
 
+import net.minecraft.world.server.ServerWorld;
 import net.minecraft.world.IWorld;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.SoundCategory;
@@ -39,6 +41,10 @@ public class FreezingPotionIceBreakProcedure extends NatureplusModElements.ModEl
 			world.getWorld().playSound((entity.getPosX()), (entity.getPosY()), (entity.getPosZ()),
 					(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("block.glass.break")),
 					SoundCategory.NEUTRAL, (float) 1, (float) 1, false);
+		}
+		if (world instanceof ServerWorld) {
+			((ServerWorld) world).spawnParticle(IcicleBreakParticle.particle, (entity.getPosX()), (entity.getPosY()), (entity.getPosZ()), (int) 20,
+					((entity.getWidth()) / 2), ((entity.getHeight()) / 2), ((entity.getWidth()) / 2), 0.5);
 		}
 	}
 }

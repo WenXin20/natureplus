@@ -1,6 +1,7 @@
 
 package net.wenxin.natureplus.block;
 
+import net.wenxin.natureplus.particle.FallingPollenParticle;
 import net.wenxin.natureplus.itemgroup.NaturePlusTabItemGroup;
 import net.wenxin.natureplus.NatureplusModElements;
 
@@ -11,13 +12,14 @@ import net.minecraftforge.api.distmarker.Dist;
 
 import net.minecraft.world.storage.loot.LootContext;
 import net.minecraft.world.World;
+import net.minecraft.world.ILightReader;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.Direction;
-import net.minecraft.particles.ParticleTypes;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Item;
 import net.minecraft.item.BlockItem;
+import net.minecraft.fluid.IFluidState;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.client.Minecraft;
 import net.minecraft.block.material.MaterialColor;
@@ -31,8 +33,6 @@ import net.minecraft.block.Block;
 import java.util.Random;
 import java.util.List;
 import java.util.Collections;
-import net.minecraft.world.ILightReader;
-import net.minecraft.fluid.IFluidState;
 
 @NatureplusModElements.ModElement.Tag
 public class PollenBlockBlock extends NatureplusModElements.ModElement {
@@ -56,6 +56,11 @@ public class PollenBlockBlock extends NatureplusModElements.ModElement {
 		}
 
 		@Override
+		public boolean shouldDisplayFluidOverlay(BlockState state, ILightReader world, BlockPos pos, IFluidState fluidstate) {
+			return true;
+		}
+
+		@Override
 		public int getFlammability(BlockState state, IBlockReader world, BlockPos pos, Direction face) {
 			return 5;
 		}
@@ -63,11 +68,6 @@ public class PollenBlockBlock extends NatureplusModElements.ModElement {
 		@Override
 		public MaterialColor getMaterialColor(BlockState state, IBlockReader blockAccess, BlockPos pos) {
 			return MaterialColor.ORANGE_TERRACOTTA;
-		}
-
-		@Override
-		public boolean shouldDisplayFluidOverlay(BlockState state, ILightReader world, BlockPos pos, IFluidState fluidstate) {
-			return true;
 		}
 
 		@Override
@@ -86,19 +86,16 @@ public class PollenBlockBlock extends NatureplusModElements.ModElement {
 			int x = pos.getX();
 			int y = pos.getY();
 			int z = pos.getZ();
-			int i = x;
-			int j = y;
-			int k = z;
 			if (true)
-				for (int l = 0; l < 2; ++l) {
-					double d0 = (i + random.nextFloat());
-					double d1 = (j + random.nextFloat());
-					double d2 = (k + random.nextFloat());
+				for (int l = 0; l < 1; ++l) {
+					double d0 = (x + random.nextFloat());
+					double d1 = (y + random.nextFloat());
+					double d2 = (z + random.nextFloat());
 					int i1 = random.nextInt(2) * 2 - 1;
 					double d3 = (random.nextFloat() - 0.5D) * 0.5D;
 					double d4 = (random.nextFloat() - 0.5D) * 0.5D;
 					double d5 = (random.nextFloat() - 0.5D) * 0.5D;
-					world.addParticle(ParticleTypes.FALLING_NECTAR, d0, d1, d2, d3, d4, d5);
+					world.addParticle(FallingPollenParticle.particle, d0, d1, d2, d3, d4, d5);
 				}
 		}
 	}

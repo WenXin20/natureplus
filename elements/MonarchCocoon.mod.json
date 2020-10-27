@@ -52,7 +52,7 @@
     "movementSpeed": 0.0,
     "armorBaseValue": 0.0,
     "trackingRange": 64,
-    "health": 1,
+    "health": 2,
     "xpAmount": 0,
     "waterMob": false,
     "flyingMob": false,
@@ -83,6 +83,9 @@
     "deathSound": {
       "value": "entity.turtle.egg_break"
     },
+    "stepSound": {
+      "value": ""
+    },
     "spawnParticles": false,
     "particleToSpawn": {
       "value": "EXPLOSION_NORMAL"
@@ -98,7 +101,7 @@
     },
     "hasAI": true,
     "aiBase": "(none)",
-    "aixml": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><block type=\"aitasks_container\" deletable=\"false\" x=\"375\" y=\"15\"/></xml>",
+    "aixml": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><block type=\"aitasks_container\" deletable=\"false\" x=\"375\" y=\"15\"></block></xml>",
     "breedable": false,
     "tameable": false,
     "breedTriggerItems": [],

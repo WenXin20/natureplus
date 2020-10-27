@@ -378,5 +378,15 @@
         "stream": false
       }
     ]
+  },
+  "dragonfly_flying": {
+    "category": "ambient",
+    "subtitle": "subtitles.dragonfly_flying",
+    "sounds": [
+      {
+        "name": "natureplus:dragonfly_flying",
+        "stream": false
+      }
+    ]
   }
 }

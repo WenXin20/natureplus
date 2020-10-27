@@ -314,15 +314,4 @@ public class PeashooterEntity extends NatureplusModElements.ModElement {
 			this.disk.rotationPointY = -7.5F + -(MathHelper.cos(f2 * 0.4F) * (float) Math.PI * 0.05F);
 		}
 	}
-	@OnlyIn(Dist.CLIENT)
-	public static void addBoxHelper(ModelRenderer renderer, int texU, int texV, float x, float y, float z, int dx, int dy, int dz, float delta) {
-		addBoxHelper(renderer, texU, texV, x, y, z, dx, dy, dz, delta, renderer.mirror);
-	}
-
-	@OnlyIn(Dist.CLIENT)
-	public static void addBoxHelper(ModelRenderer renderer, int texU, int texV, float x, float y, float z, int dx, int dy, int dz, float delta,
-			boolean mirror) {
-		renderer.mirror = mirror;
-		renderer.addBox("", x, y, z, dx, dy, dz, delta, texU, texV);
-	}
 }

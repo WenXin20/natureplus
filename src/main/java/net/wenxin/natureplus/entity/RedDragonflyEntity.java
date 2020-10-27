@@ -1,6 +1,7 @@
 
 package net.wenxin.natureplus.entity;
 
+import net.wenxin.natureplus.procedures.RedDragonflyBurnInDaylightProcedure;
 import net.wenxin.natureplus.procedures.HostileDragonflyNaturalSpawnProcedure;
 import net.wenxin.natureplus.itemgroup.NaturePlusTabItemGroup;
 import net.wenxin.natureplus.NatureplusModElements;
@@ -61,6 +62,8 @@ import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.block.BlockState;
 
 import java.util.Random;
+import java.util.Map;
+import java.util.HashMap;
 
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableList;
@@ -160,6 +163,11 @@ public class RedDragonflyEntity extends NatureplusModElements.ModElement {
 		}
 
 		@Override
+		public net.minecraft.util.SoundEvent getAmbientSound() {
+			return (net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("natureplus:dragonfly_flying"));
+		}
+
+		@Override
 		public net.minecraft.util.SoundEvent getHurtSound(DamageSource ds) {
 			return (net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("natureplus:squitch"));
 		}
@@ -172,6 +180,21 @@ public class RedDragonflyEntity extends NatureplusModElements.ModElement {
 		@Override
 		public boolean onLivingFall(float l, float d) {
 			return false;
+		}
+
+		@Override
+		public void baseTick() {
+			super.baseTick();
+			double x = this.getPosX();
+			double y = this.getPosY();
+			double z = this.getPosZ();
+			Entity entity = this;
+			{
+				Map<String, Object> $_dependencies = new HashMap<>();
+				$_dependencies.put("entity", entity);
+				$_dependencies.put("world", world);
+				RedDragonflyBurnInDaylightProcedure.executeProcedure($_dependencies);
+			}
 		}
 
 		@Override

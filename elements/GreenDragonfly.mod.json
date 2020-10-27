@@ -75,7 +75,7 @@
       "value": ""
     },
     "livingSound": {
-      "value": ""
+      "value": "CUSTOM:dragonfly_flying"
     },
     "hurtSound": {
       "value": "CUSTOM:squitch"

@@ -203,7 +203,7 @@ public class CactusEntity extends NatureplusModElements.ModElement {
 			entity.applyEntityCollision(this);
 //			if ((!(world.getWorld().isRemote))) {
 				if (entity instanceof LivingEntity && !(entity instanceof CactusEntity.CustomEntity)) {
-					entity.attackEntityFrom(DamageSource.causeThornsDamage(entity));
+					entity.attackEntityFrom(DamageSource.causeThornsDamage(entity), 0.5F);
 				}
 //			}
 		}

@@ -1,13 +1,13 @@
 package net.wenxin.natureplus.procedures;
 
 import net.wenxin.natureplus.potion.FreezingPotionPotion;
+import net.wenxin.natureplus.particle.IcicleParticle;
 import net.wenxin.natureplus.NatureplusModElements;
 
 import net.minecraft.world.server.ServerWorld;
 import net.minecraft.world.IWorld;
 import net.minecraft.potion.Effects;
 import net.minecraft.potion.EffectInstance;
-import net.minecraft.particles.ParticleTypes;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.Entity;
@@ -53,8 +53,8 @@ public class FreezingPotionEffectsProcedure extends NatureplusModElements.ModEle
 					((LivingEntity) entity).addPotionEffect(new EffectInstance(Effects.SLOWNESS, (int) 30, (int) 1, (true), (false)));
 			}
 			if (world instanceof ServerWorld) {
-				((ServerWorld) world).spawnParticle(ParticleTypes.ENCHANTED_HIT, (entity.getPosX()), (entity.getPosY()), (entity.getPosZ()), (int) 5,
-						((entity.getWidth()) / 2), ((entity.getHeight()) / 2), ((entity.getWidth()) / 2), 0.05);
+				((ServerWorld) world).spawnParticle(IcicleParticle.particle, (entity.getPosX()), (entity.getPosY()), (entity.getPosZ()), (int) 1,
+						((entity.getWidth()) / 2), ((entity.getHeight()) / 2), ((entity.getWidth()) / 2), 0.5);
 			}
 		}
 		return (new Object() {

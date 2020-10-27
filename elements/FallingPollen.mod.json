@@ -1,0 +1,19 @@
+{
+  "_fv": 13,
+  "_type": "particle",
+  "definition": {
+    "texture": "falling_pollen_particle.png",
+    "animate": false,
+    "frameDuration": 1,
+    "width": 0.2,
+    "height": 0.2,
+    "scale": 2.0,
+    "speedFactor": 0.0,
+    "gravity": 0.05,
+    "maxAge": 100,
+    "maxAgeDiff": 25,
+    "canCollide": true,
+    "alwaysShow": false,
+    "renderType": "OPAQUE"
+  }
+}

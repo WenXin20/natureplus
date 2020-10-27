@@ -98,6 +98,8 @@ public class NatureplusModElements {
 				new net.minecraft.util.SoundEvent(new ResourceLocation("natureplus", "grave_rumble")));
 		sounds.put(new ResourceLocation("natureplus", "zombie_groan"),
 				new net.minecraft.util.SoundEvent(new ResourceLocation("natureplus", "zombie_groan")));
+		sounds.put(new ResourceLocation("natureplus", "dragonfly_flying"),
+				new net.minecraft.util.SoundEvent(new ResourceLocation("natureplus", "dragonfly_flying")));
 		try {
 			ModFileScanData modFileInfo = ModList.get().getModFileById("natureplus").getFile().getScanResult();
 			Set<ModFileScanData.AnnotationData> annotations = modFileInfo.getAnnotations();

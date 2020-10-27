@@ -82,8 +82,8 @@ public class WitherBoneMealJarBlock extends NatureplusModElements.ModElement {
 			long h = Minecraft.getInstance().getMainWindow().getHandle();
 			if (InputMappings.isKeyDown(h, GLFW.GLFW_KEY_LEFT_SHIFT)) {
 				list.add(new StringTextComponent("\u00A77\u00A7oSneak-right-click to place"));
-				list.add(new StringTextComponent("\u00A77\u00A7oRight-click a Wither Rose to grow a giant version"));
-				list.add(new StringTextComponent("\u00A74Do not grow giant flowers near important structures (WIP)"));
+				list.add(new StringTextComponent("\u00A77\u00A7oRight-click a Wither Rose to to boost it's growth"));
+				list.add(new StringTextComponent("\u00A74Do not boost flower growth near important structures (WIP)"));
 			} else {
 				list.add(new StringTextComponent("\u00A77\u00A7o[Shift]"));
 			}
