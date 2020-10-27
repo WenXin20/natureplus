@@ -82,6 +82,7 @@ public class PollenJarBlock extends NatureplusModElements.ModElement {
 			long h = Minecraft.getInstance().getMainWindow().getHandle();
 			if (InputMappings.isKeyDown(h, GLFW.GLFW_KEY_LEFT_SHIFT)) {
 				list.add(new StringTextComponent("\u00A77\u00A7oRight-click to place"));
+				list.add(new StringTextComponent("\u00A77\u00A7oSneak-right-click to clear all potion effects"));
 			} else {
 				list.add(new StringTextComponent("\u00A77\u00A7o[Shift]"));
 			}
@@ -105,7 +106,10 @@ public class PollenJarBlock extends NatureplusModElements.ModElement {
 		@Override
 		public BlockState getStateForPlacement(BlockItemUseContext context) {
 			boolean flag = context.getWorld().getFluidState(context.getPos()).getFluid() == Fluids.WATER;
-			return this.getDefaultState().with(WATERLOGGED, flag);
+			if (!context.getPlayer().isSneaking()) {
+				return this.getDefaultState().with(WATERLOGGED, flag);
+			}
+			return null;
 		}
 
 		@Override

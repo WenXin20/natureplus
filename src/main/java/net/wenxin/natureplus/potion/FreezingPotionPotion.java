@@ -74,12 +74,12 @@ public class FreezingPotionPotion extends NatureplusModElements.ModElement {
 
 		@Override
 		public boolean shouldRenderInvText(EffectInstance effect) {
-			return true;
+			return false;
 		}
 
 		@Override
 		public boolean shouldRender(EffectInstance effect) {
-			return true;
+			return false;
 		}
 
 		@Override

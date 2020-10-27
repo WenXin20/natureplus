@@ -1,0 +1,16 @@
+{
+  "group": "natureplus",
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "natureplus:empty_jar"
+    },
+    {
+      "item": "natureplus:pollen_block"
+    }
+  ],
+  "result": {
+    "item": "natureplus:pollen_jar",
+    "count": 1
+  }
+}

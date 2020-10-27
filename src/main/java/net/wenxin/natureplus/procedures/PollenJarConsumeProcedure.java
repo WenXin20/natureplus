@@ -1,7 +1,7 @@
 package net.wenxin.natureplus.procedures;
 
-import net.wenxin.natureplus.entity.MonarchEggEntity;
-import net.wenxin.natureplus.block.MonarchEggJarBlock;
+import net.wenxin.natureplus.particle.FallingPollenParticle;
+import net.wenxin.natureplus.block.PollenJarBlock;
 import net.wenxin.natureplus.block.EmptyJarBlock;
 import net.wenxin.natureplus.NatureplusModElements;
 
@@ -17,51 +17,46 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.Hand;
-import net.minecraft.particles.ParticleTypes;
-import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.item.ItemStack;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.SpawnReason;
-import net.minecraft.entity.MobEntity;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.ILivingEntityData;
 import net.minecraft.entity.Entity;
 
 import java.util.Map;
 import java.util.HashMap;
 
 @NatureplusModElements.ModElement.Tag
-public class MonarchEggJarSpawnProcedure extends NatureplusModElements.ModElement {
-	public MonarchEggJarSpawnProcedure(NatureplusModElements instance) {
-		super(instance, 904);
+public class PollenJarConsumeProcedure extends NatureplusModElements.ModElement {
+	public PollenJarConsumeProcedure(NatureplusModElements instance) {
+		super(instance, 945);
 		MinecraftForge.EVENT_BUS.register(this);
 	}
 
 	public static void executeProcedure(Map<String, Object> dependencies) {
 		if (dependencies.get("entity") == null) {
 			if (!dependencies.containsKey("entity"))
-				System.err.println("Failed to load dependency entity for procedure MonarchEggJarSpawn!");
+				System.err.println("Failed to load dependency entity for procedure PollenJarConsume!");
 			return;
 		}
 		if (dependencies.get("x") == null) {
 			if (!dependencies.containsKey("x"))
-				System.err.println("Failed to load dependency x for procedure MonarchEggJarSpawn!");
+				System.err.println("Failed to load dependency x for procedure PollenJarConsume!");
 			return;
 		}
 		if (dependencies.get("y") == null) {
 			if (!dependencies.containsKey("y"))
-				System.err.println("Failed to load dependency y for procedure MonarchEggJarSpawn!");
+				System.err.println("Failed to load dependency y for procedure PollenJarConsume!");
 			return;
 		}
 		if (dependencies.get("z") == null) {
 			if (!dependencies.containsKey("z"))
-				System.err.println("Failed to load dependency z for procedure MonarchEggJarSpawn!");
+				System.err.println("Failed to load dependency z for procedure PollenJarConsume!");
 			return;
 		}
 		if (dependencies.get("world") == null) {
 			if (!dependencies.containsKey("world"))
-				System.err.println("Failed to load dependency world for procedure MonarchEggJarSpawn!");
+				System.err.println("Failed to load dependency world for procedure PollenJarConsume!");
 			return;
 		}
 		Entity entity = (Entity) dependencies.get("entity");
@@ -70,20 +65,20 @@ public class MonarchEggJarSpawnProcedure extends NatureplusModElements.ModElemen
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
 		IWorld world = (IWorld) dependencies.get("world");
 		if ((!(world.getWorld().isRemote))) {
-			if (((entity.isSneaking()) && ((!(world.getBlockState(new BlockPos((int) x, (int) (y + 1), (int) z)).isSolid()))
-					&& (((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY)
-							.getItem() == new ItemStack(MonarchEggJarBlock.block, (int) (1)).getItem())))) {
-				if (world instanceof World && !world.getWorld().isRemote) {
-					Entity entityToSpawn = new MonarchEggEntity.CustomEntity(MonarchEggEntity.entity, world.getWorld());
-					entityToSpawn.setLocationAndAngles((x + 0.5), (y + 1), (z + 0.5), world.getRandom().nextFloat() * 360F, 0);
-					if (entityToSpawn instanceof MobEntity)
-						((MobEntity) entityToSpawn).onInitialSpawn(world, world.getDifficultyForLocation(new BlockPos(entityToSpawn)),
-								SpawnReason.MOB_SUMMONED, (ILivingEntityData) null, (CompoundNBT) null);
-					world.addEntity(entityToSpawn);
+			if (((entity.isSneaking()) && (((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY)
+					.getItem() == new ItemStack(PollenJarBlock.block, (int) (1)).getItem()))) {
+				if (entity instanceof LivingEntity)
+					((LivingEntity) entity).clearActivePotions();
+				if (entity instanceof PlayerEntity)
+					((PlayerEntity) entity).getFoodStats()
+							.setFoodLevel((int) (((entity instanceof PlayerEntity) ? ((PlayerEntity) entity).getFoodStats().getFoodLevel() : 0) + 4));
+				if ((entity instanceof PlayerEntity)) {
+					((PlayerEntity) entity).getFoodStats().setFoodSaturationLevel(
+							(float) (((entity instanceof PlayerEntity) ? ((PlayerEntity) entity).getFoodStats().getSaturationLevel() : 0) + 0.8));
 				}
 				if (world instanceof ServerWorld) {
-					((ServerWorld) world).spawnParticle(ParticleTypes.HAPPY_VILLAGER, (x + 0.5), (y + 1.25), (z + 0.5), (int) 10, 0.25, 0.25, 0.25,
-							1);
+					((ServerWorld) world).spawnParticle(FallingPollenParticle.particle, ((entity.getPosX()) / 2), ((entity.getPosY()) / 2),
+							((entity.getPosZ()) / 2), (int) 10, 0.5, 0.5, 0.5, 1);
 				}
 				if (!world.getWorld().isRemote) {
 					world.playSound(null, new BlockPos((int) x, (int) y, (int) z),
@@ -106,20 +101,20 @@ public class MonarchEggJarSpawnProcedure extends NatureplusModElements.ModElemen
 							((ServerPlayerEntity) entity).inventory.markDirty();
 					}
 				}
-			} else if (((entity.isSneaking()) && ((!(world.getBlockState(new BlockPos((int) x, (int) (y + 1), (int) z)).isSolid()))
-					&& (((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemOffhand() : ItemStack.EMPTY)
-							.getItem() == new ItemStack(MonarchEggJarBlock.block, (int) (1)).getItem())))) {
-				if (world instanceof World && !world.getWorld().isRemote) {
-					Entity entityToSpawn = new MonarchEggEntity.CustomEntity(MonarchEggEntity.entity, world.getWorld());
-					entityToSpawn.setLocationAndAngles((x + 0.5), (y + 1), (z + 0.5), world.getRandom().nextFloat() * 360F, 0);
-					if (entityToSpawn instanceof MobEntity)
-						((MobEntity) entityToSpawn).onInitialSpawn(world, world.getDifficultyForLocation(new BlockPos(entityToSpawn)),
-								SpawnReason.MOB_SUMMONED, (ILivingEntityData) null, (CompoundNBT) null);
-					world.addEntity(entityToSpawn);
+			} else if (((entity.isSneaking()) && (((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemOffhand() : ItemStack.EMPTY)
+					.getItem() == new ItemStack(PollenJarBlock.block, (int) (1)).getItem()))) {
+				if (entity instanceof LivingEntity)
+					((LivingEntity) entity).clearActivePotions();
+				if (entity instanceof PlayerEntity)
+					((PlayerEntity) entity).getFoodStats()
+							.setFoodLevel((int) (((entity instanceof PlayerEntity) ? ((PlayerEntity) entity).getFoodStats().getFoodLevel() : 0) + 4));
+				if ((entity instanceof PlayerEntity)) {
+					((PlayerEntity) entity).getFoodStats().setFoodSaturationLevel(
+							(float) (((entity instanceof PlayerEntity) ? ((PlayerEntity) entity).getFoodStats().getSaturationLevel() : 0) + 0.8));
 				}
 				if (world instanceof ServerWorld) {
-					((ServerWorld) world).spawnParticle(ParticleTypes.HAPPY_VILLAGER, (x + 0.5), (y + 1.25), (z + 0.5), (int) 10, 0.25, 0.25, 0.25,
-							1);
+					((ServerWorld) world).spawnParticle(FallingPollenParticle.particle, ((entity.getPosX()) / 2), ((entity.getPosY()) / 2),
+							((entity.getPosZ()) / 2), (int) 10, 0.5, 0.5, 0.5, 1);
 				}
 				if (!world.getWorld().isRemote) {
 					world.playSound(null, new BlockPos((int) x, (int) y, (int) z),
@@ -147,7 +142,7 @@ public class MonarchEggJarSpawnProcedure extends NatureplusModElements.ModElemen
 	}
 
 	@SubscribeEvent
-	public void onRightClickBlock(PlayerInteractEvent.RightClickBlock event) {
+	public void onRightClickItem(PlayerInteractEvent.RightClickItem event) {
 		PlayerEntity entity = event.getPlayer();
 		if (event.getHand() != entity.getActiveHand())
 			return;

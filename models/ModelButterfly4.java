@@ -19,15 +19,18 @@ public static class ModelButterfly4 extends EntityModel<Entity> {
 		main.setTextureOffset(17, 42).addBox(-2.0F, -2.0F, -4.0F, 4.0F, 4.0F, 12.0F, 0.0F, false);
 
 		wing_left = new ModelRenderer(this);
-		wing_left.setRotationPoint(2.0F, 22.0F, 0.0F);
+		wing_left.setRotationPoint(2.0F, 0.0F, 0.0F);
+		main.addChild(wing_left);
 		wing_left.setTextureOffset(-19, 21).addBox(-0.5F, 0.0F, -10.0F, 24.0F, 0.0F, 20.0F, 0.0F, false);
 
 		wing_right = new ModelRenderer(this);
-		wing_right.setRotationPoint(-1.0F, 22.0F, 0.0F);
+		wing_right.setRotationPoint(-1.0F, 0.0F, 0.0F);
+		main.addChild(wing_right);
 		wing_right.setTextureOffset(-19, 1).addBox(-24.5F, 0.0F, -10.0F, 24.0F, 0.0F, 20.0F, 0.0F, false);
 
 		head = new ModelRenderer(this);
-		head.setRotationPoint(0.0F, 22.0F, -4.0F);
+		head.setRotationPoint(0.0F, 0.0F, -4.0F);
+		main.addChild(head);
 		head.setTextureOffset(1, 42).addBox(-2.0F, -2.0F, -4.0F, 4.0F, 4.0F, 4.0F, 0.0F, false);
 
 		antenna_left = new ModelRenderer(this);
@@ -58,6 +61,9 @@ public static class ModelButterfly4 extends EntityModel<Entity> {
 
 	@Override
 	public void setRotationAngles(Entity e, float f, float f1, float f2, float f3, float f4) {
+		super.setRotationAngles(f, f1, f2, f3, f4, f5, e);
+		this.head.rotateAngleY = f3 / (180F / (float) Math.PI);
+		this.head.rotateAngleX = f4 / (180F / (float) Math.PI);
 		this.antenna_left.rotateAngleX = MathHelper.cos(f2 * 0.03F) * (float)Math.PI * 0.15F;
 		this.antenna_right.rotateAngleX = MathHelper.cos(f2 * 0.031F) * (float)Math.PI * 0.15F;
 		
