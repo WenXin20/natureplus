@@ -43,8 +43,10 @@ import net.minecraft.entity.monster.PhantomEntity;
 import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.monster.CreeperEntity;
 import net.minecraft.entity.monster.CaveSpiderEntity;
+import net.minecraft.entity.ai.goal.TargetGoal;
 import net.minecraft.entity.ai.goal.NearestAttackableTargetGoal;
 import net.minecraft.entity.MobEntity;
+import net.minecraft.entity.LivingEntity;
 
 @NatureplusModElements.ModElement.Tag
 public class EventHandler extends NatureplusModElements.ModElement {
@@ -68,15 +70,32 @@ public class EventHandler extends NatureplusModElements.ModElement {
 				mob.targetSelector.addGoal(7, new NearestAttackableTargetGoal<>(mob, KernelPultEntity.CustomEntity.class, false));
 				mob.targetSelector.addGoal(7, new NearestAttackableTargetGoal<>(mob, CactusEntity.CustomEntity.class, false));
 			}
-			if (event.getEntity() instanceof PhantomEntity || event.getEntity() instanceof SpiderEntity
-					|| event.getEntity() instanceof CaveSpiderEntity) {
+			if (event.getEntity() instanceof PhantomEntity) {
 				MobEntity mob = (MobEntity) event.getEntity();
 				mob.targetSelector.addGoal(5, new NearestAttackableTargetGoal<>(mob, MonarchCaterpillarEntity.CustomEntity.class, false));
 				mob.targetSelector.addGoal(5, new NearestAttackableTargetGoal<>(mob, MonarchButterflyEntity.CustomEntity.class, false));
 			}
+			if (event.getEntity() instanceof SpiderEntity || event.getEntity() instanceof CaveSpiderEntity) {
+				MobEntity mob = (MobEntity) event.getEntity();
+				mob.targetSelector.addGoal(5, new EventHandler.TargetGoal<>(mob, MonarchCaterpillarEntity.CustomEntity.class));
+				mob.targetSelector.addGoal(5, new EventHandler.TargetGoal<>(mob, MonarchButterflyEntity.CustomEntity.class));
+			}
 		}
 	}
+	static class TargetGoal<T extends LivingEntity> extends NearestAttackableTargetGoal<T> {
+		public TargetGoal(MobEntity mob, Class<T> classTarget) {
+			super(mob, classTarget, true);
+		}
 
+		/**
+		 * Returns whether execution should begin. You can also read and cache any state
+		 * necessary for execution in this method as well.
+		 */
+		public boolean shouldExecute() {
+			float f = this.goalOwner.getBrightness();
+			return f >= 0.5F ? false : super.shouldExecute();
+		}
+	}
 	@Override
 	public void initElements() {
 	}
