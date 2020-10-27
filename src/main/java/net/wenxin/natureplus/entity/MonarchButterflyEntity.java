@@ -46,9 +46,10 @@ import net.minecraft.item.SpawnEggItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Item;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.passive.ParrotEntity;
 import net.minecraft.entity.passive.AnimalEntity;
-import net.minecraft.entity.ai.goal.WaterAvoidingRandomWalkingGoal;
+import net.minecraft.entity.monster.SpiderEntity;
+import net.minecraft.entity.monster.PhantomEntity;
+import net.minecraft.entity.monster.CaveSpiderEntity;
 import net.minecraft.entity.ai.goal.TemptGoal;
 import net.minecraft.entity.ai.goal.SwimGoal;
 import net.minecraft.entity.ai.goal.PanicGoal;
@@ -84,6 +85,7 @@ import net.minecraft.block.Block;
 import javax.annotation.Nullable;
 
 import java.util.function.Predicate;
+import java.util.Random;
 import java.util.Optional;
 import java.util.Map;
 import java.util.HashMap;
@@ -105,7 +107,7 @@ public class MonarchButterflyEntity extends NatureplusModElements.ModElement {
 	@Override
 	public void initElements() {
 		entity = (EntityType.Builder.<CustomEntity>create(CustomEntity::new, EntityClassification.CREATURE).setShouldReceiveVelocityUpdates(true)
-				.setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(CustomEntity::new).size(0.6f, 0.4f)).build("monarch_butterfly")
+				.setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(CustomEntity::new).size(0.8f, 0.5f)).build("monarch_butterfly")
 						.setRegistryName("monarch_butterfly");
 		elements.entities.add(() -> entity);
 		elements.items.add(() -> new SpawnEggItem(entity, -39424, -16777216, new Item.Properties().group(NaturePlusTabItemGroup.tab))
@@ -130,10 +132,10 @@ public class MonarchButterflyEntity extends NatureplusModElements.ModElement {
 	@OnlyIn(Dist.CLIENT)
 	public void registerModels(ModelRegistryEvent event) {
 		RenderingRegistry.registerEntityRenderingHandler(entity, renderManager -> {
-			return new MobRenderer(renderManager, new ModelButterfly3(), 0.3f) {
+			return new MobRenderer(renderManager, new ModelButterfly4(), 0.5f) {
 				@Override
 				public ResourceLocation getEntityTexture(Entity entity) {
-					return new ResourceLocation("natureplus:textures/monarch_butterfly3.png");
+					return new ResourceLocation("natureplus:textures/monarch_butterfly4.png");
 				}
 			};
 		});
@@ -165,13 +167,20 @@ public class MonarchButterflyEntity extends NatureplusModElements.ModElement {
 			super.registerGoals();
 			this.goalSelector.addGoal(1, new BreedGoal(this, 1.8));
 			this.goalSelector.addGoal(2, new TemptGoal(this, 1.8, Ingredient.fromTag(ItemTags.FLOWERS), false));
-			this.goalSelector.addGoal(2, new FollowMobGoal(this, (float) 1, 10, 5));
 			this.pollinateGoal = new MonarchButterflyEntity.CustomEntity.PollinateGoal();
 			this.goalSelector.addGoal(3, this.pollinateGoal);
+			this.goalSelector.addGoal(4, new FollowMobGoal(this, (float) 1, 10, 5));
 			this.findFlowerGoal = new MonarchButterflyEntity.CustomEntity.FindFlowerGoal();
-			this.goalSelector.addGoal(4, this.findFlowerGoal);
-			this.goalSelector.addGoal(5, new MonarchButterflyEntity.CustomEntity.FindPollinationTargetGoal());
-			this.goalSelector.addGoal(6, new MonarchButterflyEntity.CustomEntity.WanderGoal());
+			this.goalSelector.addGoal(5, this.findFlowerGoal);
+			this.goalSelector.addGoal(6, new MonarchButterflyEntity.CustomEntity.FindPollinationTargetGoal());
+			this.goalSelector.addGoal(7, new PanicGoal(this, 2.8));
+			this.goalSelector.addGoal(2, new AvoidEntityGoal(this, SpiderEntity.class, (float) 6, 1.2, 1));
+			this.goalSelector.addGoal(2, new AvoidEntityGoal(this, CaveSpiderEntity.class, (float) 6, 1.2, 1));
+			this.goalSelector.addGoal(2, new AvoidEntityGoal(this, PhantomEntity.class, (float) 6, 1.2, 1));
+			this.goalSelector.addGoal(8, new AvoidEntityGoal(this, BlueDragonflyEntity.CustomEntity.class, (float) 6, 2.8, 2.0));
+			this.goalSelector.addGoal(8, new AvoidEntityGoal(this, GreenDragonflyEntity.CustomEntity.class, (float) 6, 2.8, 2.0));
+			this.goalSelector.addGoal(8, new AvoidEntityGoal(this, RedDragonflyEntity.CustomEntity.class, (float) 6, 2.8, 2.0));
+			this.goalSelector.addGoal(3, new MonarchButterflyEntity.CustomEntity.WanderGoal());
 			// this.goalSelector.addGoal(6, new RandomWalkingGoal(this, 1.5, 20) {
 			// @Override
 			// protected Vec3d getPosition() {
@@ -185,14 +194,8 @@ public class MonarchButterflyEntity extends NatureplusModElements.ModElement {
 			// return new Vec3d(dir_x, dir_y, dir_z);
 			// }
 			// });
-			this.goalSelector.addGoal(6, new AvoidEntityGoal(this, ParrotEntity.class, (float) 6, 2.8, 2.0));
-			this.goalSelector.addGoal(6, new AvoidEntityGoal(this, BlueDragonflyEntity.CustomEntity.class, (float) 6, 2.8, 2.0));
-			this.goalSelector.addGoal(6, new AvoidEntityGoal(this, GreenDragonflyEntity.CustomEntity.class, (float) 6, 2.8, 2.0));
-			this.goalSelector.addGoal(6, new AvoidEntityGoal(this, RedDragonflyEntity.CustomEntity.class, (float) 6, 2.8, 2.0));
-			this.goalSelector.addGoal(6, new PanicGoal(this, 2.8));
-			this.goalSelector.addGoal(7, new LookRandomlyGoal(this));
-			this.goalSelector.addGoal(8, new WaterAvoidingRandomWalkingGoal(this, 1.5));
-			this.goalSelector.addGoal(8, new SwimGoal(this));
+			this.goalSelector.addGoal(10, new LookRandomlyGoal(this));
+			this.goalSelector.addGoal(11, new SwimGoal(this));
 		}
 
 		protected PathNavigator createNavigator(World worldIn) {
@@ -200,12 +203,11 @@ public class MonarchButterflyEntity extends NatureplusModElements.ModElement {
 				public boolean canEntityStandOnPos(BlockPos pos) {
 					return !this.world.getBlockState(pos.down()).isAir();
 				}
-
-				public void tick() {
-					if (!MonarchButterflyEntity.CustomEntity.this.pollinateGoal.isRunning()) {
-						super.tick();
-					}
-				}
+				// public void tick() {
+				// if (!MonarchButterflyEntity.CustomEntity.this.pollinateGoal.isRunning()) {
+				// super.tick();
+				// }
+				// }
 			};
 			flyingpathnavigator.setCanOpenDoors(false);
 			flyingpathnavigator.setCanSwim(false);
@@ -713,7 +715,8 @@ public class MonarchButterflyEntity extends NatureplusModElements.ModElement {
 							if (MonarchButterflyEntity.CustomEntity.this.rand.nextFloat() < 0.05F
 									&& this.pollinationTicks > this.lastPollinationTick + 60) {
 								this.lastPollinationTick = this.pollinationTicks;
-								MonarchButterflyEntity.CustomEntity.this.playSound(SoundEvents.ENTITY_BEE_POLLINATE, 1.0F, 1.0F);
+								MonarchButterflyEntity.CustomEntity.this.playSound(
+										ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("natureplus:butterfly_flying")), 1.0F, 1.0F);
 							}
 						}
 					}
@@ -777,24 +780,36 @@ public class MonarchButterflyEntity extends NatureplusModElements.ModElement {
 			 * Execute a one shot task or start executing a continuous task
 			 */
 			public void startExecuting() {
-				Vec3d vec3d = this.getRandomLocation();
+				Vec3d vec3d = this.getPosition();
 				if (vec3d != null) {
 					MonarchButterflyEntity.CustomEntity.this.navigator
 							.setPath(MonarchButterflyEntity.CustomEntity.this.navigator.getPathToPos(new BlockPos(vec3d), 1), 1.0D);
 				}
 			}
 
-			@Nullable
-			private Vec3d getRandomLocation() {
-				Vec3d vec3d;
-				vec3d = MonarchButterflyEntity.CustomEntity.this.getLook(0.0F);
-				int i = 8;
-				Vec3d vec3d2 = RandomPositionGenerator.findAirTarget(MonarchButterflyEntity.CustomEntity.this, 8, 7, vec3d, ((float) Math.PI / 2F), 2,
-						1);
-				return vec3d2 != null
-						? vec3d2
-						: RandomPositionGenerator.findGroundTarget(MonarchButterflyEntity.CustomEntity.this, 8, 4, -2, vec3d,
-								(double) ((float) Math.PI / 2F));
+			// @Nullable
+			// private Vec3d getRandomLocation() {
+			// Vec3d vec3d;
+			// vec3d = MonarchButterflyEntity.CustomEntity.this.getLook(0.0F);
+			// int i = 8;
+			// Vec3d vec3d2 =
+			// RandomPositionGenerator.findAirTarget(MonarchButterflyEntity.CustomEntity.this,
+			// 8, 7, vec3d, ((float) Math.PI / 2F), 2,
+			// 1);
+			// return vec3d2 != null
+			// ? vec3d2
+			// :
+			// RandomPositionGenerator.findGroundTarget(MonarchButterflyEntity.CustomEntity.this,
+			// 8, 4, -2, vec3d,
+			// (double) ((float) Math.PI / 2F));
+			// }
+			// @Override
+			protected Vec3d getPosition() {
+				Random random = CustomEntity.this.getRNG();
+				double dir_x = CustomEntity.this.getPosX() + ((random.nextFloat() * 2 - 1) * 32);
+				double dir_y = CustomEntity.this.getPosY() + ((random.nextFloat() * 2 - 1) * 24);
+				double dir_z = CustomEntity.this.getPosZ() + ((random.nextFloat() * 2 - 1) * 32);
+				return new Vec3d(dir_x, dir_y, dir_z);
 			}
 		}
 
@@ -812,7 +827,6 @@ public class MonarchButterflyEntity extends NatureplusModElements.ModElement {
 					return MonarchButterflyEntity.CustomEntity.this.hasNectar();
 				}
 			}
-			
 
 			public boolean canButterflyContinue() {
 				return this.canButterflyStart();
@@ -865,36 +879,36 @@ public class MonarchButterflyEntity extends NatureplusModElements.ModElement {
 	// Made with Blockbench 3.5.4
 	// Exported for Minecraft version 1.15
 	// Paste this class into your mod and generate all required imports
-	public static class ModelButterfly3 extends EntityModel<Entity> {
+	public static class ModelButterfly4 extends EntityModel<Entity> {
 		private final ModelRenderer main;
 		private final ModelRenderer wing_left;
 		private final ModelRenderer wing_right;
 		private final ModelRenderer head;
 		private final ModelRenderer antenna_left;
 		private final ModelRenderer antenna_right;
-		public ModelButterfly3() {
+		public ModelButterfly4() {
 			textureWidth = 64;
 			textureHeight = 64;
 			main = new ModelRenderer(this);
-			main.setRotationPoint(0.0F, 24.0F, 0.0F);
-			main.setTextureOffset(0, 20).addBox(-1.0F, -2.0F, -2.0F, 2.0F, 2.0F, 7.0F, 0.0F, false);
+			main.setRotationPoint(0.0F, 22.0F, 0.0F);
+			main.setTextureOffset(17, 42).addBox(-2.0F, -2.0F, -4.0F, 4.0F, 4.0F, 12.0F, 0.0F, false);
 			wing_left = new ModelRenderer(this);
-			wing_left.setRotationPoint(1.0F, 23.0F, 1.0F);
-			wing_left.setTextureOffset(0, 10).addBox(-0.5F, 0.0F, -5.0F, 14.0F, 0.0F, 10.0F, 0.0F, false);
+			wing_left.setRotationPoint(2.0F, 23.0F, 0.0F);
+			wing_left.setTextureOffset(-19, 21).addBox(-0.5F, -1.0F, -10.0F, 24.0F, 0.0F, 20.0F, 0.0F, false);
 			wing_right = new ModelRenderer(this);
 			wing_right.setRotationPoint(-1.0F, 23.0F, 1.0F);
-			wing_right.setTextureOffset(0, 0).addBox(-13.5F, 0.0F, -5.0F, 14.0F, 0.0F, 10.0F, 0.0F, false);
+			wing_right.setTextureOffset(-19, 1).addBox(-24.5F, -1.0F, -11.0F, 24.0F, 0.0F, 20.0F, 0.0F, false);
 			head = new ModelRenderer(this);
 			head.setRotationPoint(0.0F, 23.0F, -2.0F);
-			head.setTextureOffset(0, 9).addBox(-1.0F, -1.0F, -2.0F, 2.0F, 2.0F, 2.0F, 0.0F, false);
+			head.setTextureOffset(1, 42).addBox(-2.0F, -3.0F, -6.0F, 4.0F, 4.0F, 4.0F, 0.0F, false);
 			antenna_left = new ModelRenderer(this);
 			antenna_left.setRotationPoint(-0.5F, -0.5F, -2.0F);
 			head.addChild(antenna_left);
-			antenna_left.setTextureOffset(0, 3).addBox(1.0F, -1.5F, -3.0F, 0.0F, 3.0F, 3.0F, 0.0F, false);
+			antenna_left.setTextureOffset(1, 51).addBox(2.0F, -4.5F, -8.0F, 0.0F, 4.0F, 4.0F, 0.0F, false);
 			antenna_right = new ModelRenderer(this);
 			antenna_right.setRotationPoint(0.5F, -0.5F, -2.0F);
 			head.addChild(antenna_right);
-			antenna_right.setTextureOffset(0, 0).addBox(-1.0F, -1.5F, -3.0F, 0.0F, 3.0F, 3.0F, 0.0F, false);
+			antenna_right.setTextureOffset(1, 46).addBox(-2.0F, -4.5F, -8.0F, 0.0F, 4.0F, 4.0F, 0.0F, false);
 		}
 
 		@Override
@@ -916,7 +930,7 @@ public class MonarchButterflyEntity extends NatureplusModElements.ModElement {
 		public void setRotationAngles(Entity e, float f, float f1, float f2, float f3, float f4) {
 			this.antenna_left.rotateAngleX = MathHelper.cos(f2 * 0.03F) * (float) Math.PI * 0.15F;
 			this.antenna_right.rotateAngleX = MathHelper.cos(f2 * 0.031F) * (float) Math.PI * 0.15F;
-			boolean flag = e.onGround && e.getMotion().lengthSquared() < 2.0E-7D; //
+			boolean flag = e.onGround && e.getMotion().lengthSquared() < 2.0E-7D;
 			if (flag) {
 				this.wing_right.rotateAngleZ = 1.0F + -(MathHelper.cos(f2 * 0.4F) * (float) Math.PI * 0.18F);
 				this.wing_left.rotateAngleZ = -1.0F + (MathHelper.cos(f2 * 0.4F) * (float) Math.PI * 0.18F);

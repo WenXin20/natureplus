@@ -39,7 +39,9 @@ import net.minecraft.item.SpawnEggItem;
 import net.minecraft.item.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Item;
-import net.minecraft.entity.passive.ParrotEntity;
+import net.minecraft.entity.monster.SpiderEntity;
+import net.minecraft.entity.monster.PhantomEntity;
+import net.minecraft.entity.monster.CaveSpiderEntity;
 import net.minecraft.entity.ai.goal.WaterAvoidingRandomWalkingGoal;
 import net.minecraft.entity.ai.goal.TemptGoal;
 import net.minecraft.entity.ai.goal.SwimGoal;
@@ -129,7 +131,9 @@ public class MonarchCaterpillarEntity extends NatureplusModElements.ModElement {
 			this.goalSelector.addGoal(1, new TemptGoal(this, 0.8, Ingredient.fromTag(ItemTags.FLOWERS), false));
 			this.goalSelector.addGoal(1, new TemptGoal(this, 0.8,
 					Ingredient.fromItems(Items.GRASS, Items.TALL_GRASS, Items.FERN, Items.LARGE_FERN, Items.SWEET_BERRIES), false));
-			this.goalSelector.addGoal(2, new AvoidEntityGoal(this, ParrotEntity.class, (float) 6, 1.2, 1 ));
+			this.goalSelector.addGoal(2, new AvoidEntityGoal(this, SpiderEntity.class, (float) 6, 1.2, 1));
+			this.goalSelector.addGoal(2, new AvoidEntityGoal(this, CaveSpiderEntity.class, (float) 6, 1.2, 1));
+			this.goalSelector.addGoal(2, new AvoidEntityGoal(this, PhantomEntity.class, (float) 6, 1.2, 1));
 			this.goalSelector.addGoal(2, new AvoidEntityGoal(this, BlueDragonflyEntity.CustomEntity.class, (float) 6, 1.2, 1));
 			this.goalSelector.addGoal(2, new AvoidEntityGoal(this, GreenDragonflyEntity.CustomEntity.class, (float) 6, 1.2, 1));
 			this.goalSelector.addGoal(2, new AvoidEntityGoal(this, RedDragonflyEntity.CustomEntity.class, (float) 6, 1.2, 1));

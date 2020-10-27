@@ -24,6 +24,8 @@ import net.wenxin.natureplus.entity.SunflowerEntity;
 import net.wenxin.natureplus.entity.SnowPeaEntity;
 import net.wenxin.natureplus.entity.RedDragonflyEntity;
 import net.wenxin.natureplus.entity.PeashooterEntity;
+import net.wenxin.natureplus.entity.MonarchCaterpillarEntity;
+import net.wenxin.natureplus.entity.MonarchButterflyEntity;
 import net.wenxin.natureplus.entity.KernelPultEntity;
 import net.wenxin.natureplus.entity.CactusEntity;
 
@@ -36,8 +38,11 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.api.distmarker.Dist;
 
+import net.minecraft.entity.monster.SpiderEntity;
+import net.minecraft.entity.monster.PhantomEntity;
 import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.monster.CreeperEntity;
+import net.minecraft.entity.monster.CaveSpiderEntity;
 import net.minecraft.entity.ai.goal.NearestAttackableTargetGoal;
 import net.minecraft.entity.MobEntity;
 
@@ -62,6 +67,12 @@ public class EventHandler extends NatureplusModElements.ModElement {
 				mob.targetSelector.addGoal(7, new NearestAttackableTargetGoal<>(mob, SnowPeaEntity.CustomEntity.class, false));
 				mob.targetSelector.addGoal(7, new NearestAttackableTargetGoal<>(mob, KernelPultEntity.CustomEntity.class, false));
 				mob.targetSelector.addGoal(7, new NearestAttackableTargetGoal<>(mob, CactusEntity.CustomEntity.class, false));
+			}
+			if (event.getEntity() instanceof PhantomEntity || event.getEntity() instanceof SpiderEntity
+					|| event.getEntity() instanceof CaveSpiderEntity) {
+				MobEntity mob = (MobEntity) event.getEntity();
+				mob.targetSelector.addGoal(5, new NearestAttackableTargetGoal<>(mob, MonarchCaterpillarEntity.CustomEntity.class, false));
+				mob.targetSelector.addGoal(5, new NearestAttackableTargetGoal<>(mob, MonarchButterflyEntity.CustomEntity.class, false));
 			}
 		}
 	}
