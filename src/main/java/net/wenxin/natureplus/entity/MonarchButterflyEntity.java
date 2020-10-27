@@ -181,19 +181,6 @@ public class MonarchButterflyEntity extends NatureplusModElements.ModElement {
 			this.goalSelector.addGoal(8, new AvoidEntityGoal(this, GreenDragonflyEntity.CustomEntity.class, (float) 6, 2.8, 2.0));
 			this.goalSelector.addGoal(8, new AvoidEntityGoal(this, RedDragonflyEntity.CustomEntity.class, (float) 6, 2.8, 2.0));
 			this.goalSelector.addGoal(3, new MonarchButterflyEntity.CustomEntity.WanderGoal());
-			// this.goalSelector.addGoal(6, new RandomWalkingGoal(this, 1.5, 20) {
-			// @Override
-			// protected Vec3d getPosition() {
-			// Random random = CustomEntity.this.getRNG();
-			// double dir_x = CustomEntity.this.getPosX() + ((random.nextFloat() * 2 - 1) *
-			// 32);
-			// double dir_y = CustomEntity.this.getPosY() + ((random.nextFloat() * 2 - 1) *
-			// 24);
-			// double dir_z = CustomEntity.this.getPosZ() + ((random.nextFloat() * 2 - 1) *
-			// 32);
-			// return new Vec3d(dir_x, dir_y, dir_z);
-			// }
-			// });
 			this.goalSelector.addGoal(10, new LookRandomlyGoal(this));
 			this.goalSelector.addGoal(11, new SwimGoal(this));
 		}
@@ -203,11 +190,12 @@ public class MonarchButterflyEntity extends NatureplusModElements.ModElement {
 				public boolean canEntityStandOnPos(BlockPos pos) {
 					return !this.world.getBlockState(pos.down()).isAir();
 				}
-				// public void tick() {
-				// if (!MonarchButterflyEntity.CustomEntity.this.pollinateGoal.isRunning()) {
-				// super.tick();
-				// }
-				// }
+
+				public void tick() {
+					if (!MonarchButterflyEntity.CustomEntity.this.pollinateGoal.isRunning()) {
+						super.tick();
+					}
+				}
 			};
 			flyingpathnavigator.setCanOpenDoors(false);
 			flyingpathnavigator.setCanSwim(false);
@@ -787,23 +775,6 @@ public class MonarchButterflyEntity extends NatureplusModElements.ModElement {
 				}
 			}
 
-			// @Nullable
-			// private Vec3d getRandomLocation() {
-			// Vec3d vec3d;
-			// vec3d = MonarchButterflyEntity.CustomEntity.this.getLook(0.0F);
-			// int i = 8;
-			// Vec3d vec3d2 =
-			// RandomPositionGenerator.findAirTarget(MonarchButterflyEntity.CustomEntity.this,
-			// 8, 7, vec3d, ((float) Math.PI / 2F), 2,
-			// 1);
-			// return vec3d2 != null
-			// ? vec3d2
-			// :
-			// RandomPositionGenerator.findGroundTarget(MonarchButterflyEntity.CustomEntity.this,
-			// 8, 4, -2, vec3d,
-			// (double) ((float) Math.PI / 2F));
-			// }
-			// @Override
 			protected Vec3d getPosition() {
 				Random random = CustomEntity.this.getRNG();
 				double dir_x = CustomEntity.this.getPosX() + ((random.nextFloat() * 2 - 1) * 32);
