@@ -20,6 +20,7 @@ package net.wenxin.natureplus;
 
 import org.antlr.v4.runtime.misc.NotNull;
 
+import net.wenxin.natureplus.potion.FreezingPotionPotion;
 import net.wenxin.natureplus.entity.SunflowerEntity;
 import net.wenxin.natureplus.entity.SnowPeaEntity;
 import net.wenxin.natureplus.entity.RedDragonflyEntity;
@@ -38,6 +39,11 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.api.distmarker.Dist;
 
+import net.minecraft.potion.Potions;
+import net.minecraft.potion.Potion;
+import net.minecraft.item.crafting.Ingredient;
+import net.minecraft.item.Items;
+import net.minecraft.item.Item;
 import net.minecraft.entity.monster.SpiderEntity;
 import net.minecraft.entity.monster.PhantomEntity;
 import net.minecraft.entity.monster.IMob;
@@ -48,8 +54,14 @@ import net.minecraft.entity.ai.goal.NearestAttackableTargetGoal;
 import net.minecraft.entity.MobEntity;
 import net.minecraft.entity.LivingEntity;
 
+import java.util.List;
+
+import com.google.common.collect.Lists;
+
 @NatureplusModElements.ModElement.Tag
 public class EventHandler extends NatureplusModElements.ModElement {
+	private static final List<EventHandler.MixPredicate<Potion>> POTION_TYPE_CONVERSIONS = Lists.newArrayList();
+	private static final List<EventHandler.MixPredicate<Item>> POTION_ITEM_CONVERSIONS = Lists.newArrayList();
 	/**
 	 * Do not remove this constructor
 	 */
@@ -100,10 +112,25 @@ public class EventHandler extends NatureplusModElements.ModElement {
 	public void initElements() {
 	}
 
-	@Override
+	@SubscribeEvent
 	public void init(FMLCommonSetupEvent event) {
+		EventHandler.addMix(Potions.SLOWNESS, Items.SNOWBALL, FreezingPotionPotion.potionType);
+		MinecraftForge.EVENT_BUS.register(this);
 	}
 
+	public static void addMix(Potion potionBase, Item ingredient, Potion potionFinal) {
+		POTION_TYPE_CONVERSIONS.add(new EventHandler.MixPredicate<>(potionBase, Ingredient.fromItems(ingredient), potionFinal));
+	}
+	static class MixPredicate<T extends net.minecraftforge.registries.ForgeRegistryEntry<T>> {
+		private final net.minecraftforge.registries.IRegistryDelegate<T> input;
+		private final Ingredient reagent;
+		private final net.minecraftforge.registries.IRegistryDelegate<T> output;
+		public MixPredicate(T inputIn, Ingredient reagentIn, T outputIn) {
+			this.input = inputIn.delegate;
+			this.reagent = reagentIn;
+			this.output = outputIn.delegate;
+		}
+	}
 	@Override
 	public void serverLoad(FMLServerStartingEvent event) {
 	}

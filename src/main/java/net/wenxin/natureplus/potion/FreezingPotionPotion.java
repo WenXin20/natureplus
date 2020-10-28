@@ -87,7 +87,6 @@ public class FreezingPotionPotion extends NatureplusModElements.ModElement {
 			return false;
 		}
 
-
 		@Override
 		public void performEffect(LivingEntity entity, int amplifier) {
 			World world = entity.world;

@@ -167,6 +167,13 @@ public class MonarchButterflyEntity extends NatureplusModElements.ModElement {
 			super.registerGoals();
 			this.goalSelector.addGoal(1, new BreedGoal(this, 1.8));
 			this.goalSelector.addGoal(2, new TemptGoal(this, 1.8, Ingredient.fromTag(ItemTags.FLOWERS), false));
+			this.goalSelector.addGoal(2, new AvoidEntityGoal(this, SpiderEntity.class, (float) 6, 2.8, 1));
+			this.goalSelector.addGoal(2, new AvoidEntityGoal(this, CaveSpiderEntity.class, (float) 6, 2.8, 1));
+			this.goalSelector.addGoal(2, new AvoidEntityGoal(this, PhantomEntity.class, (float) 6, 2.8, 1));
+			this.goalSelector.addGoal(2, new AvoidEntityGoal(this, BlueDragonflyEntity.CustomEntity.class, (float) 6, 2.8, 2.0));
+			this.goalSelector.addGoal(2, new AvoidEntityGoal(this, GreenDragonflyEntity.CustomEntity.class, (float) 6, 2.8, 2.0));
+			this.goalSelector.addGoal(2, new AvoidEntityGoal(this, RedDragonflyEntity.CustomEntity.class, (float) 6, 2.8, 2.0));
+			this.goalSelector.addGoal(3, new MonarchButterflyEntity.CustomEntity.WanderGoal());
 			this.pollinateGoal = new MonarchButterflyEntity.CustomEntity.PollinateGoal();
 			this.goalSelector.addGoal(3, this.pollinateGoal);
 			this.goalSelector.addGoal(4, new FollowMobGoal(this, (float) 1, 10, 5));
@@ -174,13 +181,6 @@ public class MonarchButterflyEntity extends NatureplusModElements.ModElement {
 			this.goalSelector.addGoal(5, this.findFlowerGoal);
 			this.goalSelector.addGoal(6, new MonarchButterflyEntity.CustomEntity.FindPollinationTargetGoal());
 			this.goalSelector.addGoal(7, new PanicGoal(this, 2.8));
-			this.goalSelector.addGoal(2, new AvoidEntityGoal(this, SpiderEntity.class, (float) 6, 1.2, 1));
-			this.goalSelector.addGoal(2, new AvoidEntityGoal(this, CaveSpiderEntity.class, (float) 6, 1.2, 1));
-			this.goalSelector.addGoal(2, new AvoidEntityGoal(this, PhantomEntity.class, (float) 6, 1.2, 1));
-			this.goalSelector.addGoal(8, new AvoidEntityGoal(this, BlueDragonflyEntity.CustomEntity.class, (float) 6, 2.8, 2.0));
-			this.goalSelector.addGoal(8, new AvoidEntityGoal(this, GreenDragonflyEntity.CustomEntity.class, (float) 6, 2.8, 2.0));
-			this.goalSelector.addGoal(8, new AvoidEntityGoal(this, RedDragonflyEntity.CustomEntity.class, (float) 6, 2.8, 2.0));
-			this.goalSelector.addGoal(3, new MonarchButterflyEntity.CustomEntity.WanderGoal());
 			this.goalSelector.addGoal(10, new LookRandomlyGoal(this));
 			this.goalSelector.addGoal(11, new SwimGoal(this));
 		}
@@ -906,8 +906,6 @@ public class MonarchButterflyEntity extends NatureplusModElements.ModElement {
 			boolean flag = e.onGround && e.getMotion().lengthSquared() < 2.0E-7D;
 			if (flag) {
 				this.main.rotateAngleX = -0.0873F;
-//				this.wing_right.rotateAngleZ = 1.0F + -(MathHelper.cos(f2 * 0.4F) * (float) Math.PI * 0.18F);
-//				this.wing_left.rotateAngleZ = -1.0F + (MathHelper.cos(f2 * 0.4F) * (float) Math.PI * 0.18F);
 				this.wing_right.rotateAngleZ = 1.0F + -(MathHelper.cos(f2 * 2.1F) * (float) Math.PI * 0.15F);
 				this.wing_left.rotateAngleZ = -this.wing_right.rotateAngleZ;
 			} else {
