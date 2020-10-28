@@ -4957,7 +4957,7 @@
       "name": "MonarchCaterpillar",
       "type": "mob",
       "sortid": 135,
-      "compiles": false,
+      "compiles": true,
       "locked_code": true,
       "ids": {},
       "registry_name": "monarch_caterpillar"

@@ -68,106 +68,111 @@ public class EmptyJarRightClickPollenBlockProcedure extends NatureplusModElement
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
 		IWorld world = (IWorld) dependencies.get("world");
-		if (((!(entity.isSneaking())) && ((((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY)
-				.getItem() == new ItemStack(PollenBlockBlock.block, (int) (1)).getItem())
-				&& ((world.getBlockState(new BlockPos((int) x, (int) y, (int) z))).getBlock() == EmptyJarBlock.block.getDefaultState()
-						.getBlock())))) {
-			if (world instanceof ServerWorld) {
-				((ServerWorld) world).spawnParticle(FallingPollenParticle.particle, (x + 0.5), (y + 0.5), (z + 0.5), (int) 10, 0.25, 0.25, 0.25, 1);
-			}
-			if (!world.getWorld().isRemote) {
-				world.playSound(null, new BlockPos((int) x, (int) y, (int) z),
-						(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("item.bottle.fill")),
-						SoundCategory.NEUTRAL, (float) 1, (float) 1);
-			} else {
-				world.getWorld().playSound(x, y, z,
-						(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("item.bottle.fill")),
-						SoundCategory.NEUTRAL, (float) 1, (float) 1, false);
-			}
-			if (entity instanceof LivingEntity) {
-				((LivingEntity) entity).swing(Hand.MAIN_HAND, true);
-			}
-			{
-				BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);
-				BlockState _bs = PollenJarBlock.block.getDefaultState();
-				BlockState _bso = world.getBlockState(_bp);
-				for (Map.Entry<IProperty<?>, Comparable<?>> entry : _bso.getValues().entrySet()) {
-					IProperty _property = _bs.getBlock().getStateContainer().getProperty(entry.getKey().getName());
-					if (_bs.has(_property))
-						_bs = _bs.with(_property, (Comparable) entry.getValue());
+		if ((!(world.getWorld().isRemote))) {
+			if (((!(entity.isSneaking())) && ((((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY)
+					.getItem() == new ItemStack(PollenBlockBlock.block, (int) (1)).getItem())
+					&& ((world.getBlockState(new BlockPos((int) x, (int) y, (int) z))).getBlock() == EmptyJarBlock.block.getDefaultState()
+							.getBlock())))) {
+				if (world instanceof ServerWorld) {
+					((ServerWorld) world).spawnParticle(FallingPollenParticle.particle, (x + 0.5), (y + 0.5), (z + 0.5), (int) 10, 0.25, 0.25, 0.25,
+							1);
 				}
-				TileEntity _te = world.getTileEntity(_bp);
-				CompoundNBT _bnbt = null;
-				if (_te != null) {
-					_bnbt = _te.write(new CompoundNBT());
-					_te.remove();
+				if (!world.getWorld().isRemote) {
+					world.playSound(null, new BlockPos((int) x, (int) y, (int) z),
+							(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("item.bottle.fill")),
+							SoundCategory.NEUTRAL, (float) 1, (float) 1);
+				} else {
+					world.getWorld().playSound(x, y, z,
+							(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("item.bottle.fill")),
+							SoundCategory.NEUTRAL, (float) 1, (float) 1, false);
 				}
-				world.setBlockState(_bp, _bs, 3);
-				if (_bnbt != null) {
-					_te = world.getTileEntity(_bp);
+				if (entity instanceof LivingEntity) {
+					((LivingEntity) entity).swing(Hand.MAIN_HAND, true);
+				}
+				{
+					BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);
+					BlockState _bs = PollenJarBlock.block.getDefaultState();
+					BlockState _bso = world.getBlockState(_bp);
+					for (Map.Entry<IProperty<?>, Comparable<?>> entry : _bso.getValues().entrySet()) {
+						IProperty _property = _bs.getBlock().getStateContainer().getProperty(entry.getKey().getName());
+						if (_bs.has(_property))
+							_bs = _bs.with(_property, (Comparable) entry.getValue());
+					}
+					TileEntity _te = world.getTileEntity(_bp);
+					CompoundNBT _bnbt = null;
 					if (_te != null) {
-						try {
-							_te.read(_bnbt);
-						} catch (Exception ignored) {
+						_bnbt = _te.write(new CompoundNBT());
+						_te.remove();
+					}
+					world.setBlockState(_bp, _bs, 3);
+					if (_bnbt != null) {
+						_te = world.getTileEntity(_bp);
+						if (_te != null) {
+							try {
+								_te.read(_bnbt);
+							} catch (Exception ignored) {
+							}
 						}
 					}
 				}
-			}
-			if ((!((entity instanceof PlayerEntity) ? ((PlayerEntity) entity).abilities.isCreativeMode : false))) {
-				if (entity instanceof PlayerEntity) {
-					ItemStack _stktoremove = ((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY);
-					((PlayerEntity) entity).inventory.clearMatchingItems(p -> _stktoremove.getItem() == p.getItem(), (int) 1);
+				if ((!((entity instanceof PlayerEntity) ? ((PlayerEntity) entity).abilities.isCreativeMode : false))) {
+					if (entity instanceof PlayerEntity) {
+						ItemStack _stktoremove = ((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY);
+						((PlayerEntity) entity).inventory.clearMatchingItems(p -> _stktoremove.getItem() == p.getItem(), (int) 1);
+					}
 				}
-			}
-		} else if (((!(entity.isSneaking())) && ((((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemOffhand() : ItemStack.EMPTY)
-				.getItem() == new ItemStack(PollenBlockBlock.block, (int) (1)).getItem())
-				&& ((world.getBlockState(new BlockPos((int) x, (int) y, (int) z))).getBlock() == EmptyJarBlock.block.getDefaultState()
-						.getBlock())))) {
-			if (world instanceof ServerWorld) {
-				((ServerWorld) world).spawnParticle(FallingPollenParticle.particle, (x + 0.5), (y + 0.5), (z + 0.5), (int) 10, 0.25, 0.25, 0.25, 1);
-			}
-			if (!world.getWorld().isRemote) {
-				world.playSound(null, new BlockPos((int) x, (int) y, (int) z),
-						(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("item.bottle.fill")),
-						SoundCategory.NEUTRAL, (float) 1, (float) 1);
-			} else {
-				world.getWorld().playSound(x, y, z,
-						(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("item.bottle.fill")),
-						SoundCategory.NEUTRAL, (float) 1, (float) 1, false);
-			}
-			if (entity instanceof LivingEntity) {
-				((LivingEntity) entity).swing(Hand.OFF_HAND, true);
-			}
-			{
-				BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);
-				BlockState _bs = PollenJarBlock.block.getDefaultState();
-				BlockState _bso = world.getBlockState(_bp);
-				for (Map.Entry<IProperty<?>, Comparable<?>> entry : _bso.getValues().entrySet()) {
-					IProperty _property = _bs.getBlock().getStateContainer().getProperty(entry.getKey().getName());
-					if (_bs.has(_property))
-						_bs = _bs.with(_property, (Comparable) entry.getValue());
+			} else if (((!(entity.isSneaking()))
+					&& ((((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemOffhand() : ItemStack.EMPTY)
+							.getItem() == new ItemStack(PollenBlockBlock.block, (int) (1)).getItem())
+							&& ((world.getBlockState(new BlockPos((int) x, (int) y, (int) z))).getBlock() == EmptyJarBlock.block.getDefaultState()
+									.getBlock())))) {
+				if (world instanceof ServerWorld) {
+					((ServerWorld) world).spawnParticle(FallingPollenParticle.particle, (x + 0.5), (y + 0.5), (z + 0.5), (int) 10, 0.25, 0.25, 0.25,
+							1);
 				}
-				TileEntity _te = world.getTileEntity(_bp);
-				CompoundNBT _bnbt = null;
-				if (_te != null) {
-					_bnbt = _te.write(new CompoundNBT());
-					_te.remove();
+				if (!world.getWorld().isRemote) {
+					world.playSound(null, new BlockPos((int) x, (int) y, (int) z),
+							(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("item.bottle.fill")),
+							SoundCategory.NEUTRAL, (float) 1, (float) 1);
+				} else {
+					world.getWorld().playSound(x, y, z,
+							(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("item.bottle.fill")),
+							SoundCategory.NEUTRAL, (float) 1, (float) 1, false);
 				}
-				world.setBlockState(_bp, _bs, 3);
-				if (_bnbt != null) {
-					_te = world.getTileEntity(_bp);
+				if (entity instanceof LivingEntity) {
+					((LivingEntity) entity).swing(Hand.OFF_HAND, true);
+				}
+				{
+					BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);
+					BlockState _bs = PollenJarBlock.block.getDefaultState();
+					BlockState _bso = world.getBlockState(_bp);
+					for (Map.Entry<IProperty<?>, Comparable<?>> entry : _bso.getValues().entrySet()) {
+						IProperty _property = _bs.getBlock().getStateContainer().getProperty(entry.getKey().getName());
+						if (_bs.has(_property))
+							_bs = _bs.with(_property, (Comparable) entry.getValue());
+					}
+					TileEntity _te = world.getTileEntity(_bp);
+					CompoundNBT _bnbt = null;
 					if (_te != null) {
-						try {
-							_te.read(_bnbt);
-						} catch (Exception ignored) {
+						_bnbt = _te.write(new CompoundNBT());
+						_te.remove();
+					}
+					world.setBlockState(_bp, _bs, 3);
+					if (_bnbt != null) {
+						_te = world.getTileEntity(_bp);
+						if (_te != null) {
+							try {
+								_te.read(_bnbt);
+							} catch (Exception ignored) {
+							}
 						}
 					}
 				}
-			}
-			if ((!((entity instanceof PlayerEntity) ? ((PlayerEntity) entity).abilities.isCreativeMode : false))) {
-				if (entity instanceof PlayerEntity) {
-					ItemStack _stktoremove = ((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemOffhand() : ItemStack.EMPTY);
-					((PlayerEntity) entity).inventory.clearMatchingItems(p -> _stktoremove.getItem() == p.getItem(), (int) 1);
+				if ((!((entity instanceof PlayerEntity) ? ((PlayerEntity) entity).abilities.isCreativeMode : false))) {
+					if (entity instanceof PlayerEntity) {
+						ItemStack _stktoremove = ((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemOffhand() : ItemStack.EMPTY);
+						((PlayerEntity) entity).inventory.clearMatchingItems(p -> _stktoremove.getItem() == p.getItem(), (int) 1);
+					}
 				}
 			}
 		}
