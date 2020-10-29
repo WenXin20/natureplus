@@ -67,6 +67,8 @@ import com.mojang.blaze3d.vertex.IVertexBuilder;
 import com.mojang.blaze3d.matrix.MatrixStack;
 
 import com.google.common.collect.ImmutableMap;
+import net.minecraft.entity.Pose;
+import net.minecraft.entity.EntitySize;
 
 @NatureplusModElements.ModElement.Tag
 public class MonarchCaterpillarEntity extends NatureplusModElements.ModElement {
@@ -112,7 +114,7 @@ public class MonarchCaterpillarEntity extends NatureplusModElements.ModElement {
 			};
 		});
 	}
-	public static class CustomEntity extends CreatureEntity {
+	public static class CustomEntity extends SpiderEntity {
 		public CustomEntity(FMLPlayMessages.SpawnEntity packet, World world) {
 			this(entity, world);
 		}
@@ -142,63 +144,72 @@ public class MonarchCaterpillarEntity extends NatureplusModElements.ModElement {
 			this.goalSelector.addGoal(6, new LookRandomlyGoal(this));
 			this.goalSelector.addGoal(7, new SwimGoal(this));
 		}
-		public static final DataParameter<Byte> CLIMBING = EntityDataManager.createKey(CustomEntity.class, DataSerializers.BYTE);
-		/**
-		 * Returns new PathNavigateGround instance
-		 */
-		protected PathNavigator createNavigator(World worldIn) {
-			return new ClimberPathNavigator(this, worldIn);
-		}
-
-		protected void registerData() {
-			super.registerData();
-			this.dataManager.register(CLIMBING, (byte) 0);
-		}
-
-		/**
-		 * Called to update the entity's position/logic.
-		 */
-		public void tick() {
-			super.tick();
-			if (!this.world.isRemote) {
-				this.setBesideClimbableBlock(this.collidedHorizontally);
-			}
-		}
-
-		/**
-		 * Returns true if this entity should move as if it were on a ladder (either
-		 * because it's actually on a ladder, or for AI reasons)
-		 */
-		public boolean isOnLadder() {
-			return this.isBesideClimbableBlock();
-		}
-
-		/**
-		 * Returns true if the WatchableObject (Byte) is 0x01 otherwise returns false.
-		 * The WatchableObject is updated using setBesideClimableBlock.
-		 */
-		public boolean isBesideClimbableBlock() {
-			return (this.dataManager.get(CLIMBING) & 1) != 0;
-		}
-
-		/**
-		 * Updates the WatchableObject (Byte) created in entityInit(), setting it to
-		 * 0x01 if par1 is true or 0x00 if it is false.
-		 */
-		public void setBesideClimbableBlock(boolean climbing) {
-			byte b0 = this.dataManager.get(CLIMBING);
-			if (climbing) {
-				b0 = (byte) (b0 | 1);
-			} else {
-				b0 = (byte) (b0 & -2);
-			}
-			this.dataManager.set(CLIMBING, b0);
+//		public static final DataParameter<Byte> CLIMBING = EntityDataManager.createKey(CustomEntity.class, DataSerializers.BYTE);
+//		/**
+//		 * Returns new PathNavigateGround instance
+//		 */
+//		protected PathNavigator createNavigator(World worldIn) {
+//			return new ClimberPathNavigator(this, worldIn);
+//		}
+//
+//		protected void registerData() {
+//			super.registerData();
+//			this.dataManager.register(CLIMBING, (byte) 0);
+//		}
+//
+//		/**
+//		 * Called to update the entity's position/logic.
+//		 */
+//		public void tick() {
+//			super.tick();
+//			if (!this.world.isRemote) {
+//				this.setBesideClimbableBlock(this.collidedHorizontally);
+//			}
+//		}
+//
+//		/**
+//		 * Returns true if this entity should move as if it were on a ladder (either
+//		 * because it's actually on a ladder, or for AI reasons)
+//		 */
+//		public boolean isOnLadder() {
+//			return this.isBesideClimbableBlock();
+//		}
+//
+//		/**
+//		 * Returns true if the WatchableObject (Byte) is 0x01 otherwise returns false.
+//		 * The WatchableObject is updated using setBesideClimableBlock.
+//		 */
+//		public boolean isBesideClimbableBlock() {
+//			return (this.dataManager.get(CLIMBING) & 1) != 0;
+//		}
+//
+//		/**
+//		 * Updates the WatchableObject (Byte) created in entityInit(), setting it to
+//		 * 0x01 if par1 is true or 0x00 if it is false.
+//		 */
+//		public void setBesideClimbableBlock(boolean climbing) {
+//			byte b0 = this.dataManager.get(CLIMBING);
+//			if (climbing) {
+//				b0 = (byte) (b0 | 1);
+//			} else {
+//				b0 = (byte) (b0 & -2);
+//			}
+//			this.dataManager.set(CLIMBING, b0);
+//		}
+//
+		public float getStandingEyeHeight(Pose poseIn, EntitySize sizeIn) {
+			return sizeIn.height * 0.92F;
 		}
 
 		@Override
 		public CreatureAttribute getCreatureAttribute() {
-			return CreatureAttribute.UNDEFINED;
+			return CreatureAttribute.ARTHROPOD;
 		}
+
+		@Override
+   		public boolean isDespawnPeaceful() {
+      		return false;
+   		}
 
 		@Override
 		public boolean canDespawn(double distanceToClosestPlayer) {

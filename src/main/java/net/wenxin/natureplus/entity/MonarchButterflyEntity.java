@@ -223,7 +223,7 @@ public class MonarchButterflyEntity extends NatureplusModElements.ModElement {
 
 		@Override
 		public CreatureAttribute getCreatureAttribute() {
-			return CreatureAttribute.UNDEFINED;
+			return CreatureAttribute.ARTHROPOD;
 		}
 
 		protected float getStandingEyeHeight(Pose poseIn, EntitySize sizeIn) {

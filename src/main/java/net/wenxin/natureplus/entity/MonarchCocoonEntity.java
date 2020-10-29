@@ -97,7 +97,7 @@ public class MonarchCocoonEntity extends NatureplusModElements.ModElement {
 
 		@Override
 		public CreatureAttribute getCreatureAttribute() {
-			return CreatureAttribute.UNDEFINED;
+			return CreatureAttribute.ARTHROPOD;
 		}
 
 		@Override
