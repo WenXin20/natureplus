@@ -72,10 +72,6 @@ public class PollenJarConsumeProcedure extends NatureplusModElements.ModElement 
 				if (entity instanceof PlayerEntity)
 					((PlayerEntity) entity).getFoodStats()
 							.setFoodLevel((int) (((entity instanceof PlayerEntity) ? ((PlayerEntity) entity).getFoodStats().getFoodLevel() : 0) + 4));
-				if ((entity instanceof PlayerEntity)) {
-					((PlayerEntity) entity).getFoodStats().setFoodSaturationLevel(
-							(float) (((entity instanceof PlayerEntity) ? ((PlayerEntity) entity).getFoodStats().getSaturationLevel() : 0) + 0.8));
-				}
 				if (world instanceof ServerWorld) {
 					((ServerWorld) world).spawnParticle(FallingPollenParticle.particle, (entity.getPosX()), ((entity.getPosY()) + 1),
 							(entity.getPosZ()), (int) 20, 0.5, 0.5, 0.5, 1);
@@ -108,10 +104,6 @@ public class PollenJarConsumeProcedure extends NatureplusModElements.ModElement 
 				if (entity instanceof PlayerEntity)
 					((PlayerEntity) entity).getFoodStats()
 							.setFoodLevel((int) (((entity instanceof PlayerEntity) ? ((PlayerEntity) entity).getFoodStats().getFoodLevel() : 0) + 4));
-				if ((entity instanceof PlayerEntity)) {
-					((PlayerEntity) entity).getFoodStats().setFoodSaturationLevel(
-							(float) (((entity instanceof PlayerEntity) ? ((PlayerEntity) entity).getFoodStats().getSaturationLevel() : 0) + 0.8));
-				}
 				if (world instanceof ServerWorld) {
 					((ServerWorld) world).spawnParticle(FallingPollenParticle.particle, ((entity.getPosX()) / 2), ((entity.getPosY()) / 2),
 							((entity.getPosZ()) / 2), (int) 20, 0.5, 0.5, 0.5, 1);

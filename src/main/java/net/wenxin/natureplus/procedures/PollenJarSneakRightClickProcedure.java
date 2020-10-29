@@ -68,20 +68,16 @@ public class PollenJarSneakRightClickProcedure extends NatureplusModElements.Mod
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
 		IWorld world = (IWorld) dependencies.get("world");
-		if ((!(world.getWorld().isRemote))) {
-			if (((entity.isSneaking()) && ((((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY)
-					.getItem() == new ItemStack(Blocks.AIR, (int) (1)).getItem())
-					&& ((world.getBlockState(new BlockPos((int) x, (int) y, (int) z))).getBlock() == PollenJarBlock.block.getDefaultState()
-							.getBlock())))) {
-				if (entity instanceof LivingEntity)
-					((LivingEntity) entity).clearActivePotions();
-				if (entity instanceof PlayerEntity)
-					((PlayerEntity) entity).getFoodStats()
-							.setFoodLevel((int) (((entity instanceof PlayerEntity) ? ((PlayerEntity) entity).getFoodStats().getFoodLevel() : 0) + 4));
-				if ((entity instanceof PlayerEntity)) {
-					((PlayerEntity) entity).getFoodStats().setFoodSaturationLevel(
-							(float) (((entity instanceof PlayerEntity) ? ((PlayerEntity) entity).getFoodStats().getSaturationLevel() : 0) + 0.8));
-				}
+		if (((entity.isSneaking()) && ((((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY)
+				.getItem() == new ItemStack(Blocks.AIR, (int) (1)).getItem())
+				&& ((world.getBlockState(new BlockPos((int) x, (int) y, (int) z))).getBlock() == PollenJarBlock.block.getDefaultState()
+						.getBlock())))) {
+			if (entity instanceof LivingEntity)
+				((LivingEntity) entity).clearActivePotions();
+			if (entity instanceof PlayerEntity)
+				((PlayerEntity) entity).getFoodStats()
+						.setFoodLevel((int) (((entity instanceof PlayerEntity) ? ((PlayerEntity) entity).getFoodStats().getFoodLevel() : 0) + 4));
+			if ((!(world.getWorld().isRemote))) {
 				if (world instanceof ServerWorld) {
 					((ServerWorld) world).spawnParticle(FallingPollenParticle.particle, (x + 0.5), (y + 0.5), (z + 0.5), (int) 10, 0.25, 0.25, 0.25,
 							1);
