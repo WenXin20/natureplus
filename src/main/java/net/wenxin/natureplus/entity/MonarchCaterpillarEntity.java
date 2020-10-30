@@ -28,11 +28,6 @@ import net.minecraft.util.SoundEvents;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.DamageSource;
 import net.minecraft.tags.ItemTags;
-import net.minecraft.pathfinding.PathNavigator;
-import net.minecraft.pathfinding.ClimberPathNavigator;
-import net.minecraft.network.datasync.EntityDataManager;
-import net.minecraft.network.datasync.DataSerializers;
-import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.item.SpawnEggItem;
@@ -51,12 +46,13 @@ import net.minecraft.entity.ai.goal.EatGrassGoal;
 import net.minecraft.entity.ai.goal.AvoidEntityGoal;
 import net.minecraft.entity.SpawnReason;
 import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.Pose;
 import net.minecraft.entity.ILivingEntityData;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EntitySpawnPlacementRegistry;
+import net.minecraft.entity.EntitySize;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.CreatureEntity;
 import net.minecraft.entity.CreatureAttribute;
 import net.minecraft.client.renderer.model.ModelRenderer;
 import net.minecraft.client.renderer.entity.model.EntityModel;
@@ -67,8 +63,6 @@ import com.mojang.blaze3d.vertex.IVertexBuilder;
 import com.mojang.blaze3d.matrix.MatrixStack;
 
 import com.google.common.collect.ImmutableMap;
-import net.minecraft.entity.Pose;
-import net.minecraft.entity.EntitySize;
 
 @NatureplusModElements.ModElement.Tag
 public class MonarchCaterpillarEntity extends NatureplusModElements.ModElement {
@@ -106,10 +100,10 @@ public class MonarchCaterpillarEntity extends NatureplusModElements.ModElement {
 	@OnlyIn(Dist.CLIENT)
 	public void registerModels(ModelRegistryEvent event) {
 		RenderingRegistry.registerEntityRenderingHandler(entity, renderManager -> {
-			return new MobRenderer(renderManager, new ModelCaterpillar(), 0.2f) {
+			return new MobRenderer(renderManager, new ModelCaterpillar2(), 0.2f) {
 				@Override
 				public ResourceLocation getEntityTexture(Entity entity) {
-					return new ResourceLocation("natureplus:textures/monarch_caterpillar.png");
+					return new ResourceLocation("natureplus:textures/monarch_caterpillar2.png");
 				}
 			};
 		});
@@ -144,59 +138,60 @@ public class MonarchCaterpillarEntity extends NatureplusModElements.ModElement {
 			this.goalSelector.addGoal(6, new LookRandomlyGoal(this));
 			this.goalSelector.addGoal(7, new SwimGoal(this));
 		}
-//		public static final DataParameter<Byte> CLIMBING = EntityDataManager.createKey(CustomEntity.class, DataSerializers.BYTE);
-//		/**
-//		 * Returns new PathNavigateGround instance
-//		 */
-//		protected PathNavigator createNavigator(World worldIn) {
-//			return new ClimberPathNavigator(this, worldIn);
-//		}
-//
-//		protected void registerData() {
-//			super.registerData();
-//			this.dataManager.register(CLIMBING, (byte) 0);
-//		}
-//
-//		/**
-//		 * Called to update the entity's position/logic.
-//		 */
-//		public void tick() {
-//			super.tick();
-//			if (!this.world.isRemote) {
-//				this.setBesideClimbableBlock(this.collidedHorizontally);
-//			}
-//		}
-//
-//		/**
-//		 * Returns true if this entity should move as if it were on a ladder (either
-//		 * because it's actually on a ladder, or for AI reasons)
-//		 */
-//		public boolean isOnLadder() {
-//			return this.isBesideClimbableBlock();
-//		}
-//
-//		/**
-//		 * Returns true if the WatchableObject (Byte) is 0x01 otherwise returns false.
-//		 * The WatchableObject is updated using setBesideClimableBlock.
-//		 */
-//		public boolean isBesideClimbableBlock() {
-//			return (this.dataManager.get(CLIMBING) & 1) != 0;
-//		}
-//
-//		/**
-//		 * Updates the WatchableObject (Byte) created in entityInit(), setting it to
-//		 * 0x01 if par1 is true or 0x00 if it is false.
-//		 */
-//		public void setBesideClimbableBlock(boolean climbing) {
-//			byte b0 = this.dataManager.get(CLIMBING);
-//			if (climbing) {
-//				b0 = (byte) (b0 | 1);
-//			} else {
-//				b0 = (byte) (b0 & -2);
-//			}
-//			this.dataManager.set(CLIMBING, b0);
-//		}
-//
+
+		// public static final DataParameter<Byte> CLIMBING =
+		// EntityDataManager.createKey(CustomEntity.class, DataSerializers.BYTE);
+		// /**
+		// * Returns new PathNavigateGround instance
+		// */
+		// protected PathNavigator createNavigator(World worldIn) {
+		// return new ClimberPathNavigator(this, worldIn);
+		// }
+		//
+		// protected void registerData() {
+		// super.registerData();
+		// this.dataManager.register(CLIMBING, (byte) 0);
+		// }
+		//
+		// /**
+		// * Called to update the entity's position/logic.
+		// */
+		// public void tick() {
+		// super.tick();
+		// if (!this.world.isRemote) {
+		// this.setBesideClimbableBlock(this.collidedHorizontally);
+		// }
+		// }
+		//
+		// /**
+		// * Returns true if this entity should move as if it were on a ladder (either
+		// * because it's actually on a ladder, or for AI reasons)
+		// */
+		// public boolean isOnLadder() {
+		// return this.isBesideClimbableBlock();
+		// }
+		//
+		// /**
+		// * Returns true if the WatchableObject (Byte) is 0x01 otherwise returns false.
+		// * The WatchableObject is updated using setBesideClimableBlock.
+		// */
+		// public boolean isBesideClimbableBlock() {
+		// return (this.dataManager.get(CLIMBING) & 1) != 0;
+		// }
+		//
+		// /**
+		// * Updates the WatchableObject (Byte) created in entityInit(), setting it to
+		// * 0x01 if par1 is true or 0x00 if it is false.
+		// */
+		// public void setBesideClimbableBlock(boolean climbing) {
+		// byte b0 = this.dataManager.get(CLIMBING);
+		// if (climbing) {
+		// b0 = (byte) (b0 | 1);
+		// } else {
+		// b0 = (byte) (b0 & -2);
+		// }
+		// this.dataManager.set(CLIMBING, b0);
+		// }
 		public float getStandingEyeHeight(Pose poseIn, EntitySize sizeIn) {
 			return sizeIn.height * 0.92F;
 		}
@@ -207,9 +202,9 @@ public class MonarchCaterpillarEntity extends NatureplusModElements.ModElement {
 		}
 
 		@Override
-   		public boolean isDespawnPeaceful() {
-      		return false;
-   		}
+		public boolean isDespawnPeaceful() {
+			return false;
+		}
 
 		@Override
 		public boolean canDespawn(double distanceToClosestPlayer) {
@@ -291,47 +286,54 @@ public class MonarchCaterpillarEntity extends NatureplusModElements.ModElement {
 				this.getAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(0);
 			if (this.getAttribute(SharedMonsterAttributes.ATTACK_DAMAGE) == null)
 				this.getAttributes().registerAttribute(SharedMonsterAttributes.ATTACK_DAMAGE);
-			this.getAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(3);
+			this.getAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(0);
 		}
 	}
 
 	// Made with Blockbench 3.5.4
 	// Exported for Minecraft version 1.15
 	// Paste this class into your mod and generate all required imports
-	public static class ModelCaterpillar extends EntityModel<Entity> {
+	public static class ModelCaterpillar2 extends EntityModel<Entity> {
 		private final ModelRenderer main;
+		private final ModelRenderer head;
 		private final ModelRenderer antenna_left;
 		private final ModelRenderer antenna_right;
 		private final ModelRenderer tail_left;
 		private final ModelRenderer tail_right;
-		public ModelCaterpillar() {
-			textureWidth = 32;
-			textureHeight = 32;
+		public ModelCaterpillar2() {
+			textureWidth = 64;
+			textureHeight = 64;
 			main = new ModelRenderer(this);
-			main.setRotationPoint(1.0F, 24.0F, -5.0F);
-			main.setTextureOffset(0, 0).addBox(-2.0F, -2.0F, 0.0F, 2.0F, 2.0F, 10.0F, 0.0F, false);
+			main.setRotationPoint(0.0F, 22.0F, 0.0F);
+			main.setTextureOffset(0, 0).addBox(-2.0F, -2.0F, 0.0F, 4.0F, 4.0F, 10.0F, 0.0F, false);
+			main.setTextureOffset(29, 0).addBox(-2.0F, -2.0F, 0.0F, 4.0F, 4.0F, 10.0F, 0.25F, false);
+			head = new ModelRenderer(this);
+			head.setRotationPoint(0.0F, 0.0F, 0.0F);
+			main.addChild(head);
+			head.setTextureOffset(0, 14).addBox(-2.0F, -2.0F, -10.0F, 4.0F, 4.0F, 10.0F, 0.0F, false);
+			head.setTextureOffset(29, 14).addBox(-2.0F, -2.0F, -10.0F, 4.0F, 4.0F, 10.0F, 0.25F, false);
 			antenna_left = new ModelRenderer(this);
-			antenna_left.setRotationPoint(-0.75F, 22.5F, -5.0F);
-			antenna_left.setTextureOffset(0, 9).addBox(1.5F, -1.5F, -3.0F, 0.0F, 3.0F, 3.0F, 0.0F, false);
+			antenna_left.setRotationPoint(-1.25F, -1.5F, -10.0F);
+			head.addChild(antenna_left);
+			antenna_left.setTextureOffset(0, 15).addBox(2.5F, -3.5F, -4.0F, 0.0F, 4.0F, 4.0F, 0.0F, false);
 			antenna_right = new ModelRenderer(this);
-			antenna_right.setRotationPoint(0.75F, 22.5F, -5.0F);
-			antenna_right.setTextureOffset(6, 9).addBox(-1.5F, -1.5F, -3.0F, 0.0F, 3.0F, 3.0F, 0.0F, false);
+			antenna_right.setRotationPoint(1.25F, -1.5F, -10.0F);
+			head.addChild(antenna_right);
+			antenna_right.setTextureOffset(0, 11).addBox(-2.5F, -3.5F, -4.0F, 0.0F, 4.0F, 4.0F, 0.0F, false);
 			tail_left = new ModelRenderer(this);
-			tail_left.setRotationPoint(-0.75F, 22.5F, 5.0F);
-			tail_left.setTextureOffset(0, 0).addBox(1.5F, -1.5F, 0.0F, 0.0F, 3.0F, 3.0F, 0.0F, false);
+			tail_left.setRotationPoint(-1.25F, -1.5F, 10.0F);
+			main.addChild(tail_left);
+			tail_left.setTextureOffset(19, 16).addBox(2.5F, -2.5F, 0.0F, 0.0F, 3.0F, 3.0F, 0.0F, false);
 			tail_right = new ModelRenderer(this);
-			tail_right.setRotationPoint(0.75F, 22.5F, 5.0F);
-			tail_right.setTextureOffset(0, 3).addBox(-1.5F, -1.5F, 0.0F, 0.0F, 3.0F, 3.0F, 0.0F, false);
+			tail_right.setRotationPoint(1.25F, -1.5F, 10.0F);
+			main.addChild(tail_right);
+			tail_right.setTextureOffset(19, 13).addBox(-2.5F, -2.5F, 0.0F, 0.0F, 3.0F, 3.0F, 0.0F, false);
 		}
 
 		@Override
 		public void render(MatrixStack matrixStack, IVertexBuilder buffer, int packedLight, int packedOverlay, float red, float green, float blue,
 				float alpha) {
 			main.render(matrixStack, buffer, packedLight, packedOverlay);
-			antenna_left.render(matrixStack, buffer, packedLight, packedOverlay);
-			antenna_right.render(matrixStack, buffer, packedLight, packedOverlay);
-			tail_left.render(matrixStack, buffer, packedLight, packedOverlay);
-			tail_right.render(matrixStack, buffer, packedLight, packedOverlay);
 		}
 
 		public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
@@ -341,26 +343,10 @@ public class MonarchCaterpillarEntity extends NatureplusModElements.ModElement {
 		}
 
 		public void setRotationAngles(Entity e, float f, float f1, float f2, float f3, float f4) {
+			this.head.rotateAngleY = f3 / (180F / (float) Math.PI);
+			this.head.rotateAngleX = f4 / (90F / (float) Math.PI);
 			this.antenna_left.rotateAngleX = MathHelper.cos(f2 * 0.03F) * (float) Math.PI * 0.15F;
 			this.antenna_right.rotateAngleX = MathHelper.cos(f2 * 0.031F) * (float) Math.PI * 0.15F;
-			// boolean flag = e.onGround;
-			// if (flag) {
-			// this.main.rotateAngleX = 5.0F;
-			// this.tail_left.rotateAngleX = 5.0F;
-			// this.tail_right.rotateAngleX = 5.0F;
-			// this.antenna_left.rotateAngleX = 5.0F + MathHelper.cos(f2 * 0.03F) *
-			// (float)Math.PI * 0.15F;
-			// this.antenna_right.rotateAngleX = 5.0F + MathHelper.cos(f2 * 0.031F) *
-			// (float)Math.PI * 0.15F;
-			// } else {
-			// this.main.rotateAngleX = 0.0F;
-			// this.tail_left.rotateAngleX = 0.0F;
-			// this.tail_right.rotateAngleX = 0.0F;
-			// this.antenna_left.rotateAngleX = MathHelper.cos(f2 * 0.03F) * (float)Math.PI
-			// * 0.15F;
-			// this.antenna_right.rotateAngleX = MathHelper.cos(f2 * 0.031F) *
-			// (float)Math.PI * 0.15F;
-			// }
 		}
 	}
 }
