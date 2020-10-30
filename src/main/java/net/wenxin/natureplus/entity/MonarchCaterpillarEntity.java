@@ -122,18 +122,18 @@ public class MonarchCaterpillarEntity extends NatureplusModElements.ModElement {
 		@Override
 		protected void registerGoals() {
 			super.registerGoals();
-			this.goalSelector.addGoal(1, new WaterAvoidingRandomWalkingGoal(this, 0.5));
-			this.goalSelector.addGoal(1, new TemptGoal(this, 0.7, Ingredient.fromTag(ItemTags.LEAVES), false));
-			this.goalSelector.addGoal(1, new TemptGoal(this, 0.7, Ingredient.fromTag(ItemTags.FLOWERS), false));
-			this.goalSelector.addGoal(1, new TemptGoal(this, 0.7,
+			this.goalSelector.addGoal(1, new WaterAvoidingRandomWalkingGoal(this, 0.3F));
+			this.goalSelector.addGoal(1, new TemptGoal(this, 0.5F, Ingredient.fromTag(ItemTags.LEAVES), false));
+			this.goalSelector.addGoal(1, new TemptGoal(this, 0.5F, Ingredient.fromTag(ItemTags.FLOWERS), false));
+			this.goalSelector.addGoal(1, new TemptGoal(this, 0.5F,
 					Ingredient.fromItems(Items.GRASS, Items.TALL_GRASS, Items.FERN, Items.LARGE_FERN, Items.SWEET_BERRIES), false));
-			this.goalSelector.addGoal(2, new AvoidEntityGoal(this, SpiderEntity.class, (float) 6, 0.7, 1));
-			this.goalSelector.addGoal(2, new AvoidEntityGoal(this, CaveSpiderEntity.class, (float) 6, 0.7, 1));
-			this.goalSelector.addGoal(2, new AvoidEntityGoal(this, PhantomEntity.class, (float) 6, 0.7, 1));
-			this.goalSelector.addGoal(2, new AvoidEntityGoal(this, BlueDragonflyEntity.CustomEntity.class, (float) 6, 0.7, 1));
-			this.goalSelector.addGoal(2, new AvoidEntityGoal(this, GreenDragonflyEntity.CustomEntity.class, (float) 6, 0.7, 1));
-			this.goalSelector.addGoal(2, new AvoidEntityGoal(this, RedDragonflyEntity.CustomEntity.class, (float) 6, 0.7, 1));
-			this.goalSelector.addGoal(3, new PanicGoal(this, 0.7));
+			this.goalSelector.addGoal(2, new AvoidEntityGoal(this, SpiderEntity.class, (float) 6, 0.5F, 1));
+			this.goalSelector.addGoal(2, new AvoidEntityGoal(this, CaveSpiderEntity.class, (float) 6, 0.5F, 1));
+			this.goalSelector.addGoal(2, new AvoidEntityGoal(this, PhantomEntity.class, (float) 6, 0.5F, 1));
+			this.goalSelector.addGoal(2, new AvoidEntityGoal(this, BlueDragonflyEntity.CustomEntity.class, (float) 6, 0.5F, 1));
+			this.goalSelector.addGoal(2, new AvoidEntityGoal(this, GreenDragonflyEntity.CustomEntity.class, (float) 6, 0.5F, 1));
+			this.goalSelector.addGoal(2, new AvoidEntityGoal(this, RedDragonflyEntity.CustomEntity.class, (float) 6, 0.5F, 1));
+			this.goalSelector.addGoal(3, new PanicGoal(this, 0.5F));
 			this.goalSelector.addGoal(4, new EatGrassGoal(this));
 			this.goalSelector.addGoal(6, new LookRandomlyGoal(this));
 			this.goalSelector.addGoal(7, new SwimGoal(this));
@@ -279,7 +279,7 @@ public class MonarchCaterpillarEntity extends NatureplusModElements.ModElement {
 		protected void registerAttributes() {
 			super.registerAttributes();
 			if (this.getAttribute(SharedMonsterAttributes.MOVEMENT_SPEED) != null)
-				this.getAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.3);
+				this.getAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.2D);
 			if (this.getAttribute(SharedMonsterAttributes.MAX_HEALTH) != null)
 				this.getAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(5);
 			if (this.getAttribute(SharedMonsterAttributes.ARMOR) != null)

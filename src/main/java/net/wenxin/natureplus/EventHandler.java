@@ -87,8 +87,8 @@ public class EventHandler extends NatureplusModElements.ModElement {
 				mob.targetSelector.addGoal(5, new NearestAttackableTargetGoal<>(mob, MonarchCaterpillarEntity.CustomEntity.class, false));
 				mob.targetSelector.addGoal(5, new NearestAttackableTargetGoal<>(mob, MonarchButterflyEntity.CustomEntity.class, false));
 			}
-			if ((event.getEntity() instanceof SpiderEntity && !event.getEntity() instanceof MonarchCaterpillarEntity.CustomEntity)
-					|| (event.getEntity() instanceof CaveSpiderEntity && !event.getEntity() instanceof MonarchCaterpillarEntity.CustomEntity)) {
+			if ((event.getEntity() instanceof SpiderEntity && !(event.getEntity() instanceof MonarchCaterpillarEntity.CustomEntity))
+					|| (event.getEntity() instanceof CaveSpiderEntity && !(event.getEntity() instanceof MonarchCaterpillarEntity.CustomEntity))) {
 				MobEntity mob = (MobEntity) event.getEntity();
 				mob.targetSelector.addGoal(5, new EventHandler.TargetGoal<>(mob, MonarchCaterpillarEntity.CustomEntity.class));
 				mob.targetSelector.addGoal(5, new EventHandler.TargetGoal<>(mob, MonarchButterflyEntity.CustomEntity.class));
