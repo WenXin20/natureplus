@@ -190,6 +190,17 @@ public class SunflowerEntity extends NatureplusModElements.ModElement {
 		}
 
 		@Override
+		public boolean canBePushed() {
+			return false;
+		}
+
+		@Override
+		public void livingTick() {
+			super.livingTick();
+			this.setMotion(this.getMotion().mul(0, 1, 0));
+		}
+
+		@Override
 		public boolean hitByEntity(Entity entity) {
 			if (entity instanceof FrozenPeaItem.ArrowCustomEntity || entity instanceof CornItem.ArrowCustomEntity)
 				return true;

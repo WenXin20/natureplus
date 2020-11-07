@@ -3,7 +3,6 @@ package net.wenxin.natureplus.entity;
 
 import net.wenxin.natureplus.procedures.SpadeRemovePeashooterProcedure;
 import net.wenxin.natureplus.procedures.PeashooterNaturalSpawnProcedure;
-import net.wenxin.natureplus.procedures.DisablePushingOfMobsProcedure;
 import net.wenxin.natureplus.itemgroup.PlantsVsZombiesTabItemGroup;
 import net.wenxin.natureplus.item.SpikeItem;
 import net.wenxin.natureplus.item.PeaItem;
@@ -61,9 +60,6 @@ import net.minecraft.entity.AgeableEntity;
 import net.minecraft.client.renderer.model.ModelRenderer;
 import net.minecraft.client.renderer.entity.model.AgeableModel;
 import net.minecraft.client.renderer.entity.MobRenderer;
-
-import java.util.Map;
-import java.util.HashMap;
 
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableList;
@@ -193,6 +189,17 @@ public class PeashooterEntity extends NatureplusModElements.ModElement {
 		}
 
 		@Override
+		public boolean canBePushed() {
+			return false;
+		}
+
+		@Override
+		public void livingTick() {
+			super.livingTick();
+			this.setMotion(this.getMotion().mul(0, 1, 0));
+		}
+
+		@Override
 		public boolean hitByEntity(Entity entity) {
 			if (entity instanceof FrozenPeaItem.ArrowCustomEntity || entity instanceof CornItem.ArrowCustomEntity)
 				return true;
@@ -227,24 +234,23 @@ public class PeashooterEntity extends NatureplusModElements.ModElement {
 			return super.attackEntityFrom(source, amount);
 		}
 
-		@Override
-		public void baseTick() {
-			super.baseTick();
-			double x = this.getPosX();
-			double y = this.getPosY();
-			double z = this.getPosZ();
-			Entity entity = this;
-			{
-				Map<String, Object> $_dependencies = new HashMap<>();
-				$_dependencies.put("entity", entity);
-				$_dependencies.put("x", x);
-				$_dependencies.put("y", y);
-				$_dependencies.put("z", z);
-				$_dependencies.put("world", world);
-				DisablePushingOfMobsProcedure.executeProcedure($_dependencies);
-			}
-		}
-
+		// @Override
+		// public void baseTick() {
+		// super.baseTick();
+		// double x = this.getPosX();
+		// double y = this.getPosY();
+		// double z = this.getPosZ();
+		// Entity entity = this;
+		// {
+		// Map<String, Object> $_dependencies = new HashMap<>();
+		// $_dependencies.put("entity", entity);
+		// $_dependencies.put("x", x);
+		// $_dependencies.put("y", y);
+		// $_dependencies.put("z", z);
+		// $_dependencies.put("world", world);
+		// DisablePushingOfMobsProcedure.executeProcedure($_dependencies);
+		// }
+		// }
 		@Override
 		protected void registerAttributes() {
 			super.registerAttributes();

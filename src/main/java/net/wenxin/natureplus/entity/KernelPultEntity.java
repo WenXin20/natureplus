@@ -193,6 +193,17 @@ public class KernelPultEntity extends NatureplusModElements.ModElement {
 		}
 
 		@Override
+		public boolean canBePushed() {
+			return false;
+		}
+
+		@Override
+		public void livingTick() {
+			super.livingTick();
+			this.setMotion(this.getMotion().mul(0, 1, 0));
+		}
+
+		@Override
 		public boolean hitByEntity(Entity entity) {
 			if (entity instanceof FrozenPeaItem.ArrowCustomEntity || entity instanceof CornItem.ArrowCustomEntity)
 				return true;
@@ -227,23 +238,23 @@ public class KernelPultEntity extends NatureplusModElements.ModElement {
 			return super.attackEntityFrom(source, amount);
 		}
 
-		@Override
-		public void baseTick() {
-			super.baseTick();
-			double x = this.getPosX();
-			double y = this.getPosY();
-			double z = this.getPosZ();
-			Entity entity = this;
-			{
-				Map<String, Object> $_dependencies = new HashMap<>();
-				$_dependencies.put("entity", entity);
-				$_dependencies.put("x", x);
-				$_dependencies.put("y", y);
-				$_dependencies.put("z", z);
-				$_dependencies.put("world", world);
-				DisablePushingOfMobsProcedure.executeProcedure($_dependencies);
-			}
-		}
+//		@Override
+//		public void baseTick() {
+//			super.baseTick();
+//			double x = this.getPosX();
+//			double y = this.getPosY();
+//			double z = this.getPosZ();
+//			Entity entity = this;
+//			{
+//				Map<String, Object> $_dependencies = new HashMap<>();
+//				$_dependencies.put("entity", entity);
+//				$_dependencies.put("x", x);
+//				$_dependencies.put("y", y);
+//				$_dependencies.put("z", z);
+//				$_dependencies.put("world", world);
+//				DisablePushingOfMobsProcedure.executeProcedure($_dependencies);
+//			}
+//		}
 
 		@Override
 		protected void registerAttributes() {

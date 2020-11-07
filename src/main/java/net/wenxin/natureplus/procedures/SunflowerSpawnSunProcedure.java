@@ -103,6 +103,5 @@ public class SunflowerSpawnSunProcedure extends NatureplusModElements.ModElement
 		} else if (((entity.getPersistentData().getDouble("timer_plant")) > 1)) {
 			entity.getPersistentData().putDouble("timer_plant", ((entity.getPersistentData().getDouble("timer_plant")) - 1));
 		}
-		entity.setMotion(0, (entity.getMotion().getY()), 0);
 	}
 }

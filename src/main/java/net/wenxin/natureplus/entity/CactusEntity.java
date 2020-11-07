@@ -199,13 +199,24 @@ public class CactusEntity extends NatureplusModElements.ModElement {
 			return (net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("natureplus:cactus_death"));
 		}
 
+		@Override
+		public boolean canBePushed() {
+			return false;
+		}
+
+		@Override
+		public void livingTick() {
+			super.livingTick();
+			this.setMotion(this.getMotion().mul(0, 1, 0));
+		}
+
 		protected void collideWithEntity(Entity entity) {
 			entity.applyEntityCollision(this);
-//			if ((!(world.getWorld().isRemote))) {
+			if ((!(world.getWorld().isRemote))) {
 				if (entity instanceof LivingEntity && !(entity instanceof CactusEntity.CustomEntity)) {
 					entity.attackEntityFrom(DamageSource.causeThornsDamage(entity), 0.5F);
 				}
-//			}
+			}
 		}
 
 		@Override
@@ -251,23 +262,23 @@ public class CactusEntity extends NatureplusModElements.ModElement {
 			return super.attackEntityFrom(source, amount);
 		}
 
-		@Override
-		public void baseTick() {
-			super.baseTick();
-			double x = this.getPosX();
-			double y = this.getPosY();
-			double z = this.getPosZ();
-			Entity entity = this;
-			{
-				Map<String, Object> $_dependencies = new HashMap<>();
-				$_dependencies.put("entity", entity);
-				$_dependencies.put("x", x);
-				$_dependencies.put("y", y);
-				$_dependencies.put("z", z);
-				$_dependencies.put("world", world);
-				DisablePushingOfMobsProcedure.executeProcedure($_dependencies);
-			}
-		}
+//		@Override
+//		public void baseTick() {
+//			super.baseTick();
+//			double x = this.getPosX();
+//			double y = this.getPosY();
+//			double z = this.getPosZ();
+//			Entity entity = this;
+//			{
+//				Map<String, Object> $_dependencies = new HashMap<>();
+//				$_dependencies.put("entity", entity);
+//				$_dependencies.put("x", x);
+//				$_dependencies.put("y", y);
+//				$_dependencies.put("z", z);
+//				$_dependencies.put("world", world);
+//				DisablePushingOfMobsProcedure.executeProcedure($_dependencies);
+//			}
+//		}
 
 		@Override
 		protected void registerAttributes() {
