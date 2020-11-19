@@ -5287,15 +5287,6 @@
       "registry_name": "snow_pea_loot_table"
     },
     {
-      "name": "PeashooterLootTable",
-      "type": "loottable",
-      "sortid": 585,
-      "compiles": true,
-      "locked_code": true,
-      "ids": {},
-      "registry_name": "peashooter_loot_table"
-    },
-    {
       "name": "ConeheadZombieLootTable",
       "type": "loottable",
       "sortid": 586,
@@ -12254,6 +12245,69 @@
           }
         ]
       }
+    },
+    {
+      "name": "PeashooterHeadBlock",
+      "type": "code",
+      "sortid": 948,
+      "compiles": true,
+      "locked_code": true,
+      "ids": {},
+      "registry_name": "peashooter_head_block"
+    },
+    {
+      "name": "PeashooterWallHeadBlock",
+      "type": "code",
+      "sortid": 949,
+      "compiles": true,
+      "locked_code": true,
+      "ids": {},
+      "registry_name": "peashooter_wall_head_block"
+    },
+    {
+      "name": "PeashooterHeadModel",
+      "type": "code",
+      "sortid": 950,
+      "compiles": true,
+      "locked_code": true,
+      "ids": {},
+      "registry_name": "peashooter_head_model"
+    },
+    {
+      "name": "SkullTileEntityRenderer",
+      "type": "code",
+      "sortid": 951,
+      "compiles": true,
+      "locked_code": true,
+      "ids": {},
+      "registry_name": "skull_tile_entity_renderer"
+    },
+    {
+      "name": "SkullTileRenderer",
+      "type": "code",
+      "sortid": 953,
+      "compiles": true,
+      "locked_code": true,
+      "ids": {},
+      "registry_name": "skull_tile_renderer"
+    },
+    {
+      "name": "NPSkullTileEntity",
+      "type": "code",
+      "sortid": 955,
+      "compiles": true,
+      "locked_code": true,
+      "ids": {},
+      "registry_name": "np_skull_tile_entity"
+    },
+    {
+      "name": "PeashooterWallHead",
+      "type": "block",
+      "sortid": 956,
+      "compiles": true,
+      "locked_code": true,
+      "ids": {},
+      "registry_name": "peashooter_wall_head"
     }
   ],
   "variable_elements": [
@@ -12554,6 +12608,7 @@
       "advancements.giant_blue_orchid_advancement.title": "Giant Blue Orchids",
       "block.natureplus.white_petal_block": "White Petals Block",
       "block.minecraft.banner.brain.light_blue": "Light Blue Brain",
+      "block.natureplus.peashooter_wall_head": "Peashooter Head",
       "entity.natureplus.black_balloon": "Black Balloon",
       "block.natureplus.plant_vase": "Plant Vase",
       "item.natureplus.wither_petal": "Wither Petal",

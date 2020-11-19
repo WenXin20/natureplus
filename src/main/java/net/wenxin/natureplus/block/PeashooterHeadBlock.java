@@ -2,142 +2,118 @@
 //package net.wenxin.natureplus.block;
 //
 //import net.wenxin.natureplus.itemgroup.PlantsVsZombiesTabItemGroup;
-//import net.wenxin.natureplus.PeashooterHeadPreciseHitbox;
+//import net.wenxin.natureplus.block.PeashooterWallHeadBlock;
+//import net.wenxin.natureplus.PeashooterHeadModel;
 //import net.wenxin.natureplus.NatureplusModElements;
 //
 //import net.minecraftforge.registries.ObjectHolder;
+//import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
+//import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 //import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
+//import net.minecraftforge.common.property.Properties;
+//import net.minecraftforge.common.ToolType;
 //import net.minecraftforge.api.distmarker.OnlyIn;
 //import net.minecraftforge.api.distmarker.Dist;
 //
-//import net.minecraft.world.storage.loot.LootContext;
 //import net.minecraft.world.IBlockReader;
-//import net.minecraft.util.math.shapes.VoxelShape;
-//import net.minecraft.util.math.shapes.ISelectionContext;
 //import net.minecraft.util.math.BlockPos;
-//import net.minecraft.util.Rotation;
-//import net.minecraft.util.Mirror;
-//import net.minecraft.util.Direction;
-//import net.minecraft.tags.FluidTags;
-//import net.minecraft.state.properties.BlockStateProperties;
-//import net.minecraft.state.StateContainer;
-//import net.minecraft.state.DirectionProperty;
-//import net.minecraft.state.BooleanProperty;
-//import net.minecraft.item.ItemStack;
+//import net.minecraft.util.Util;
+//import net.minecraft.util.ResourceLocation;
+//import net.minecraft.item.WallOrFloorItem;
+//import net.minecraft.item.Rarity;
 //import net.minecraft.item.Item;
-//import net.minecraft.item.BlockItemUseContext;
-//import net.minecraft.item.BlockItem;
-//import net.minecraft.fluid.IFluidState;
-//import net.minecraft.fluid.Fluids;
-//import net.minecraft.client.renderer.RenderTypeLookup;
-//import net.minecraft.client.renderer.RenderType;
+//import net.minecraft.client.renderer.entity.model.GenericHeadModel;
 //import net.minecraft.block.material.MaterialColor;
 //import net.minecraft.block.material.Material;
 //import net.minecraft.block.SoundType;
-//import net.minecraft.block.IWaterLoggable;
-//import net.minecraft.block.HorizontalBlock;
+//import net.minecraft.block.SkullBlock;
 //import net.minecraft.block.BlockState;
 //import net.minecraft.block.Block;
-//import net.minecraft.world.IWorld;
-//import net.minecraft.fluid.Fluid;
 //
-//import java.util.List;
-//import java.util.Collections;
-//import net.minecraft.block.Blocks;
+//import java.util.Map;
+//
+//import com.google.common.collect.Maps;
 //
 //@NatureplusModElements.ModElement.Tag
-//public class PeashooterHeadBlock extends NatureplusModElements.ModElement implements IWaterLoggable {
-//	public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
+//public class PeashooterHeadBlock extends NatureplusModElements.ModElement {
 //	@ObjectHolder("natureplus:peashooter_head")
 //	public static final Block block = null;
+//	/**
+//	 * Do not remove this constructor
+//	 */
 //	public PeashooterHeadBlock(NatureplusModElements instance) {
-//		super(instance, 179);
+//		super(instance, 948);
 //	}
 //
+//	@Override
+//	public void init(FMLCommonSetupEvent event) {
+//	}
+//
+//	@Override
+//	public void serverLoad(FMLServerStartingEvent event) {
+//	}
+//
+//	@OnlyIn(Dist.CLIENT)
+//	@Override
+//	public void clientLoad(FMLClientSetupEvent event) {
+//	}
+//
+//	// @SubscribeEvent
+//	// public void registerTileEntity(RegistryEvent.Register<TileEntityType<?>>
+//	// event) {
+//	// event.getRegistry().register(
+//	// TileEntityType.Builder.create(NPSkullTileEntity.CustomTileEntity::new,
+//	// block).build(null).setRegistryName("peashooter_head_tile"));
+//	// }
 //	@Override
 //	public void initElements() {
-//		elements.blocks.add(() -> new CustomBlock());
-//		elements.items.add(
-//				() -> new BlockItem(block, new Item.Properties().group(PlantsVsZombiesTabItemGroup.tab)).setRegistryName(block.getRegistryName()));
+//		elements.blocks.add(() -> new CustomBlock(PeashooterHeadBlock.CustomBlock.Types.PEASHOOTER, Block.Properties.create(Material.PLANTS)
+//				.sound(SoundType.PLANT).hardnessAndResistance(2f, 15f).lightValue(0).harvestLevel(0).harvestTool(ToolType.AXE)));
+//		elements.items.add(() -> new WallOrFloorItem(block, PeashooterWallHeadBlock.block,
+//				new Item.Properties().group(PlantsVsZombiesTabItemGroup.tab).rarity(Rarity.UNCOMMON)).setRegistryName(block.getRegistryName()));
 //	}
-//
-//	@Override
-//	@OnlyIn(Dist.CLIENT)
-//	public void clientLoad(FMLClientSetupEvent event) {
-//		RenderTypeLookup.setRenderLayer(block, RenderType.getCutout());
-//	}
-//	public static class CustomBlock extends Block implements IWaterLoggable {
-//		public static final DirectionProperty FACING = HorizontalBlock.HORIZONTAL_FACING;
-//		public CustomBlock() {
-//			super(Block.Properties.create(Material.LEAVES).sound(SoundType.PLANT).hardnessAndResistance(2f, 1f).lightValue(0).notSolid());
-//			this.setDefaultState(this.stateContainer.getBaseState().with(FACING, Direction.NORTH).with(WATERLOGGED, Boolean.valueOf(false)));
+//	public static class CustomBlock extends SkullBlock {
+//		public CustomBlock(ISkullType type, Properties properties) {
+//			super(type, properties);
 //			setRegistryName("peashooter_head");
-//		}
-//
-//		@Override
-//		public boolean isNormalCube(BlockState state, IBlockReader worldIn, BlockPos pos) {
-//			return false;
-//		}
-//
-//		@Override
-//		public boolean propagatesSkylightDown(BlockState state, IBlockReader reader, BlockPos pos) {
-//			return true;
-//		}
-//
-//		@Override
-//		public VoxelShape getShape(BlockState state, IBlockReader world, BlockPos pos, ISelectionContext context) {
-//			return PeashooterHeadPreciseHitbox.PEASHOOTER.get(state.get(FACING));
-//		}
-//
-//		@Override
-//		protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
-//			builder.add(FACING, WATERLOGGED);
-//		}
-//
-//		public BlockState rotate(BlockState state, Rotation rot) {
-//			return state.with(FACING, rot.rotate(state.get(FACING)));
-//		}
-//
-//		public BlockState mirror(BlockState state, Mirror mirrorIn) {
-//			return state.rotate(mirrorIn.toRotation(state.get(FACING)));
-//		}
-//
-//		@Override
-//		public BlockState getStateForPlacement(BlockItemUseContext context) {
-//			IFluidState ifluidstate = context.getWorld().getFluidState(context.getPos());
-//			return this.getDefaultState().with(FACING, context.getPlacementHorizontalFacing().getOpposite()).with(WATERLOGGED,
-//					Boolean.valueOf(ifluidstate.isTagged(FluidTags.WATER) && ifluidstate.getLevel() == 8));
-//		}
-//
-//		@SuppressWarnings("deprecation")
-//		public IFluidState getFluidState(BlockState state) {
-//			return state.get(WATERLOGGED) ? Fluids.WATER.getStillFluidState(false) : super.getFluidState(state);
-//		}
-//
-//		@Override
-//		public BlockState updatePostPlacement(BlockState stateIn, Direction facing, BlockState facingState, IWorld worldIn, BlockPos currentPos, BlockPos facingPos){
-//			if (stateIn.get(WATERLOGGED)){
-//				worldIn.getPendingFluidTicks().scheduleTick(currentPos, Fluids.WATER, Fluids.WATER.getTickRate(worldIn));
-//			}
-//			return super.updatePostPlacement(stateIn, facing, facingState, worldIn, currentPos, facingPos);
-//		}
-//		
-//		@Override
-//		public int getFlammability(BlockState state, IBlockReader world, BlockPos pos, Direction face) {
-//			return 20;
 //		}
 //
 //		@Override
 //		public MaterialColor getMaterialColor(BlockState state, IBlockReader blockAccess, BlockPos pos) {
 //			return MaterialColor.GREEN;
 //		}
-//
-//		@Override
-//		public List<ItemStack> getDrops(BlockState state, LootContext.Builder builder) {
-//			List<ItemStack> dropsOriginal = super.getDrops(state, builder);
-//			if (!dropsOriginal.isEmpty())
-//				return dropsOriginal;
-//			return Collections.singletonList(new ItemStack(this, 1));
+//		public enum Types implements SkullBlock.ISkullType {
+//			PEASHOOTER;
 //		}
+//		// @Override
+//		// public void onBlockAdded(BlockState state, World world, BlockPos pos,
+//		// BlockState oldState, boolean moving) {
+//		// super.onBlockAdded(state, world, pos, oldState, moving);
+//		// int x = pos.getX();
+//		// int y = pos.getY();
+//		// int z = pos.getZ();
+//		// world.getPendingBlockTicks().scheduleTick(new BlockPos(x, y, z), this,
+//		// this.tickRate(world));
+//		// }
+//		//
+//		// @Override
+//		// public void tick(BlockState state, ServerWorld world, BlockPos pos, Random
+//		// random) {
+//		// super.tick(state, world, pos, random);
+//		// int x = pos.getX();
+//		// int y = pos.getY();
+//		// int z = pos.getZ();
+//		// world.getPendingBlockTicks().scheduleTick(new BlockPos(x, y, z), this,
+//		// this.tickRate(world));
+//		// }
 //	}
+//	public static final Map<SkullBlock.ISkullType, GenericHeadModel> MODELS = Util.make(Maps.newHashMap(), (map) -> {
+//		GenericHeadModel genericheadmodel = new GenericHeadModel(0, 0, 64, 32);
+//		map.put(PeashooterHeadBlock.CustomBlock.Types.PEASHOOTER, new PeashooterHeadModel());
+//		System.out.println("model1");
+//	});
+//	public static final Map<SkullBlock.ISkullType, ResourceLocation> SKINS = Util.make(Maps.newHashMap(), (map) -> {
+//		map.put(PeashooterHeadBlock.CustomBlock.Types.PEASHOOTER, new ResourceLocation("textures/entity/zombie/zombie.png"));
+//		System.out.println("map1");
+//	});
 //}

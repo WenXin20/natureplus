@@ -55,8 +55,8 @@ public class ConeBlockBlock extends NatureplusModElements.ModElement implements 
 	@Override
 	public void initElements() {
 		elements.blocks.add(() -> new CustomBlock());
-		elements.items.add(
-				() -> new BlockItem(block, new Item.Properties().group(PlantsVsZombiesTabItemGroup.tab)).setRegistryName(block.getRegistryName()));
+		elements.items.add(() -> new BlockItem(block, new Item.Properties().group(PlantsVsZombiesTabItemGroup.tab))
+				.setRegistryName(block.getRegistryName()));
 	}
 
 	@Override

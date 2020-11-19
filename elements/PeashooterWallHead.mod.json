@@ -2,38 +2,36 @@
   "_fv": 13,
   "_type": "block",
   "definition": {
-    "texture": "azure_planks",
+    "texture": "peashooter_head",
     "textureTop": "",
     "textureLeft": "",
     "textureFront": "",
     "textureRight": "",
     "textureBack": "",
-    "renderType": 11,
-    "customModelName": "Single texture",
-    "rotationMode": 0,
+    "renderType": 2,
+    "customModelName": "peashooter_head:default",
+    "rotationMode": 1,
     "emissiveRendering": false,
     "displayFluidOverlay": false,
-    "itemTexture": "",
-    "particleTexture": "",
-    "hasTransparency": false,
+    "hasTransparency": true,
     "connectedSides": false,
     "transparencyType": "SOLID",
-    "mx": 0.0,
+    "mx": 0.25,
     "my": 0.0,
-    "mz": 0.0,
-    "Mx": 1.0,
-    "My": 1.0,
-    "Mz": 1.0,
-    "name": "Azure Planks",
+    "mz": 0.25,
+    "Mx": 0.75,
+    "My": 0.25,
+    "Mz": 0.75,
+    "name": "Peashooter Head",
     "specialInfo": [],
     "hardness": 2.0,
-    "resistance": 15.0,
+    "resistance": 1.0,
     "hasGravity": false,
     "isWaterloggable": false,
     "creativeTab": {
-      "value": "CUSTOM:NaturePlusTab"
+      "value": "CUSTOM:PlantsVsZombiesTab"
     },
-    "destroyTool": "axe",
+    "destroyTool": "Not specified",
     "customDrop": {
       "value": ""
     },
@@ -43,27 +41,27 @@
     "enchantPowerBonus": 0.0,
     "plantsGrowOn": false,
     "canProvidePower": false,
-    "lightOpacity": 255,
+    "lightOpacity": 0,
     "material": {
-      "value": "WOOD"
+      "value": "LEAVES"
     },
     "tickRate": 10,
     "tickRandomly": false,
     "isReplaceable": false,
-    "colorOnMap": "LIGHT_BLUE",
+    "colorOnMap": "GREEN",
     "creativePickItem": {
       "value": ""
     },
     "offsetType": "NONE",
     "aiPathNodeType": "DEFAULT",
-    "flammability": 5,
+    "flammability": 20,
     "fireSpreadSpeed": 0,
     "isLadder": false,
     "slipperiness": 0.6,
     "reactionToPushing": "NORMAL",
     "isNotColidable": false,
     "soundOnStep": {
-      "value": "WOOD"
+      "value": "PLANT"
     },
     "luminance": 0.0,
     "unbreakable": false,
@@ -80,8 +78,8 @@
     "openGUIOnRightClick": false,
     "inventorySize": 9,
     "inventoryStackSize": 64,
-    "inventoryDropWhenDestroyed": false,
-    "inventoryComparatorPower": false,
+    "inventoryDropWhenDestroyed": true,
+    "inventoryComparatorPower": true,
     "inventoryOutSlotIDs": [],
     "inventoryInSlotIDs": [],
     "hasEnergyStorage": false,
@@ -91,10 +89,13 @@
     "energyMaxExtract": 200,
     "isFluidTank": false,
     "fluidCapacity": 8000,
-    "fluidRestrictions": [],
     "spawnWorldTypes": [],
     "restrictionBiomes": [],
-    "blocksToReplace": [],
+    "blocksToReplace": [
+      {
+        "value": "Blocks.STONE"
+      }
+    ],
     "frequencyPerChunks": 10,
     "frequencyOnChunk": 16,
     "minGenerateHeight": 0,

@@ -67,10 +67,9 @@ public class StripAzureWoodWallProcedure extends NatureplusModElements.ModElemen
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
 		IWorld world = (IWorld) dependencies.get("world");
-		if (((entity.isSneaking()) && ((AzureWoodWallBlock.block.getDefaultState()
-				.getBlock() == (world.getBlockState(new BlockPos((int) x, (int) y, (int) z))).getBlock())
+		if (((AzureWoodWallBlock.block.getDefaultState().getBlock() == (world.getBlockState(new BlockPos((int) x, (int) y, (int) z))).getBlock())
 				&& (/* @ItemStack */((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY)
-						.getItem() instanceof AxeItem)))) {
+						.getItem() instanceof AxeItem))) {
 			if (entity instanceof LivingEntity) {
 				((LivingEntity) entity).swing(Hand.MAIN_HAND, true);
 			}
@@ -118,10 +117,10 @@ public class StripAzureWoodWallProcedure extends NatureplusModElements.ModElemen
 					}
 				}
 			}
-		} else if (((entity.isSneaking()) && ((AzureWoodWallBlock.block.getDefaultState()
-				.getBlock() == (world.getBlockState(new BlockPos((int) x, (int) y, (int) z))).getBlock())
+		} else if (((AzureWoodWallBlock.block.getDefaultState().getBlock() == (world.getBlockState(new BlockPos((int) x, (int) y, (int) z)))
+				.getBlock())
 				&& (/* @ItemStack */((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemOffhand() : ItemStack.EMPTY)
-						.getItem() instanceof AxeItem)))) {
+						.getItem() instanceof AxeItem))) {
 			if (entity instanceof LivingEntity) {
 				((LivingEntity) entity).swing(Hand.OFF_HAND, true);
 			}

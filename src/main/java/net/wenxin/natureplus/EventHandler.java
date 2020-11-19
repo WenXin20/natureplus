@@ -60,8 +60,8 @@ import com.google.common.collect.Lists;
 
 @NatureplusModElements.ModElement.Tag
 public class EventHandler extends NatureplusModElements.ModElement {
-	private static final List<EventHandler.MixPredicate<Potion>> POTION_TYPE_CONVERSIONS = Lists.newArrayList();
-	private static final List<EventHandler.MixPredicate<Item>> POTION_ITEM_CONVERSIONS = Lists.newArrayList();
+//	private static final List<EventHandler.MixPredicate<Potion>> POTION_TYPE_CONVERSIONS = Lists.newArrayList();
+//	private static final List<EventHandler.MixPredicate<Item>> POTION_ITEM_CONVERSIONS = Lists.newArrayList();
 	/**
 	 * Do not remove this constructor
 	 */
@@ -113,26 +113,26 @@ public class EventHandler extends NatureplusModElements.ModElement {
 	public void initElements() {
 	}
 
-	@SubscribeEvent
-	public void init(FMLCommonSetupEvent event) {
-		EventHandler.addMix(Potions.SLOWNESS, Items.SNOWBALL, FreezingPotionPotion.potionType);
-		MinecraftForge.EVENT_BUS.register(this);
-	}
-
-	public static void addMix(Potion potionBase, Item ingredient, Potion potionFinal) {
-		POTION_TYPE_CONVERSIONS.add(new EventHandler.MixPredicate<>(potionBase, Ingredient.fromItems(ingredient), potionFinal));
-	}
-	static class MixPredicate<T extends net.minecraftforge.registries.ForgeRegistryEntry<T>> {
-		private final net.minecraftforge.registries.IRegistryDelegate<T> input;
-		private final Ingredient reagent;
-		private final net.minecraftforge.registries.IRegistryDelegate<T> output;
-		public MixPredicate(T inputIn, Ingredient reagentIn, T outputIn) {
-			this.input = inputIn.delegate;
-			this.reagent = reagentIn;
-			this.output = outputIn.delegate;
-		}
-	}
-	@Override
+//	@SubscribeEvent
+//	public void init(FMLCommonSetupEvent event) {
+//		EventHandler.addMix(Potions.SLOWNESS, Items.SNOWBALL, FreezingPotionPotion.potionType);
+//		MinecraftForge.EVENT_BUS.register(this);
+//	}
+//
+//	public static void addMix(Potion potionBase, Item ingredient, Potion potionFinal) {
+//		POTION_TYPE_CONVERSIONS.add(new EventHandler.MixPredicate<>(potionBase, Ingredient.fromItems(ingredient), potionFinal));
+//	}
+//	static class MixPredicate<T extends net.minecraftforge.registries.ForgeRegistryEntry<T>> {
+//		private final net.minecraftforge.registries.IRegistryDelegate<T> input;
+//		private final Ingredient reagent;
+//		private final net.minecraftforge.registries.IRegistryDelegate<T> output;
+//		public MixPredicate(T inputIn, Ingredient reagentIn, T outputIn) {
+//			this.input = inputIn.delegate;
+//			this.reagent = reagentIn;
+//			this.output = outputIn.delegate;
+//		}
+//	}
+//	@Override
 	public void serverLoad(FMLServerStartingEvent event) {
 	}
 
@@ -140,4 +140,10 @@ public class EventHandler extends NatureplusModElements.ModElement {
 	@Override
 	public void clientLoad(FMLClientSetupEvent event) {
 	}
+
+//	@SubscribeEvent
+//	@OnlyIn(Dist.CLIENT)
+//	public void clientSetup(final FMLClientSetupEvent event) throws NoSuchFieldException, IllegalAccessException {
+//		SkullTileRenderer.setupSkullRenderer();
+//	}
 }

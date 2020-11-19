@@ -2,7 +2,7 @@
 	"credit": "Made with Blockbench",
 	"texture_size": [64, 64],
 	"textures": {
-		"head": "block/peashooter"
+		"head": "natureplus:peashooter2"
 	},
 	"elements": [
 		{
