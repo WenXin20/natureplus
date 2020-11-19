@@ -72,10 +72,9 @@ public class BoneMealJarFunction2Procedure extends NatureplusModElements.ModElem
 			if ((!(world.getWorld().isRemote))) {
 				if (BoneMealItem.applyBonemeal(new ItemStack(Items.BONE_MEAL), world.getWorld(), new BlockPos((int) x, (int) y, (int) z))
 						|| BoneMealItem.growSeagrass(new ItemStack(Items.BONE_MEAL), world.getWorld(), blockpos1, (Direction) null)) {
-					System.out.println("Right-clicked");
+//					System.out.println("Right-clicked");
 					if (!world.getWorld().isRemote)
 						world.getWorld().playEvent(2005, new BlockPos((int) x, (int) y, (int) z), 0);
-					System.out.println("bone meal triggered");
 					if (entity instanceof LivingEntity) {
 						((LivingEntity) entity).swing(Hand.MAIN_HAND, true);
 					}
@@ -119,10 +118,8 @@ public class BoneMealJarFunction2Procedure extends NatureplusModElements.ModElem
 			if ((!(world.getWorld().isRemote))) {
 				if (BoneMealItem.applyBonemeal(new ItemStack(Items.BONE_MEAL), world.getWorld(), new BlockPos((int) x, (int) y, (int) z))
 						|| BoneMealItem.growSeagrass(new ItemStack(Items.BONE_MEAL), world.getWorld(), blockpos1, (Direction) null)) {
-					System.out.println("Right-clicked");
 					if (!world.getWorld().isRemote)
 						world.getWorld().playEvent(2005, new BlockPos((int) x, (int) y, (int) z), 0);
-					System.out.println("bone meal triggered");
 					if (entity instanceof LivingEntity) {
 						((LivingEntity) entity).swing(Hand.OFF_HAND, true);
 					}
